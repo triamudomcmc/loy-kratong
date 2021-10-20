@@ -1,0 +1,100 @@
+/* css style reset - the actual file that's being used is the minified version */
+body {
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* This is based on CSS Remedy (https://github.com/mozdevs/cssremedy) with some stuff removed */
+
+/* Switch to border-box for box-sizing. */
+body *,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/* Switch to using rem units for typography. Fix line-height on headlines. */
+/* Make all of the H1 tags large, remove nested-shrinking sizes. */
+h1 {
+  font-size: 2rem;
+  margin: 0.67em 0;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.17rem;
+}
+h4 {
+  font-size: 1rem;
+}
+h5 {
+  font-size: 0.83rem;
+}
+h6 {
+  font-size: 0.67rem;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+/* Improve readability */
+p,
+ul,
+ol,
+dl,
+address {
+  line-height: 1.5;
+}
+
+/* Overflow by default is bad. */
+pre {
+  white-space: pre-wrap;
+}
+
+/* Use border to style */
+hr {
+  border: 0.5px solid;
+}
+
+/* remove bullets in nav */
+nav ul {
+  list-style: none;
+}
+
+/* Switch display mode to block, since that's what we usually want for images. */
+/* If you override, and make an image inline, it's likely you'll want middle vertical alignment. */
+img,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+}
+
+/* Make images and video flexible by default. */
+/* Ensure images and video maintain their aspect ratio when max-width comes into play. */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove the border on images inside links in IE 10 and earlier. */
+img {
+  border-style: none;
+}
