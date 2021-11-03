@@ -1,0 +1,44 @@
+.kratong {
+  background: #ddd;
+  width: 512px;
+  height: 512px;
+  position: relative;
+}
+
+.kratong > .base {
+  position: absolute;
+  z-index: 3;
+  top: 66px;
+  left: 13px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.kratong > .decorations {
+  position: absolute;
+  z-index: 1;
+  top: -67px;
+  left: 57px;
+  object-fit: cover;
+  width: 577px;
+  height: 533px;
+}
+
+.kratong > .flower {
+  position: absolute;
+  z-index: 2;
+  top: 29px;
+  left: 6px;
+  object-fit: cover;
+  width: 923px;
+  height: 617px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}

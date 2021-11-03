@@ -1,0 +1,22 @@
+{
+  "short_name": "Loy Kratong",
+  "name": "TUCMC Loy Kratong",
+  "icons": [
+    {
+      "src": "/assets/images/logo-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/images/logo-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#281981",
+  "description": "ลอยกระทงออนไลน์ 2564"
+}

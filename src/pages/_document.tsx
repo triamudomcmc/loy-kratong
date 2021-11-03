@@ -11,7 +11,7 @@ export default class Document extends NextDocument {
     return (
       <Html lang="th">
         <Head>
-          <link rel="manifest" href="/manifest.json" />
+          <link rel="manifest" href="/manifest.webmanifest" />
           <link rel="apple-touch-icon" href="/icon.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -26,10 +26,7 @@ export default class Document extends NextDocument {
             type="font/woff2"
             crossOrigin="anonymous"
           />
-          <link
-            rel="icon"
-            href="/favicon.ico"
-          />
+          <link rel="icon" href="/favicon.ico" />
           {/*
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-D40C14KM60"></script>
 		  <script
