@@ -13,7 +13,8 @@
       "@handlers/*": ["src/handlers/*"],
       "@config/*": ["src/config/*"],
       "@models/*": ["src/models/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@map/*": ["src/map/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

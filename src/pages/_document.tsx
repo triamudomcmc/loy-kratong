@@ -26,6 +26,10 @@ export default class Document extends NextDocument {
             type="font/woff2"
             crossOrigin="anonymous"
           />
+          <link
+            rel="icon"
+            href="/favicon.ico"
+          />
           {/*
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-D40C14KM60"></script>
 		  <script
