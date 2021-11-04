@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Kratong from "@map/kratong";
+import { Kratong } from "@map/kratong";
 import Image from "next/image";
 
 const Home: NextPage = () => {
@@ -12,9 +12,9 @@ const Home: NextPage = () => {
       </Head>
       <main className="main">
         <div className="kratong">
-          <img className="flower" src={Kratong.flowers[0].url} alt={Kratong.flowers[0].name} />
-          <img className="base" src={Kratong.base[0].url} alt={Kratong.base[0].name} />
-          <img className="decorations" src={Kratong.decorations[0].url} alt={Kratong.decorations[0].name} />
+          <img className="flower" src={Kratong.flowers["love"].url} alt={Kratong.flowers["love"].name} />
+          <img className="base" src={Kratong.base["banana-leaf"].url} alt={Kratong.base["banana-leaf"].name} />
+          <img className="decorations" src={Kratong.decorations["nak"].url} alt={Kratong.decorations["nak"].name} />
         </div>
       </main>
     </>
