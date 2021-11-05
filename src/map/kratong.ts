@@ -46,29 +46,64 @@ export const Kratong = {
       "want-love": {
         name: "ป้ายอยากมีหวานใจ",
         description: "คำอธิบาย",
-        url: "/assets/images/kratong/decorations/sign/want-love.png",
+        variants: [
+          "/assets/images/kratong/decorations/sign/want-love/blue.png",
+          "/assets/images/kratong/decorations/sign/want-love/green.png",
+          "/assets/images/kratong/decorations/sign/want-love/orange.png",
+          "/assets/images/kratong/decorations/sign/want-love/pink.png",
+          "/assets/images/kratong/decorations/sign/want-love/red.png",
+          "/assets/images/kratong/decorations/sign/want-love/violet.png",
+        ],
       },
       "want-money": {
         name: "ป้ายอยากเป็นเศรษฐี",
         description: "คำอธิบาย",
-        url: "/assets/images/kratong/decorations/sign/want-money.png",
+        variants: [
+          "/assets/images/kratong/decorations/sign/want-money/blue.png",
+          "/assets/images/kratong/decorations/sign/want-money/green.png",
+          "/assets/images/kratong/decorations/sign/want-money/orange.png",
+          "/assets/images/kratong/decorations/sign/want-money/pink.png",
+          "/assets/images/kratong/decorations/sign/want-money/red.png",
+          "/assets/images/kratong/decorations/sign/want-money/violet.png",
+        ],
       },
-      "enttid": {
+      enttid: {
         name: "ป้ายเอนท์ติด",
         description: "คำอธิบาย",
-        url: "/assets/images/kratong/decorations/sign/enttid.png",
+        variants: [
+          "/assets/images/kratong/decorations/sign/enttid/blue.png",
+          "/assets/images/kratong/decorations/sign/enttid/green.png",
+          "/assets/images/kratong/decorations/sign/enttid/orange.png",
+          "/assets/images/kratong/decorations/sign/enttid/pink.png",
+          "/assets/images/kratong/decorations/sign/enttid/red.png",
+          "/assets/images/kratong/decorations/sign/enttid/violet.png",
+        ],
       },
-      "quote": {
+      quote: {
         name: "ป้ายคำคมสุดปัง",
         description: "คำอธิบาย",
-        url: "/assets/images/kratong/decorations/sign/quote.png",
+        variants: [
+          "/assets/images/kratong/decorations/sign/quote/blue.png",
+          "/assets/images/kratong/decorations/sign/quote/green.png",
+          "/assets/images/kratong/decorations/sign/quote/orange.png",
+          "/assets/images/kratong/decorations/sign/quote/pink.png",
+          "/assets/images/kratong/decorations/sign/quote/red.png",
+          "/assets/images/kratong/decorations/sign/quote/violet.png",
+        ],
       },
-      "taken": {
+      taken: {
         name: "ป้ายมีคนจองแล้ว",
         description: "คำอธิบาย",
-        url: "/assets/images/kratong/decorations/sign/taken.png",
+        variants: [
+          "/assets/images/kratong/decorations/sign/taken/blue.png",
+          "/assets/images/kratong/decorations/sign/taken/green.png",
+          "/assets/images/kratong/decorations/sign/taken/orange.png",
+          "/assets/images/kratong/decorations/sign/taken/pink.png",
+          "/assets/images/kratong/decorations/sign/taken/red.png",
+          "/assets/images/kratong/decorations/sign/taken/violet.png",
+        ],
       },
-    }
+    },
   },
   flowers: {
     love: {
@@ -99,15 +134,44 @@ export const Kratong = {
   },
   other: {
     candles: {
-      id: "candles",
-      name: "ชุดความรัก",
-      description: "คำอธิบาย",
-      variants: [],
-      url: "/assets/images/kratong/other/candles.png",
+      variants: [
+        "/assets/images/kratong/other/candles/blue.png",
+        "/assets/images/kratong/other/candles/green.png",
+        "/assets/images/kratong/other/candles/orange.png",
+        "/assets/images/kratong/other/candles/pink.png",
+        "/assets/images/kratong/other/candles/violet.png",
+        "/assets/images/kratong/other/candles/yellow.png",
+      ],
     },
   },
 };
 
 export const Principal = {
-  
-}
+  base: {
+    variants: [
+      "/assets/images/principal/base/blue.png",
+      "/assets/images/principal/base/indigo.png",
+      "/assets/images/principal/base/pink.png",
+      "/assets/images/principal/base/violet.png",
+    ],
+  },
+  candles: {
+    variants: [
+      "/assets/images/principal/candles/blue.png",
+      "/assets/images/principal/candles/green.png",
+      "/assets/images/principal/candles/pink.png",
+      "/assets/images/principal/candles/red.png",
+    ],
+  },
+  rice: {
+    variants: ["/assets/images/principal/rice/rice1.png", "/assets/images/principal/rice/rice2.png"],
+  },
+  swan: {
+    variants: [
+      "/assets/images/principal/swan/blue.png",
+      "/assets/images/principal/swan/green.png",
+      "/assets/images/principal/swan/pink.png",
+      "/assets/images/principal/swan/yellow.png",
+    ],
+  },
+};
