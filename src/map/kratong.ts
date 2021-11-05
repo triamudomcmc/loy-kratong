@@ -1,3 +1,19 @@
+export type KratongNormalPartType = {
+  name: string;
+  description: string;
+  url: string;
+};
+
+export type KratongVariantPartType = {
+  name: string;
+  description: string;
+  variants: string[];
+};
+
+export type KratongNoDescPartType = {
+  variants: string[];
+};
+
 export const Kratong = {
   base: {
     "banana-leaf": {
@@ -146,7 +162,7 @@ export const Kratong = {
   },
 };
 
-export const Principal = {
+export const Principa = {
   base: {
     variants: [
       "/assets/images/principal/base/blue.png",

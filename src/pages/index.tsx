@@ -1,7 +1,31 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Kratong } from "@map/kratong";
+import { Kratong, KratongNormalPartType, KratongVariantPartType } from "@map/kratong";
 import Image from "next/image";
+
+interface KratongVariantPartProps {
+  part: KratongVariantPartType;
+}
+
+const KratongVariantPart: NextPage<KratongVariantPartProps> = ({ part }) => {
+  return (
+    <div className="container">
+      <img className="img" src={part.variants[0]} alt={part.name} />
+    </div>
+  );
+};
+
+interface KratongNormalPartProps {
+  part: KratongNormalPartType;
+}
+
+const KratongNormalPart: NextPage<KratongNormalPartProps> = ({ part }) => {
+  return (
+    <div className="container">
+      <img className="img" src={part.url} alt={part.name} />
+    </div>
+  );
+};
 
 const Home: NextPage = () => {
   return (
@@ -13,16 +37,16 @@ const Home: NextPage = () => {
       <main>
         <div className="kratong">
           <div className="flowers">
-            <img className="img" src={Kratong.flowers["love"].url} alt={Kratong.flowers["love"].name} />
-            <button className="p-4 rounded-full border border-gray-500">Change</button>
+            <KratongNormalPart part={Kratong.flowers["cactus"]} />
+            <KratongNormalPart part={Kratong.flowers["love"]} />
           </div>
           <div className="base">
-            <img className="img" src={Kratong.base["banana-leaf"].url} alt={Kratong.base["banana-leaf"].name} />
-            <button className="p-4 rounded-full border border-gray-500">Change</button>
+            <KratongNormalPart part={Kratong.base["coconut-shell"]} />
+            <KratongNormalPart part={Kratong.base["banana-leaf"]} />
           </div>
           <div className="decorations">
-            <img className="img" src={Kratong.decorations["nak"].url} alt={Kratong.decorations["nak"].name} />
-            <button className="p-4 rounded-full border border-gray-500">Change</button>
+            <KratongNormalPart part={Kratong.decorations["nak"]} />
+            <KratongNormalPart part={Kratong.decorations["swan"]} />
           </div>
         </div>
       </main>

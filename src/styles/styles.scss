@@ -1,48 +1,60 @@
 .kratong {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   margin-top: 50px;
 }
 
 .kratong > .base {
   margin-bottom: 30px;
   position: relative;
+  display: inline-block;
+  min-width: 512px;
+  min-height: 512px;
 
-  > .img {
+  > .container {
     position: absolute;
     top: 0;
     left: 0;
-    width: 512px;
-    height: 512px;
-    object-fit: cover;
+
+    > .img {
+      object-fit: cover;
+      height: 100%;
+    }
   }
 }
 
 .kratong > .decorations {
   margin-bottom: 30px;
   position: relative;
+  display: inline-block;
+  min-width: 512px;
+  min-height: 512px;
 
-  > .img {
+  > .container {
     position: absolute;
     top: 0;
     left: 0;
-    width: 512px;
-    height: 512px;
-    object-fit: cover;
+
+    > .img {
+      object-fit: cover;
+      height: 100%;
+    }
   }
 }
 
 .kratong > .flowers {
   margin-bottom: 30px;
   position: relative;
+  display: inline-block;
+  min-width: 512px;
+  min-height: 512px;
 
-  > .img {
+  > .container {
     position: absolute;
     top: 0;
     left: 0;
-    width: 512px;
-    height: 512px;
-    object-fit: cover;
+
+    > .img {
+      object-fit: cover;
+      height: 100%;
+    }
   }
 }
