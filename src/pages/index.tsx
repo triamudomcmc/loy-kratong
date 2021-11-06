@@ -36,7 +36,7 @@ const Home: NextPage = () => {
       <main>
         <div className="kratong">
           <div className="flowers">
-            <KratongNormalPart part={Kratong.flowers["cactus"]} />
+            <KratongNormalPart part={Kratong.flowers["study"]} />
             <KratongNormalPart part={Kratong.flowers["love"]} />
           </div>
           <div className="base">

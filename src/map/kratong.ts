@@ -1,47 +1,56 @@
 export type KratongNormalPartType = {
+  type: string;
   name: string;
   description: string;
   url: string;
 };
 
 export type KratongVariantPartType = {
+  type: string;
   name: string;
   description: string;
   variants: string[];
 };
 
 export type KratongNoDescPartType = {
+  type: string;
   variants: string[];
 };
 
 export const Kratong = {
   base: {
     "banana-leaf": {
+      type: "normal",
       name: "ใบตอง",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/banana-leaf.png",
     },
     lotus: {
+      type: "normal",
       name: "ดอกบัว",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/lotus.png",
     },
     "coconut-shell": {
+      type: "normal",
       name: "กะลามะพร้าว",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/coconut-shell.png",
     },
     "coconut-shell-carved": {
+      type: "normal",
       name: "กาบมะพร้าว",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/coconut-shell-carved.png",
     },
     ice: {
+      type: "normal",
       name: "น้ำแข็ง",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/ice.png",
     },
     "banana-leaf-2": {
+      type: "normal",
       name: "ใบตอง",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/banana-leaf-2.png",
@@ -49,17 +58,27 @@ export const Kratong = {
   },
   decorations: {
     nak: {
+      type: "normal",
       name: "พญานาค",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/decorations/nak.png",
     },
     swan: {
+      type: "normal",
       name: "หงส์",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/decorations/swan.png",
     },
+    cactus: {
+      type: "normal",
+      name: "กระบองเพชร",
+      description: "คำอธิบาย",
+      url: "/assets/images/kratong/decorations/cactus.png",
+    },
     sign: {
+      type: "sign",
       "want-love": {
+        type: "variant",
         name: "ป้ายอยากมีหวานใจ",
         description: "คำอธิบาย",
         variants: [
@@ -72,6 +91,7 @@ export const Kratong = {
         ],
       },
       "want-money": {
+        type: "variant",
         name: "ป้ายอยากเป็นเศรษฐี",
         description: "คำอธิบาย",
         variants: [
@@ -84,6 +104,7 @@ export const Kratong = {
         ],
       },
       enttid: {
+        type: "variant",
         name: "ป้ายเอนท์ติด",
         description: "คำอธิบาย",
         variants: [
@@ -108,6 +129,7 @@ export const Kratong = {
         ],
       },
       taken: {
+        type: "variant",
         name: "ป้ายมีคนจองแล้ว",
         description: "คำอธิบาย",
         variants: [
@@ -123,33 +145,33 @@ export const Kratong = {
   },
   flowers: {
     love: {
+      type: "normal",
       name: "ชุดความรัก",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/flowers/love.png",
     },
     luck: {
+      type: "normal",
       name: "ชุดหนทางสู่เศรษฐี",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/flowers/luck.png",
     },
     "summer-fruits": {
+      type: "normal",
       name: "ชุดรวมมิตรผลไม้ฤดูร้อน",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/flowers/summer-fruits.png",
     },
     study: {
+      type: "normal",
       name: "ชุดการเรียน",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/flowers/study.png",
     },
-    cactus: {
-      name: "กระบองเพชร",
-      description: "คำอธิบาย",
-      url: "/assets/images/kratong/flowers/cactus.png",
-    },
   },
   other: {
     candles: {
+      type: "variant",
       variants: [
         "/assets/images/kratong/other/candles/blue.png",
         "/assets/images/kratong/other/candles/green.png",
@@ -162,8 +184,9 @@ export const Kratong = {
   },
 };
 
-export const Principa = {
+export const Principal = {
   base: {
+    type: "variant",
     variants: [
       "/assets/images/principal/base/blue.png",
       "/assets/images/principal/base/indigo.png",
@@ -172,6 +195,7 @@ export const Principa = {
     ],
   },
   candles: {
+    type: "variant",
     variants: [
       "/assets/images/principal/candles/blue.png",
       "/assets/images/principal/candles/green.png",
@@ -180,9 +204,11 @@ export const Principa = {
     ],
   },
   rice: {
+    type: "variant",
     variants: ["/assets/images/principal/rice/rice1.png", "/assets/images/principal/rice/rice2.png"],
   },
   swan: {
+    type: "variant",
     variants: [
       "/assets/images/principal/swan/blue.png",
       "/assets/images/principal/swan/green.png",
