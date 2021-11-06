@@ -58,6 +58,11 @@ export const Kratong = {
       description: "คำอธิบาย",
       url: "/assets/images/kratong/decorations/swan.png",
     },
+    cactus: {
+      name: "กระบองเพชร",
+      description: "คำอธิบาย",
+      url: "/assets/images/kratong/decorations/cactus.png",
+    },
     sign: {
       "want-love": {
         name: "ป้ายอยากมีหวานใจ",
@@ -142,14 +147,11 @@ export const Kratong = {
       description: "คำอธิบาย",
       url: "/assets/images/kratong/flowers/study.png",
     },
-    cactus: {
-      name: "กระบองเพชร",
-      description: "คำอธิบาย",
-      url: "/assets/images/kratong/flowers/cactus.png",
-    },
   },
   other: {
     candles: {
+      name: "ทูปเทียน",
+      description: "คำอธิบาย",
       variants: [
         "/assets/images/kratong/other/candles/blue.png",
         "/assets/images/kratong/other/candles/green.png",

@@ -1,4 +1,10 @@
+
+
 .kratong {
+  --size: 512px;
+  --ratio: calc(var(--size) / 300);
+  display: flex;
+  flex-direction: column;
   margin-top: 50px;
 }
 
@@ -6,55 +12,43 @@
   margin-bottom: 30px;
   position: relative;
   display: inline-block;
-  min-width: 512px;
-  min-height: 512px;
+  width: var(--size);
 
-  > .container {
-    position: absolute;
+  > .flowers > .container {
+    position: relative;
     top: 0;
     left: 0;
+  }
 
-    > .img {
-      object-fit: cover;
-      height: 100%;
-    }
+  > .shell > .container {
+    position: absolute;
+    padding-left: 18px;
+    padding-right: 18px;
+    top: 26px;
+    left: 0;
   }
 }
+.kratong > .topping {
 
-.kratong > .decorations {
   margin-bottom: 30px;
   position: relative;
   display: inline-block;
-  min-width: 512px;
-  min-height: 512px;
 
-  > .container {
+  > .candle {
     position: absolute;
-    top: 0;
-    left: 0;
-
-    > .img {
-      object-fit: cover;
-      height: 100%;
-    }
+    width: calc(var(--size) / 2);
+    left: 100px;
   }
-}
 
-.kratong > .flowers {
-  margin-bottom: 30px;
-  position: relative;
-  display: inline-block;
-  min-width: 512px;
-  min-height: 512px;
+  > .decorations {
+    --offset-y: 0px;
+    position: relative;
+    width: calc(var(--size) - var(--offset-y));
 
-  > .container {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    > .img {
-      object-fit: cover;
-      height: 100%;
+    > .container {
+      position: absolute;
+      top: calc((var(--ratio) * (-50)) + var(--offset-y)/2);
+      left: 0;
     }
   }
 }
