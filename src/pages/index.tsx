@@ -3,18 +3,6 @@ import Head from "next/head";
 import { Kratong, KratongNormalPartType, KratongVariantPartType } from "@map/kratong";
 import Image from "next/image";
 
-interface KratongVariantPartProps {
-  part: KratongVariantPartType;
-}
-
-const KratongVariantPart: NextPage<KratongVariantPartProps> = ({ part }) => {
-  return (
-    <div className="container">
-      <img className="img" src={part.variants[0]} alt={part.name} />
-    </div>
-  );
-};
-
 interface KratongNormalPartProps {
   part: KratongNormalPartType;
 }
@@ -23,6 +11,17 @@ const KratongNormalPart: NextPage<KratongNormalPartProps> = ({ part }) => {
   return (
     <div className="container">
       <img className="img" src={part.url} alt={part.name} />
+    </div>
+  );
+};
+interface KratongVariantPartProps {
+  part: KratongVariantPartType;
+}
+
+const KratongVariantPart: NextPage<KratongVariantPartProps> = ({ part }) => {
+  return (
+    <div className="container">
+      <img className="img" src={part.variants[0]} alt={part.name} />
     </div>
   );
 };
