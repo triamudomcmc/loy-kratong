@@ -20,7 +20,7 @@ export type KratongNoDescPartType = {
   variants: string[];
 };
 
-export const Kratong: { [key: string]: any } = {
+export const KratongMap: { [key: string]: any } = {
   base: {
     "banana-leaf": {
       id: "banana-leaf",
@@ -234,7 +234,7 @@ export const Kratong: { [key: string]: any } = {
   },
 };
 
-export const Principal: { [key: string]: any } = {
+export const PrincipalMap: { [key: string]: any } = {
   base: {
     type: "variant",
     name: "ฐานกระทง",
