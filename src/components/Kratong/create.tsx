@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
-import styles from "@styles/modules/Kratong.module.scss";
 import { useState } from "react";
-import { NormalPart, VariantPart, Candle } from "./parts";
 import { Kratong } from "./kratong";
 
 export interface Selected {
@@ -27,3 +25,19 @@ export const Create: NextPage = () => {
     </>
   );
 };
+
+/*
+sales [x]
+- ส่งเดือนที่ 10 ได้เดือนที่ 9
+customer []
+- query ผิด
+- join member table แทน
+customers-stat []
+- ตอนนี้มันเป็นจำนวนบิล
+- เอาจำนวนของ all spenders มาใส่แทน
+- เพิ่ม field daily visit: จำนวนลูกค้าที่ order วันนี้
+- recurring นับจากลูกค้าที่เคยเปิด order ปีก่อนหน้า
+stat-monthly []
+- recurring - ลูกค้าที่เคยเปิด order ในเดือนก่อนหน้า
+
+*/

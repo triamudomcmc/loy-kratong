@@ -1,8 +1,12 @@
 import type { NextPage } from "next";
 import { LightWater } from "@components/Water";
 import styles from "@styles/modules/Background.module.scss";
+import Image from "next/image";
+import { useWindowDimensions } from "@utils/document";
 
 export const SalaFrontBG: NextPage = () => {
+  const { width, height } = useWindowDimensions();
+
   return (
     <>
       <div className={styles["background"]}>
@@ -15,11 +19,24 @@ export const SalaFrontBG: NextPage = () => {
           <div className="cloud-1"></div>
           <div className="cloud-2"></div>
         </div>
-        <div className={styles["overlay"]}></div>
         <div className={styles["water"]}>
           <LightWater />
         </div>
-        <img className={styles["sala"]} src="/assets/images/scene/sala-front.png" alt="ศาลา" />
+        <div className={styles["sala-container"]}>
+          <div className={styles["sala"]}>
+            {width >= 640 ? (
+              <Image
+                width={1350}
+                height={753}
+                objectFit={"cover"}
+                src="/assets/images/scene/sala-front.png"
+                alt="ศาลา"
+              />
+            ) : (
+              <Image layout={"fill"} objectFit={"cover"} src="/assets/images/scene/sala-front.png" alt="ศาลา" />
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

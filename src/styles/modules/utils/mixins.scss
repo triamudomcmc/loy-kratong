@@ -1,0 +1,32 @@
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1300px,
+  2xl: 1536px,
+);
+
+/*
+@import 'utils/mixin.scss';
+
+@include respond-to(small) {
+  position: relative;
+  width: 100%;
+}
+*/
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $value: map-get($breakpoints, $breakpoint);
+
+    @media screen and (min-width: $value) {
+      @content;
+    }
+  } @else if type_of($breakpoint) == number {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown `#{$breakpoint}` in $breakpoints";
+  }
+}
