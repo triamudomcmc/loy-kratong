@@ -28,6 +28,7 @@ export default class Document extends NextDocument {
           />
           <link rel="icon" href="/favicon.ico" />
           {/*
+          <link rel="canonical" href="https://clubs.triamudom.ac.th/" />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-D40C14KM60"></script>
 		  <script
             dangerouslySetInnerHTML={{
@@ -41,6 +42,11 @@ export default class Document extends NextDocument {
 			`,
             }}
           />*/}
+          <meta
+            name="keywords"
+            content="เตรียมอุดมศึกษา, กช., ลอยกระทง, สร้างกระทง, ลอยกระทงกับเพื่อน, Loy Kratong, Loy Krathong, ลอยกระทงอยู่บ้าน, ลอยกระทงออนไลน์, 2564, ลอยกระทงออนไลน์ 2564, ลอยกระทงเตรียม, ลอยกระทงเตรียมอุดม, กช. เตรียมอุดม, กช เตรียมอุดม, เตรียม, คณะกรรมการงานกิจกรรมพัฒนาผู้เรียน"
+          />
+          <meta name="author" content="คณะกรรมการงานกิจกรรมพัฒนาผู้เรียน" />
           <meta charSet="utf-8" />
         </Head>
         <body>

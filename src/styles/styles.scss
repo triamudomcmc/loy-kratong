@@ -1,54 +1,5 @@
-
-
-.kratong {
-  --size: 512px;
-  --ratio: calc(var(--size) / 300);
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-}
-
-.kratong > .base {
-  margin-bottom: 30px;
-  position: relative;
-  display: inline-block;
-  width: var(--size);
-
-  > .flowers > .container {
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-
-  > .shell > .container {
-    position: absolute;
-    padding-left: 18px;
-    padding-right: 18px;
-    top: 26px;
-    left: 0;
-  }
-}
-.kratong > .topping {
-
-  margin-bottom: 30px;
-  position: relative;
-  display: inline-block;
-
-  > .candle {
-    position: absolute;
-    width: calc(var(--size) / 2);
-    left: 100px;
-  }
-
-  > .decorations {
-    --offset-y: 0px;
-    position: relative;
-    width: calc(var(--size) - var(--offset-y));
-
-    > .container {
-      position: absolute;
-      top: calc((var(--ratio) * (-50)) + var(--offset-y)/2);
-      left: 0;
-    }
-  }
+body {
+  background-color: #281981;
+  background: linear-gradient(182.71deg, #281981 -2.41%, #3a71b3 47.53%, #1a3270 100.68%);
+  padding: 0;
 }
