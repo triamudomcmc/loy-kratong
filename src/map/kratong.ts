@@ -20,7 +20,18 @@ export type KratongNoDescPartType = {
   variants: string[];
 };
 
-export const KratongMap: { [key: string]: any } = {
+interface Data {
+  name: string; description: string; id: string; type: string; url: string, offset?: number
+}
+
+export interface KratongMapType {
+  base: { "coconut-shell-carved": Data, "banana-leaf-2": Data, "coconut-shell": Data, lotus: Data, ice: Data, "banana-leaf": { name: string; description: string; id: string; type: string; url: string } };
+  decorations: { "sign-quote": { name: string; description: string; id: string; variants: string[]; type: string }; swan: Data, "sign-taken": { name: string; description: string; id: string; variants: string[]; type: string }; cactus: Data, "sign-enttid": { name: string; description: string; id: string; variants: string[]; type: string }; nak: Data, "sign-want-love": { name: string; description: string; id: string; variants: string[]; type: string }; "sign-want-money": { name: string; description: string; id: string; variants: string[]; type: string } };
+  flowers: { love: Data, study: Data, luck: Data, "summer-fruits": { name: string; description: string; id: string; type: string; url: string } };
+  candles: { orange: Data, pink: Data, green: Data, blue: Data, yellow: Data, violet: { name: string; description: string; id: string; type: string; url: string } };
+}
+
+export const KratongMap: KratongMapType = {
   base: {
     "banana-leaf": {
       id: "banana-leaf",
@@ -35,6 +46,7 @@ export const KratongMap: { [key: string]: any } = {
       name: "ดอกบัว",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/lotus.png",
+      offset: 12
     },
     "coconut-shell": {
       id: "coconut-shell",
@@ -49,6 +61,7 @@ export const KratongMap: { [key: string]: any } = {
       name: "กาบมะพร้าว",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/coconut-shell-carved.png",
+      offset: 20
     },
     ice: {
       id: "ice",

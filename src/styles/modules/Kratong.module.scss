@@ -2,10 +2,8 @@
   --size: 512px;
   --ratio: calc(var(--size) / 300);
   display: flex;
+  margin-bottom: -60px;
   flex-direction: column;
-  position: absolute;
-  top: 150px;
-  left: 50px;
   z-index: 5;
 }
 
@@ -21,12 +19,16 @@
     left: 0;
   }
 
-  > .shell > .container {
-    position: absolute;
-    padding-left: 18px;
-    padding-right: 18px;
-    top: 26px;
-    left: 0;
+
+  > .shell {
+    --offset-shell-y: 0px;
+    > .container {
+      position: absolute;
+      padding-left: 18px;
+      padding-right: 18px;
+      top: calc(26px - var(--offset-shell-y));
+      left: 0;
+    }
   }
 }
 .kratong > .topping {

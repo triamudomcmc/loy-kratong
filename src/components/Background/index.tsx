@@ -11,6 +11,7 @@ export const SalaFrontBG: NextPage = () => {
   return (
     <>
       <div className={styles["background"]}>
+        <div className={styles["overlay"]}/>
         <div className="sky-l">
           <div className={styles["cloud-1"]}></div>
           <div className={styles["cloud-2"]}></div>
