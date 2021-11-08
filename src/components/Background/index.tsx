@@ -3,6 +3,7 @@ import { LightWater } from "@components/Water";
 import styles from "@styles/modules/Background.module.scss";
 import Image from "next/image";
 import { useWindowDimensions } from "@utils/document";
+import classnames from "classnames"
 
 export const SalaFrontBG: NextPage = () => {
   const { width, height } = useWindowDimensions();
