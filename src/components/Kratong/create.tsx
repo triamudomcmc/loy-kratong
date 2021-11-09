@@ -54,7 +54,7 @@ export const Create: NextPage = () => {
   }
 
   return (
-    <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10">
+    <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
       <div className="flex border border-white bg-white bg-opacity-20 max-w-[978px] w-full mx-auto rounded-[34px]">
         <div className="h-full w-4/12 py-28 min-w-[400px]">
           <h1 className="text-white text-2xl text-center mb-14">สร้างกระทง</h1>
@@ -91,18 +91,8 @@ export const Create: NextPage = () => {
   );
 };
 
-/*
-sales [x]
-- ส่งเดือนที่ 10 ได้เดือนที่ 9
-customer []
-- query ผิด
-- join member table แทน
-customers-stat []
-- ตอนนี้มันเป็นจำนวนบิล
-- เอาจำนวนของ all spenders มาใส่แทน
-- เพิ่ม field daily visit: จำนวนลูกค้าที่ order วันนี้
-- recurring นับจากลูกค้าที่เคยเปิด order ปีก่อนหน้า
-stat-monthly []
-- recurring - ลูกค้าที่เคยเปิด order ในเดือนก่อนหน้า
-
-*/
+const Draft = () => {
+  return (
+    <></>
+  );
+}
