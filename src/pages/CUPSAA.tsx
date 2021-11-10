@@ -191,8 +191,10 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
             <p className="text-white font-light text-lg text-center mb-2">{data.wish.name}:</p>
             <p className="text-white font-light text-sm text-center mb-2">{data.wish.content}</p>
           </div>
-          <div className="flex justify-center w-full relative top-[-24px] px-16">
-            <Image src="/assets/images/CUPSA.PNG" width="1563px" height="1587px" />
+          <div className="flex justify-center w-full relative top-[-24px]">
+            <div className="w-[200px]">
+              <Image src="/assets/images/CUPSA.PNG" width="1563px" height="1587px" />
+            </div>
           </div>
           <div className="justify-self-end flex justify-end space-x-2 px-4">
             <button
