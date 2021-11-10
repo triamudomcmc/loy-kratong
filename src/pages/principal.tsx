@@ -3,7 +3,18 @@ import { Meta } from "@components/Meta";
 import { PrincipalPage } from "@components/Principal";
 import { Navbar } from "@components/Nav";
 
-const Principal: NextPage = () => {
+import Router from "next/router";
+import {useEffect} from "react";
+
+const PrinciPal: NextPage<{query: any}> = ({query}) => {
+
+  useEffect(() => {
+    if (query && "id" in query) {
+    }else{
+      Router.push("/error")
+    }
+  }, [query])
+
   return (
     <>
       <Meta />
@@ -12,4 +23,9 @@ const Principal: NextPage = () => {
     </>
   );
 };
-export default Principal;
+
+PrinciPal.getInitialProps = ({query}) => {
+  return {query}
+}
+
+export default PrinciPal

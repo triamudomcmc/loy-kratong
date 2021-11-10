@@ -51,7 +51,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
               height={1668}
               src={"url" in data ? data.url : data.variants[0]}
             />
-            <span className="text-sm text-center py-2 px-2 text-[#726EA5]">{data.name}</span>
+            <span className="text-sm text-center py-2 px-2 text-[#726EA5] flex-shrink-0 w-full">{data.name}</span>
           </div>
         </div>,
       ];
@@ -377,7 +377,7 @@ interface KratongData {
   wish: Wish;
 }
 
-export const Create: NextPage = () => {
+export const Create: NextPage<{query: any}> = ({query}) => {
   const [data, setData] = useState<KratongData>({
     kratong: {
       base: "banana-leaf",

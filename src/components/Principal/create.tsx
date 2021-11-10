@@ -45,7 +45,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
         >
           <div className="flex flex-col items-center mt-[-4px] mx-[-6px] p-4">
             <Image alt={k["name"]} priority={true} width={2388} height={1668} src={data.url} />
-            <span className="text-sm text-center py-2 px-2 text-[#726EA5]">{data.name}</span>
+            <span className="text-sm text-center py-2 px-2 text-[#726EA5] flex-shrink-0 w-full">{data.name}</span>
           </div>
         </div>,
       ];
@@ -385,6 +385,7 @@ interface KratongData {
 }
 
 export const Create: NextPage = () => {
+
   const [data, setData] = useState<KratongData>({
     kratong: {
       base: "base-blue",
