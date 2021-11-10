@@ -94,7 +94,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
                   setSection("base");
                 }}
                 className={classnames(
-                  "px-3 sm:px-8 py-2 rounded-full font-light text-sm transition-colors",
+                  "px-3 sm:px-8 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
                   section === "base"
                     ? "bg-[#2256A3] text-white shadow-lg"
                     : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
@@ -107,7 +107,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
                   setSection("flowers");
                 }}
                 className={classnames(
-                  "px-2 sm:px-4 py-2 rounded-full font-light text-sm transition-colors",
+                  "px-2 sm:px-4 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
                   section === "flowers"
                     ? "bg-[#2256A3] text-white shadow-lg"
                     : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
@@ -117,10 +117,23 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
               </button>
               <button
                 onClick={() => {
+                  setSection("candles");
+                }}
+                className={classnames(
+                  "px-2 sm:px-4 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
+                  section === "candles"
+                    ? "bg-[#2256A3] text-white shadow-lg"
+                    : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
+                )}
+              >
+                เทียน
+              </button>
+              <button
+                onClick={() => {
                   setSection("decorations");
                 }}
                 className={classnames(
-                  "px-2 sm:px-6 py-2 rounded-full font-light text-sm transition-colors",
+                  "px-2 sm:px-6 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
                   section === "decorations"
                     ? "bg-[#2256A3] text-white shadow-lg"
                     : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"

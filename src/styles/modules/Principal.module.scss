@@ -15,9 +15,10 @@
 
   > .swan > .container {
     position: relative;
-    width: calc(var(--size) - 24px);
-    top: 0;
-    left: 0;
+    z-index: 4;
+    width: calc(var(--size) - 43px);
+    top: -10px;
+    left: 25px;
   }
 
   > .shell {
@@ -26,35 +27,33 @@
     > .container {
       z-index: 6;
       position: absolute;
-      padding-left: 18px;
-      padding-right: 18px;
-      top: calc((var(--size) / 2) + 36px);
-      left: 0;
+      top: calc(var(--size) / 2 + -14px);
+      left: 5px;
+      width: calc(var(--size) + -9px);
     }
   }
 }
 .kratong > .topping {
-  margin-bottom: 30px;
-  position: relative;
-  display: inline-block;
+  margin-bottom: 36px;
 
   > .candle {
     position: absolute;
-    width: calc(var(--size) / 4);
-    top: calc(var(--size) / 3 - 20px);
-    left: calc(var(--size) / 2 - 10px);
+    z-index: 3;
+    width: calc(var(--size) / 3);
+    top: calc(var(--size) / 3 - 23px);
+    left: calc(var(--size) / 2 - 4px);
   }
 
   > .decorations {
     --offset-y: 0px;
-    position: relative;
-    width: calc(var(--size) - 30px);
-    z-index: 4;
+    width: calc(var(--size) / 4 + 13px);
+    left: 2px;
 
     > .container {
       position: absolute;
-      top: calc(var(--size) / 4 + 20px);
-      left: 30px;
+      z-index: 2;
+      top: calc(var(--size) / 4 + 4px);
+      left: 7px;
     }
   }
 }
