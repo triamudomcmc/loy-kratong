@@ -60,7 +60,9 @@ const CreateWish: NextPage<CreateWishProps> = ({ wish, setWish, nextPage, prevPa
             <h1 className="text-white text-2xl text-center mb-8">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
               <div className="relative top-[-24px] sm:top-[-12px] mb-[-47px] sm:mb-[-30px] px-16">
-                <Image src="/assets/images/CUPSA.PNG" width="1563px" height="1587px" />
+                <div className="w-[200px]">
+                  <Image src="/assets/images/CUPSA.PNG" width="1563px" height="1587px" />
+                </div>
               </div>
               <svg className="w-[240px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse
@@ -77,7 +79,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ wish, setWish, nextPage, prevPa
           </div>
           <div className="flex flex-col relative z-10 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
             <div>
-              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 max-h-[150px] sm:max-h-[240px] mt-3 overflow-y-auto">
+              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 max-h-[170px] sm:max-h-[240px] mt-3 overflow-y-auto">
                 <div className="w-full">
                   <fieldset>
                     <label className="text-sm text-white" htmlFor="name">
@@ -145,7 +147,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ wish, setWish, nextPage, prevPa
                   nextPage();
                 }}
               >
-                <span>ลอยกระทง !</span>
+                <span>บันทึกกระทง</span>
               </button>
             </div>
           </div>
@@ -169,7 +171,7 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
 
   const send = async (query: any) => {
     if (query) {
-      const res = await sendDataContext.call({ id: query.id, data: data });
+      const res = await sendDataContext.call({ id: "CUPSAA", data: data });
       if (res) {
         console.log(res);
       }

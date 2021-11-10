@@ -308,7 +308,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                   nextPage();
                 }}
               >
-                <span>ลอยกระทง !</span>
+                <span>บันทึกกระทง</span>
               </button>
             </div>
           </div>
