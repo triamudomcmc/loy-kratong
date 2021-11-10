@@ -1,8 +1,9 @@
 import type { NextPage } from "next";
-import { KratongMap } from "@map/kratong";
+import { KratongMap, KratongType } from "@map/kratong";
 import styles from "@styles/modules/Kratong.module.scss";
 import { NormalPart, VariantPart, Candle } from "./parts";
 import { Selected } from "./create";
+
 
 interface KratongProps {
   selected: Selected;
@@ -16,6 +17,8 @@ offset: 60px
 */
 
 export const Kratong: NextPage<KratongProps> = ({ selected, height, offset }) => {
+  console.log('a', selected)
+  
   return (
     <>
       <div style={{ ["--size" as string]: height }} className={styles["kratong"]}>
@@ -51,7 +54,8 @@ export const Kratong: NextPage<KratongProps> = ({ selected, height, offset }) =>
                 return <VariantPart key={flower} part={part} selected={selected.flowers} />;
             })}
           </div>
-          <div style={{ ["--offset-shell-y" as string]: `${selected.offset}px` }} className={styles["shell"]}>
+          { /* @ts-ignore */ }
+          <div style={{ ["--offset-shell-y" as string]: `${Object.values(KratongMap.base).find((b: KratongType) => b.id === selected.base.id)?.offset ?? 0}px` }} className={styles["shell"]}>
             {/*<NormalPart part={Kratong.base["coconut-shell"]} />*/}
             {Object.keys(KratongMap.base).map((base: string) => {
               // @ts-ignore

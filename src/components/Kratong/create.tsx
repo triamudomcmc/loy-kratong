@@ -11,7 +11,6 @@ export interface Selected {
   flowers: string;
   candles: string;
   decorations: string;
-  offset: number;
 }
 
 interface CreateKratongProps {
@@ -35,7 +34,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
         <div
           key={`part_${k.id}`}
           onClick={() => {
-            setSelected({ ...selected, [part]: data.id, offset: data.offset || 0 });
+            setSelected({ ...selected, [part]: data.id });
           }}
           className={classnames(
             "max-w-[8rem] max-h-[9rem] border-2 rounded-lg cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
@@ -356,7 +355,6 @@ export const Create: NextPage = () => {
       flowers: "love",
       candles: "candle-yellow",
       decorations: "nak",
-      offset: 0,
     },
     wish: {
       name: "",

@@ -20,7 +20,7 @@ export type KratongNoDescPartType = {
   variants: string[];
 };
 
-interface KratongType {
+export type KratongType = {
   name: string;
   description: string;
   id: string;
@@ -29,7 +29,7 @@ interface KratongType {
   offset?: number;
 }
 
-interface KratongTypeVariant {
+export type KratongTypeVariant = {
   name: string;
   description: string;
   id: string;
