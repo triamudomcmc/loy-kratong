@@ -15,6 +15,7 @@
 
   > .swan > .container {
     position: relative;
+    z-index: 4;
     width: calc(var(--size) - 24px);
     top: 0;
     left: 0;
@@ -40,6 +41,7 @@
 
   > .candle {
     position: absolute;
+    z-index: 3;
     width: calc(var(--size) / 4);
     top: calc(var(--size) / 3 - 20px);
     left: calc(var(--size) / 2 - 10px);
@@ -47,12 +49,11 @@
 
   > .decorations {
     --offset-y: 0px;
-    position: relative;
     width: calc(var(--size) - 30px);
-    z-index: 4;
 
     > .container {
       position: absolute;
+      z-index: 2;
       top: calc(var(--size) / 4 + 20px);
       left: 30px;
     }

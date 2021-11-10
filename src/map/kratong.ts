@@ -27,7 +27,7 @@ export type KratongType = {
   type: string;
   url: string;
   offset?: number;
-}
+};
 
 export type KratongTypeVariant = {
   name: string;
@@ -36,7 +36,7 @@ export type KratongTypeVariant = {
   type: string;
   variants: string[];
   offset?: number;
-}
+};
 
 export interface KratongMapType {
   base: {
@@ -245,42 +245,42 @@ export const KratongMap: KratongMapType = {
   },
   candles: {
     yellow: {
-      id: "candle-yellow",
+      id: "yellow",
       type: "normal",
       name: "สีเหลือง",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/candles/yellow.png",
     },
     blue: {
-      id: "candle-blue",
+      id: "blue",
       type: "normal",
       name: "สีฟ้า",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/candles/blue.png",
     },
     green: {
-      id: "candle-green",
+      id: "green",
       type: "normal",
       name: "สีเขียว",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/candles/green.png",
     },
     orange: {
-      id: "candle-orange",
+      id: "orange",
       type: "normal",
       name: "สีส้ม",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/candles/orange.png",
     },
     pink: {
-      id: "candle-pink",
+      id: "pink",
       type: "normal",
       name: "สีชมพู",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/candles/pink.png",
     },
     violet: {
-      id: "candle-violet",
+      id: "violet",
       type: "normal",
       name: "สีม่วง",
       description: "คำอธิบาย",
@@ -291,27 +291,27 @@ export const KratongMap: KratongMapType = {
 
 interface PrincipalMapType {
   base: {
-    blue: KratongType,
-    indigo: KratongType,
-    pink: KratongType,
-    violet: KratongType,
-  },
+    blue: KratongType;
+    indigo: KratongType;
+    pink: KratongType;
+    violet: KratongType;
+  };
   candles: {
-    blue: KratongType,
-    green: KratongType,
-    pink: KratongType,
-    red: KratongType
-  },
+    blue: KratongType;
+    green: KratongType;
+    pink: KratongType;
+    red: KratongType;
+  };
   decorations: {
-    rice1: KratongType,
-    rice2: KratongType
-  },
+    rice1: KratongType;
+    rice2: KratongType;
+  };
   swan: {
-    blue: KratongType,
-    green: KratongType,
-    pink: KratongType,
-    yellow: KratongType,
-  }
+    blue: KratongType;
+    green: KratongType;
+    pink: KratongType;
+    yellow: KratongType;
+  };
 }
 
 export const PrincipalMap: PrincipalMapType = {
@@ -381,14 +381,14 @@ export const PrincipalMap: PrincipalMapType = {
       id: "rice1",
       name: "ข้าว 1",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/rice/rice1.png"
+      url: "/assets/images/principal/rice/rice1.png",
     },
     rice2: {
       type: "normal",
       id: "rice2",
       name: "ข้าว 2",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/rice/rice2.png"
+      url: "/assets/images/principal/rice/rice2.png",
     },
   },
   swan: {
@@ -397,28 +397,28 @@ export const PrincipalMap: PrincipalMapType = {
       id: "swan-blue",
       name: "สีฟ้า",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/swan/blue.png"
+      url: "/assets/images/principal/swan/blue.png",
     },
     green: {
       type: "normal",
       id: "swan-green",
       name: "สีเขียว",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/swan/green.png"
+      url: "/assets/images/principal/swan/green.png",
     },
     pink: {
       type: "normal",
       id: "swan-pink",
       name: "สีชมพู",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/swan/pink.png"
+      url: "/assets/images/principal/swan/pink.png",
     },
     yellow: {
       type: "normal",
       id: "swan-yellow",
       name: "สีเหลือง",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/swan/yellow.png"
+      url: "/assets/images/principal/swan/yellow.png",
     },
   },
 };
