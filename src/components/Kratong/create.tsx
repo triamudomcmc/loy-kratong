@@ -311,15 +311,34 @@ interface ResultData {
 
 interface ResultProps {
   data: ResultData;
+  prevPage: () => void;
 }
 
-const Result: NextPage<ResultProps> = ({ data }) => {
+const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
   console.log(data);
 
   return (
     <>
       <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
-        <Kratong height="240px" offset="60px" selected={data.kratong} />
+        <div className="flex flex-col justify-center items-center space-y-6 border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
+          <div className="pt-8 pb-4 sm:pb-2 w-full">
+            <h1 className="text-white text-2xl text-center mb-8">สำเร็จ</h1>
+            <p className="text-white font-light text-lg text-center mb-2">{data.wish.name}:</p>
+            <p className="text-white font-light text-sm text-center mb-2">{data.wish.content}</p>
+          </div>
+          <div className="flex justify-center w-full relative top-[-24px]">
+            <Kratong height="240px" offset="60px" selected={data.kratong} />
+          </div>
+          <div className="justify-self-end flex justify-end space-x-2 px-4">
+            <button
+              className="relative z-40 flex items-center text-md bg-white text-[#2256A3] border border-white px-6 py-2 space-x-1 rounded-full font-light"
+              onClick={() => prevPage()}
+            >
+              <ChevronLeftIcon className="w-5 h-5" />
+              <span>กลับไปแก้ไขกระทง</span>
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
@@ -385,7 +404,7 @@ export const Create: NextPage = () => {
           prevPage={PrevPage}
         />
       )}
-      {page === 3 && <Result data={data} />}
+      {page === 3 && <Result data={data} prevPage={PrevPage} />}
     </>
   );
 };
