@@ -29,7 +29,7 @@ export type KratongType = {
   offset?: number;
   decorationOffset?: number;
   paddingXFlower?: number;
-}
+};
 
 export type KratongTypeVariant = {
   name: string;
@@ -40,7 +40,7 @@ export type KratongTypeVariant = {
   offset?: number;
   decorationOffset?: number;
   paddingXFlower?: number;
-}
+};
 
 export interface KratongMapType {
   base: {
@@ -161,7 +161,7 @@ export const KratongMap: KratongMapType = {
         "/assets/images/kratong/decorations/sign/want-love/pink.png",
         "/assets/images/kratong/decorations/sign/want-love/violet.png",
       ],
-      decorationOffset: 80
+      decorationOffset: 80,
     },
     "sign-want-money": {
       id: "sign-want-money",
@@ -176,7 +176,7 @@ export const KratongMap: KratongMapType = {
         "/assets/images/kratong/decorations/sign/want-money/pink.png",
         "/assets/images/kratong/decorations/sign/want-money/violet.png",
       ],
-      decorationOffset: 80
+      decorationOffset: 80,
     },
     "sign-enttid": {
       id: "sign-enttid",
@@ -191,7 +191,7 @@ export const KratongMap: KratongMapType = {
         "/assets/images/kratong/decorations/sign/enttid/pink.png",
         "/assets/images/kratong/decorations/sign/enttid/violet.png",
       ],
-      decorationOffset: 80
+      decorationOffset: 80,
     },
     "sign-quote": {
       id: "sign-quote",
@@ -206,7 +206,7 @@ export const KratongMap: KratongMapType = {
         "/assets/images/kratong/decorations/sign/quote/pink.png",
         "/assets/images/kratong/decorations/sign/quote/violet.png",
       ],
-      decorationOffset: 80
+      decorationOffset: 80,
     },
     "sign-taken": {
       id: "sign-taken",
@@ -221,7 +221,7 @@ export const KratongMap: KratongMapType = {
         "/assets/images/kratong/decorations/sign/taken/pink.png",
         "/assets/images/kratong/decorations/sign/taken/violet.png",
       ],
-      decorationOffset: 80
+      decorationOffset: 80,
     },
   },
   flowers: {
@@ -252,7 +252,7 @@ export const KratongMap: KratongMapType = {
       name: "ชุดการเรียน",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/flowers/study.png",
-      paddingXFlower: 10
+      paddingXFlower: 10,
     },
   },
   candles: {
@@ -303,27 +303,27 @@ export const KratongMap: KratongMapType = {
 
 interface PrincipalMapType {
   base: {
-    blue: KratongType,
-    indigo: KratongType,
-    pink: KratongType,
-    violet: KratongType,
-  },
+    blue: KratongType;
+    indigo: KratongType;
+    pink: KratongType;
+    violet: KratongType;
+  };
   candles: {
-    blue: KratongType,
-    green: KratongType,
-    pink: KratongType,
-    red: KratongType
-  },
+    blue: KratongType;
+    green: KratongType;
+    pink: KratongType;
+    red: KratongType;
+  };
   decorations: {
-    rice1: KratongType,
-    rice2: KratongType
-  },
+    rice1: KratongType;
+    rice2: KratongType;
+  };
   swan: {
-    blue: KratongType,
-    green: KratongType,
-    pink: KratongType,
-    yellow: KratongType,
-  }
+    blue: KratongType;
+    green: KratongType;
+    pink: KratongType;
+    yellow: KratongType;
+  };
 }
 
 export const PrincipalMap: PrincipalMapType = {
@@ -391,16 +391,16 @@ export const PrincipalMap: PrincipalMapType = {
     rice1: {
       type: "normal",
       id: "rice1",
-      name: "ข้าว 1",
+      name: "ข้าวรูปวงกลม",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/rice/rice1.png"
+      url: "/assets/images/principal/rice/rice1.png",
     },
     rice2: {
       type: "normal",
       id: "rice2",
-      name: "ข้าว 2",
+      name: "ข้าวรูปหัวใจ",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/rice/rice2.png"
+      url: "/assets/images/principal/rice/rice2.png",
     },
   },
   swan: {
@@ -409,28 +409,28 @@ export const PrincipalMap: PrincipalMapType = {
       id: "swan-blue",
       name: "สีฟ้า",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/swan/blue.png"
+      url: "/assets/images/principal/swan/blue.png",
     },
     green: {
       type: "normal",
       id: "swan-green",
       name: "สีเขียว",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/swan/green.png"
+      url: "/assets/images/principal/swan/green.png",
     },
     pink: {
       type: "normal",
       id: "swan-pink",
       name: "สีชมพู",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/swan/pink.png"
+      url: "/assets/images/principal/swan/pink.png",
     },
     yellow: {
       type: "normal",
       id: "swan-yellow",
       name: "สีเหลือง",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/swan/yellow.png"
+      url: "/assets/images/principal/swan/yellow.png",
     },
   },
 };

@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { PrincipalKratong } from "./kratong";
 import { PrincipalMap } from "@map/kratong";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import classnames from "classnames";
-import {useRouter} from "next/router";
-import {sendDataContext} from "@handlers/init";
+import { useRouter } from "next/router";
+import { sendDataContext } from "@handlers/init";
 
 export interface Selected {
   base: string;
@@ -107,7 +107,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
                     : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
                 )}
               >
-                ดอกไม้
+                หงส์
               </button>
               <button
                 onClick={() => {
@@ -323,21 +323,20 @@ interface ResultProps {
 }
 
 const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const send = async (query: any) => {
     if (query) {
-      const res = await sendDataContext.call({id: query.id, data: data})
+      const res = await sendDataContext.call({ id: query.id, data: data });
       if (res) {
-        console.log(res)
+        console.log(res);
       }
     }
-  }
+  };
 
   useEffect(() => {
-    send(router.query)
-  }, [router])
+    send(router.query);
+  }, [router]);
 
   return (
     <>
@@ -385,7 +384,6 @@ interface KratongData {
 }
 
 export const Create: NextPage = () => {
-
   const [data, setData] = useState<KratongData>({
     kratong: {
       base: "base-blue",
