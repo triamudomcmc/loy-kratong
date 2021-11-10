@@ -302,7 +302,7 @@ interface PrincipalMapType {
     pink: KratongType,
     red: KratongType
   },
-  description: {
+  decorations: {
     rice1: KratongType,
     rice2: KratongType
   },
@@ -375,7 +375,7 @@ export const PrincipalMap: PrincipalMapType = {
       url: "/assets/images/principal/candles/red.png",
     },
   },
-  description: {
+  decorations: {
     rice1: {
       type: "normal",
       id: "rice1",

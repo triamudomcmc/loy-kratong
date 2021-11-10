@@ -1,16 +1,16 @@
 import type { NextPage } from "next";
-import { KratongVariantPartType } from "@map/kratong";
+import { KratongNormalPartType } from "@map/kratong";
 import styles from "@styles/modules/Principal.module.scss";
 
-interface KratongVariantPartProps {
-  part: KratongVariantPartType;
+interface KratongNormalPartProps {
+  part: KratongNormalPartType;
   selected: string;
 }
 
-export const PrincipalPart: NextPage<KratongVariantPartProps> = ({ part, selected }) => {
+export const PrincipalPart: NextPage<KratongNormalPartProps> = ({ part, selected }) => {
   return (
     <div className={styles["container"]} style={{ display: selected === part.id ? "inline-block" : "none" }}>
-      <img className={styles["img"]} src={part.variants[0]} alt={part.name} />
+      <img className={styles["img"]} src={part.url} alt={part.name} />
     </div>
   );
 };

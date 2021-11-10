@@ -354,7 +354,7 @@ export const Create: NextPage = () => {
     kratong: {
       base: "banana-leaf",
       flowers: "love",
-      candles: "yellow",
+      candles: "candle-yellow",
       decorations: "nak",
       offset: 0,
     },

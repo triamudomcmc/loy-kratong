@@ -13,7 +13,7 @@
   display: inline-block;
   width: var(--size);
 
-  > .flowers > .container {
+  > .swan > .container {
     position: relative;
     top: 0;
     left: 0;
@@ -37,7 +37,7 @@
 
   > .candle {
     position: absolute;
-    width: calc(var(--size) / 2);
+    width: calc(3 * var(--size) / 4);
     left: 100px;
   }
 
