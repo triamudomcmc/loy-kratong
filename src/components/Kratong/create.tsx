@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useState } from "react";
 import { Kratong } from "./kratong";
-import { KratongMap, KratongMapType } from "@map/kratong";
+import { KratongMap } from "@map/kratong";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import classnames from "classnames";

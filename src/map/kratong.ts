@@ -369,10 +369,10 @@ export const PrincipalMap: PrincipalMapType = {
     },
     red: {
       type: "normal",
-      id: "candle-red",
-      name: "สีแดง",
+      id: "candle-orange",
+      name: "สีส้ม",
       description: "คำอธิบาย",
-      url: "/assets/images/principal/candles/red.png",
+      url: "/assets/images/principal/candles/orange.png",
     },
   },
   decorations: {
