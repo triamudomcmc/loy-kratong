@@ -5,7 +5,9 @@ import { Navbar } from "@components/Nav";
 import {useEffect} from "react";
 import Router from "next/router";
 
-const Home: NextPage<{query: any}> = ({query}) => {
+type ParsedUrlQuery = NodeJS.Dict<string | string[]>
+
+const Home: NextPage<{query: ParsedUrlQuery}> = ({query}) => {
 
   useEffect(() => {
     if (query && "id" in query) {
