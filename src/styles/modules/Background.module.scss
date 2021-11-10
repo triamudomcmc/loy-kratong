@@ -2,6 +2,8 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
+  user-select: none;
+  pointer-events: none;
 
   > .overlay {
     width: 100%;
