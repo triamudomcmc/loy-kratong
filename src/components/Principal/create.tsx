@@ -226,7 +226,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
           </div>
           <div className="flex flex-col relative z-10 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
             <div>
-              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 max-h-[150px] sm:max-h-[175px] mt-3 overflow-y-auto">
+              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 max-h-[150px] sm:max-h-[175px] mt-3 overflow-y-auto">
                 <div className="w-full">
                   <fieldset>
                     <label className="text-sm text-white" htmlFor="name">
@@ -243,7 +243,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                           content: wish.content,
                         });
                       }}
-                      value={wish.name ?? ""}
+                      value={wish.name ?? "ผอ.วรรณดี นาคสุขปาน"}
                       className="block w-full mt-2 bg-transparent placeholder-[#f1f1f1] text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
                       placeholder="ผอ.วรรณดี นาคสุขปาน"
                     />
