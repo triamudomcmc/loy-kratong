@@ -37,7 +37,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
             setSelected({ ...selected, [part]: data.id });
           }}
           className={classnames(
-            "max-w-[8rem] max-h-[9rem] border-2 rounded-lg cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
+            "max-w-[8rem] max-h-[9rem] border-2 rounded-[20%] cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
             selected[part] === data.id ? "border-white" : "border-transparent"
           )}
         >
@@ -60,12 +60,12 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
     <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
       <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
         <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
-          <h1 className="text-white text-2xl text-center mb-8">สร้างกระทง</h1>
+          <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
           <div className="flex flex-col items-center">
-            <div className="relative top-[-24px] sm:top-[-12px] mb-[-34px] sm:mb-[-30px]">
+            <div className="relative top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
               <PrincipalKratong height="175px" selected={selected} />
             </div>
-            <svg className="w-[175px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse
                 cx="184.709"
                 cy="20"
@@ -86,7 +86,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
                   setSection("base");
                 }}
                 className={classnames(
-                  "px-3 sm:px-8 py-2 rounded-full font-light text-sm transition-colors",
+                  "px-3 sm:px-8 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
                   section === "base"
                     ? "bg-[#2256A3] text-white shadow-lg"
                     : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
@@ -99,7 +99,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
                   setSection("swan");
                 }}
                 className={classnames(
-                  "px-2 sm:px-4 py-2 rounded-full font-light text-sm transition-colors",
+                  "px-2 sm:px-4 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
                   section === "swan"
                     ? "bg-[#2256A3] text-white shadow-lg"
                     : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
@@ -109,10 +109,23 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
               </button>
               <button
                 onClick={() => {
+                  setSection("candles");
+                }}
+                className={classnames(
+                  "px-2 sm:px-4 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
+                  section === "candles"
+                    ? "bg-[#2256A3] text-white shadow-lg"
+                    : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
+                )}
+              >
+                เทียน
+              </button>
+              <button
+                onClick={() => {
                   setSection("decorations");
                 }}
                 className={classnames(
-                  "px-2 sm:px-6 py-2 rounded-full font-light text-sm transition-colors",
+                  "px-2 sm:px-6 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
                   section === "decorations"
                     ? "bg-[#2256A3] text-white shadow-lg"
                     : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
@@ -191,12 +204,12 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
       <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
         <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
           <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
-            <h1 className="text-white text-2xl text-center mb-8">ใส่คำอธิษฐาน</h1>
+            <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
-              <div className="relative top-[-24px] sm:top-[-12px] mb-[-34px] sm:mb-[-30px]">
+              <div className="relative top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
                 <PrincipalKratong height="175px" selected={selected} />
               </div>
-              <svg className="w-[175px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse
                   cx="184.709"
                   cy="20"
@@ -319,8 +332,21 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
             <p className="text-white font-light text-lg text-center mb-2">{data.wish.name}:</p>
             <p className="text-white font-light text-sm text-center mb-2">{data.wish.content}</p>
           </div>
-          <div className="flex justify-center w-full relative top-[-24px]">
-            <PrincipalKratong height="175px" selected={data.kratong} />
+          <div className="flex flex-col items-center">
+            <div className="relative top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
+              <PrincipalKratong height="175px" selected={data.kratong} />
+            </div>
+            <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse
+                cx="184.709"
+                cy="20"
+                rx="184.5"
+                ry="20"
+                fill="white"
+                fillOpacity="0.3"
+                style={{ mixBlendMode: "soft-light" }}
+              />
+            </svg>
           </div>
           <div className="justify-self-end flex justify-end space-x-2 px-4">
             <button
