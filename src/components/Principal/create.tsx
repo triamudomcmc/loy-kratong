@@ -245,7 +245,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                       }}
                       value={wish.name ?? ""}
                       className="block w-full mt-2 bg-transparent placeholder-[#f1f1f1] text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
-                      placeholder="นายเรียนเด่น เล่นดี"
+                      placeholder="ผอ.วรรณดี นาคสุขปาน"
                     />
                   </fieldset>
                   <div className="block mt-2 w-full">
