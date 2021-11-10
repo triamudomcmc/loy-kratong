@@ -21,14 +21,47 @@ export type KratongNoDescPartType = {
 };
 
 interface Data {
-  name: string; description: string; id: string; type: string; url: string, offset?: number
+  name: string;
+  description: string;
+  id: string;
+  type: string;
+  url: string;
+  offset?: number;
 }
 
 export interface KratongMapType {
-  base: { "coconut-shell-carved": Data, "banana-leaf-2": Data, "coconut-shell": Data, lotus: Data, ice: Data, "banana-leaf": { name: string; description: string; id: string; type: string; url: string } };
-  decorations: { "sign-quote": { name: string; description: string; id: string; variants: string[]; type: string }; swan: Data, "sign-taken": { name: string; description: string; id: string; variants: string[]; type: string }; cactus: Data, "sign-enttid": { name: string; description: string; id: string; variants: string[]; type: string }; nak: Data, "sign-want-love": { name: string; description: string; id: string; variants: string[]; type: string }; "sign-want-money": { name: string; description: string; id: string; variants: string[]; type: string } };
-  flowers: { love: Data, study: Data, luck: Data, "summer-fruits": { name: string; description: string; id: string; type: string; url: string } };
-  candles: { orange: Data, pink: Data, green: Data, blue: Data, yellow: Data, violet: { name: string; description: string; id: string; type: string; url: string } };
+  base: {
+    "coconut-shell-carved": Data;
+    "banana-leaf-2": Data;
+    "coconut-shell": Data;
+    lotus: Data;
+    ice: Data;
+    "banana-leaf": { name: string; description: string; id: string; type: string; url: string };
+  };
+  decorations: {
+    "sign-quote": { name: string; description: string; id: string; variants: string[]; type: string };
+    swan: Data;
+    "sign-taken": { name: string; description: string; id: string; variants: string[]; type: string };
+    cactus: Data;
+    "sign-enttid": { name: string; description: string; id: string; variants: string[]; type: string };
+    nak: Data;
+    "sign-want-love": { name: string; description: string; id: string; variants: string[]; type: string };
+    "sign-want-money": { name: string; description: string; id: string; variants: string[]; type: string };
+  };
+  flowers: {
+    love: Data;
+    study: Data;
+    luck: Data;
+    "summer-fruits": { name: string; description: string; id: string; type: string; url: string };
+  };
+  candles: {
+    orange: Data;
+    pink: Data;
+    green: Data;
+    blue: Data;
+    yellow: Data;
+    violet: { name: string; description: string; id: string; type: string; url: string };
+  };
 }
 
 export const KratongMap: KratongMapType = {
@@ -46,7 +79,7 @@ export const KratongMap: KratongMapType = {
       name: "ดอกบัว",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/lotus.png",
-      offset: 12
+      offset: 12,
     },
     "coconut-shell": {
       id: "coconut-shell",
@@ -61,7 +94,7 @@ export const KratongMap: KratongMapType = {
       name: "กาบมะพร้าว",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/coconut-shell-carved.png",
-      offset: 20
+      offset: 20,
     },
     ice: {
       id: "ice",
@@ -106,11 +139,11 @@ export const KratongMap: KratongMapType = {
       name: "ป้ายอยากมีหวานใจ",
       description: "คำอธิบาย",
       variants: [
+        "/assets/images/kratong/decorations/sign/want-love/red.png",
         "/assets/images/kratong/decorations/sign/want-love/blue.png",
         "/assets/images/kratong/decorations/sign/want-love/green.png",
         "/assets/images/kratong/decorations/sign/want-love/orange.png",
         "/assets/images/kratong/decorations/sign/want-love/pink.png",
-        "/assets/images/kratong/decorations/sign/want-love/red.png",
         "/assets/images/kratong/decorations/sign/want-love/violet.png",
       ],
     },
@@ -120,11 +153,11 @@ export const KratongMap: KratongMapType = {
       name: "ป้ายอยากเป็นเศรษฐี",
       description: "คำอธิบาย",
       variants: [
+        "/assets/images/kratong/decorations/sign/want-money/red.png",
         "/assets/images/kratong/decorations/sign/want-money/blue.png",
         "/assets/images/kratong/decorations/sign/want-money/green.png",
         "/assets/images/kratong/decorations/sign/want-money/orange.png",
         "/assets/images/kratong/decorations/sign/want-money/pink.png",
-        "/assets/images/kratong/decorations/sign/want-money/red.png",
         "/assets/images/kratong/decorations/sign/want-money/violet.png",
       ],
     },
@@ -134,11 +167,11 @@ export const KratongMap: KratongMapType = {
       name: "ป้ายเอนท์ติด",
       description: "คำอธิบาย",
       variants: [
+        "/assets/images/kratong/decorations/sign/enttid/red.png",
         "/assets/images/kratong/decorations/sign/enttid/blue.png",
         "/assets/images/kratong/decorations/sign/enttid/green.png",
         "/assets/images/kratong/decorations/sign/enttid/orange.png",
         "/assets/images/kratong/decorations/sign/enttid/pink.png",
-        "/assets/images/kratong/decorations/sign/enttid/red.png",
         "/assets/images/kratong/decorations/sign/enttid/violet.png",
       ],
     },
@@ -148,11 +181,11 @@ export const KratongMap: KratongMapType = {
       name: "ป้ายคำคมสุดปัง",
       description: "คำอธิบาย",
       variants: [
+        "/assets/images/kratong/decorations/sign/quote/red.png",
         "/assets/images/kratong/decorations/sign/quote/blue.png",
         "/assets/images/kratong/decorations/sign/quote/green.png",
         "/assets/images/kratong/decorations/sign/quote/orange.png",
         "/assets/images/kratong/decorations/sign/quote/pink.png",
-        "/assets/images/kratong/decorations/sign/quote/red.png",
         "/assets/images/kratong/decorations/sign/quote/violet.png",
       ],
     },
@@ -162,11 +195,11 @@ export const KratongMap: KratongMapType = {
       name: "ป้ายมีคนจองแล้ว",
       description: "คำอธิบาย",
       variants: [
+        "/assets/images/kratong/decorations/sign/taken/red.png",
         "/assets/images/kratong/decorations/sign/taken/blue.png",
         "/assets/images/kratong/decorations/sign/taken/green.png",
         "/assets/images/kratong/decorations/sign/taken/orange.png",
         "/assets/images/kratong/decorations/sign/taken/pink.png",
-        "/assets/images/kratong/decorations/sign/taken/red.png",
         "/assets/images/kratong/decorations/sign/taken/violet.png",
       ],
     },
@@ -207,42 +240,42 @@ export const KratongMap: KratongMapType = {
       type: "normal",
       name: "สีเหลือง",
       description: "คำอธิบาย",
-      url: "/assets/images/kratong/other/candles/yellow.png",
+      url: "/assets/images/kratong/candles/yellow.png",
     },
     blue: {
       id: "blue",
       type: "normal",
       name: "สีฟ้า",
       description: "คำอธิบาย",
-      url: "/assets/images/kratong/other/candles/blue.png",
+      url: "/assets/images/kratong/candles/blue.png",
     },
     green: {
       id: "green",
       type: "normal",
       name: "สีเขียว",
       description: "คำอธิบาย",
-      url: "/assets/images/kratong/other/candles/green.png",
+      url: "/assets/images/kratong/candles/green.png",
     },
     orange: {
       id: "orange",
       type: "normal",
       name: "สีส้ม",
       description: "คำอธิบาย",
-      url: "/assets/images/kratong/other/candles/orange.png",
+      url: "/assets/images/kratong/candles/orange.png",
     },
     pink: {
       id: "pink",
       type: "normal",
       name: "สีชมพู",
       description: "คำอธิบาย",
-      url: "/assets/images/kratong/other/candles/pink.png",
+      url: "/assets/images/kratong/candles/pink.png",
     },
     violet: {
       id: "violet",
       type: "normal",
       name: "สีม่วง",
       description: "คำอธิบาย",
-      url: "/assets/images/kratong/other/candles/violet.png",
+      url: "/assets/images/kratong/candles/violet.png",
     },
   },
 };
