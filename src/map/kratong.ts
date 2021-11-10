@@ -27,6 +27,8 @@ export type KratongType = {
   type: string;
   url: string;
   offset?: number;
+  decorationOffset?: number;
+  paddingXFlower?: number;
 }
 
 export type KratongTypeVariant = {
@@ -36,6 +38,8 @@ export type KratongTypeVariant = {
   type: string;
   variants: string[];
   offset?: number;
+  decorationOffset?: number;
+  paddingXFlower?: number;
 }
 
 export interface KratongMapType {
@@ -81,6 +85,7 @@ export const KratongMap: KratongMapType = {
       name: "ใบตอง",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/banana-leaf.png",
+      offset: 6,
     },
     lotus: {
       id: "lotus",
@@ -118,6 +123,7 @@ export const KratongMap: KratongMapType = {
       name: "ใบตอง",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/base/banana-leaf-2.png",
+      offset: 6,
     },
   },
   decorations: {
@@ -155,6 +161,7 @@ export const KratongMap: KratongMapType = {
         "/assets/images/kratong/decorations/sign/want-love/pink.png",
         "/assets/images/kratong/decorations/sign/want-love/violet.png",
       ],
+      decorationOffset: 80
     },
     "sign-want-money": {
       id: "sign-want-money",
@@ -169,6 +176,7 @@ export const KratongMap: KratongMapType = {
         "/assets/images/kratong/decorations/sign/want-money/pink.png",
         "/assets/images/kratong/decorations/sign/want-money/violet.png",
       ],
+      decorationOffset: 80
     },
     "sign-enttid": {
       id: "sign-enttid",
@@ -183,6 +191,7 @@ export const KratongMap: KratongMapType = {
         "/assets/images/kratong/decorations/sign/enttid/pink.png",
         "/assets/images/kratong/decorations/sign/enttid/violet.png",
       ],
+      decorationOffset: 80
     },
     "sign-quote": {
       id: "sign-quote",
@@ -197,6 +206,7 @@ export const KratongMap: KratongMapType = {
         "/assets/images/kratong/decorations/sign/quote/pink.png",
         "/assets/images/kratong/decorations/sign/quote/violet.png",
       ],
+      decorationOffset: 80
     },
     "sign-taken": {
       id: "sign-taken",
@@ -211,6 +221,7 @@ export const KratongMap: KratongMapType = {
         "/assets/images/kratong/decorations/sign/taken/pink.png",
         "/assets/images/kratong/decorations/sign/taken/violet.png",
       ],
+      decorationOffset: 80
     },
   },
   flowers: {
@@ -241,6 +252,7 @@ export const KratongMap: KratongMapType = {
       name: "ชุดการเรียน",
       description: "คำอธิบาย",
       url: "/assets/images/kratong/flowers/study.png",
+      paddingXFlower: 10
     },
   },
   candles: {

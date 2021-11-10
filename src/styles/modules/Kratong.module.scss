@@ -13,19 +13,26 @@
   display: inline-block;
   width: var(--size);
 
-  > .flowers > .container {
-    position: relative;
-    top: 0;
-    left: 0;
+  > .flowers {
+    --padding-flower-x: 0px;
+
+    > .container {
+      position: relative;
+      padding-left: var(--padding-flower-x);
+      padding-right: var(--padding-flower-x);
+      top: 0;
+      left: 0;
+    }
   }
 
 
   > .shell {
     --offset-shell-y: 0px;
+    --padding-x: 18px;
     > .container {
       position: absolute;
-      padding-left: 18px;
-      padding-right: 18px;
+      padding-left: var(--padding-x);
+      padding-right: var(--padding-x);
       top: calc(26px - var(--offset-shell-y));
       left: 0;
     }
@@ -45,7 +52,7 @@
   > .decorations {
     --offset-y: 0px;
     position: relative;
-    width: calc(var(--size) - var(--offset-y));
+    width: calc(var(--size) - 60px);
 
     > .container {
       position: absolute;

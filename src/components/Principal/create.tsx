@@ -1,10 +1,12 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { PrincipalKratong } from "./kratong";
 import { PrincipalMap } from "@map/kratong";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import classnames from "classnames";
+import {useRouter} from "next/router";
+import {sendDataContext} from "@handlers/init";
 
 export interface Selected {
   base: string;
@@ -297,7 +299,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
   );
 };
 
-interface ResultData {
+export interface ResultData {
   kratong: Selected;
   wish: Wish;
 }
@@ -308,7 +310,21 @@ interface ResultProps {
 }
 
 const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
-  console.log(data);
+
+  const router = useRouter()
+
+  const send = async (query: any) => {
+    if (query) {
+      const res = await sendDataContext.call({id: query.id, data: data})
+      if (res) {
+        console.log(res)
+      }
+    }
+  }
+
+  useEffect(() => {
+    send(router.query)
+  }, [router])
 
   return (
     <>
