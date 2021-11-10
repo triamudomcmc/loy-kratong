@@ -377,7 +377,7 @@ interface KratongData {
   wish: Wish;
 }
 
-export const Create: NextPage<{query: any}> = ({query}) => {
+export const Create: NextPage = () => {
   const [data, setData] = useState<KratongData>({
     kratong: {
       base: "banana-leaf",
