@@ -232,7 +232,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
           </div>
           <div className="flex flex-col relative z-10 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
             <div>
-              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 max-h-[150px] sm:max-h-[240px] mt-3 overflow-y-auto">
+              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 max-h-[150px] sm:max-h-[240px] mt-3 overflow-y-auto">
                 <div className="w-full">
                   <fieldset>
                     <label className="text-sm text-white" htmlFor="name">
