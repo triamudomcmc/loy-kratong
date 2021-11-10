@@ -6,21 +6,14 @@ import { Selected } from "./create";
 
 interface KratongProps {
   selected: Selected;
-  height: string;
-  offset: string;
 }
 
-/*
-height: 240px
-offset: 60px
-*/
-
-export const Kratong: NextPage<KratongProps> = ({ selected, height, offset }) => {
+export const PrincipalKratong: NextPage<KratongProps> = ({ selected }) => {
   return (
     <>
-      <div style={{ ["--size" as string]: height }} className={styles["kratong"]}>
+      <div style={{ ["--size" as string]: "360px" }} className={styles["kratong"]}>
         <div className={styles["topping"]}>
-          <div style={{ ["--offset-y" as string]: offset }} className={styles["decorations"]}>
+          <div style={{ ["--offset-y" as string]: "100px" }} className={styles["decorations"]}>
             {/*<KratongVariantPart part={Kratong.decorations["sign-quote"]}/>*/}
             {Object.keys(KratongMap.decorations).map((decoration: string) => {
               // @ts-ignore

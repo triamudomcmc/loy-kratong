@@ -14,7 +14,7 @@ interface KratongVariantPartProps {
 
 export const NormalPart: NextPage<KratongNormalPartProps> = ({ part, selected }) => {
   return (
-    <div className={styles["container"]} style={{ display: selected === part.id ? "block" : "none" }}>
+    <div className={styles["container"]} style={{ display: selected === part.id ? "inline-block" : "none" }}>
       <img className={styles["img"]} src={part.url} alt={part.name} />
     </div>
   );
@@ -22,7 +22,7 @@ export const NormalPart: NextPage<KratongNormalPartProps> = ({ part, selected })
 
 export const Candle: NextPage<KratongNormalPartProps> = ({ part, selected }) => {
   return (
-    <div className={styles["container"]} style={{ display: selected === part.id ? "block" : "none" }}>
+    <div className={styles["container"]} style={{ display: selected === part.id ? "inline-block" : "none" }}>
       <img className={styles["img"]} src={part.url} alt={part.name} />
     </div>
   );
@@ -30,7 +30,7 @@ export const Candle: NextPage<KratongNormalPartProps> = ({ part, selected }) => 
 
 export const VariantPart: NextPage<KratongVariantPartProps> = ({ part, selected }) => {
   return (
-    <div className={styles["container"]} style={{ display: selected === part.id ? "block" : "none" }}>
+    <div className={styles["container"]} style={{ display: selected === part.id ? "inline-block" : "none" }}>
       <img className={styles["img"]} src={part.variants[0]} alt={part.name} />
     </div>
   );

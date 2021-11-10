@@ -3,3 +3,26 @@ body {
   background: linear-gradient(182.71deg, #281981 -2.41%, #3a71b3 47.53%, #1a3270 100.68%);
   padding: 0;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: rgba(0, 0, 0, 0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #edf2f7;
+  border-radius: 100vh;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e0;
+}
