@@ -45,7 +45,8 @@ export const PrincipalKratong: NextPage<KratongProps> = ({ selected, height, off
               return <PrincipalPart key={swan} part={part} selected={selected.swan} />;
             })}
           </div>
-          <div style={{ ["--offset-shell-y" as string]: `${selected.offset}px` }} className={styles["shell"]}>
+          { /* changeme */ }
+          <div className={styles["shell"]}>
             {Object.keys(PrincipalMap.base).map((base: string) => {
               // @ts-ignore
               const part = PrincipalMap.base[base];

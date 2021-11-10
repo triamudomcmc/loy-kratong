@@ -5,7 +5,6 @@ export interface Selected {
   swan: string;
   candles: string;
   decorations: string;
-  offset: number;
 }
 
 export const PrincipalKratong: NextPage = () => {
