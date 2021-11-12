@@ -25,9 +25,16 @@
     bottom: 0;
     z-index: -1;
   }
+
+  > .darkwater {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+  }
 }
 
-.background > .sala-container {
+.background > .front-sala-container {
   position: absolute;
   bottom: -10px;
   z-index: 0;
@@ -41,4 +48,18 @@
     height: 100%;
     @apply flex justify-center;
   }
+}
+
+.create-scene {
+  height: 100vh;
+  position: relative;
+  background-color: #281981;
+  background: linear-gradient(182.71deg, #281981 -2.41%, #3a71b3 47.53%, #1a3270 100.68%);
+}
+
+.loy-scene {
+  height: 100vh;
+  position: relative;
+  background-color: #000;
+  background: linear-gradient(180deg, #000000 0%, #236bad 70.87%);
 }

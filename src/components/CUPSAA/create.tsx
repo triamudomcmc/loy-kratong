@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import { PrincipalKratong } from "./kratong";
-import { PrincipalMap } from "@map/kratong";
+import { CUPSAAKratong } from "./kratong";
+import { CUPSAAMap } from "@map/kratong";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import classnames from "classnames";
@@ -10,9 +10,8 @@ import { sendDataContext } from "@handlers/init";
 
 export interface Selected {
   base: string;
-  swan: string;
+  flowers: string;
   candles: string;
-  decorations: string;
 }
 
 interface CreateKratongProps {
@@ -22,12 +21,12 @@ interface CreateKratongProps {
 }
 
 const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, nextPage }) => {
-  const [section, setSection] = useState<"base" | "swan" | "candles" | "decorations">("base");
+  const [section, setSection] = useState<"base" | "flowers" | "candles">("base");
 
-  const generate = (part: "base" | "swan" | "candles" | "decorations") => {
+  const generate = (part: "base" | "flowers" | "candles") => {
     let parts: any[] = [];
 
-    Object.values(PrincipalMap[part]).forEach((k, i) => {
+    Object.values(CUPSAAMap[part]).forEach((k, i) => {
       // @ts-ignore
       const data = k;
       const partLoc = Math.ceil((i + 1) / 3) - 1;
@@ -44,7 +43,14 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
           )}
         >
           <div className="flex flex-col items-center mt-[-4px] mx-[-6px] p-4">
-            <Image objectFit="contain" alt={k["name"]} priority={true} width={2388} height={1668} src={data.url} />
+            <Image
+              objectFit="contain"
+              alt={k["name"]}
+              priority={true}
+              width={2388}
+              height={1668}
+              src={data.thumbnail ?? data.url}
+            />
             <span className="text-sm text-center py-2 px-2 text-[#726EA5] flex-shrink-0 w-full">{data.name}</span>
           </div>
         </div>,
@@ -64,8 +70,8 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
         <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
           <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
           <div className="flex flex-col items-center">
-            <div className="relative top-[-24px] sm:top-[-12px] mb-[17px] sm:mb-[30px]">
-              <PrincipalKratong height="175px" selected={selected} />
+            <div className="relative mb-[134px] sm:mb-[127px]">
+              <CUPSAAKratong height="175px" selected={selected} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse
@@ -88,7 +94,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
                   setSection("base");
                 }}
                 className={classnames(
-                  "px-3 sm:px-8 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
+                  "px-3 sm:px-6 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
                   section === "base"
                     ? "bg-[#2256A3] text-white shadow-lg"
                     : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
@@ -98,42 +104,29 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
               </button>
               <button
                 onClick={() => {
-                  setSection("swan");
+                  setSection("flowers");
                 }}
                 className={classnames(
-                  "px-2 sm:px-4 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
-                  section === "swan"
+                  "px-2 sm:px-6 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
+                  section === "flowers"
                     ? "bg-[#2256A3] text-white shadow-lg"
                     : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
                 )}
               >
-                หงส์
+                ดอกไม้
               </button>
               <button
                 onClick={() => {
                   setSection("candles");
                 }}
                 className={classnames(
-                  "px-2 sm:px-4 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
+                  "px-2 sm:px-6 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
                   section === "candles"
                     ? "bg-[#2256A3] text-white shadow-lg"
                     : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
                 )}
               >
                 เทียน
-              </button>
-              <button
-                onClick={() => {
-                  setSection("decorations");
-                }}
-                className={classnames(
-                  "px-2 sm:px-6 py-2 rounded-[20%] sm:rounded-full font-light text-sm transition-colors",
-                  section === "decorations"
-                    ? "bg-[#2256A3] text-white shadow-lg"
-                    : "bg-transparent text-[#2256A3] hover:text-[#0d264c]"
-                )}
-              >
-                ของตกแต่ง
               </button>
             </div>
           </div>
@@ -208,8 +201,8 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
           <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
             <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
-              <div className="relative top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
-                <PrincipalKratong height="175px" selected={selected} />
+              <div className="relative mb-[134px] sm:mb-[127px]">
+                <CUPSAAKratong height="175px" selected={selected} />
               </div>
               <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse
@@ -245,7 +238,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                       }}
                       value={wish.name}
                       className="block w-full mt-2 bg-transparent placeholder-[#f1f1f1] text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
-                      placeholder="ผอ.วรรณดี นาคสุขปาน"
+                      placeholder="สมาคมนักเรียนเก่าเตรียมอุดมศึกษา ในพระบรมราชูปถัมภ์"
                     />
                   </fieldset>
                   <div className="block mt-2 w-full">
@@ -272,7 +265,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                       }}
                       value={wish.content ?? ""}
                       className="block w-full mt-2 bg-transparent placeholder-[#eee] text-[#fdfdfd] outline-none border-b-2 border-white px-2 pt-2 pb-1  mb-4"
-                      placeholder="ขอให้ได้นักเรียนเตรียมอุดมฯ มีความสุข ประสบความสำเร็จ สอบได้คะแนนดี ๆ สาธุ"
+                      placeholder="ขอให้รวย ๆ ขอให้สุขภาพแข็งแรง ขอให้ครอบครัวมีความสุข สาธุ"
                     />
                   </fieldset>
 
@@ -343,13 +336,13 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
       <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
         <div className="flex flex-col justify-center items-center space-y-6 border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
           <div className="pt-8 pb-4 sm:pb-2 w-full">
-            <h1 className="text-white text-2xl text-center mb-8">สำเร็จ</h1>
-            <p className="text-white font-light text-lg text-center mb-2">{data.wish.name}:</p>
-            <p className="text-white font-light text-sm text-center mb-2">{data.wish.content}</p>
+            <h1 className="text-white text-2xl text-center mb-2">สำเร็จ</h1>
+            <p className="px-6 text-white font-light text-lg text-center mb-2">{data.wish.name}:</p>
+            <p className="px-6 text-white font-light text-sm text-center mb-2">{data.wish.content}</p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="relative top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
-              <PrincipalKratong height="175px" selected={data.kratong} />
+            <div className="relative mb-[134px] sm:mb-[127px]">
+              <CUPSAAKratong height="175px" selected={data.kratong} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse
@@ -386,13 +379,12 @@ interface KratongData {
 export const Create: NextPage = () => {
   const [data, setData] = useState<KratongData>({
     kratong: {
-      base: "base-blue",
-      candles: "candle-blue",
-      decorations: "rice1",
-      swan: "swan-blue",
+      base: "base-pink",
+      candles: "candle-pink",
+      flowers: "flower-pink",
     },
     wish: {
-      name: "ผอ.วรรณดี นาคสุขปาน",
+      name: "สมาคมนักเรียนเก่าเตรียมอุดมศึกษา ในพระบรมราชูปถัมภ์",
       content: "",
     },
   });
@@ -440,8 +432,4 @@ export const Create: NextPage = () => {
       {page === 3 && <Result data={data} prevPage={PrevPage} />}
     </>
   );
-};
-
-const Draft = () => {
-  return <></>;
 };

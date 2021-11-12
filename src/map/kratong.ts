@@ -26,6 +26,7 @@ export type KratongType = {
   id: string;
   type: string;
   url: string;
+  thumbnail?: string;
   offset?: number;
   decorationOffset?: number;
   paddingXFlower?: number;
@@ -37,6 +38,7 @@ export type KratongTypeVariant = {
   id: string;
   type: string;
   variants: string[];
+  thumbnail?: string;
   offset?: number;
   decorationOffset?: number;
   paddingXFlower?: number;
@@ -431,6 +433,140 @@ export const PrincipalMap: PrincipalMapType = {
       name: "สีเหลือง",
       description: "คำอธิบาย",
       url: "/assets/images/principal/swan/yellow.png",
+    },
+  },
+};
+
+interface CUPSAAMapType {
+  base: {
+    blue: KratongType;
+    orange: KratongType;
+    pink: KratongType;
+    lilac: KratongType;
+    lavender: KratongType;
+  };
+  flowers: {
+    blue: KratongType;
+    orange: KratongType;
+    pink: KratongType;
+    violet: KratongType;
+    yellow: KratongType;
+  };
+  candles: {
+    blue: KratongType;
+    pink: KratongType;
+    violet: KratongType;
+    yellow: KratongType;
+  };
+}
+
+export const CUPSAAMap: CUPSAAMapType = {
+  base: {
+    blue: {
+      type: "normal",
+      id: "base-blue",
+      name: "สีฟ้า",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/base/blue.png",
+    },
+    orange: {
+      type: "normal",
+      id: "base-orange",
+      name: "สีส้ม",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/base/orange.png",
+    },
+    pink: {
+      type: "normal",
+      id: "base-pink",
+      name: "สีชมพู",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/base/pink.png",
+    },
+    lilac: {
+      type: "normal",
+      id: "base-lilac",
+      name: "สีม่วงชมพู",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/base/lilac.png",
+    },
+    lavender: {
+      type: "normal",
+      id: "base-lavender",
+      name: "สีม่วงลาเวนเดอร์",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/base/lavender.png",
+    },
+  },
+  flowers: {
+    blue: {
+      type: "normal",
+      id: "flower-blue",
+      name: "สีฟ้า",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/flowers/blue.png",
+    },
+    orange: {
+      type: "normal",
+      id: "flower-orange",
+      name: "สีส้ม",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/flowers/orange.png",
+    },
+    pink: {
+      type: "normal",
+      id: "flower-pink",
+      name: "สีชมพู",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/flowers/pink.png",
+    },
+    violet: {
+      type: "normal",
+      id: "flower-violet",
+      name: "สีม่วง",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/flowers/violet.png",
+    },
+    yellow: {
+      type: "normal",
+      id: "flower-yellow",
+      name: "สีเหลือง",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/flowers/yellow.png",
+    },
+  },
+  candles: {
+    blue: {
+      type: "normal",
+      id: "candle-blue",
+      name: "สีฟ้า",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/candles/blue.png",
+      thumbnail: "/assets/images/CUPSAA/thumbnail/candles/blue.png",
+    },
+    pink: {
+      type: "normal",
+      id: "candle-pink",
+      name: "สีชมพู",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/candles/pink.png",
+      thumbnail: "/assets/images/CUPSAA/thumbnail/candles/pink.png",
+    },
+    violet: {
+      type: "normal",
+      id: "candle-violet",
+      name: "สีม่วง",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/candles/violet.png",
+      thumbnail: "/assets/images/CUPSAA/thumbnail/candles/violet.png",
+    },
+    yellow: {
+      type: "normal",
+      id: "candle-yellow",
+      name: "สีเหลือง",
+      description: "คำอธิบาย",
+      url: "/assets/images/CUPSAA/candles/yellow.png",
+      thumbnail: "/assets/images/CUPSAA/thumbnail/candles/yellow.png",
     },
   },
 };

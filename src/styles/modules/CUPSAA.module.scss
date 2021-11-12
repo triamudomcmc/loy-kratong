@@ -1,0 +1,43 @@
+.kratong {
+  --size: 512px;
+  --ratio: calc(var(--size) / 300);
+  width: var(--size);
+  position: relative;
+}
+
+.kratong > .base {
+  display: inline-block;
+
+  > .flowers {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+  }
+
+  > .shell {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.kratong > .topping {
+  > .candle {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    top: 0;
+  }
+
+  > .logo {
+    position: absolute;
+    z-index: 7;
+    top: 0;
+  }
+}
+
+.scene {
+  height: 100vh;
+  background-color: #281981;
+  background: linear-gradient(182.71deg, #281981 -2.41%, #3a71b3 47.53%, #1a3270 100.68%);
+}

@@ -1,7 +1,7 @@
-import {establishNextApi} from "next-bridge"
-import {sendDataContext} from "@handlers/init";
-import {sendDataAction} from "@handlers/action";
+import { establishNextApi } from "next-bridge";
+import { sendDataContext } from "@handlers/init";
+import { sendDataAction } from "@handlers/action";
 
-const api = establishNextApi("POST", sendDataContext.init(sendDataAction))
+const api = establishNextApi("POST", sendDataContext.init(sendDataAction));
 
-export default api
+export default api;

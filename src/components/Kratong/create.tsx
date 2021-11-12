@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { Kratong } from "./kratong";
 import { KratongMap } from "@map/kratong";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import classnames from "classnames";
-import {sendDataContext} from "@handlers/init";
-import {useRouter} from "next/router";
+import { sendDataContext } from "@handlers/init";
+import { useRouter } from "next/router";
 
 export interface Selected {
   base: string;
@@ -45,6 +45,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
         >
           <div className="flex flex-col items-center mt-[-4px] mx-[-6px]">
             <Image
+              objectFit="contain"
               alt={k["name"]}
               priority={true}
               width={2388}
@@ -329,21 +330,20 @@ interface ResultProps {
 }
 
 const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const send = async (query: any) => {
     if (query) {
-      const res = await sendDataContext.call({id: query.id, data: data})
+      const res = await sendDataContext.call({ id: query.id, data: data });
       if (res) {
-        console.log(res)
+        console.log(res);
       }
     }
-  }
+  };
 
   useEffect(() => {
-    send(router.query)
-  }, [router])
+    send(router.query);
+  }, [router]);
 
   return (
     <>
@@ -390,7 +390,6 @@ export const Create: NextPage = () => {
       content: "",
     },
   });
-
 
   const [page, setPage] = useState(1);
 
