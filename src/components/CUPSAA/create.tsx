@@ -62,7 +62,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
 
   return (
     <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
-      <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
+      <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
         <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
           <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
           <div className="flex flex-col items-center">
@@ -193,7 +193,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
   return (
     <>
       <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
-        <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
+        <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
           <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
             <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
@@ -215,7 +215,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
           </div>
           <div className="flex flex-col relative z-10 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
             <div>
-              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 max-h-[150px] sm:max-h-[175px] mt-3 overflow-y-auto">
+              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 flex-grow-1 mt-3 overflow-y-auto">
                 <div className="w-full">
                   <fieldset>
                     <label className="text-sm text-white" htmlFor="name">
@@ -276,7 +276,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
             </div>
             <div className="flex justify-end space-x-2 px-4">
               <button
-                className="flex items-center text-sm sm:text-md bg-transparent text-white border border-white px-6 py-2 space-x-1 rounded-full font-light"
+                className="flex items-center text-[12px] sm:text-md bg-transparent text-white border border-white px-6 py-2 space-x-1 rounded-full font-light"
                 onClick={() => prevPage()}
               >
                 <ChevronLeftIcon className="w-5 h-5" />
@@ -284,7 +284,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
               </button>
 
               <button
-                className="flex items-center bg-[#2256A3] text-white px-6 py-2 rounded-full shadow-lg font-light"
+                className="flex items-center bg-[#2256A3] text-[12px] sm:text-md text-white px-6 py-2 rounded-full shadow-lg font-light"
                 onClick={() => {
                   if (!validateValues()) return;
 
