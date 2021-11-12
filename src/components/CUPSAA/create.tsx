@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { CUPSAAKratong } from "./kratong";
 import { CUPSAAMap } from "@map/kratong";
 import Image from "next/image";
@@ -38,7 +38,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
             setSelected({ ...selected, [part]: data.id });
           }}
           className={classnames(
-            "max-w-[8rem] max-h-[9rem] border-2 rounded-[20%] cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
+            "border-2 rounded-[20%] cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
             selected[part] === data.id ? "border-white" : "border-transparent"
           )}
         >
@@ -51,17 +51,13 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
               height={1668}
               src={data.thumbnail ?? data.url}
             />
-            <span className="text-sm text-center py-2 px-2 text-[#726EA5] flex-shrink-0 w-full">{data.name}</span>
+            <span className="text-sm text-center text-[#726EA5] my-2 break-words w-full">{data.name}</span>
           </div>
         </div>,
       ];
     });
 
-    return parts.map((d, i) => (
-      <div key={`col-${i}`} className="flex margin-x-auto space-x-4">
-        {d.map((g: Element) => g)}
-      </div>
-    ));
+    return parts.map((d, i) => <Fragment key={`col-${i}`}>{d.map((g: Element) => g)}</Fragment>);
   };
 
   return (
@@ -130,7 +126,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
               </button>
             </div>
           </div>
-          <div className="space-y-6 px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
+          <div className="grid grid-cols-3 gap-4 px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
             {generate(section)}
           </div>
           <div className="flex justify-end px-4 mt-1">
