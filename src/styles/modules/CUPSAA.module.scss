@@ -1,6 +1,5 @@
 .kratong {
   --size: 512px;
-  --ratio: calc(var(--size) / 300);
   width: var(--size);
   position: relative;
 }
@@ -25,7 +24,6 @@
   > .candle {
     position: absolute;
     z-index: 3;
-    width: 100%;
     top: 0;
   }
 

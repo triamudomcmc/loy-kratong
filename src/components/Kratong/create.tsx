@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Kratong } from "./kratong";
 import { KratongMap } from "@map/kratong";
 import Image from "next/image";
@@ -39,7 +39,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
             setSelected({ ...selected, [part]: data.id });
           }}
           className={classnames(
-            "max-w-[8rem] max-h-[9rem] border-2 rounded-lg cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
+            "border-2 rounded-[20%] cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
             selected[part] === data.id ? "border-white" : "border-transparent"
           )}
         >
@@ -50,31 +50,29 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
               priority={true}
               width={2388}
               height={1668}
-              src={"url" in data ? data.url : data.variants[0]}
+              src={
+                "url" in data ? data?.thumbnail ?? data.url : data?.thumbnails ? data.thumbnails[0] : data.variants[0]
+              }
             />
-            <span className="text-sm text-center py-2 px-2 text-[#726EA5] flex-shrink-0 w-full">{data.name}</span>
+            <span className="text-sm text-center text-[#726EA5] my-2 break-words w-full px-1">{data.name}</span>
           </div>
         </div>,
       ];
     });
 
-    return parts.map((d, i) => (
-      <div key={`col-${i}`} className="flex margin-x-auto space-x-4">
-        {d.map((g: Element) => g)}
-      </div>
-    ));
+    return parts.map((d, i) => <Fragment key={`col-${i}`}>{d.map((g: Element) => g)}</Fragment>);
   };
 
   return (
     <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
-      <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
+      <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
         <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
-          <h1 className="text-white text-2xl text-center mb-8">สร้างกระทง</h1>
+          <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
           <div className="flex flex-col items-center">
-            <div className="relative top-[-24px] sm:top-[-12px] mb-[-34px] sm:mb-[-30px]">
-              <Kratong height="240px" offset="60px" selected={selected} />
+            <div className="relative mb-[134px] sm:mb-[127px]">
+              <Kratong height="150px" selected={selected} />
             </div>
-            <svg className="w-[240px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse
                 cx="184.709"
                 cy="20"
@@ -144,7 +142,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
               </button>
             </div>
           </div>
-          <div className="space-y-6 px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
+          <div className="grid grid-cols-3 gap-4 px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
             {generate(section)}
           </div>
           <div className="flex justify-end px-4 mt-1">
@@ -211,14 +209,14 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
   return (
     <>
       <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
-        <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
+        <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
           <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
-            <h1 className="text-white text-2xl text-center mb-8">ใส่คำอธิษฐาน</h1>
+            <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
-              <div className="relative top-[-24px] sm:top-[-12px] mb-[-34px] sm:mb-[-30px]">
-                <Kratong height="240px" offset="60px" selected={selected} />
+              <div className="relative mb-[134px] sm:mb-[127px]">
+                <Kratong height="150px" selected={selected} />
               </div>
-              <svg className="w-[240px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse
                   cx="184.709"
                   cy="20"
@@ -233,7 +231,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
           </div>
           <div className="flex flex-col relative z-10 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
             <div>
-              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 max-h-[150px] sm:max-h-[240px] mt-3 overflow-y-auto">
+              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 flex-grow-1 mt-3 overflow-y-auto">
                 <div className="w-full">
                   <fieldset>
                     <label className="text-sm text-white" htmlFor="name">
@@ -294,7 +292,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
             </div>
             <div className="flex justify-end space-x-2 px-4">
               <button
-                className="flex items-center text-sm sm:text-md bg-transparent text-white border border-white px-6 py-2 space-x-1 rounded-full font-light"
+                className="flex items-center text-[12px] sm:text-md bg-transparent text-white border border-white px-6 py-2 space-x-1 rounded-full font-light"
                 onClick={() => prevPage()}
               >
                 <ChevronLeftIcon className="w-5 h-5" />
@@ -302,7 +300,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
               </button>
 
               <button
-                className="flex items-center bg-[#2256A3] text-white px-6 py-2 rounded-full shadow-lg font-light"
+                className="flex items-center bg-[#2256A3] text-[12px] sm:text-md text-white px-6 py-2 rounded-full shadow-lg font-light"
                 onClick={() => {
                   if (!validateValues()) return;
 
@@ -335,9 +333,6 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
   const send = async (query: any) => {
     if (query) {
       const res = await sendDataContext.call({ id: query.id, data: data });
-      if (res) {
-        console.log(res);
-      }
     }
   };
 
@@ -355,7 +350,7 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
             <p className="text-white font-light text-sm text-center mb-2">{data.wish.content}</p>
           </div>
           <div className="flex justify-center w-full relative top-[-24px]">
-            <Kratong height="240px" offset="60px" selected={data.kratong} />
+            <Kratong height="240px" selected={data.kratong} />
           </div>
           <div className="justify-self-end flex justify-end space-x-2 px-4">
             <button
@@ -383,7 +378,7 @@ export const Create: NextPage = () => {
       base: "banana-leaf",
       flowers: "love",
       candles: "candle-yellow",
-      decorations: "nak",
+      decorations: "none",
     },
     wish: {
       name: "",

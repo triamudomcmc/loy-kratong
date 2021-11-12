@@ -1,14 +1,12 @@
 import type { NextPage } from "next";
-import {KratongMap, KratongType, KratongTypeVariant} from "@map/kratong";
+import { KratongMap, KratongType, KratongTypeVariant } from "@map/kratong";
 import styles from "@styles/modules/Kratong.module.scss";
 import { NormalPart, VariantPart, Candle } from "./parts";
 import { Selected } from "./create";
 
-
 interface KratongProps {
   selected: Selected;
   height: string;
-  offset: string;
 }
 
 /*
@@ -16,14 +14,12 @@ height: 240px
 offset: 60px
 */
 
-export const Kratong: NextPage<KratongProps> = ({ selected, height, offset }) => {
-
+export const Kratong: NextPage<KratongProps> = ({ selected, height }) => {
   return (
     <>
       <div style={{ ["--size" as string]: height }} className={styles["kratong"]}>
         <div className={styles["topping"]}>
-          <div style={{ ["--offset-y" as string]: `${Object.values(KratongMap.decorations).find((b: KratongType | KratongTypeVariant) => b.id === selected.decorations)?.decorationOffset ?? 80}px` }} className={styles["decorations"]}>
-            {/*<KratongVariantPart part={Kratong.decorations["sign-quote"]}/>*/}
+          <div className={styles["decorations"]}>
             {Object.keys(KratongMap.decorations).map((decoration: string) => {
               // @ts-ignore
               const part = KratongMap.decorations[decoration];
@@ -39,12 +35,10 @@ export const Kratong: NextPage<KratongProps> = ({ selected, height, offset }) =>
               const part = KratongMap.candles[candle];
               return <Candle key={candle} part={part} selected={selected.candles} />;
             })}
-            {/*<Candle part={Kratong.other.candles} />*/}
           </div>
         </div>
         <div className={styles["base"]}>
-          <div style={{["--padding-flower-x" as string]: `${Object.values(KratongMap.flowers).find((b: KratongType) => b.id === selected.flowers)?.paddingXFlower ?? 0}px`}} className={styles["flowers"]}>
-            {/*<NormalPart part={Kratong.flowers["cactus"]} />*/}
+          <div className={styles["flowers"]}>
             {Object.keys(KratongMap.flowers).map((flower: string) => {
               // @ts-ignore
               const part = KratongMap.flowers[flower];
@@ -53,8 +47,7 @@ export const Kratong: NextPage<KratongProps> = ({ selected, height, offset }) =>
                 return <VariantPart key={flower} part={part} selected={selected.flowers} />;
             })}
           </div>
-          <div style={{ ["--offset-shell-y" as string]: `${Object.values(KratongMap.base).find((b: KratongType) => b.id === selected.base)?.offset ?? 0}px`}} className={styles["shell"]}>
-            {/*<NormalPart part={Kratong.base["coconut-shell"]} />*/}
+          <div className={styles["shell"]}>
             {Object.keys(KratongMap.base).map((base: string) => {
               // @ts-ignore
               const part = KratongMap.base[base];
