@@ -5,7 +5,6 @@ import { Navbar } from "@components/Nav";
 
 import Router from "next/router";
 import { useEffect } from "react";
-import { CUPSAAKratong } from "@components/CUPSAA/kratong";
 type ParsedUrlQuery = NodeJS.Dict<string | string[]>;
 
 const CUPSAA: NextPage<{ query: ParsedUrlQuery }> = ({ query }) => {

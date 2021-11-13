@@ -7,6 +7,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import classnames from "classnames";
 import { useRouter } from "next/router";
 import { sendDataContext } from "@handlers/init";
+import { motion } from "framer-motion";
 
 export interface Selected {
   base: string;
@@ -32,8 +33,13 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
       const partLoc = Math.ceil((i + 1) / 3) - 1;
       parts[partLoc] = [
         ...(parts[partLoc] || []),
-        <div
+        <motion.div
           key={`part_${k.id}`}
+          whileHover={{
+            scale: 1.05,
+            transition: { duration: 0.1 },
+          }}
+          whileTap={{ scale: 0.9 }}
           onClick={() => {
             setSelected({ ...selected, [part]: data.id });
           }}
@@ -53,7 +59,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
             />
             <span className="text-sm text-center text-[#726EA5] my-2 break-words w-full">{data.name}</span>
           </div>
-        </div>,
+        </motion.div>,
       ];
     });
 

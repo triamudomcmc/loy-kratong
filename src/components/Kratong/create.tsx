@@ -84,7 +84,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
       const data = k;
       parts[i] = [
         ...(parts[i] || []),
-        <KratongTile selected={selected} setSelected={setSelected} data={data} part={part} />,
+        <KratongTile key={i} selected={selected} setSelected={setSelected} data={data} part={part} />,
       ];
     });
 
@@ -106,7 +106,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
         // @ts-ignore
         parts[i] = [
           ...(parts[i] || []),
-          <KratongTile selected={selected} setSelected={setSelected} data={data} part={"decorations"} />,
+          <KratongTile key={i} selected={selected} setSelected={setSelected} data={data} part={"decorations"} />,
         ];
       });
 
