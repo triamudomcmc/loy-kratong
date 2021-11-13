@@ -1,19 +1,20 @@
 import type { NextPage } from "next";
 import { Fragment, useEffect, useState } from "react";
 import { Kratong } from "./kratong";
-import { KratongMap } from "@map/kratong";
+import { KratongMap, KratongType, KratongTypeVariant } from "@map/kratong";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import classnames from "classnames";
 import { sendDataContext } from "@handlers/init";
 import { useRouter } from "next/router";
-import {PrincipalKratong} from "@components/Principal/kratong";
+import { motion } from "framer-motion";
 
 export interface Selected {
   base: string;
   flowers: string;
   candles: string;
   decorations: string;
+  signVariant: number;
 }
 
 interface CreateKratongProps {
@@ -21,6 +22,56 @@ interface CreateKratongProps {
   setSelected: (selection: Selected) => void;
   nextPage: () => void;
 }
+
+interface KratongTileProps {
+  part: "base" | "flowers" | "candles" | "decorations";
+  setSelected: (selection: Selected) => void;
+  selected: Selected;
+  data: KratongType | KratongTypeVariant;
+}
+
+const KratongTile: NextPage<KratongTileProps> = ({ part, setSelected, selected, data }) => {
+  // @ts-ignore
+  return (
+    <>
+      <motion.div
+        key={`part_${data.id}`}
+        whileHover={{
+          scale: 1.05,
+          transition: { duration: 0.1 },
+        }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => {
+          setSelected({ ...selected, [part]: data.id });
+        }}
+        className={classnames(
+          "border-2 rounded-[20%] cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
+          selected[part] === data.id ? "border-white" : "border-transparent"
+        )}
+      >
+        <div className="flex flex-col items-center mt-[-4px] mx-[-6px]">
+          <Image
+            objectFit="contain"
+            alt={data["name"]}
+            priority={true}
+            width={2388}
+            height={1668}
+            src={
+              "url" in data
+                ? data?.thumbnail ?? data.url
+                : data?.thumbnails
+                ? data.thumbnails[selected.signVariant]
+                : data.variants[selected.signVariant]
+            }
+          />
+          <span className="text-sm text-center text-[#726EA5] my-2 break-words w-full px-1">{data.name}</span>
+        </div>
+      </motion.div>
+    </>
+  );
+};
+
+const signColors = ["#c93139", "#77c0f1", "#9ee37c", "#ffa654", "#ff97b2", "#f38de5"];
 
 const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, nextPage }) => {
   const [section, setSection] = useState<"base" | "flowers" | "candles" | "decorations">("base");
@@ -31,37 +82,41 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
     Object.values(KratongMap[part]).forEach((k, i) => {
       // @ts-ignore
       const data = k;
-      const partLoc = Math.ceil((i + 1) / 3) - 1;
-      parts[partLoc] = [
-        ...(parts[partLoc] || []),
-        <div
-          key={`part_${k.id}`}
-          onClick={() => {
-            setSelected({ ...selected, [part]: data.id });
-          }}
-          className={classnames(
-            "border-2 rounded-[20%] cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
-            selected[part] === data.id ? "border-white" : "border-transparent"
-          )}
-        >
-          <div className="flex flex-col items-center mt-[-4px] mx-[-6px]">
-            <Image
-              objectFit="contain"
-              alt={k["name"]}
-              priority={true}
-              width={2388}
-              height={1668}
-              src={
-                "url" in data ? data?.thumbnail ?? data.url : data?.thumbnails ? data.thumbnails[0] : data.variants[0]
-              }
-            />
-            <span className="text-sm text-center text-[#726EA5] my-2 break-words w-full px-1">{data.name}</span>
-          </div>
-        </div>,
+      parts[i] = [
+        ...(parts[i] || []),
+        <KratongTile selected={selected} setSelected={setSelected} data={data} part={part} />,
       ];
     });
 
-    return parts.map((d, i) => <Fragment key={`col-${i}`}>{d.map((g: Element) => g)}</Fragment>);
+    return parts.map((d, i) => (
+      <Fragment key={`col-${i}`}>
+        {d.map((g: Element, idx: number) => (
+          <Fragment key={idx}>{g}</Fragment>
+        ))}
+      </Fragment>
+    ));
+  };
+
+  const generateDecorations = (index: number) => {
+    let parts: any[] = [];
+
+    Object.values(KratongMap["decorations"])
+      .filter((data) => (index === 1 ? data.type === "variant" : data.type !== "variant"))
+      .forEach((data, i) => {
+        // @ts-ignore
+        parts[i] = [
+          ...(parts[i] || []),
+          <KratongTile selected={selected} setSelected={setSelected} data={data} part={"decorations"} />,
+        ];
+      });
+
+    return parts.map((d, i) => (
+      <Fragment key={`col-${i}`}>
+        {d.map((g: Element, idx: number) => (
+          <Fragment key={idx}>{g}</Fragment>
+        ))}
+      </Fragment>
+    ));
   };
 
   return (
@@ -70,7 +125,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
         <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
           <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
           <div className="flex flex-col items-center">
-            <div className="relative mb-[134px] sm:mb-[137px]">
+            <div className="relative mb-[134px] sm:mb-[127px]">
               <Kratong height="150px" selected={selected} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -143,9 +198,47 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-4 px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
-            {generate(section)}
-          </div>
+          {section === "decorations" ? (
+            <div className="px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
+              <div className="grid grid-cols-3 gap-4">{generateDecorations(0)}</div>
+
+              <div className="mt-6">
+                <div className="mb-4">
+                  <p className="px-0 py-0 mb-2 text-xl text-[#293d5b]">ป้าย</p>
+                  <div className="flex">
+                    {Array.from({ length: 6 }, (_, i) => i).map((i) => {
+                      return (
+                        <motion.div
+                          key={`col-${i}`}
+                          whileHover={{
+                            scale: 1.2,
+                            transition: { duration: 0.1 },
+                          }}
+                          whileTap={{ scale: 0.9 }}
+                          className={classnames(
+                            "p-4 mr-2 rounded-full border border-white hover:opacity-90 cursor-pointer shadow-md",
+                            selected.signVariant === i ? "border-2 opacity-100" : "opacity-50"
+                          )}
+                          style={{ backgroundColor: signColors[i] }}
+                          onClick={() => {
+                            setSelected({
+                              ...selected,
+                              signVariant: i,
+                            });
+                          }}
+                        ></motion.div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="grid grid-cols-3 gap-4">{generateDecorations(1)}</div>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-3 gap-4 px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
+              {generate(section)}
+            </div>
+          )}
           <div className="flex justify-end px-4 mt-1">
             <button
               className="flex items-center bg-[#2256A3] text-white px-6 py-2 space-x-1 rounded-full shadow-lg font-light"
@@ -214,7 +307,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
           <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
             <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
-              <div className="relative mb-[134px] sm:mb-[137px]">
+              <div className="relative mb-[134px] sm:mb-[127px]">
                 <Kratong height="150px" selected={selected} />
               </div>
               <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -334,13 +427,6 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
   const send = async (query: any) => {
     if (query) {
       const res = await sendDataContext.call({ id: query.id, data: data });
-      if (res) {
-        if (!res.status) {
-          send(query)
-        }
-      }else{
-        send(query)
-      }
     }
   };
 
@@ -357,21 +443,8 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
             <p className="text-white font-light text-lg text-center mb-2">{data.wish.name}:</p>
             <p className="text-white font-light text-sm text-center mb-2">{data.wish.content}</p>
           </div>
-          <div className="flex flex-col items-center">
-            <div className="relative h-[145px] top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
-              <Kratong height="175px" selected={data.kratong} />
-            </div>
-            <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse
-                cx="184.709"
-                cy="20"
-                rx="184.5"
-                ry="20"
-                fill="white"
-                fillOpacity="0.3"
-                style={{ mixBlendMode: "soft-light" }}
-              />
-            </svg>
+          <div className="flex justify-center w-full relative top-[-24px]">
+            <Kratong height="240px" selected={data.kratong} />
           </div>
           <div className="justify-self-end flex justify-end space-x-2 px-4">
             <button
@@ -388,18 +461,19 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
   );
 };
 
-export interface KratongData {
+interface KratongData {
   kratong: Selected;
   wish: Wish;
 }
 
-export const Create: NextPage<{idata: KratongData}> = ({idata}) => {
-  const [data, setData] = useState<KratongData>(Object.keys(idata).length > 1 ? idata : {
+export const Create: NextPage = () => {
+  const [data, setData] = useState<KratongData>({
     kratong: {
       base: "banana-leaf",
       flowers: "love",
       candles: "candle-yellow",
       decorations: "none",
+      signVariant: 0,
     },
     wish: {
       name: "",

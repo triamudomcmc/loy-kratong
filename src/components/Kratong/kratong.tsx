@@ -26,7 +26,14 @@ export const Kratong: NextPage<KratongProps> = ({ selected, height }) => {
               if (part.type === "normal")
                 return <NormalPart key={decoration} part={part} selected={selected.decorations} />;
               else if (part.type === "variant")
-                return <VariantPart key={decoration} part={part} selected={selected.decorations} />;
+                return (
+                  <VariantPart
+                    key={decoration}
+                    part={part}
+                    selected={selected.decorations}
+                    signVariant={selected.signVariant}
+                  />
+                );
             })}
           </div>
           <div className={styles["candle"]}>
@@ -44,7 +51,14 @@ export const Kratong: NextPage<KratongProps> = ({ selected, height }) => {
               const part = KratongMap.flowers[flower];
               if (part.type === "normal") return <NormalPart key={flower} part={part} selected={selected.flowers} />;
               else if (part.type === "variant")
-                return <VariantPart key={flower} part={part} selected={selected.flowers} />;
+                return (
+                  <VariantPart
+                    key={flower}
+                    part={part}
+                    selected={selected.flowers}
+                    signVariant={selected.signVariant}
+                  />
+                );
             })}
           </div>
           <div className={styles["shell"]}>
@@ -55,7 +69,9 @@ export const Kratong: NextPage<KratongProps> = ({ selected, height }) => {
                 // @ts-ignore
                 return <NormalPart key={base} part={KratongMap.base[base]} selected={selected.base} />;
               } else if (part.type === "variant")
-                return <VariantPart key={base} part={part} selected={selected.base} />;
+                return (
+                  <VariantPart key={base} part={part} selected={selected.base} signVariant={selected.signVariant} />
+                );
             })}
           </div>
         </div>

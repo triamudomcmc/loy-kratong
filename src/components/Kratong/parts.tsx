@@ -10,6 +10,7 @@ interface KratongNormalPartProps {
 interface KratongVariantPartProps {
   part: KratongVariantPartType;
   selected: string;
+  signVariant: number;
 }
 
 export const NormalPart: NextPage<KratongNormalPartProps> = ({ part, selected }) => {
@@ -28,10 +29,32 @@ export const Candle: NextPage<KratongNormalPartProps> = ({ part, selected }) => 
   );
 };
 
-export const VariantPart: NextPage<KratongVariantPartProps> = ({ part, selected }) => {
+export const VariantPart: NextPage<KratongVariantPartProps> = ({ part, selected, signVariant }) => {
   return (
-    <div className={styles["container"]} style={{ display: selected === part.id ? "inline-block" : "none" }}>
-      <img className={styles["img"]} src={part.variants[0]} alt={part.name} />
-    </div>
+    <>
+      {part.variants.map((variant: string, variantIdx) => {
+        return (
+          <div
+            key={variantIdx}
+            className={styles["container"]}
+            style={{ display: selected === part.id && variantIdx === signVariant ? "inline-block" : "none" }}
+          >
+            <img className={styles["img"]} src={variant} alt={part.name} />
+          </div>
+        );
+      })}
+    </>
   );
 };
+
+/*
+{Object.keys(KratongMap.base).map((base: string) => {
+  // @ts-ignore
+  const part = KratongMap.base[base];
+  if (part.type === "normal") {
+    // @ts-ignore
+    return <NormalPart key={base} part={KratongMap.base[base]} selected={selected.base} />;
+  } else if (part.type === "variant")
+    return <VariantPart key={base} part={part} selected={selected.base} />;
+})}
+*/

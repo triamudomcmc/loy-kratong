@@ -1,13 +1,13 @@
 import type { NextPage } from "next";
 import { SalaFrontBG } from "@components/Background";
-import {Create, KratongData} from "./create";
+import { Create } from "./create";
 
-export const KratongPage: NextPage<{data: KratongData}> = ({data}) => {
+export const KratongPage: NextPage = () => {
   return (
     <>
       <article>
         <SalaFrontBG />
-        <Create idata={data} />
+        <Create />
       </article>
     </>
   );
