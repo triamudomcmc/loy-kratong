@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { PrincipalKratong } from "./kratong";
 import { PrincipalMap } from "@map/kratong";
 import Image from "next/image";
@@ -39,7 +39,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
             setSelected({ ...selected, [part]: data.id });
           }}
           className={classnames(
-            "max-w-[8rem] max-h-[9rem] border-2 rounded-[20%] cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
+            "border-2 rounded-[20%] cursor-pointer bg-[#F5F5FB] transition-opacity bg-opacity-40 hover:bg-opacity-60",
             selected[part] === data.id ? "border-white" : "border-transparent"
           )}
         >
@@ -51,21 +51,17 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
       ];
     });
 
-    return parts.map((d, i) => (
-      <div key={`col-${i}`} className="flex margin-x-auto space-x-4">
-        {d.map((g: Element) => g)}
-      </div>
-    ));
+    return parts.map((d, i) => <Fragment key={`col-${i}`}>{d.map((g: Element) => g)}</Fragment>);
   };
 
   return (
     <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
-      <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
+      <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
         <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
           <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
           <div className="flex flex-col items-center">
             <div className="relative top-[-24px] sm:top-[-12px] mb-[17px] sm:mb-[30px]">
-              <PrincipalKratong height="175px" selected={selected} />
+              <PrincipalKratong height="150px" selected={selected} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse
@@ -137,7 +133,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
               </button>
             </div>
           </div>
-          <div className="space-y-6 px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
+          <div className="grid grid-cols-3 gap-4 px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
             {generate(section)}
           </div>
           <div className="flex justify-end px-4 mt-1">
@@ -204,12 +200,12 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
   return (
     <>
       <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
-        <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
+        <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
           <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
             <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
               <div className="relative top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
-                <PrincipalKratong height="175px" selected={selected} />
+                <PrincipalKratong height="150px" selected={selected} />
               </div>
               <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse
@@ -226,7 +222,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
           </div>
           <div className="flex flex-col relative z-10 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
             <div>
-              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 max-h-[150px] sm:max-h-[175px] mt-3 overflow-y-auto">
+              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 max-h-[150px] sm:max-h-[150px] mt-3 overflow-y-auto">
                 <div className="w-full">
                   <fieldset>
                     <label className="text-sm text-white" htmlFor="name">
@@ -287,7 +283,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
             </div>
             <div className="flex justify-end space-x-2 px-4">
               <button
-                className="flex items-center text-sm sm:text-md bg-transparent text-white border border-white px-6 py-2 space-x-1 rounded-full font-light"
+                className="flex items-center text-[12px] sm:text-md bg-transparent text-white border border-white px-6 py-2 space-x-1 rounded-full font-light"
                 onClick={() => prevPage()}
               >
                 <ChevronLeftIcon className="w-5 h-5" />
@@ -295,7 +291,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
               </button>
 
               <button
-                className="flex items-center bg-[#2256A3] text-white px-6 py-2 rounded-full shadow-lg font-light"
+                className="flex items-center bg-[#2256A3] text-[12px] sm:text-md text-white px-6 py-2 rounded-full shadow-lg font-light"
                 onClick={() => {
                   if (!validateValues()) return;
 
@@ -349,7 +345,7 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
           </div>
           <div className="flex flex-col items-center">
             <div className="relative top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
-              <PrincipalKratong height="175px" selected={data.kratong} />
+              <PrincipalKratong height="150px" selected={data.kratong} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse
