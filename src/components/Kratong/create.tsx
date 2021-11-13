@@ -125,7 +125,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
         <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
           <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
           <div className="flex flex-col items-center">
-            <div className="relative mb-[134px] sm:mb-[137px]">
+            <div className="relative h-[150px] mb-[10px]">
               <Kratong height="150px" selected={selected} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -310,7 +310,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
           <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
             <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
-              <div className="relative mb-[134px] sm:mb-[137px]">
+              <div className="relative h-[150px] mb-[10px]">
                 <Kratong height="150px" selected={selected} />
               </div>
               <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">

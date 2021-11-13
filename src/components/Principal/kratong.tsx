@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { PrincipalMap } from "@map/kratong";
 import styles from "@styles/modules/Principal.module.scss";
-import { PrincipalPart } from "./parts";  
+import { PrincipalPart } from "./parts";
 import { Selected } from "./create";
 
 interface KratongProps {
@@ -19,11 +19,11 @@ export const PrincipalKratong: NextPage<KratongProps> = ({ selected, height }) =
     <>
       <div style={{ ["--size" as string]: height }} className={styles["kratong"]}>
         <div className={styles["topping"]}>
-          <div style={{ ["--offset-y" as string]: "0px" }} className={styles["decorations"]}>
+          <div className={styles["decorations"]}>
             {Object.keys(PrincipalMap.decorations).map((decoration: string) => {
               // @ts-ignore
               const part = PrincipalMap.decorations[decoration];
-              return <PrincipalPart key={decoration} part={part} selected={selected.decorations} />
+              return <PrincipalPart key={decoration} part={part} selected={selected.decorations} />;
             })}
           </div>
           <div className={styles["candle"]}>
@@ -42,7 +42,7 @@ export const PrincipalKratong: NextPage<KratongProps> = ({ selected, height }) =
               return <PrincipalPart key={swan} part={part} selected={selected.swan} />;
             })}
           </div>
-          { /* changeme */ }
+          {/* changeme */}
           <div className={styles["shell"]}>
             {Object.keys(PrincipalMap.base).map((base: string) => {
               // @ts-ignore

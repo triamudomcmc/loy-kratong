@@ -1,6 +1,5 @@
 .kratong {
   --size: 512px;
-  --ratio: calc(var(--size) / 300);
   display: flex;
   margin-bottom: -60px;
   flex-direction: column;
@@ -22,8 +21,6 @@
   }
 
   > .shell {
-    --offset-shell-y: 0px;
-
     > .container {
       z-index: 6;
       position: absolute;
