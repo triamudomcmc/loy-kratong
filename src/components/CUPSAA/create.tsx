@@ -328,9 +328,13 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
 
   const send = async (query: any) => {
     if (query) {
-      const res = await sendDataContext.call({ id: query.id, data: data });
+      const res = await sendDataContext.call({ id: query.id ?? "", data: data });
       if (res) {
-        console.log(res);
+        if (!res.status) {
+          send(query);
+        }
+      } else {
+        send(query);
       }
     }
   };
@@ -379,23 +383,27 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
   );
 };
 
-interface KratongData {
+export interface KratongData {
   kratong: Selected;
   wish: Wish;
 }
 
-export const Create: NextPage = () => {
-  const [data, setData] = useState<KratongData>({
-    kratong: {
-      base: "base-pink",
-      candles: "candle-pink",
-      flowers: "flower-pink",
-    },
-    wish: {
-      name: "สมาคมนักเรียนเก่าเตรียมอุดมศึกษา ในพระบรมราชูปถัมภ์",
-      content: "",
-    },
-  });
+export const Create: NextPage<{ idata: KratongData }> = ({ idata }) => {
+  const [data, setData] = useState<KratongData>(
+    Object.keys(idata).length > 1
+      ? idata
+      : {
+          kratong: {
+            base: "base-pink",
+            candles: "candle-pink",
+            flowers: "flower-pink",
+          },
+          wish: {
+            name: "สมาคมนักเรียนเก่าเตรียมอุดมศึกษา ในพระบรมราชูปถัมภ์",
+            content: "",
+          },
+        }
+  );
 
   const [page, setPage] = useState(1);
 

@@ -216,7 +216,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
           <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
             <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
-              <div className="relative top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
+              <div className="relative top-[-24px] sm:top-[-12px] mb-[17px] sm:mb-[30px]">
                 <PrincipalKratong height="150px" selected={selected} />
               </div>
               <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -337,7 +337,11 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
     if (query) {
       const res = await sendDataContext.call({ id: query.id, data: data });
       if (res) {
-        console.log(res);
+        if (!res.status) {
+          send(query);
+        }
+      } else {
+        send(query);
       }
     }
   };
@@ -386,24 +390,28 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
   );
 };
 
-interface KratongData {
+export interface KratongData {
   kratong: Selected;
   wish: Wish;
 }
 
-export const Create: NextPage = () => {
-  const [data, setData] = useState<KratongData>({
-    kratong: {
-      base: "base-blue",
-      candles: "candle-blue",
-      decorations: "rice1",
-      swan: "swan-blue",
-    },
-    wish: {
-      name: "ผอ.วรรณดี นาคสุขปาน",
-      content: "",
-    },
-  });
+export const Create: NextPage<{ idata: KratongData }> = ({ idata }) => {
+  const [data, setData] = useState<KratongData>(
+    Object.keys(idata).length > 1
+      ? idata
+      : {
+          kratong: {
+            base: "base-blue",
+            candles: "candle-blue",
+            decorations: "rice1",
+            swan: "swan-blue",
+          },
+          wish: {
+            name: "ผอ.วรรณดี นาคสุขปาน",
+            content: "",
+          },
+        }
+  );
 
   const [page, setPage] = useState(1);
 
