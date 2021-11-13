@@ -353,7 +353,7 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
             <p className="px-6 text-white font-light text-sm text-center mb-2">{data.wish.content}</p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="relative mb-[134px] sm:mb-[127px]">
+            <div className="relative h-[150px] mb-[5px]">
               <CUPSAAKratong height="175px" selected={data.kratong} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">

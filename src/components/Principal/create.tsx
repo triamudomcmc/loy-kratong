@@ -360,7 +360,7 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
             <p className="text-white font-light text-sm text-center mb-2">{data.wish.content}</p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="relative top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
+            <div className="relative h-[150px] mb-[10px]">
               <PrincipalKratong height="150px" selected={data.kratong} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
