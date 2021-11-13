@@ -71,7 +71,7 @@ const KratongTile: NextPage<KratongTileProps> = ({ part, setSelected, selected, 
   );
 };
 
-const signColors = ["#c93139", "#77c0f1", "#9ee37c", "#ffa654", "#ff97b2", "#f38de5"];
+const signColors = ["#c93139", "#ffa654", "#f38de5", "#ff97b2", "#5076e7", "#53f028"];
 
 const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, nextPage }) => {
   const [section, setSection] = useState<"base" | "flowers" | "candles" | "decorations">("base");
@@ -141,7 +141,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
             </svg>
           </div>
         </div>
-        <div className="flex flex-col relative z-10 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-4">
+        <div className="flex flex-col relative z-10 space-y-2 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
           <div className="space-y-6">
             <div className="flex justify-center w-full mb-4 py-2 px-4 space-x-4 sm:space-x-6 rounded-t-[34px] bg-white bg-opacity-40">
               <button
@@ -244,7 +244,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
           )}
           <div className="flex justify-end px-4 mt-1">
             <button
-              className="flex items-center bg-[#2256A3] text-white px-6 py-2 space-x-1 rounded-full shadow-lg font-light"
+              className="flex items-center text-[12px] sm:text-md bg-[#2256A3] text-white px-6 py-2 space-x-1 rounded-full font-light"
               onClick={() => nextPage()}
             >
               <span>ถัดไป</span>
@@ -326,7 +326,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
               </svg>
             </div>
           </div>
-          <div className="flex flex-col relative z-10 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
+          <div className="flex flex-col relative z-10 space-y-2 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
             <div>
               <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 flex-grow-1 mt-3 overflow-y-auto">
                 <div className="w-full">
