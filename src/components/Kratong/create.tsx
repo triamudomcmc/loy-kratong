@@ -200,9 +200,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
           </div>
           {section === "decorations" ? (
             <div className="px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
-              <div className="grid grid-cols-3 gap-4">{generateDecorations(0)}</div>
-
-              <div className="mt-6">
+              <div>
                 <div className="mb-4">
                   <p className="px-0 py-0 mb-2 text-xl text-[#293d5b]">ป้าย</p>
                   <div className="flex">
@@ -233,6 +231,11 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
                 </div>
                 <div className="grid grid-cols-3 gap-4">{generateDecorations(1)}</div>
               </div>
+
+              <div className="mt-6">
+                <p className="px-0 py-0 mb-2 text-xl text-[#293d5b]">ของตกแต่ง</p>
+              </div>
+              <div className="grid grid-cols-3 gap-4">{generateDecorations(0)}</div>
             </div>
           ) : (
             <div className="grid grid-cols-3 gap-4 px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
