@@ -5,3 +5,5 @@ import { ResultData as CResultData } from "@components/CUPSAA/create";
 
 export const sendDataContext: BridgeContext<{ id: string; data: ResultData | PResultData | CResultData }> =
   createBridgeContext("sendData", "send");
+
+export const loadDataContext: BridgeContext<{id: string}> = createBridgeContext("loadData", "send")

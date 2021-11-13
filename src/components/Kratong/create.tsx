@@ -7,6 +7,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import classnames from "classnames";
 import { sendDataContext } from "@handlers/init";
 import { useRouter } from "next/router";
+import {PrincipalKratong} from "@components/Principal/kratong";
 
 export interface Selected {
   base: string;
@@ -69,7 +70,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
         <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
           <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
           <div className="flex flex-col items-center">
-            <div className="relative mb-[134px] sm:mb-[127px]">
+            <div className="relative mb-[134px] sm:mb-[137px]">
               <Kratong height="150px" selected={selected} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -213,7 +214,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
           <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
             <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
-              <div className="relative mb-[134px] sm:mb-[127px]">
+              <div className="relative mb-[134px] sm:mb-[137px]">
                 <Kratong height="150px" selected={selected} />
               </div>
               <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -333,6 +334,13 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
   const send = async (query: any) => {
     if (query) {
       const res = await sendDataContext.call({ id: query.id, data: data });
+      if (res) {
+        if (!res.status) {
+          send(query)
+        }
+      }else{
+        send(query)
+      }
     }
   };
 
@@ -349,8 +357,21 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
             <p className="text-white font-light text-lg text-center mb-2">{data.wish.name}:</p>
             <p className="text-white font-light text-sm text-center mb-2">{data.wish.content}</p>
           </div>
-          <div className="flex justify-center w-full relative top-[-24px]">
-            <Kratong height="240px" selected={data.kratong} />
+          <div className="flex flex-col items-center">
+            <div className="relative h-[145px] top-[-24px] sm:top-[-12px] mb-[-20px] sm:mb-[30px]">
+              <Kratong height="175px" selected={data.kratong} />
+            </div>
+            <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse
+                cx="184.709"
+                cy="20"
+                rx="184.5"
+                ry="20"
+                fill="white"
+                fillOpacity="0.3"
+                style={{ mixBlendMode: "soft-light" }}
+              />
+            </svg>
           </div>
           <div className="justify-self-end flex justify-end space-x-2 px-4">
             <button
@@ -367,13 +388,13 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
   );
 };
 
-interface KratongData {
+export interface KratongData {
   kratong: Selected;
   wish: Wish;
 }
 
-export const Create: NextPage = () => {
-  const [data, setData] = useState<KratongData>({
+export const Create: NextPage<{idata: KratongData}> = ({idata}) => {
+  const [data, setData] = useState<KratongData>(Object.keys(idata).length > 1 ? idata : {
     kratong: {
       base: "banana-leaf",
       flowers: "love",
