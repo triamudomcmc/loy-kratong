@@ -57,7 +57,13 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
       ];
     });
 
-    return parts.map((d, i) => <Fragment key={`col-${i}`}>{d.map((g: Element) => g)}</Fragment>);
+    return parts.map((d, i) => (
+      <Fragment key={`col-${i}`}>
+        {d.map((g: Element, idx: number) => (
+          <Fragment key={idx}>{g}</Fragment>
+        ))}
+      </Fragment>
+    ));
   };
 
   return (
