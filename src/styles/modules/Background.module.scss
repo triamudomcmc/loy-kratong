@@ -1,3 +1,5 @@
+@import "utils/mixins.scss";
+
 .background {
   position: relative;
   height: 100vh;
@@ -26,11 +28,34 @@
     z-index: -1;
   }
 
-  > .waterone {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    z-index: -1;
+  > .moon {
+    width: 140px;
+    height: 140px;
+    position: fixed;
+    right: 45px;
+    top: 55px;
+
+    @include breakpoint(sm) {
+      width: 200px;
+      height: 200px;
+      right: 50px;
+      top: 25px;
+    }
+
+    > .img {
+      position: absolute;
+      width: 65%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    > .blur {
+      position: absolute;
+      top: 0;
+      z-index: 1;
+    }
   }
 }
 
@@ -55,11 +80,4 @@
   position: relative;
   background-color: #281981;
   background: linear-gradient(182.71deg, #281981 -2.41%, #3a71b3 47.53%, #1a3270 100.68%);
-}
-
-.loy-scene {
-  height: 100vh;
-  position: relative;
-  background-color: #000;
-  background: linear-gradient(180deg, #000000 0%, #236bad 70.87%);
 }

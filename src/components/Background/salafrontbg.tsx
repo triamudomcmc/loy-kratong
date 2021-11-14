@@ -12,14 +12,13 @@ const SalaFrontBG: NextPage = () => {
       <div className={styles["create-scene"]}>
         <div className={styles["background"]}>
           <div className={styles["overlay"]} />
-          <div className="sky-l">
-            <div className={styles["cloud-1"]}></div>
-            <div className={styles["cloud-2"]}></div>
-          </div>
-          <div className="sky-r">
-            <div className="moon"></div>
-            <div className="cloud-1"></div>
-            <div className="cloud-2"></div>
+          <div className={styles["moon"]}>
+            <div className={styles["img"]}>
+              <Image src="/assets/images/scene/moon.gif" width={2048} height={2048} objectFit="cover" />
+            </div>
+            <div className={styles["blur"]}>
+              <Image src="/assets/images/scene/blur.png" width={3414} height={3414} objectFit="cover" />
+            </div>
           </div>
           <div className={styles["water"]}>
             <LightWater />
