@@ -1,57 +1,35 @@
 .kratong {
   --size: 512px;
-  display: flex;
-  margin-bottom: -60px;
-  flex-direction: column;
-  z-index: 5;
+  width: var(--size);
+  position: relative;
 }
 
 .kratong > .base {
-  margin-bottom: 30px;
-  position: relative;
   display: inline-block;
-  width: var(--size);
 
-  > .swan > .container {
-    position: relative;
-    z-index: 4;
-    width: calc(var(--size) - 43px);
-    top: -10px;
-    left: 25px;
+  > .swan {
+    position: absolute;
+    z-index: 6;
+    top: 0;
   }
 
   > .shell {
-    > .container {
-      z-index: 6;
-      position: absolute;
-      top: calc(var(--size) / 2 + -14px);
-      left: 5px;
-      width: calc(var(--size) + -9px);
-    }
+    z-index: 7;
+    position: absolute;
+    top: 0;
   }
 }
 .kratong > .topping {
-  margin-bottom: 36px;
-
   > .candle {
     position: absolute;
-    z-index: 3;
-    width: calc(var(--size) / 3);
-    top: calc(var(--size) / 3 - 36px);
-    left: calc(var(--size) / 2 - 4px);
+    z-index: 4;
+    top: 0;
   }
 
   > .decorations {
-    --offset-y: 0px;
-    width: calc(var(--size) / 4 + 13px);
-    left: 2px;
-
-    > .container {
-      position: absolute;
-      z-index: 2;
-      top: calc(var(--size) / 4 + 4px);
-      left: 7px;
-    }
+    position: absolute;
+    z-index: 3;
+    top: 0;
   }
 }
 
