@@ -1,12 +1,13 @@
 module.exports = {
   mode: "jit",
-  purge: ['./src/**/*.{js,jsx,ts,tsx,vue}'],
+  purge: ["./src/**/*.{js,jsx,ts,tsx,vue}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
     fontFamily: {
       display: ["ChulaNarak", "serif"],
       ui: ["IBM Plex Sans Thai", "sans-serif"],
+      title: ["Maitree", "serif"],
     },
   },
   variants: {
