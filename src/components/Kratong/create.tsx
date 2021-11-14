@@ -126,7 +126,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
           <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
           <div className="flex flex-col items-center">
             <div className="relative h-[150px] mb-[10px]">
-              <Kratong height="150px" selected={selected} />
+              <Kratong zIndex={7} height="150px" selected={selected} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse
@@ -311,7 +311,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
             <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
             <div className="flex flex-col items-center">
               <div className="relative h-[150px] mb-[10px]">
-                <Kratong height="150px" selected={selected} />
+                <Kratong zIndex={7} height="150px" selected={selected} />
               </div>
               <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse
@@ -454,7 +454,7 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
           </div>
           <div className="flex flex-col items-center">
             <div className="relative h-[150px] mb-[15px]">
-              <Kratong height="150px" selected={data.kratong} />
+              <Kratong zIndex={7} height="150px" selected={data.kratong} />
             </div>
             <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse

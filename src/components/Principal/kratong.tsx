@@ -7,6 +7,7 @@ import { Selected } from "./create";
 interface KratongProps {
   selected: Selected;
   height: string;
+  zIndex: number;
 }
 
 /*
@@ -14,10 +15,10 @@ height: 240px
 offset: 60px
 */
 
-export const PrincipalKratong: NextPage<KratongProps> = ({ selected, height }) => {
+export const PrincipalKratong: NextPage<KratongProps> = ({ selected, height, zIndex }) => {
   return (
     <>
-      <div style={{ ["--size" as string]: height }} className={styles["kratong"]}>
+      <div style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }} className={styles["kratong"]}>
         <div className={styles["topping"]}>
           <div className={styles["decorations"]}>
             {Object.keys(PrincipalMap.decorations).map((decoration: string) => {

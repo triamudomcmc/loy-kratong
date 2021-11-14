@@ -7,16 +7,17 @@ import { Selected } from "./create";
 interface KratongProps {
   selected: Selected;
   height: string;
+  zIndex: number;
 }
 
 /*
 height: 240px
 */
 
-export const CUPSAAKratong: NextPage<KratongProps> = ({ selected, height }) => {
+export const CUPSAAKratong: NextPage<KratongProps> = ({ selected, height, zIndex }) => {
   return (
     <>
-      <div style={{ ["--size" as string]: height }} className={styles["kratong"]}>
+      <div style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }} className={styles["kratong"]}>
         <div className={styles["topping"]}>
           <div className={styles["logo"]}>
             <div className={styles["container"]}>

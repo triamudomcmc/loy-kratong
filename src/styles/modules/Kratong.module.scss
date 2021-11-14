@@ -9,12 +9,12 @@
 
   > .flowers {
     position: absolute;
-    z-index: 6;
+    z-index: calc(var(--z-index) - 1);
     top: 0;
   }
 
   > .shell {
-    z-index: 7;
+    z-index: var(--z-index);
     position: absolute;
     top: 0;
   }
@@ -22,13 +22,13 @@
 .kratong > .topping {
   > .candle {
     position: absolute;
-    z-index: 4;
+    z-index: calc(var(--z-index) - 2);
     top: 0;
   }
 
   > .decorations {
     position: absolute;
-    z-index: 3;
+    z-index: calc(var(--z-index) - 3);
     top: 0;
   }
 }
