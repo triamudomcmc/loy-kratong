@@ -164,11 +164,11 @@ export const KratongMap: KratongMapType = {
       description: "คำอธิบาย",
       variants: [
         "/assets/images/kratong/decorations/sign/want-love/red.png",
+        "/assets/images/kratong/decorations/sign/want-love/orange.png",
+        "/assets/images/kratong/decorations/sign/want-love/violet.png",
+        "/assets/images/kratong/decorations/sign/want-love/pink.png",
         "/assets/images/kratong/decorations/sign/want-love/blue.png",
         "/assets/images/kratong/decorations/sign/want-love/green.png",
-        "/assets/images/kratong/decorations/sign/want-love/orange.png",
-        "/assets/images/kratong/decorations/sign/want-love/pink.png",
-        "/assets/images/kratong/decorations/sign/want-love/violet.png",
       ],
       thumbnails: [
         "/assets/images/kratong/thumbnail/decorations/sign/want-love/red.png",
@@ -186,11 +186,11 @@ export const KratongMap: KratongMapType = {
       description: "คำอธิบาย",
       variants: [
         "/assets/images/kratong/decorations/sign/want-money/red.png",
+        "/assets/images/kratong/decorations/sign/want-money/orange.png",
+        "/assets/images/kratong/decorations/sign/want-money/violet.png",
+        "/assets/images/kratong/decorations/sign/want-money/pink.png",
         "/assets/images/kratong/decorations/sign/want-money/blue.png",
         "/assets/images/kratong/decorations/sign/want-money/green.png",
-        "/assets/images/kratong/decorations/sign/want-money/orange.png",
-        "/assets/images/kratong/decorations/sign/want-money/pink.png",
-        "/assets/images/kratong/decorations/sign/want-money/violet.png",
       ],
       thumbnails: [
         "/assets/images/kratong/thumbnail/decorations/sign/want-money/red.png",
@@ -208,11 +208,11 @@ export const KratongMap: KratongMapType = {
       description: "คำอธิบาย",
       variants: [
         "/assets/images/kratong/decorations/sign/enttid/red.png",
+        "/assets/images/kratong/decorations/sign/enttid/orange.png",
+        "/assets/images/kratong/decorations/sign/enttid/violet.png",
+        "/assets/images/kratong/decorations/sign/enttid/pink.png",
         "/assets/images/kratong/decorations/sign/enttid/blue.png",
         "/assets/images/kratong/decorations/sign/enttid/green.png",
-        "/assets/images/kratong/decorations/sign/enttid/orange.png",
-        "/assets/images/kratong/decorations/sign/enttid/pink.png",
-        "/assets/images/kratong/decorations/sign/enttid/violet.png",
       ],
       thumbnails: [
         "/assets/images/kratong/thumbnail/decorations/sign/enttid/red.png",
@@ -230,11 +230,11 @@ export const KratongMap: KratongMapType = {
       description: "คำอธิบาย",
       variants: [
         "/assets/images/kratong/decorations/sign/quote/red.png",
+        "/assets/images/kratong/decorations/sign/quote/orange.png",
+        "/assets/images/kratong/decorations/sign/quote/violet.png",
+        "/assets/images/kratong/decorations/sign/quote/pink.png",
         "/assets/images/kratong/decorations/sign/quote/blue.png",
         "/assets/images/kratong/decorations/sign/quote/green.png",
-        "/assets/images/kratong/decorations/sign/quote/orange.png",
-        "/assets/images/kratong/decorations/sign/quote/pink.png",
-        "/assets/images/kratong/decorations/sign/quote/violet.png",
       ],
       thumbnails: [
         "/assets/images/kratong/thumbnail/decorations/sign/quote/red.png",
@@ -252,11 +252,11 @@ export const KratongMap: KratongMapType = {
       description: "คำอธิบาย",
       variants: [
         "/assets/images/kratong/decorations/sign/taken/red.png",
+        "/assets/images/kratong/decorations/sign/taken/orange.png",
+        "/assets/images/kratong/decorations/sign/taken/violet.png",
+        "/assets/images/kratong/decorations/sign/taken/pink.png",
         "/assets/images/kratong/decorations/sign/taken/blue.png",
         "/assets/images/kratong/decorations/sign/taken/green.png",
-        "/assets/images/kratong/decorations/sign/taken/orange.png",
-        "/assets/images/kratong/decorations/sign/taken/pink.png",
-        "/assets/images/kratong/decorations/sign/taken/violet.png",
       ],
       thumbnails: [
         "/assets/images/kratong/thumbnail/decorations/sign/taken/red.png",
