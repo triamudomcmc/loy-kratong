@@ -3,11 +3,11 @@ import { Fragment, useEffect, useState } from "react";
 import { Kratong } from "./kratong";
 import { KratongMap, KratongType, KratongTypeVariant } from "@map/kratong";
 import Image from "next/image";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
+import { ChevronLeftIcon, ChevronRightIcon, DownloadIcon } from "@heroicons/react/solid";
 import classnames from "classnames";
 import { sendDataContext } from "@handlers/init";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export interface Selected {
   base: string;
@@ -508,6 +508,35 @@ export const Create: NextPage<{ idata: KratongData }> = ({ idata }) => {
   );
 
   const [page, setPage] = useState(1);
+  const [saving, setSaving] = useState<null | boolean>(null);
+
+  const router = useRouter();
+
+  const send = async (query: any) => {
+    if (query) {
+      const res = await sendDataContext.call({ id: query.id, data: data });
+      if (res) {
+        if (!res.status) {
+          send(query);
+        }
+      } else {
+        send(query);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (!(typeof saving === "boolean")) {
+      setSaving(false);
+      return;
+    }
+
+    send(router.query);
+    setSaving(true);
+    setTimeout(() => {
+      setSaving(false);
+    }, 3000);
+  }, [page]);
 
   const setKratong = (selection: Selected) => {
     setData((oldData) => {
@@ -537,6 +566,21 @@ export const Create: NextPage<{ idata: KratongData }> = ({ idata }) => {
 
   return (
     <>
+      <AnimatePresence>
+        {saving && (
+          <motion.div
+            initial={{ y: -300, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -300, opacity: 0 }}
+            className="fixed font-ui flex justify-start items-center z-[99] height-[35px] left-[30px] top-[30px] py-2 px-4 rounded-lg text-blue-700 border border-white w-3/4 bg-white"
+          >
+            <p className="text-light">
+              <DownloadIcon className="w-5 h-5 mr-2 inline" />
+              บันทึกกระทงแล้ว
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {page === 1 && <CreateKratong selected={data.kratong} setSelected={setKratong} nextPage={NextPage} />}
       {page === 2 && (
         <CreateWish
