@@ -346,7 +346,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                         });
                       }}
                       value={wish.name ?? ""}
-                      className="block w-full mt-2 bg-transparent placeholder-[#f1f1f1] text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
+                      className="block w-full mt-2 bg-transparent placeholder-opacity-70 placeholder-[#eee] text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
                       placeholder="นายเรียนเด่น เล่นดี"
                     />
                   </fieldset>
@@ -373,8 +373,8 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                         });
                       }}
                       value={wish.content ?? ""}
-                      className="block w-full mt-2 bg-transparent placeholder-[#eee] text-[#fdfdfd] outline-none border-b-2 border-white px-2 pt-2 pb-1  mb-4"
-                      placeholder="ขอให้ได้คณะที่หวัง ขอให้มีหวานใจ สาธุ"
+                      className="block w-full mt-2 bg-transparent placeholder-opacity-70 placeholder-[#eee] text-[#fdfdfd] outline-none border-b-2 border-white px-2 pt-2 pb-1  mb-4"
+                      placeholder="กรอกคำอธิษฐาน"
                     />
                   </fieldset>
 

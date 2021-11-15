@@ -3,6 +3,7 @@ import { LightWater } from "@components/Water";
 import styles from "@styles/modules/Background.module.scss";
 import Image from "next/image";
 import { useWindowDimensions } from "@utils/document";
+import classNames from "classnames";
 
 const SalaFrontBG: NextPage = () => {
   const { width, height } = useWindowDimensions();
@@ -10,7 +11,7 @@ const SalaFrontBG: NextPage = () => {
   return (
     <>
       <div className={styles["create-scene"]}>
-        <div className={styles["background"]}>
+        <div className={classNames(styles["background"], "blur-sm")}>
           <div className={styles["overlay"]} />
           <div className={styles["moon"]}>
             <div className={styles["img"]}>
