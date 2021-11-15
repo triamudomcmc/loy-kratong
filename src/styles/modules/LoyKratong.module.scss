@@ -53,89 +53,46 @@
   }
 }
 
-@keyframes water {
-  0%,
-  25%,
-  50%,
-  75%,
-  100% {
-    transform: translateY(0);
-  }
-
-  12.5%,
-  37.5% {
-    transform: translateY(5px);
-  }
-  62.5%,
-  87.5% {
-    transform: translateY(-5px);
-  }
-}
-
 .sala-side {
   position: absolute;
-  left: 0;
-  z-index: 51;
-  top: 30%;
+  left: 241px;
+  z-index: 31;
+  top: -209px;
   width: 65vw;
+  max-width: 450px;
 
-  @breakpoint (sm) {
-    top: 20%;
-    width: 45vw;
+  @include breakpoint(sm) {
+    top: -209px;
+    width: calc(40vw + 150px);
   }
-  animation-name: water;
-  animation-duration: 6s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-delay: 350ms;
 }
 
 .background {
-  > .waterfour {
+  > .waterfour-container {
     position: absolute;
+    left: 0;
+    bottom: calc((4 * (48vh / 4)) - 50vh + 125px);
     z-index: 10;
-    bottom: -124px;
-    left: -68px;
-    animation-name: water;
-    animation-duration: 6s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-delay: 550ms;
   }
 
-  > .waterthree {
+  > .waterthree-container {
     position: absolute;
+    left: 0;
+    bottom: calc((3 * (48vh / 4)) - 50vh + 125px);
     z-index: 20;
-    bottom: -211px;
-    left: -292px;
-    animation-name: water;
-    animation-duration: 6s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-delay: 450ms;
   }
 
-  > .watertwo {
+  > .watertwo-container {
     position: absolute;
+    left: 0;
+    bottom: calc((2 * (48vh / 4)) - 50vh + 125px);
     z-index: 30;
-    bottom: -321px;
-    left: -172px;
-    animation-name: water;
-    animation-duration: 6s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-delay: 350ms;
   }
 
-  > .waterone {
+  > .waterone-container {
     position: absolute;
+    left: 0;
+    bottom: calc((1 * (48vh / 4)) - 50vh + 125px);
     z-index: 40;
-    bottom: -423px;
-    left: -238px;
-    animation-name: water;
-    animation-duration: 6s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-delay: 250ms;
   }
 }

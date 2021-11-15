@@ -110,7 +110,7 @@ export const PageFour: NextPage<PageFourProps> = ({ nextPage }) => {
         </>
       ) : (
         <>
-          <p className="font-display font-light text-center text-3xl sm:text-4xl">
+          <p className="font-display font-light relative z-40 text-center text-3xl sm:text-4xl">
             &quot;...มาลอยกระทง
             <br />
             ด้วยกันไหม...&quot;
@@ -147,7 +147,7 @@ export const PageFive: NextPage = () => {
       transition={{ type: "spring", duration: DURATION / 1000, delay: DELAY / 1000 }}
       className="absolute w-full h-full z-[-2]"
     >
-      <div className="absolute w-full h-full z-[-1]">
+      <div className="absolute w-full h-full z-[-33]">
         <div className="absolute z-[-5] sm:w-[30%] w-[calc(30%+55px)] left-[-89px] top-[125px] opacity-50">
           <Cloud />
         </div>
@@ -163,7 +163,7 @@ export const PageFive: NextPage = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center absolute top-[calc(7%+175px)] sm:top-[calc(5%+70px)] w-full">
+      <div className="flex flex-col items-center absolute z-[30] top-[calc(7%+175px)] sm:top-[calc(5%+70px)] w-full">
         <p className="font-display font-light text-center text-3xl sm:text-4xl">โอเค ไปลอยกระทงกัน !</p>
         <Link href="/create?id=test">
           <a className="cursor-pointer transition-colors hover:bg-gray-300 px-4 py-2 w-[130px] text-center font-normal sm:text-lg mt-4 rounded-full text-[#4A4A4A] bg-white border-white border">

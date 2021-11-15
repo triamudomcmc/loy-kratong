@@ -64,7 +64,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: -1000, y: 1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-1]"
+                className="absolute w-full h-full z-[-40]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] top-[-62px] sm:top-[-139px]">
                   <Cloud />
@@ -81,7 +81,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: 1000, y: 1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-1]"
+                className="absolute w-full h-full z-[-2]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] top-[-62px] sm:top-[-139px]">
                   <Cloud />
@@ -98,7 +98,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: -1000, y: 0, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-1]"
+                className="absolute w-full h-full z-[-2]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] top-[25%] sm:top-[calc(5%-139px)]">
                   <Cloud />
@@ -115,7 +115,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: 1000, y: 0, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-1]"
+                className="absolute w-full h-full z-[-2]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] top-[25%] sm:top-[calc(15%-139px)]">
                   <Cloud />
@@ -132,7 +132,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: -1000, y: -1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-1]"
+                className="absolute w-full h-full z-[-2]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] bottom-[-62px] sm:bottom-[-99px]">
                   <Cloud />
@@ -149,7 +149,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: 1000, y: -1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-1]"
+                className="absolute w-full h-full z-[-2]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] bottom-[-62px] sm:bottom-[-99px]">
                   <Cloud />
@@ -195,7 +195,7 @@ const TitleScreen: NextPage = () => {
           )}
         </AnimatePresence>
 
-        <div className="flex flex-col items-center justify-center mt-[-30px]">
+        <div className="flex flex-col items-center static z-[3] justify-center mt-[-30px]">
           <motion.div
             animate={page === 5 ? "end" : "start"}
             variants={moonVariants}

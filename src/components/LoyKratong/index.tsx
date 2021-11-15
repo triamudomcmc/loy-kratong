@@ -3,8 +3,15 @@ import { LoyKratongBG } from "@components/Background";
 
 export const LoyKratongPage: NextPage = () => {
   return (
-    <article>
-      <LoyKratongBG />
-    </article>
+    <>
+      <style jsx>{`
+        body {
+          overflow-y: hidden;
+        }
+      `}</style>
+      <article>
+        <LoyKratongBG />
+      </article>
+    </>
   );
 };
