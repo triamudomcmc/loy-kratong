@@ -41,13 +41,13 @@ export const PageTwo: NextPage = () => {
       className="flex flex-col"
     >
       <p className="font-display font-light text-center text-3xl sm:text-4xl">
-        "...สายัณห์สวัสดี
+        &quot;...สายัณห์สวัสดี
         <br />
         ราตรีนี้วันลอยกระทง
         <br />
         ขอชวนมาร่วมส่ง
         <br />
-        ลอยกระทง ณ คูบัว..."
+        ลอยกระทง ณ คูบัว...&quot;
       </p>
       <p className="text-center font-normal mt-4 text-gray-300 sm:text-lg blinking-text">แตะเพื่อไปต่อ</p>
     </motion.div>
@@ -65,9 +65,9 @@ export const PageThree: NextPage = () => {
       className="flex flex-col"
     >
       <p className="font-display font-light text-center text-3xl sm:text-4xl">
-        "...วันนี้วันเพ็ญ
+        &quot;...วันนี้วันเพ็ญ
         <br />
-        เดือนสิบสองนะ..."
+        เดือนสิบสองนะ...&quot;
       </p>
       <p className="text-center font-normal mt-4 text-gray-300 sm:text-lg blinking-text">แตะเพื่อไปต่อ</p>
     </motion.div>
@@ -93,11 +93,11 @@ export const PageFour: NextPage<PageFourProps> = ({ nextPage }) => {
       {typeof going === "boolean" && going === false ? (
         <>
           <p className="font-display font-light text-center text-3xl sm:text-4xl">
-            "มาเถอะหน่า
+            &quot;มาเถอะหน่า
             <br />
             อยากไปกับเธอ
             <br />
-            จริง ๆ นะ !"
+            จริง ๆ นะ !&quot;
           </p>
           <div className="flex w-full items-center mt-2 relative z-40">
             <button
@@ -111,9 +111,9 @@ export const PageFour: NextPage<PageFourProps> = ({ nextPage }) => {
       ) : (
         <>
           <p className="font-display font-light text-center text-3xl sm:text-4xl">
-            "...มาลอยกระทง
+            &quot;...มาลอยกระทง
             <br />
-            ด้วยกันไหม..."
+            ด้วยกันไหม...&quot;
           </p>
           <div className="flex w-full items-center mt-2 relative z-40">
             <button
