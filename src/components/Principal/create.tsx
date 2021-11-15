@@ -67,7 +67,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
   };
 
   return (
-    <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
+    <div className="flex  backdrop-blur-xl items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
       <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
         <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
           <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
@@ -211,7 +211,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
 
   return (
     <>
-      <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
+      <div className="flex backdrop-blur-xl items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
         <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
           <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
             <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
@@ -352,7 +352,7 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
 
   return (
     <>
-      <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
+      <div className="flex backdrop-blur-xl items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
         <div className="flex flex-col justify-center items-center space-y-6 border border-white bg-white bg-opacity-20 backdrop-blur-lg h-[80vh] max-h-[650px] max-w-[525px] w-full mx-auto rounded-[34px]">
           <div className="pt-8 pb-4 sm:pb-2 w-full">
             <h1 className="text-white text-2xl text-center mb-8">สำเร็จ</h1>

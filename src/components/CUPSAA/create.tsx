@@ -406,7 +406,6 @@ export const Create: NextPage<{ idata: KratongData }> = ({ idata }) => {
   );
 
   const [page, setPage] = useState(1);
-
   const [saving, setSaving] = useState<null | boolean>(null);
 
   const router = useRouter();
