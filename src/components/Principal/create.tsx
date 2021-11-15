@@ -475,10 +475,10 @@ export const Create: NextPage<{ idata: KratongData }> = ({ idata }) => {
       <AnimatePresence>
         {saving && (
           <motion.div
-            initial={{ y: -300, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -300, opacity: 0 }}
-            className="fixed font-ui flex justify-start items-center z-[99] height-[35px] left-[30px] top-[30px] py-2 px-4 rounded-lg text-blue-700 border border-white w-3/4 bg-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed font-ui flex justify-start items-center z-[99] height-[35px] left-1/2 -translate-x-1/2 top-[30px] py-2 px-4 rounded-lg text-blue-700 border border-white w-3/4 bg-white"
           >
             <p className="text-light">
               <DownloadIcon className="w-5 h-5 mr-2 inline" />

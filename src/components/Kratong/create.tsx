@@ -346,7 +346,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                         });
                       }}
                       value={wish.name ?? ""}
-                      className="block w-full mt-2 bg-transparent placeholder-[#f1f1f1] text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
+                      className="block w-full mt-2 bg-transparent placeholder-[#eee] placeholder-opacity-70 text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
                       placeholder="นายเรียนเด่น เล่นดี"
                     />
                   </fieldset>
@@ -373,8 +373,8 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                         });
                       }}
                       value={wish.content ?? ""}
-                      className="block w-full mt-2 bg-transparent placeholder-[#eee] text-[#fdfdfd] outline-none border-b-2 border-white px-2 pt-2 pb-1  mb-4"
-                      placeholder="ขอให้ได้คณะที่หวัง ขอให้มีหวานใจ สาธุ"
+                      className="block w-full mt-2 bg-transparent placeholder-opacity-70 placeholder-[#eee] text-[#fdfdfd] outline-none border-b-2 border-white px-2 pt-2 pb-1  mb-4"
+                      placeholder="กรอกคำอธิษฐานของท่าน"
                     />
                   </fieldset>
 
@@ -569,10 +569,10 @@ export const Create: NextPage<{ idata: KratongData }> = ({ idata }) => {
       <AnimatePresence>
         {saving && (
           <motion.div
-            initial={{ y: -300, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -300, opacity: 0 }}
-            className="fixed font-ui flex justify-start items-center z-[99] height-[35px] left-[30px] top-[30px] py-2 px-4 rounded-lg text-blue-700 border border-white w-3/4 bg-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed font-ui flex justify-start items-center z-[99] height-[35px] left-1/2 -translate-x-1/2 top-[30px] py-2 px-4 rounded-lg text-blue-700 border border-white w-3/4 bg-white"
           >
             <p className="text-light">
               <DownloadIcon className="w-5 h-5 mr-2 inline" />

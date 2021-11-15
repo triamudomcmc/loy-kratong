@@ -73,7 +73,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
   };
 
   return (
-    <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
+    <div className="flex items-center fixed min-h-screen w-full  backdrop-blur-2xl top-0 z-20 px-10 font-ui">
       <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
         <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
           <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">สร้างกระทง</h1>
@@ -245,7 +245,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                         });
                       }}
                       value={wish.name}
-                      className="block w-full mt-2 bg-transparent placeholder-[#f1f1f1] text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
+                      className="block w-full mt-2 bg-transparent placeholder-opacity-70 placeholder-[#eee] text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
                       placeholder="สมาคมนักเรียนเก่าเตรียมอุดมศึกษา ในพระบรมราชูปถัมภ์"
                     />
                   </fieldset>
@@ -272,8 +272,8 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                         });
                       }}
                       value={wish.content ?? ""}
-                      className="block w-full mt-2 bg-transparent placeholder-[#eee] text-[#fdfdfd] outline-none border-b-2 border-white px-2 pt-2 pb-1  mb-4"
-                      placeholder="ขอให้รวย ๆ ขอให้สุขภาพแข็งแรง ขอให้ครอบครัวมีความสุข สาธุ"
+                      className="block w-full mt-2 bg-transparent placeholder-opacity-70 placeholder-[#eee] text-[#fdfdfd] outline-none border-b-2 border-white px-2 pt-2 pb-1  mb-4"
+                      placeholder="กรอกคำอธิษฐานของท่าน"
                     />
                   </fieldset>
 
@@ -467,10 +467,10 @@ export const Create: NextPage<{ idata: KratongData }> = ({ idata }) => {
       <AnimatePresence>
         {saving && (
           <motion.div
-            initial={{ y: -300, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -300, opacity: 0 }}
-            className="fixed font-ui flex justify-start items-center z-[99] height-[35px] left-[30px] top-[30px] py-2 px-4 rounded-lg text-blue-700 border border-white w-3/4 bg-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed font-ui flex justify-start items-center z-[99] height-[35px] left-1/2 -translate-x-1/2 top-[30px] py-2 px-4 rounded-lg text-blue-700 border border-white w-3/4 bg-white"
           >
             <p className="text-light">
               <DownloadIcon className="w-5 h-5 mr-2 inline" />
