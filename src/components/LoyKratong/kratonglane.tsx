@@ -10,6 +10,7 @@ import type { NextPage } from "next";
 import { useRef, useState } from "react";
 import { DisplayKratong, MessageBox } from "./displaykratong";
 import { KratongData, ResultData } from "@components/Kratong/create";
+import classNames from "classnames";
 
 const random = (from: number, to: number) => {
   return Math.floor(Math.random() * to) + from;
@@ -44,7 +45,7 @@ const MovingKratong: NextPage<{
         animate={WaterFourData.animate}
         transition={WaterFourData.transition}
         style={{ left: x, zIndex }}
-        className="absolute top-[-5px] brightness-50 hover:brightness-100 active:brightness-110"
+        className={className}
       >
         {toggle && (
           <AnimatePresence>
@@ -100,10 +101,12 @@ export const TopLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
           return (
             <MovingKratong
               key={`lane-t-${i}`}
-              className={"absolute left-[550px] top-[0px] brightness-50 hover:brightness-100 active:brightness-110"}
+              className={
+                "absolute left-[550px] top-0 sm:top-[-5px] brightness-50 hover:brightness-100 active:brightness-110"
+              }
               initialX={i * random(260, 360) + random(80, 120)}
               data={e}
-              size={["125px", "75px"]}
+              size={["105px", "65px"]}
               lane="t"
             />
           );
@@ -120,10 +123,12 @@ export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
           return (
             <MovingKratong
               key={`lane-m-${i}`}
-              className={"absolute left-[250px] top-[-64px] brightness-75 hover:brightness-100 active:brightness-110"}
+              className={
+                "absolute left-[250px] top-[-24px] sm:top-[-64px] brightness-[60%] hover:brightness-100 active:brightness-110"
+              }
               initialX={i * random(280, 320) + random(200, 320)}
               data={e}
-              size={["175px", "125px"]}
+              size={["155px", "105px"]}
               lane="m"
             />
           );
@@ -143,7 +148,7 @@ export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
               className={"absolute left-[350px] top-[-64px] brightness-90 hover:brightness-100 active:brightness-110"}
               initialX={i * random(300, 360) + random(60, 130)}
               data={e}
-              size={["225px", "175px"]}
+              size={["205px", "155px"]}
               lane="b"
             />
           );
