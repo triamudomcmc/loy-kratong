@@ -6,18 +6,22 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import type { NextPage } from "next";
 import { useRef, useState } from "react";
 import { DisplayKratong } from "./displaykratong";
+import {KratongData, ResultData} from "@components/Kratong/create";
 
-const TopMovingKratong: NextPage = () => {
+const random = (from:number, to:number) => {
+  return Math.floor(Math.random() * to) + from
+}
+const MovingKratong: NextPage<{initialX?: number,speed?: number, data: KratongData, className: string, size: Array<string>}> = ({initialX= 0,speed = 0.5, data, className, size}) => {
   const { width, height } = useWindowDimensions();
-  const [x, setX] = useState(0);
+  const [x, setX] = useState(initialX);
 
   useAnimationFrame(
     (delta: number) => {
       // delta - time elapsed in ms
-      setX((prevX) => prevX + delta * 0.01 * 0.5);
+      setX((prevX) => (prevX < 1400 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1980)));
     },
     (delta: number) => {
-      return x > width + 750;
+      return false;
     }
   );
 
@@ -27,86 +31,61 @@ const TopMovingKratong: NextPage = () => {
         animate={WaterFourData.animate}
         transition={WaterFourData.transition}
         style={{ left: x }}
-        className="absolute left-[550px] top-[0px] z-[25] brightness-50"
+        className={className}
       >
         <DisplayKratong
-          height={width > 640 ? "125px" : "75px"}
+          height={width > 640 ? size[0] : size[1]}
           zIndex={25}
-          data={{
-            kratong: {
-              base: "banana-leaf",
-              candles: "candle-green",
-              decorations: "swan",
-              flowers: "luck",
-              signVariant: 0,
-            },
-            wish: {
-              name: "hi",
-              content: "hi",
-            },
-          }}
+          data={data}
         />
       </motion.div>
     </>
   );
 };
 
-export const TopLane: NextPage = () => {
+const sample = {
+  kratong: {
+    base: "banana-leaf",
+    candles: "candle-green",
+    decorations: "swan",
+    flowers: "luck",
+    signVariant: 0,
+  },
+  wish: {
+    name: "hi",
+    content: "hi",
+  },
+}
+
+export const TopLane: NextPage<{entities: ResultData[]}> = ({entities}) => {
   return (
     <>
-      <TopMovingKratong />
+      {entities && entities.map((e, i) => {
+        return <MovingKratong key={`lane-t-${i}`} className={"absolute left-[550px] top-[0px] z-[25] brightness-50"} initialX={(i * random(260, 360)) + random(80 ,120)} data={e} size={["125px", "75px"]}/>
+      })}
     </>
   );
 };
 
-export const MidLane: NextPage = () => {
-  const { width, height } = useWindowDimensions();
+export const MidLane: NextPage<{entities: ResultData[]}> = ({entities}) => {
 
   return (
     <>
-      <motion.div
-        animate={WaterFourData.animate}
-        transition={WaterFourData.transition}
-        className="absolute left-[250px] top-[-64px] z-[25] brightness-90"
-      >
-        <Kratong
-          height={width > 640 ? "175px" : "125px"}
-          zIndex={25}
-          selected={{
-            base: "banana-leaf",
-            candles: "candle-green",
-            decorations: "swan",
-            flowers: "luck",
-            signVariant: 0,
-          }}
-        />
-      </motion.div>
+      {entities && entities.map((e, i) => {
+        return <MovingKratong key={`lane-m-${i}`} className={"absolute left-[250px] top-[-64px] z-[25] brightness-90"} initialX={(i * random(280, 320)) + random(200,320)} data={e} size={["175px", "125px"]}/>
+      })}
     </>
-  );
+  )
 };
 
-export const BotLane: NextPage = () => {
-  const { width, height } = useWindowDimensions();
+export const BotLane: NextPage<{entities: ResultData[]}> = ({entities}) => {
 
   return (
     <>
-      <motion.div
-        animate={WaterFourData.animate}
-        transition={WaterFourData.transition}
-        className="absolute left-[350px] top-[-64px] z-[25]"
-      >
-        <Kratong
-          height={width > 640 ? "225px" : "175px"}
-          zIndex={25}
-          selected={{
-            base: "banana-leaf",
-            candles: "candle-green",
-            decorations: "swan",
-            flowers: "luck",
-            signVariant: 0,
-          }}
-        />
-      </motion.div>
+      {entities && entities.map((e, i) => {
+        return <MovingKratong key={`lane-b-${i}`} className={"absolute left-[350px] top-[-64px] z-[25]"} initialX={(i * random(300, 360)) + random(60, 130)} data={e} size={["225px", "175px"]}/>
+      })}
     </>
-  );
+  )
+
 };
