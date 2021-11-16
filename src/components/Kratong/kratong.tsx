@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { KratongMap, KratongType, KratongTypeVariant } from "@map/kratong";
+import { KratongMap } from "@map/kratong";
 import styles from "@styles/modules/Kratong.module.scss";
 import { NormalPart, VariantPart, Candle } from "./parts";
 import { Selected } from "./create";

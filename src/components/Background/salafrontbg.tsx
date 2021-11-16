@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { LightWater } from "@components/Water";
 import styles from "@styles/modules/Background.module.scss";
 import Image from "next/image";
-import { useWindowDimensions } from "@utils/document";
+import { useWindowDimensions } from "@utils/useWindowDimensions";
 import classNames from "classnames";
 
 const SalaFrontBG: NextPage = () => {

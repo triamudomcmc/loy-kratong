@@ -2,6 +2,7 @@
   --size: 512px;
   width: var(--size);
   position: relative;
+  z-index: var(--z-index);
 }
 
 .aura {

@@ -27,7 +27,7 @@
   position: fixed;
   width: 100vw;
   top: 0;
-  z-index: 70;
+  z-index: 9;
 
   @include breakpoint(xl) {
     top: -31px;
@@ -48,7 +48,7 @@
   height: 150px;
   right: 10vw;
   top: 35px;
-  z-index: 68;
+  z-index: 8;
 
   > .img {
     position: absolute;
@@ -56,13 +56,13 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 67;
+    z-index: 7;
   }
 
   > .blur {
     position: absolute;
     top: 0;
-    z-index: 66;
+    z-index: 6;
   }
 }
 
@@ -72,7 +72,7 @@
   height: 225px;
   top: 75px;
   left: 9px;
-  z-index: 67;
+  z-index: 7;
 }
 
 .sala-side {
@@ -93,7 +93,6 @@
   > .waterfour-container {
     position: absolute;
     left: calc(-2vw - 50px);
-    z-index: 10;
 
     bottom: calc(-6vh + 155px);
     @include breakpoint(460px) {
@@ -107,7 +106,6 @@
   > .waterthree-container {
     position: absolute;
     left: calc(-2vw - 50px);
-    z-index: 20;
 
     bottom: calc(2vh + 50px);
     @include breakpoint(460px) {
@@ -121,7 +119,6 @@
   > .watertwo-container {
     position: absolute;
     left: calc(-2vw - 50px);
-    z-index: 30;
 
     bottom: calc(6vh - 40px);
     @include breakpoint(460px) {
@@ -135,7 +132,6 @@
   > .waterone-container {
     position: absolute;
     left: calc(-2vw - 50px);
-    z-index: 40;
 
     bottom: calc(-4vh - 40px);
     @include breakpoint(460px) {
