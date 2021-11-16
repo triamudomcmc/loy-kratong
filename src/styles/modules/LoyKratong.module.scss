@@ -1,24 +1,37 @@
 @import "utils/mixins.scss";
 
 .loy-scene {
-  width: 175vw;
   height: 100vh;
+  width: 250vw;
+
+  @include breakpoint(sm) {
+    width: 175vw;
+  }
 }
 
 .background {
-  width: 175vw;
   height: 100vh;
   background-color: #000;
   background: linear-gradient(180deg, #000000 0%, #236bad 70.87%);
   position: relative;
   overflow: hidden;
+
+  width: 250vw;
+
+  @include breakpoint(sm) {
+    width: 175vw;
+  }
 }
 
 .sky {
   position: fixed;
   width: 100vw;
   top: 0;
-  z-index: 3;
+  z-index: 70;
+
+  @include breakpoint(xl) {
+    top: -31px;
+  }
 }
 
 .sky > .clouds {
@@ -26,16 +39,16 @@
   width: 100%;
   top: 50px;
 
-  z-index: 5;
+  z-index: 4;
 }
 
 .sky > .moon {
   position: absolute;
   width: 150px;
   height: 150px;
-  left: 25vw;
-  top: 75px;
-  z-index: 4;
+  right: 10vw;
+  top: 35px;
+  z-index: 68;
 
   > .img {
     position: absolute;
@@ -43,14 +56,23 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 7;
+    z-index: 67;
   }
 
   > .blur {
     position: absolute;
     top: 0;
-    z-index: 6;
+    z-index: 66;
   }
+}
+
+.sky > .fireworks-1 {
+  position: absolute;
+  width: 225px;
+  height: 225px;
+  top: 75px;
+  left: 9px;
+  z-index: 67;
 }
 
 .sala-side {
@@ -70,29 +92,75 @@
 .background {
   > .waterfour-container {
     position: absolute;
-    left: 0;
-    bottom: calc((4 * (48vh / 4)) - 50vh + 125px);
+    left: calc(-2vw - 50px);
     z-index: 10;
+
+    bottom: calc(-6vh + 155px);
+    @include breakpoint(460px) {
+      bottom: calc(-15vh + 155px);
+    }
+    @include breakpoint(lg) {
+      bottom: calc(-16vw + 35px);
+    }
   }
 
   > .waterthree-container {
     position: absolute;
-    left: 0;
-    bottom: calc((3 * (48vh / 4)) - 50vh + 125px);
+    left: calc(-2vw - 50px);
     z-index: 20;
+
+    bottom: calc(2vh + 50px);
+    @include breakpoint(460px) {
+      bottom: calc(-10vh + 50px);
+    }
+    @include breakpoint(lg) {
+      bottom: calc(-15vw + -47px);
+    }
   }
 
   > .watertwo-container {
     position: absolute;
-    left: 0;
-    bottom: calc((2 * (48vh / 4)) - 50vh + 125px);
+    left: calc(-2vw - 50px);
     z-index: 30;
+
+    bottom: calc(6vh - 40px);
+    @include breakpoint(460px) {
+      bottom: calc(-10vh + -40px);
+    }
+    @include breakpoint(lg) {
+      bottom: calc(-13vw - 175px);
+    }
   }
 
   > .waterone-container {
     position: absolute;
-    left: 0;
-    bottom: calc((1 * (48vh / 4)) - 50vh + 125px);
+    left: calc(-2vw - 50px);
     z-index: 40;
+
+    bottom: calc(-4vh - 40px);
+    @include breakpoint(460px) {
+      bottom: calc(-10vh - 125px);
+    }
+    @include breakpoint(lg) {
+      bottom: calc(-14vw - 239px);
+    }
+  }
+}
+
+.buildings {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  top: -27vw;
+  width: 500vw;
+
+  @include breakpoint(sm) {
+    top: -18vw;
+    width: 353vw;
+  }
+
+  @include breakpoint(lg) {
+    top: -11vw;
+    width: 253vw;
   }
 }

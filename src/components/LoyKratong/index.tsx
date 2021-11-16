@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { LoyKratongBG } from "@components/Background";
+import LoyKratongBG from "./loykratong";
 
 export const LoyKratongPage: NextPage = () => {
   return (

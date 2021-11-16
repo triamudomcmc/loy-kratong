@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Cloud } from "@components/Vector/cloud";
 import classNames from "classnames";
 import { PageFive, PageFour, PageOne, PageThree, PageTwo } from "./pages";
-import { useWindowDimensions } from "@utils/document";
+import { useWindowDimensions } from "@utils/useWindowDimensions";
 
 const DURATION = 1500;
 const DELAY = 250;
@@ -64,7 +64,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: -1000, y: 1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-40]"
+                className="absolute w-full h-full z-[40]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] top-[-62px] sm:top-[-139px]">
                   <Cloud />
@@ -81,7 +81,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: 1000, y: 1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-2]"
+                className="absolute w-full h-full z-[40]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] top-[-62px] sm:top-[-139px]">
                   <Cloud />
@@ -98,7 +98,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: -1000, y: 0, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-2]"
+                className="absolute w-full h-full z-[40]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] top-[25%] sm:top-[calc(5%-139px)]">
                   <Cloud />
@@ -115,7 +115,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: 1000, y: 0, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-2]"
+                className="absolute w-full h-full z-[40]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] top-[25%] sm:top-[calc(15%-139px)]">
                   <Cloud />
@@ -132,7 +132,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: -1000, y: -1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-2]"
+                className="absolute w-full h-full z-[40]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] bottom-[-62px] sm:bottom-[-99px]">
                   <Cloud />
@@ -149,7 +149,7 @@ const TitleScreen: NextPage = () => {
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{ x: 1000, y: -1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[-2]"
+                className="absolute w-full h-full z-[40]"
               >
                 <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] bottom-[-62px] sm:bottom-[-99px]">
                   <Cloud />

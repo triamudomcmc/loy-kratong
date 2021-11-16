@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import Image from "next/image";
 import { LightWater } from "@components/Water";
-import { useWindowDimensions } from "@utils/document";
+import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { Cloud } from "@components/Vector/cloud";
 import Link from "next/link";
 

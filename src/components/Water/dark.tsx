@@ -1,64 +1,12 @@
 import type { NextPage } from "next";
 import styles from "@styles/modules/LoyKratong.module.scss";
 import { motion } from "framer-motion";
-
-const DURATION = 4000;
-
-const WAVEUP = 5;
-const WAVEDOWN = -5;
-
-const WaterOneData = {
-  animate: {
-    y: [0, WAVEUP, 0, WAVEDOWN, 0, WAVEUP, 0, WAVEDOWN, 0],
-  },
-  transition: {
-    type: "tween",
-    repeat: Infinity,
-    duration: DURATION / 1000,
-    delay: 250 / 1000,
-  },
-};
-
-const WaterTwoData = {
-  animate: {
-    y: [0, WAVEUP, 0, WAVEDOWN, 0, WAVEUP, 0, WAVEDOWN, 0],
-  },
-  transition: {
-    type: "tween",
-    repeat: Infinity,
-    duration: DURATION / 1000,
-    delay: 450 / 1000,
-  },
-};
-
-const WaterThreeData = {
-  animate: {
-    y: [0, WAVEUP, 0, WAVEDOWN, 0, WAVEUP, 0, WAVEDOWN, 0],
-  },
-  transition: {
-    type: "tween",
-    repeat: Infinity,
-    duration: DURATION / 1000,
-    delay: 650 / 1000,
-  },
-};
-
-const WaterFourData = {
-  animate: {
-    y: [0, WAVEUP, 0, WAVEDOWN, 0, WAVEUP, 0, WAVEDOWN, 0],
-  },
-  transition: {
-    type: "tween",
-    repeat: Infinity,
-    duration: DURATION / 1000,
-    delay: 850 / 1000,
-  },
-};
+import { WaterFourData, WaterOneData, WaterThreeData, WaterTwoData } from "@map/animations";
 
 export const WaterOne: NextPage = () => {
   return (
     <motion.svg
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "125%", height: "100%" }}
       animate={WaterOneData.animate}
       transition={WaterOneData.transition}
       width="2992"
@@ -105,7 +53,7 @@ export const WaterOne: NextPage = () => {
 export const WaterTwo: NextPage = () => {
   return (
     <motion.svg
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "125%", height: "100%" }}
       animate={WaterTwoData.animate}
       transition={WaterTwoData.transition}
       width="2992"
@@ -152,7 +100,7 @@ export const WaterTwo: NextPage = () => {
 export const WaterThree = () => {
   return (
     <motion.svg
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "125%", height: "100%" }}
       animate={WaterThreeData.animate}
       transition={WaterThreeData.transition}
       width="2992"
@@ -199,7 +147,7 @@ export const WaterThree = () => {
 export const WaterFour = () => {
   return (
     <motion.svg
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "125%", height: "100%", zIndex: 10, position: "relative" }}
       animate={WaterFourData.animate}
       transition={WaterFourData.transition}
       width="2992"
