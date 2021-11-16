@@ -18,7 +18,7 @@ const MovingKratong: NextPage<{initialX?: number,speed?: number, data: KratongDa
   useAnimationFrame(
     (delta: number) => {
       // delta - time elapsed in ms
-      setX((prevX) => (prevX < 1400 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1980)));
+      setX((prevX) => (prevX < 1400 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1840)));
     },
     (delta: number) => {
       return false;
