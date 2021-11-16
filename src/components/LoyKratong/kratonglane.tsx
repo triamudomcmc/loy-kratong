@@ -9,42 +9,32 @@ import { AnimatePresence, motion, useMotionValue, useTransform } from "framer-mo
 import type { NextPage } from "next";
 import { useRef, useState } from "react";
 import { DisplayKratong, MessageBox } from "./displaykratong";
+import { KratongData, ResultData } from "@components/Kratong/create";
 
-const Mock = {
-  kratong: {
-    base: "banana-leaf",
-    candles: "candle-green",
-    decorations: "swan",
-    flowers: "luck",
-    signVariant: 0,
-  },
-  wish: {
-    name: "hi",
-    content: "tis content waz sponsored",
-  },
+const random = (from: number, to: number) => {
+  return Math.floor(Math.random() * to) + from;
 };
-
-interface KratongData {
-  kratong: NSelected | PSelected | CSelected;
-  wish: Wish;
-}
-
-interface KratongProps {
+const MovingKratong: NextPage<{
+  initialX?: number;
+  speed?: number;
   data: KratongData;
-}
-
-const TopMovingKratong: NextPage<KratongProps> = ({ data }) => {
+  className: string;
+  size: Array<string>;
+  lane: string;
+}> = ({ initialX = 0, speed = 0.5, data, className, size, lane }) => {
   const { width, height } = useWindowDimensions();
   const [toggle, setToggle] = useState(false);
-  const [x, setX] = useState(0);
+  const [x, setX] = useState(initialX);
+
+  const zIndex = lane === "t" ? 15 : lane === "m" ? 25 : 35;
 
   useAnimationFrame(
     (delta: number) => {
       // delta - time elapsed in ms
-      setX((prevX) => prevX + delta * 0.01 * 0.5);
+      setX((prevX) => (prevX < 1400 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1840)));
     },
     (delta: number) => {
-      return x > width + 750;
+      return false;
     }
   );
 
@@ -53,7 +43,7 @@ const TopMovingKratong: NextPage<KratongProps> = ({ data }) => {
       <motion.div
         animate={WaterFourData.animate}
         transition={WaterFourData.transition}
-        style={{ left: x, zIndex: 15 }}
+        style={{ left: x, zIndex }}
         className="absolute top-[-5px] brightness-50 hover:brightness-100 active:brightness-110"
       >
         {toggle && (
@@ -70,154 +60,94 @@ const TopMovingKratong: NextPage<KratongProps> = ({ data }) => {
                 onClick={() => setToggle(false)}
               />
               <div className="absolute top-4 left-4 flex flex-col min-w-1/4">
-                <p className="font-medium text-[#2256A3] mb-2">{data.wish.name}</p>
+                <p className="font-ui font-medium text-[#2256A3] mb-2">{data.wish.name}</p>
                 <hr className="w-1/2 border-[0.5px] border-[#2256A3] mb-4" />
-                <p className="text-sm font-light text-[#2256A3]">{data.wish.content}</p>
+                <p className="font-ui text-sm font-light text-[#2256A3]">{data.wish.content}</p>
               </div>
             </motion.div>
           </AnimatePresence>
         )}
         <DisplayKratong
-          height={width > 640 ? "125px" : "75px"}
-          zIndex={15}
+          height={width > 640 ? size[0] : size[1]}
+          zIndex={zIndex}
           onClick={() => setToggle(!toggle)}
-          data={data.kratong as NSelected}
+          data={data}
         />
       </motion.div>
     </>
   );
 };
 
-export const TopLane: NextPage = () => {
+const sample = {
+  kratong: {
+    base: "banana-leaf",
+    candles: "candle-green",
+    decorations: "swan",
+    flowers: "luck",
+    signVariant: 0,
+  },
+  wish: {
+    name: "hi",
+    content: "hi",
+  },
+};
+
+export const TopLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   return (
     <>
-      <TopMovingKratong data={Mock} />
+      {entities &&
+        entities.map((e, i) => {
+          return (
+            <MovingKratong
+              key={`lane-t-${i}`}
+              className={"absolute left-[550px] top-[0px] brightness-50 hover:brightness-100 active:brightness-110"}
+              initialX={i * random(260, 360) + random(80, 120)}
+              data={e}
+              size={["125px", "75px"]}
+              lane="t"
+            />
+          );
+        })}
     </>
   );
 };
 
-const MidMovingKratong: NextPage<KratongProps> = ({ data }) => {
-  const { width, height } = useWindowDimensions();
-  const [toggle, setToggle] = useState(false);
-  const [x, setX] = useState(250);
-
-  useAnimationFrame(
-    (delta: number) => {
-      // delta - time elapsed in ms
-      setX((prevX) => prevX + delta * 0.01 * 0.45);
-    },
-    (delta: number) => {
-      return x > width + 750;
-    }
-  );
-
+export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   return (
     <>
-      <motion.div
-        animate={WaterFourData.animate}
-        transition={WaterFourData.transition}
-        style={{ left: x, zIndex: 25 }}
-        className="absolute top-[-44px] brightness-[60%] hover:brightness-100 active:brightness-110"
-      >
-        {toggle && (
-          <AnimatePresence>
-            <motion.div
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -100, opacity: 0 }}
-              className="w-[275px] absolute z-[99] left-[63px] top-[-165px]"
-            >
-              <MessageBox />
-              <XIcon
-                className="w-5 h-5 text-white absolute right-4 top-4 cursor-pointer hover:text-gray-100"
-                onClick={() => setToggle(false)}
-              />
-              <div className="absolute top-4 left-4 flex flex-col min-w-1/4">
-                <p className="font-medium text-[#2256A3] mb-2">{data.wish.name}</p>
-                <hr className="w-1/2 border-[0.5px] border-[#2256A3] mb-4" />
-                <p className="text-sm font-light text-[#2256A3]">{data.wish.content}</p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        )}
-        <DisplayKratong
-          height={width > 640 ? "175px" : "125px"}
-          zIndex={25}
-          onClick={() => setToggle(!toggle)}
-          data={data.kratong as NSelected}
-        />
-      </motion.div>
+      {entities &&
+        entities.map((e, i) => {
+          return (
+            <MovingKratong
+              key={`lane-m-${i}`}
+              className={"absolute left-[250px] top-[-64px] brightness-75 hover:brightness-100 active:brightness-110"}
+              initialX={i * random(280, 320) + random(200, 320)}
+              data={e}
+              size={["175px", "125px"]}
+              lane="m"
+            />
+          );
+        })}
     </>
   );
 };
 
-export const MidLane: NextPage = () => {
+export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   return (
     <>
-      <MidMovingKratong data={Mock} />
-    </>
-  );
-};
-
-const BotMovingKratong: NextPage<KratongProps> = ({ data }) => {
-  const { width, height } = useWindowDimensions();
-  const [toggle, setToggle] = useState(false);
-  const [x, setX] = useState(250);
-
-  useAnimationFrame(
-    (delta: number) => {
-      // delta - time elapsed in ms
-      setX((prevX) => prevX + delta * 0.01 * 0.425);
-    },
-    (delta: number) => {
-      return x > width + 750;
-    }
-  );
-
-  return (
-    <div>
-      <motion.div
-        animate={WaterFourData.animate}
-        transition={WaterFourData.transition}
-        style={{ left: x, zIndex: 35 }}
-        className="absolute top-[-44px] brightness-90 hover:brightness-100 active:brightness-110"
-      >
-        {toggle && (
-          <AnimatePresence>
-            <motion.div
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -100, opacity: 0 }}
-              className="w-[300px] absolute z-[99] left-[63px] top-[-165px]"
-            >
-              <MessageBox />
-              <XIcon
-                className="w-5 h-5 text-white absolute right-4 top-4 cursor-pointer hover:text-gray-100"
-                onClick={() => setToggle(false)}
-              />
-              <div className="absolute top-4 left-4 flex flex-col min-w-1/4">
-                <p className="font-medium text-[#2256A3] mb-2">{data.wish.name}</p>
-                <hr className="w-1/2 border-[0.5px] border-[#2256A3] mb-4" />
-                <p className="text-sm font-light text-[#2256A3]">{data.wish.content}</p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        )}
-        <DisplayKratong
-          height={width > 640 ? "175px" : "125px"}
-          zIndex={35}
-          onClick={() => setToggle(!toggle)}
-          data={data.kratong as NSelected}
-        />
-      </motion.div>
-    </div>
-  );
-};
-
-export const BotLane: NextPage = () => {
-  return (
-    <>
-      <BotMovingKratong data={Mock} />
+      {entities &&
+        entities.map((e, i) => {
+          return (
+            <MovingKratong
+              key={`lane-b-${i}`}
+              className={"absolute left-[350px] top-[-64px] brightness-90 hover:brightness-100 active:brightness-110"}
+              initialX={i * random(300, 360) + random(60, 130)}
+              data={e}
+              size={["225px", "175px"]}
+              lane="b"
+            />
+          );
+        })}
     </>
   );
 };

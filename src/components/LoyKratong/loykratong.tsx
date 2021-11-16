@@ -5,134 +5,42 @@ import Image from "next/image";
 import { Cloud } from "@components/Vector/cloud";
 import classNames from "classnames";
 import { BotLane, MidLane, TopLane } from "./kratonglane";
+import { ResultData } from "@components/Kratong/create";
 
-const MockKratongs = {
-  top: [
-    {
-      kratong: {
-        base: "banana-leaf",
-        candles: "candle-green",
-        decorations: "swan",
-        flowers: "luck",
-        signVariant: 0,
-      },
-      wish: {
-        name: "hi",
-        content: "h1",
-      },
-    },
-    {
-      kratong: {
-        base: "banana-leaf",
-        candles: "candle-green",
-        decorations: "swan",
-        flowers: "luck",
-        signVariant: 0,
-      },
-      wish: {
-        name: "hi",
-        content: "h1",
-      },
-    },
-    {
-      kratong: {
-        base: "banana-leaf",
-        candles: "candle-green",
-        decorations: "swan",
-        flowers: "luck",
-        signVariant: 0,
-      },
-      wish: {
-        name: "hi",
-        content: "h1",
-      },
-    },
-    {
-      kratong: {
-        base: "banana-leaf",
-        candles: "candle-green",
-        decorations: "swan",
-        flowers: "luck",
-        signVariant: 0,
-      },
-      wish: {
-        name: "hi",
-        content: "h1",
-      },
-    },
-  ],
-  middle: [
-    {
-      kratong: {
-        base: "banana-leaf",
-        candles: "candle-green",
-        decorations: "swan",
-        flowers: "luck",
-        signVariant: 0,
-      },
-      wish: {
-        name: "hi",
-        content: "h1",
-      },
-    },
-    {
-      kratong: {
-        base: "banana-leaf",
-        candles: "candle-green",
-        decorations: "swan",
-        flowers: "luck",
-        signVariant: 0,
-      },
-      wish: {
-        name: "hi",
-        content: "h1",
-      },
-    },
-  ],
-  bottom: [
-    {
-      kratong: {
-        base: "banana-leaf",
-        candles: "candle-green",
-        decorations: "swan",
-        flowers: "luck",
-        signVariant: 0,
-      },
-      wish: {
-        name: "hi",
-        content: "h1",
-      },
-    },
-    {
-      kratong: {
-        base: "banana-leaf",
-        candles: "candle-green",
-        decorations: "swan",
-        flowers: "luck",
-        signVariant: 0,
-      },
-      wish: {
-        name: "hi",
-        content: "h1",
-      },
-    },
-    {
-      kratong: {
-        base: "banana-leaf",
-        candles: "candle-green",
-        decorations: "swan",
-        flowers: "luck",
-        signVariant: 0,
-      },
-      wish: {
-        name: "hi",
-        content: "h1",
-      },
-    },
-  ],
-};
+function shuffle(array: Array<any>) {
+  let currentIndex = array.length,
+    randomIndex;
 
-const LoyKratongBG: NextPage = () => {
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+function chunk(arr: Array<any>, cCount: number) {
+  const len = Math.ceil(arr.length / cCount);
+  let chunks = [],
+    i = 0,
+    n = arr.length;
+
+  while (i < n) {
+    chunks.push(arr.slice(i, (i += len)));
+  }
+
+  return chunks;
+}
+
+const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
+  shuffle(entities);
+  const lanes = chunk(entities, 3);
+
   return (
     <div className={styles["loy-scene"]}>
       <div className={styles["sky"]}>
@@ -210,21 +118,21 @@ const LoyKratongBG: NextPage = () => {
                 <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
               </div>
             </div>
-            <TopLane />
+            <TopLane entities={lanes[0]} />
             <WaterFour />
           </div>
         </div>
 
         <div className={classNames("absolute", styles["waterthree-container"])}>
           <div className="relative">
-            <MidLane />
+            <MidLane entities={lanes[1]} />
             <WaterThree />
           </div>
         </div>
 
         <div className={classNames("absolute", styles["watertwo-container"])}>
           <div className="relative">
-            <BotLane />
+            <BotLane entities={lanes[2]} />
             <WaterTwo />
           </div>
         </div>

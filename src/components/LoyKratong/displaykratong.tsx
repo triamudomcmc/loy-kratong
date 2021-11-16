@@ -1,4 +1,4 @@
-import { Selected as NSelected } from "@components/Kratong/create";
+import { KratongData, Selected as NSelected } from "@components/Kratong/create";
 import type { NextPage } from "next";
 import { KratongMap } from "@map/kratong";
 import styles from "@styles/modules/Kratong.module.scss";
@@ -82,14 +82,14 @@ export const MessageBox: FC = () => {
   );
 };
 interface KratongProps {
-  data: NSelected;
+  data: KratongData;
   height: string;
   zIndex: number;
   onClick: () => void;
 }
 
 export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick }) => {
-  const selected = data;
+  const selected = data.kratong;
   const [hovered, setHovered] = useState(false);
 
   return (

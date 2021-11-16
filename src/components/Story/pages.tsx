@@ -178,9 +178,9 @@ export const PageFive: NextPage = () => {
       <div className="absolute bottom-[-30px] z-[-1] left-[50%] -translate-x-1/2 min-w-full min-h-[50%]">
         <div className="w-full h-full flex justify-center">
           {width >= 640 ? (
-            <Image width={1350} height={753} objectFit={"cover"} src="/assets/images/scene/sala-front.png" alt="ศาลา" />
+            <Image width={1350} height={753} priority={true} objectFit={"cover"} src="/assets/images/scene/sala-front.png" alt="ศาลา" />
           ) : (
-            <Image layout={"fill"} objectFit={"cover"} src="/assets/images/scene/sala-front.png" alt="ศาลา" />
+            <Image layout={"fill"} objectFit={"cover"} priority={true} src="/assets/images/scene/sala-front.png" alt="ศาลา" />
           )}
         </div>
       </div>
