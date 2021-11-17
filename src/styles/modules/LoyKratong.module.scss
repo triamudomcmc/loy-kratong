@@ -151,57 +151,58 @@
 .background {
   > .waterfour-container {
     position: absolute;
-    left: calc(-2vw - 50px);
+    left: calc(-50px);
     z-index: 10; /* change later */
 
-    bottom: calc(-6vh + 155px);
+    bottom: calc(70px);
     @include breakpoint(460px) {
-      bottom: calc(-15vh + 155px);
+      bottom: calc(70px);
     }
     @include breakpoint(lg) {
-      bottom: calc(-16vw + 35px);
+      bottom: calc(-150px);
     }
   }
 
   > .waterthree-container {
     position: absolute;
-    left: calc(-2vw - 50px);
+    left: calc(-50px);
     z-index: 20; /* change later */
 
-    bottom: calc(2vh + 50px);
+    bottom: calc(20px);
+
     @include breakpoint(460px) {
-      bottom: calc(-10vh + 50px);
+      bottom: calc(20px);
     }
     @include breakpoint(lg) {
-      bottom: calc(-15vw + -47px);
+      bottom: calc(-220px);
     }
   }
 
   > .watertwo-container {
     position: absolute;
-    left: calc(-2vw - 50px);
+    left: calc(-50px);
     z-index: 30; /* change later */
 
-    bottom: calc(6vh - 40px);
+    bottom: calc(-30px);
     @include breakpoint(460px) {
-      bottom: calc(-10vh + -40px);
+      bottom: calc(-30px);
     }
     @include breakpoint(lg) {
-      bottom: calc(-13vw - 175px);
+      bottom: calc(-315px);
     }
   }
 
   > .waterone-container {
     position: absolute;
-    left: calc(-2vw - 50px);
+    left: calc(-50px);
     z-index: 40; /* change later */
 
-    bottom: calc(-4vh - 40px);
-    @include breakpoint(460px) {
-      bottom: calc(-10vh - 125px);
-    }
+    bottom: calc(-80px);    @include breakpoint(460px) {
+    bottom: calc(-80px);
+  }
+
     @include breakpoint(lg) {
-      bottom: calc(-14vw - 239px);
+      bottom: calc(-396px);
     }
   }
 }

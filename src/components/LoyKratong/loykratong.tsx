@@ -177,7 +177,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
             <IdleKratong
               highlighted
               className={
-                "transition-opacity absolute top-[-46px] sm:top-[-56px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute top-[-46px] sm:top-[-56px] lg:top-[-40px] hover:brightness-100 active:brightness-110"
               }
               lane="m"
               size={["155px", "115px"]}
@@ -191,7 +191,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               lane="m"
               size={["185px", "135px"]}
               className={
-                "transition-opacity absolute top-[-46px] sm:top-[-64px] lg:top-[-64px] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute top-[-46px] sm:top-[-64px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
               }
             />
             <MidLane entities={lanes[1]} />

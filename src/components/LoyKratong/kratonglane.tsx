@@ -75,7 +75,7 @@ export const TopLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-t-${i}`}
               className={
-                "transition-opacity absolute left-[550px] top-[6px] sm:top-[-28px] brightness-50 hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[550px] top-[6px] sm:top-[-28px] lg:top-[20px] brightness-50 hover:brightness-100 active:brightness-110"
               }
               initialX={(i * (width > 640 ? random(680, 1160) : random(80, 780))) + (width > 640 ? random(60, 140) : random(0, 100))}
               data={e}
@@ -99,7 +99,7 @@ export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-m-${i}`}
               className={
-                "transition-opacity absolute left-[250px] top-[-20px] sm:top-[-64px] lg:top-[-44px] brightness-[60%] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[250px] top-[-20px] sm:top-[-64px] lg:top-[-46px] brightness-[60%] hover:brightness-100 active:brightness-110"
               }
               initialX={(i * (width > 640 ? random(760, 1060) : random(100, 780))) + (width > 640 ? random(80, 120) : random(0, 120))}
               data={e}
@@ -124,7 +124,7 @@ export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-b-${i}`}
               className={
-                "transition-opacity absolute left-[350px] top-[-64px] sm:top-[-60px] lg:top-[-36px] brightness-[90%] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[350px] top-[-64px] sm:top-[-60px] lg:top-[-40px] brightness-[90%] hover:brightness-100 active:brightness-110"
               }
               initialX={(i * (width > 640 ? random(580, 1020) : random(20, 860))) + (width > 640 ? random(40, 100) : random(0, 90))}
               data={e}
