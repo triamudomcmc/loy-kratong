@@ -121,17 +121,8 @@ interface KratongProps {
   onClick: () => void;
 }
 
-const sample = {
-  base: "banana-leaf",
-  candles: "candle-green",
-  decorations: "swan",
-  flowers: "luck",
-  signVariant: 0,
-};
-
 export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick }) => {
-  const selected = data?.kratong ?? sample;
-  if (data?.kratong) console.warn("hi");
+  const selected = data.kratong;
   const [hovered, setHovered] = useState(false);
 
   return (
