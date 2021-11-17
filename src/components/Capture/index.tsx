@@ -9,13 +9,15 @@ import { PrincipalKratongData, RongPrincipalKratongsData } from "@map/realkraton
 import { IdleKratong } from "@components/LoyKratong/displaykratong";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { random } from "@utils/random";
+import { Kratong } from "@components/Kratong/kratong";
+import { Selected } from "@components/Kratong/create";
 
-export const CaptureKratong: NextPage = () => {
+export const CaptureKratong: NextPage<{ data: Selected }> = ({ data }) => {
   const { width } = useWindowDimensions();
 
   return (
     <div className={styles["capture-scene"]}>
-      <nav className="max-w-[256px] absolute top-12 left-12 z-[99]">
+      <nav className="max-w-[256px] absolute top-12 left-24 z-[99]">
         <Image src="/assets/images/logo.png" width="1024px" height="169px" alt="โลโก้ กช." />
       </nav>
       <div className={styles["sky"]}>
@@ -43,43 +45,34 @@ export const CaptureKratong: NextPage = () => {
           <Image src="/assets/images/scene/fireworks.gif" width={1280} height={960} />
         </div>
         {/* todo พลุหลากสี */}
-        <div className={styles["fireworks-3"]}>
-          <Image src="/assets/images/scene/fireworks.gif" width={1280} height={960} />
-        </div>
       </div>
       <div className={styles["background"]}>
-        <div className={classNames("absolute", styles["waterfour-container"])}>
-          <div className="relative">
+        <div className={classNames("absolute", styles["waterthree-container"])}>
+          <div className="relative w-[150vw] bottom-[-136px]">
             <div className={styles["buildings"]}>
               <div className="w-[275%]">
                 <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
               </div>
             </div>
-            <WaterFour />
-          </div>
-        </div>
-
-        <div className={classNames("absolute", styles["waterthree-container"])}>
-          <div className="relative">
             <IdleKratong
-              className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[90%] hover:brightness-100 active:brightness-110"
               lane="m"
-              size={["225px", "175px"]}
-              initialX={width < 640 ? 650 : 1150}
-              data={RongPrincipalKratongsData[random(2, 3)]}
+              className="absolute z-[29] left-[380px] top-[-169px]"
+              data={{ kratong: data, wish: { content: "", name: "" } }}
+              size={["554px", "554px"]}
+              initialX={380}
             />
             <WaterThree />
           </div>
         </div>
 
         <div className={classNames("absolute", styles["watertwo-container"])}>
-          <div className="relative">
+          <div className="relative w-[150vw] bottom-[243px]">
             <WaterTwo />
           </div>
         </div>
 
         <div className={classNames("absolute", styles["waterone-container"])}>
-          <div className="relative">
+          <div className="relative w-[150vw] bottom-[-850px]">
             <WaterOne />
           </div>
         </div>

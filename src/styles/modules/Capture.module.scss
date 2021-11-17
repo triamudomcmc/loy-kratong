@@ -20,7 +20,7 @@
 .sky {
   position: absolute;
   width: 100%;
-  top: 0;
+  top: 50px;
   z-index: 9;
 }
 
@@ -137,7 +137,7 @@
     position: absolute;
     left: calc(-2vw - 50px);
     z-index: 10; /* change later */
-    bottom: calc(-16vw + 35px);
+    bottom: 100px;
   }
 
   > .waterthree-container {
@@ -145,7 +145,7 @@
     left: calc(-2vw - 50px);
     z-index: 20; /* change later */
 
-    bottom: calc(-15vw + -47px);
+    bottom: 150px;
   }
 
   > .watertwo-container {
@@ -160,14 +160,7 @@
     position: absolute;
     left: calc(-2vw - 50px);
     z-index: 40; /* change later */
-
-    bottom: calc(-4vh - 40px);
-    @include breakpoint(460px) {
-      bottom: calc(-10vh - 125px);
-    }
-    @include breakpoint(lg) {
-      bottom: calc(-14vw - 239px);
-    }
+    bottom: 137px;
   }
 }
 
@@ -175,6 +168,6 @@
   position: absolute;
   z-index: 5;
   display: flex;
-  top: -45vw;
+  top: -184px;
   width: 300vw;
 }

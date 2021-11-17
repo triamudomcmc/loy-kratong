@@ -3,11 +3,13 @@ import { KratongMap } from "@map/kratong";
 import styles from "@styles/modules/Kratong.module.scss";
 import { NormalPart, VariantPart, Candle } from "./parts";
 import { Selected } from "./create";
+import classNames from "classnames";
 
 interface KratongProps {
   selected: Selected;
   height: string;
   zIndex: number;
+  className?: string;
 }
 
 /*
@@ -15,10 +17,13 @@ height: 240px
 offset: 60px
 */
 
-export const Kratong: NextPage<KratongProps> = ({ selected, height, zIndex }) => {
+export const Kratong: NextPage<KratongProps> = ({ selected, height, zIndex, className }) => {
   return (
     <>
-      <div style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }} className={styles["kratong"]}>
+      <div
+        style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }}
+        className={classNames(styles["kratong"], className)}
+      >
         <div className={styles["topping"]}>
           <div className={styles["decorations"]}>
             {Object.keys(KratongMap.decorations).map((decoration: string) => {
