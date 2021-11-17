@@ -1,5 +1,5 @@
 import { CaptureKratong } from "@components/Capture";
-import { Selected } from "@components/Kratong/create";
+import { KratongData, Selected } from "@components/Kratong/create";
 import type { GetServerSideProps, GetStaticProps, NextPage } from "next";
 
 const sample = {
@@ -16,12 +16,12 @@ const sample = {
   },
 };
 
-const Capture: NextPage<{ data: Selected }> = ({ data }) => {
+const Capture: NextPage<{ data: KratongData }> = ({ data }) => {
   return <CaptureKratong data={data} />;
 };
 
 Capture.getInitialProps = ({ query }) => {
-  const data = query?.data ? JSON.parse(query?.data as string) : sample.kratong;
+  const data = query?.data ? JSON.parse(query?.data as string) : sample;
 
   return {
     data,
