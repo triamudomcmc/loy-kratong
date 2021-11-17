@@ -8,7 +8,7 @@ import {useEffect} from "react";
 import Router from "next/router";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const data = await initialiseDB.collection("filteredEntities").limit(12).get();
+  const data = await initialiseDB.collection("filteredEntities").limit(10).get();
 
   return {
     props: {

@@ -219,9 +219,9 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
             </div>
 
             <PrincipalIdleKratong
-              className="transition-opacity absolute top-[-77px] sm:top-[-134px] lg:top-[-154px] brightness-[99%] hover:brightness-100 active:brightness-110"
+              className="transition-opacity absolute top-[-77px] sm:top-[-78px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
-              size={["145px", "170px"]}
+              size={["200px", "170px"]}
               initialX={750}
               data={PrincipalKratongData}
             />
