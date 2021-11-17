@@ -131,7 +131,7 @@ const sample = {
 
 export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick }) => {
   const selected = data?.kratong ?? sample;
-  if (data?.kratong) console.warn("hi");
+  // if (data?.kratong) console.warn("hi");
   const [hovered, setHovered] = useState(false);
 
   return (
