@@ -7,8 +7,8 @@ export const WaterOne: NextPage = () => {
   return (
     <motion.svg
       style={{ width: "125%", height: "100%", zIndex: 40, position: "relative" }}
-      animate={WaterOneData.animate}
-      transition={WaterOneData.transition}
+      // animate={WaterOneData.animate}
+      // transition={WaterOneData.transition}
       width="2992"
       height="605"
       viewBox="0 0 2992 605"
@@ -54,8 +54,8 @@ export const WaterTwo: NextPage = () => {
   return (
     <motion.svg
       style={{ width: "125%", height: "100%", zIndex: 30, position: "relative" }}
-      animate={WaterTwoData.animate}
-      transition={WaterTwoData.transition}
+      // animate={WaterTwoData.animate}
+      // transition={WaterTwoData.transition}
       width="2992"
       height="603"
       viewBox="0 0 2992 603"
@@ -101,8 +101,8 @@ export const WaterThree = () => {
   return (
     <motion.svg
       style={{ width: "125%", height: "100%", zIndex: 20, position: "relative" }}
-      animate={WaterThreeData.animate}
-      transition={WaterThreeData.transition}
+      // animate={WaterThreeData.animate}
+      // transition={WaterThreeData.transition}
       width="2992"
       height="572"
       viewBox="0 0 2992 572"
@@ -148,8 +148,8 @@ export const WaterFour = () => {
   return (
     <motion.svg
       style={{ width: "125%", height: "100%", zIndex: 10, position: "relative" }}
-      animate={WaterFourData.animate}
-      transition={WaterFourData.transition}
+      // animate={WaterFourData.animate}
+      // transition={WaterFourData.transition}
       width="2992"
       height="572"
       viewBox="0 0 2992 572"
