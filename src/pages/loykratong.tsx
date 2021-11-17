@@ -6,7 +6,7 @@ import initialiseDB from "@handlers/firebase-admin";
 import { ResultData } from "@components/Kratong/create";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const data = await initialiseDB.collection("filteredEntities").limit(12).get();
+  const data = await initialiseDB.collection("filteredEntities").limit(8).get();
 
   return {
     props: {
