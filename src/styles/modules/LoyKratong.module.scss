@@ -124,13 +124,13 @@
   position: absolute;
   left: 22px;
   z-index: 31;
-  top: calc(-14vw - 165px);
-  width: calc(37vw + 172px);
+  top: calc(-215px);
+  width: calc(342px);
   max-width: 450px;
 
   @include breakpoint(sm) {
     top: -317px;
-    width: calc(40vw + 150px);
+    width: calc(450px);
   }
 }
 
