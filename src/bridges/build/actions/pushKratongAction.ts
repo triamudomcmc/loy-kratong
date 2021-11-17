@@ -10,7 +10,6 @@ export const pushKratongAction = pushKratongContext.helper.createAction(async (A
       data: {id: data.id}
     }
   } catch (e) {
-    console.log(e)
     return  {
       status: false,
       report: "unexpected Error"
