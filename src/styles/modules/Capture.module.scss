@@ -20,7 +20,7 @@
 .sky {
   position: absolute;
   width: 100%;
-  top: 85px;
+  top: 5px;
   z-index: 9;
 }
 
@@ -36,7 +36,7 @@
   position: absolute;
   width: 375px;
   height: 375px;
-  right: 96px;
+  right: 46px;
   top: 35px;
   z-index: 8;
 
@@ -58,19 +58,19 @@
 
 .sky > .fireworks-1 {
   position: absolute;
-  width: 609px;
+  width: 1046px;
   height: 494px;
-  top: 143px;
-  left: 173px;
+  top: 75px;
+  left: 136px;
   z-index: 7;
 }
 
 .sky > .fireworks-2 {
   position: absolute;
-  width: 609px;
+  width: 783px;
   height: 494px;
-  top: 143px;
-  left: 63px;
+  top: 49px;
+  left: 47px;
   z-index: 7;
 }
 
@@ -168,6 +168,6 @@
   position: absolute;
   z-index: 5;
   display: flex;
-  top: -250px;
+  top: -166px;
   width: 300vw;
 }
