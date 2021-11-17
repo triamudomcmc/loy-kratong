@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { KratongNormalPartType, KratongVariantPartType } from "@map/kratong";
 import styles from "@styles/modules/Kratong.module.scss";
+import classNames from "classnames";
 
 interface KratongNormalPartProps {
   part: KratongNormalPartType;
@@ -16,7 +17,7 @@ interface KratongVariantPartProps {
 export const NormalPart: NextPage<KratongNormalPartProps> = ({ part, selected }) => {
   return (
     <div className={styles["container"]} style={{ display: selected === part.id ? "inline-block" : "none" }}>
-      <img className={styles["img"]} src={part.url} alt={part.name} />
+      <img className={classNames(styles["img"], "select-none")} src={part.url} alt={part.name} />
     </div>
   );
 };
@@ -24,7 +25,7 @@ export const NormalPart: NextPage<KratongNormalPartProps> = ({ part, selected })
 export const Candle: NextPage<KratongNormalPartProps> = ({ part, selected }) => {
   return (
     <div className={styles["container"]} style={{ display: selected === part.id ? "inline-block" : "none" }}>
-      <img className={styles["img"]} src={part.url} alt={part.name} />
+      <img className={classNames(styles["img"], "select-none")} src={part.url} alt={part.name} />
     </div>
   );
 };
@@ -39,7 +40,7 @@ export const VariantPart: NextPage<KratongVariantPartProps> = ({ part, selected,
             className={styles["container"]}
             style={{ display: selected === part.id && variantIdx === signVariant ? "inline-block" : "none" }}
           >
-            <img className={styles["img"]} src={variant} alt={part.name} />
+            <img className={classNames(styles["img"], "select-none")} src={variant} alt={part.name} />
           </div>
         );
       })}

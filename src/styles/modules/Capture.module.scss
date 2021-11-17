@@ -1,0 +1,180 @@
+@import "utils/mixins.scss";
+
+.capture-scene {
+  height: 1920px;
+  width: 1080px;
+  position: relative;
+
+  background-color: #eee;
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  background: linear-gradient(180deg, #000000 0%, #236bad 70.87%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sky {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 9;
+}
+
+.sky > .clouds {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+
+  z-index: 4;
+}
+
+.sky > .moon {
+  position: absolute;
+  width: 375px;
+  height: 375px;
+  right: 96px;
+  top: 35px;
+  z-index: 8;
+
+  > .img {
+    position: absolute;
+    width: 65%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 7;
+  }
+
+  > .blur {
+    position: absolute;
+    top: 0;
+    z-index: 6;
+  }
+}
+
+.sky > .fireworks-1 {
+  position: absolute;
+  width: 609px;
+  height: 494px;
+  top: 143px;
+  left: 173px;
+  z-index: 7;
+}
+
+.sky > .fireworks-2 {
+  position: absolute;
+  width: 609px;
+  height: 494px;
+  top: 143px;
+  left: 63px;
+  z-index: 7;
+}
+
+.sky > .fireworks-3 {
+  position: absolute;
+  width: 174px;
+  height: 200px;
+  top: 55px;
+  left: 551px;
+  z-index: 7;
+}
+
+.sky > .fireworks-4 {
+  position: absolute;
+  width: 205px;
+  height: 205px;
+  top: 45px;
+  left: 741px;
+  z-index: 7;
+}
+
+.sky > .fireworks-5 {
+  position: absolute;
+  width: 225px;
+  height: 225px;
+  top: 55px;
+  right: 401px;
+  z-index: 7;
+}
+
+.sky > .fireworks-6 {
+  position: absolute;
+  width: 255px;
+  height: 255px;
+  top: 65px;
+  right: 19px;
+  z-index: 7;
+}
+
+.sala-side {
+  position: absolute;
+  left: 22px;
+  z-index: 31;
+  top: calc(-14vw - 165px);
+  width: calc(37vw + 172px);
+  max-width: 450px;
+
+  @include breakpoint(sm) {
+    top: -317px;
+    width: calc(40vw + 150px);
+  }
+}
+
+.loying-kratong {
+  position: absolute;
+  z-index: 35;
+  top: -111px;
+  left: 183px;
+  cursor: pointer;
+}
+
+.background {
+  > .waterfour-container {
+    position: absolute;
+    left: calc(-2vw - 50px);
+    z-index: 10; /* change later */
+    bottom: calc(-16vw + 35px);
+  }
+
+  > .waterthree-container {
+    position: absolute;
+    left: calc(-2vw - 50px);
+    z-index: 20; /* change later */
+
+    bottom: calc(-15vw + -47px);
+  }
+
+  > .watertwo-container {
+    position: absolute;
+    left: calc(-2vw - 50px);
+    z-index: 30; /* change later */
+
+    bottom: calc(-13vw - 175px);
+  }
+
+  > .waterone-container {
+    position: absolute;
+    left: calc(-2vw - 50px);
+    z-index: 40; /* change later */
+
+    bottom: calc(-4vh - 40px);
+    @include breakpoint(460px) {
+      bottom: calc(-10vh - 125px);
+    }
+    @include breakpoint(lg) {
+      bottom: calc(-14vw - 239px);
+    }
+  }
+}
+
+.buildings {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  top: -45vw;
+  width: 300vw;
+}
