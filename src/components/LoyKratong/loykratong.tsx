@@ -8,7 +8,13 @@ import { BotLane, MidLane, TopLane } from "./kratonglane";
 import { ResultData } from "@components/Kratong/create";
 import { motion } from "framer-motion";
 import { Kratong } from "@components/Kratong/kratong";
-import { DraggableKratong } from "./displaykratong";
+import { DraggableKratong, IdleKratong, PrincipalIdleKratong } from "./displaykratong";
+import { useWindowDimensions } from "@utils/useWindowDimensions";
+import { PrincipalKratongData, RongPrincipalKratongsData } from "@map/realkratong";
+
+const random = (from: number, to: number) => {
+  return Math.floor(Math.random() * to) + from;
+};
 
 function shuffle(array: Array<any>) {
   let currentIndex = array.length,
@@ -55,6 +61,7 @@ const sample = {
 };
 
 const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
+  const { width, height } = useWindowDimensions();
   shuffle(entities);
   const lanes = chunk(entities, 3);
 
@@ -110,6 +117,26 @@ const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
           <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
         </div>
 
+        <div className={styles["fireworks-2"]}>
+          <Image src="/assets/images/scene/fireworks-white-single.gif" width={692} height={754} />
+        </div>
+
+        <div className={styles["fireworks-3"]}>
+          <Image src="/assets/images/scene/fireworks-white-single.gif" width={692} height={754} />
+        </div>
+
+        <div className={styles["fireworks-4"]}>
+          <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
+        </div>
+
+        <div className={styles["fireworks-5"]}>
+          <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
+        </div>
+
+        <div className={styles["fireworks-6"]}>
+          <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
+        </div>
+
         <div className={styles["moon"]}>
           <div className={styles["img"]}>
             <Image src="/assets/images/scene/moon.gif" width={2048} height={2048} objectFit="cover" alt="ดวงจันทร์" />
@@ -138,6 +165,20 @@ const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
 
         <div className={classNames("absolute", styles["waterthree-container"])}>
           <div className="relative">
+            <IdleKratong
+              className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[60%] hover:brightness-100 active:brightness-110"
+              lane="m"
+              size={["225px", "175px"]}
+              initialX={550}
+              data={RongPrincipalKratongsData[random(0, 1)]}
+            />
+            <IdleKratong
+              className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[60%] hover:brightness-100 active:brightness-110"
+              lane="m"
+              size={["225px", "175px"]}
+              initialX={950}
+              data={RongPrincipalKratongsData[random(2, 3)]}
+            />
             <MidLane entities={lanes[1]} />
             <WaterThree />
           </div>
@@ -158,10 +199,19 @@ const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
               <DraggableKratong
                 className={styles["loying-kratong"]}
                 selected={sample.kratong}
-                height="150px"
-                zIndex={55}
+                height={width < 640 ? "115px" : "150px"}
+                zIndex={35}
               />
             </div>
+
+            <PrincipalIdleKratong
+              className="transition-opacity absolute top-[-124px] sm:top-[-134px] lg:top-[-174px] brightness-[99%] hover:brightness-100 active:brightness-110"
+              lane="b"
+              size={["315px", "245px"]}
+              initialX={750}
+              data={PrincipalKratongData}
+            />
+
             <BotLane entities={lanes[2]} />
             <WaterTwo />
           </div>

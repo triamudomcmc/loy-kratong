@@ -2,8 +2,6 @@ import type { GetServerSideProps, NextPage } from "next";
 import { Meta } from "@components/Meta";
 import { KratongPage } from "@components/Kratong";
 import { Navbar } from "@components/Nav";
-import { useEffect } from "react";
-import Router from "next/router";
 import initialiseDB from "@handlers/firebase-admin";
 import { KratongData } from "@components/Kratong/create";
 
@@ -26,13 +24,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const Create: NextPage<{ query: ParsedUrlQuery; data: KratongData }> = ({ query, data }) => {
-  useEffect(() => {
-    if (query && "id" in query) {
-    } else {
-      Router.push("/error");
-    }
-  }, [query]);
-
   return (
     <>
       <Navbar />

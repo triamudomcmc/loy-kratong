@@ -4,6 +4,18 @@
   position: relative;
 }
 
+.aura {
+  width: calc(var(--size) + 50px);
+  height: calc(var(--size) + 50px);
+  top: 0;
+  left: -25px;
+  position: relative;
+  background-color: #fef3c7;
+  opacity: 30%;
+  border-radius: 9999px;
+  filter: blur(10px);
+}
+
 .kratong > .base {
   display: inline-block;
 

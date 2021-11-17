@@ -5,7 +5,7 @@ import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { AnimatePresence, motion } from "framer-motion";
 import type { NextPage } from "next";
 import { useState } from "react";
-import { DisplayKratong, MessageBox } from "./displaykratong";
+import { DisplayKratong, KratongPopup, MessageBox } from "./displaykratong";
 import { KratongData, ResultData } from "@components/Kratong/create";
 import classNames from "classnames";
 
@@ -49,23 +49,7 @@ const MovingKratong: NextPage<{
         <div className={className} style={{ zIndex }}>
           {toggle && (
             <AnimatePresence>
-              <motion.div
-                initial={{ y: -100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -100, opacity: 0 }}
-                className="w-[250px] absolute z-[99] left-[63px] top-[-165px]"
-              >
-                <MessageBox />
-                <XIcon
-                  className="w-5 h-5 text-white absolute right-4 top-4 cursor-pointer hover:text-gray-100"
-                  onClick={() => setToggle(false)}
-                />
-                <div className="absolute top-0 left-0 py-6 px-4 flex flex-col min-w-1/4">
-                  <p className="font-ui font-medium text-[#2256A3] mb-2">{data.wish.name}</p>
-                  <hr className="w-1/2 border-[0.5px] border-[#2256A3] mb-4" />
-                  <p className="font-ui text-sm font-light text-[#2256A3]">{data.wish.content}</p>
-                </div>
-              </motion.div>
+              <KratongPopup info={data.wish} onToggle={setToggle} />
             </AnimatePresence>
           )}
           <DisplayKratong
@@ -92,9 +76,9 @@ export const TopLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-t-${i}`}
               className={
-                "absolute left-[550px] top-0 sm:top-[5px] brightness-50 hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[550px] top-0 sm:top-[5px] brightness-50 hover:brightness-100 active:brightness-110"
               }
-              initialX={i * random(260, 360) + random(80, 120)}
+              initialX={i * random(260, 360) + random(640, 850)}
               data={e}
               size={["105px", "65px"]}
               lane="t"
@@ -114,9 +98,9 @@ export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-m-${i}`}
               className={
-                "absolute left-[250px] top-[-24px] sm:top-[-64px] lg:top-[-44px] brightness-[60%] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[250px] top-[-24px] sm:top-[-64px] lg:top-[-44px] brightness-[60%] hover:brightness-100 active:brightness-110"
               }
-              initialX={i * random(340, 580) + random(200, 320)}
+              initialX={i * random(340, 580) + random(580, 740)}
               data={e}
               size={["155px", "105px"]}
               lane="m"
@@ -136,9 +120,9 @@ export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-b-${i}`}
               className={
-                "absolute left-[350px] top-[-64px] sm:top-[-84px] lg:top-[-64px] brightness-90 hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[350px] top-[-64px] sm:top-[-84px] lg:top-[-64px] brightness-90 hover:brightness-100 active:brightness-110"
               }
-              initialX={i * random(300, 460) + random(150, 290)}
+              initialX={i * random(300, 460) + random(640, 850)}
               data={e}
               size={["205px", "155px"]}
               lane="b"

@@ -75,12 +75,57 @@
   z-index: 7;
 }
 
+.sky > .fireworks-2 {
+  position: absolute;
+  width: 174px;
+  height: 200px;
+  top: 105px;
+  left: 189px;
+  z-index: 7;
+}
+
+.sky > .fireworks-3 {
+  position: absolute;
+  width: 174px;
+  height: 200px;
+  top: 55px;
+  left: 551px;
+  z-index: 7;
+}
+
+.sky > .fireworks-4 {
+  position: absolute;
+  width: 205px;
+  height: 205px;
+  top: 45px;
+  left: 741px;
+  z-index: 7;
+}
+
+.sky > .fireworks-5 {
+  position: absolute;
+  width: 225px;
+  height: 225px;
+  top: 55px;
+  right: 401px;
+  z-index: 7;
+}
+
+.sky > .fireworks-6 {
+  position: absolute;
+  width: 255px;
+  height: 255px;
+  top: 65px;
+  right: 19px;
+  z-index: 7;
+}
+
 .sala-side {
   position: absolute;
-  left: 36px;
+  left: 22px;
   z-index: 31;
-  top: -209px;
-  width: 65vw;
+  top: calc(-14vw - 165px);
+  width: calc(37vw + 172px);
   max-width: 450px;
 
   @include breakpoint(sm) {
@@ -92,9 +137,15 @@
 .loying-kratong {
   position: absolute;
   z-index: 35;
-  top: -103px;
-  left: 162px;
+  top: -109px;
+  left: 92px;
+
   cursor: pointer;
+
+  @include breakpoint(sm) {
+    top: -111px;
+    left: 183px;
+  }
 }
 
 .background {

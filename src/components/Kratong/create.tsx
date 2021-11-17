@@ -441,6 +441,8 @@ const Result: NextPage<ResultProps> = ({ data, prevPage }) => {
 
   useEffect(() => {
     send(router.query);
+    // save kratong query to id
+    router.push("/loykratong");
   }, [router]);
 
   return (

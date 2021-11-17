@@ -1,11 +1,44 @@
-import { KratongData, Selected as NSelected } from "@components/Kratong/create";
+import { KratongData as NKratongData, Selected as NSelected, Wish } from "@components/Kratong/create";
 import type { NextPage } from "next";
-import { KratongMap } from "@map/kratong";
+import { KratongMap, PrincipalMap } from "@map/kratong";
 import styles from "@styles/modules/Kratong.module.scss";
+import pstyles from "@styles/modules/Principal.module.scss";
 import { Candle, NormalPart, VariantPart } from "@components/Kratong/parts";
 import classNames from "classnames";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { FC, useState } from "react";
+import { useWindowDimensions } from "@utils/useWindowDimensions";
+import { WaterFourData } from "@map/animations";
+import { XIcon } from "@heroicons/react/solid";
+import { KratongData as PKratongData } from "@components/Principal/create";
+import { PrincipalPart } from "@components/Principal/parts";
+
+export const KratongPopup: FC<{
+  info: Wish;
+  onToggle: (toggle: boolean) => void;
+}> = ({ info, onToggle }) => {
+  return (
+    <>
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -100, opacity: 0 }}
+        className="w-[275px] absolute z-[99] left-[63px] top-[-165px]"
+      >
+        <MessageBox />
+        <XIcon
+          className="w-5 h-5 text-white absolute z-[99] right-4 top-4 cursor-pointer hover:text-gray-100"
+          onClick={() => onToggle(false)}
+        />
+        <div className="absolute z-[98] top-0 left-0 py-6 px-4 flex flex-col min-w-1/4">
+          <p className="font-ui font-medium text-[#2256A3] mb-2 pr-4">{info.name}</p>
+          <hr className="w-1/2 border-[0.5px] border-[#2256A3] mb-4" />
+          <p className="font-ui text-sm font-light text-[#2256A3]">{info.content}</p>
+        </div>
+      </motion.div>
+    </>
+  );
+};
 
 export const MessageBox: FC = () => {
   return (
@@ -82,7 +115,7 @@ export const MessageBox: FC = () => {
   );
 };
 interface KratongProps {
-  data: KratongData;
+  data: NKratongData;
   height: string;
   zIndex: number;
   onClick: () => void;
@@ -164,27 +197,143 @@ export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick
   );
 };
 
-export const IdleKratong: NextPage<{
-  data: KratongData;
-  className: string;
+export const PrincipalIdleKratong: NextPage<{
+  data: PKratongData;
+  className?: string;
   size: Array<string>;
   lane: string;
-}> = () => {
-  return <></>;
+  initialX: number;
+}> = ({ className, data, size, lane, initialX }) => {
+  const { width } = useWindowDimensions();
+  const [toggle, setToggle] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  const zIndex = lane === "t" ? 15 : lane === "m" ? 25 : 35;
+  const textZIndex = lane === "t" ? 31 : lane === "m" ? 41 : 51;
+
+  const selected = data.kratong;
+  const height = width > 640 ? size[0] : size[1];
+
+  return (
+    <>
+      <motion.div
+        animate={WaterFourData.animate}
+        transition={WaterFourData.transition}
+        style={{ left: initialX, zIndex: zIndex + 6 }}
+        className="relative"
+      >
+        <div className={className} style={{ zIndex }}>
+          {toggle && (
+            <AnimatePresence>
+              <KratongPopup info={data.wish} onToggle={setToggle} />
+            </AnimatePresence>
+          )}
+          <div
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onClick={() => setToggle(!toggle)}
+            style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }}
+            className={classNames(pstyles["kratong"], "cursor-pointer")}
+          >
+            {hovered && <div className={pstyles["aura"]}></div>}
+            <div className={pstyles["topping"]}>
+              <div className={pstyles["decorations"]}>
+                {Object.keys(PrincipalMap.decorations).map((decoration: string) => {
+                  // @ts-ignore
+                  const part = PrincipalMap.decorations[decoration];
+                  return <PrincipalPart key={decoration} part={part} selected={selected.decorations} />;
+                })}
+              </div>
+              <div className={pstyles["candle"]}>
+                {Object.keys(PrincipalMap.candles).map((candle: string) => {
+                  // @ts-ignore
+                  const part = PrincipalMap.candles[candle];
+                  return <PrincipalPart key={candle} part={part} selected={selected.candles} />;
+                })}
+              </div>
+            </div>
+            <div className={pstyles["base"]}>
+              <div className={pstyles["swan"]}>
+                {Object.keys(PrincipalMap.swan).map((swan: string) => {
+                  // @ts-ignore
+                  const part = PrincipalMap.swan[swan];
+                  return <PrincipalPart key={swan} part={part} selected={selected.swan} />;
+                })}
+              </div>
+              {/* changeme */}
+              <div className={pstyles["shell"]}>
+                {Object.keys(PrincipalMap.base).map((base: string) => {
+                  // @ts-ignore
+                  const part = PrincipalMap.base[base];
+                  return <PrincipalPart key={base} part={part} selected={selected.base} />;
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <p className="w-full absolute z-[99] bottom-[-225px] text-white font-ui font-light text-center">
+          {data.wish.name}
+        </p> */}
+      </motion.div>
+    </>
+  );
 };
 
-interface DKratongProps {
+export const IdleKratong: NextPage<{
+  data: NKratongData;
+  className?: string;
+  size: Array<string>;
+  lane: string;
+  initialX: number;
+}> = ({ className, data, size, lane, initialX }) => {
+  const { width, height } = useWindowDimensions();
+  const [toggle, setToggle] = useState(false);
+
+  const zIndex = lane === "t" ? 19 : lane === "m" ? 29 : 39;
+  const textZIndex = lane === "t" ? 31 : lane === "m" ? 41 : 51;
+
+  return (
+    <>
+      <motion.div
+        animate={WaterFourData.animate}
+        transition={WaterFourData.transition}
+        style={{ left: initialX, zIndex: zIndex + 6 }}
+        className={className}
+      >
+        <div style={{ zIndex }}>
+          {toggle && (
+            <AnimatePresence>
+              <KratongPopup info={data.wish} onToggle={setToggle} />
+            </AnimatePresence>
+          )}
+          <DisplayKratong
+            height={width > 640 ? size[0] : size[1]}
+            zIndex={zIndex}
+            onClick={() => setToggle(!toggle)}
+            data={data}
+          />
+        </div>
+        {/* <p className="w-full absolute z-[99] bottom-[-225px] text-white font-ui font-light text-center">
+          {data.wish.name}
+        </p> */}
+      </motion.div>
+    </>
+  );
+};
+
+interface DrKratongProps {
   selected: NSelected;
   height: string;
   zIndex: number;
   className: string;
 }
 
-export const DraggableKratong: NextPage<DKratongProps> = ({ className, selected, height, zIndex }) => {
+export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected, height, zIndex }) => {
   return (
     <>
       <motion.div
         drag="x"
+        dragConstraints={{ left: 0, right: 300 }}
         style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }}
         className={classNames(styles["kratong"], className)}
       >

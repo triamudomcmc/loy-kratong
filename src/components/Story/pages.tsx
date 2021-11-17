@@ -165,7 +165,7 @@ export const PageFive: NextPage = () => {
 
       <div className="flex flex-col items-center absolute z-[30] top-[calc(7%+175px)] sm:top-[calc(5%+70px)] w-full">
         <p className="font-display font-light text-center text-3xl sm:text-4xl">โอเค ไปลอยกระทงกัน !</p>
-        <Link href="/create?id=test">
+        <Link href="/create">
           <a className="cursor-pointer transition-colors hover:bg-gray-300 px-4 py-2 w-[130px] text-center font-normal sm:text-lg mt-4 rounded-full text-[#4A4A4A] bg-white border-white border">
             สร้างกระทง
           </a>
@@ -178,9 +178,22 @@ export const PageFive: NextPage = () => {
       <div className="absolute bottom-[-30px] z-[-1] left-[50%] -translate-x-1/2 min-w-full min-h-[50%]">
         <div className="w-full h-full flex justify-center">
           {width >= 640 ? (
-            <Image width={1350} height={753} priority={true} objectFit={"cover"} src="/assets/images/scene/sala-front.png" alt="ศาลา" />
+            <Image
+              width={1350}
+              height={753}
+              priority={true}
+              objectFit={"cover"}
+              src="/assets/images/scene/sala-front.png"
+              alt="ศาลา"
+            />
           ) : (
-            <Image layout={"fill"} objectFit={"cover"} priority={true} src="/assets/images/scene/sala-front.png" alt="ศาลา" />
+            <Image
+              layout={"fill"}
+              objectFit={"cover"}
+              priority={true}
+              src="/assets/images/scene/sala-front.png"
+              alt="ศาลา"
+            />
           )}
         </div>
       </div>
