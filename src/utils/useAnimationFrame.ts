@@ -28,14 +28,16 @@ export const useAnimationFrame = (callback: AnimationFrameCallback, shouldStop: 
 };
 
 // Example
-// const Counter = () => {
-//   const [count, setCount] = React.useState(0);
+/*
+const Counter = () => {
+  const [count, setCount] = React.useState(0);
 
-//   useAnimationFrame((deltaTime) => {
-//     setCount((prevCount) => (prevCount + deltaTime * 0.01) % 100);
-//   });
+  useAnimationFrame((deltaTime) => {
+    setCount((prevCount) => (prevCount + deltaTime * 0.01) % 100);
+  });
 
-//   return <div>{Math.round(count)}</div>;
-// };
+  return <div>{Math.round(count)}</div>;
+};
 
-// ReactDOM.render(<Counter />, document.getElementById("app"));
+ReactDOM.render(<Counter />, document.getElementById("app"));
+*/

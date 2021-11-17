@@ -6,6 +6,9 @@ import { Cloud } from "@components/Vector/cloud";
 import classNames from "classnames";
 import { BotLane, MidLane, TopLane } from "./kratonglane";
 import { ResultData } from "@components/Kratong/create";
+import { motion } from "framer-motion";
+import { Kratong } from "@components/Kratong/kratong";
+import { DraggableKratong } from "./displaykratong";
 
 function shuffle(array: Array<any>) {
   let currentIndex = array.length,
@@ -36,6 +39,20 @@ function chunk(arr: Array<any>, cCount: number) {
 
   return chunks;
 }
+
+const sample = {
+  kratong: {
+    base: "banana-leaf",
+    candles: "candle-green",
+    decorations: "swan",
+    flowers: "luck",
+    signVariant: 0,
+  },
+  wish: {
+    name: "hi",
+    content: "hi",
+  },
+};
 
 const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   shuffle(entities);
@@ -103,10 +120,6 @@ const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
         </div>
       </div>
 
-      {/* <div className={styles["sala-side"]}>
-        <Image width={1350} height={1382} objectFit="contain" src="/assets/images/scene/sala-side.png" alt="ศาลา" />
-      </div> */}
-
       <div className={styles["background"]}>
         <div className={classNames("absolute", styles["waterfour-container"])}>
           <div className="relative">
@@ -132,6 +145,23 @@ const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
 
         <div className={classNames("absolute", styles["watertwo-container"])}>
           <div className="relative">
+            <div className="relative">
+              <div className={styles["sala-side"]}>
+                <Image
+                  width={1350}
+                  height={1382}
+                  objectFit="contain"
+                  src="/assets/images/scene/sala-side.png"
+                  alt="ศาลา"
+                />
+              </div>
+              <DraggableKratong
+                className={styles["loying-kratong"]}
+                selected={sample.kratong}
+                height="150px"
+                zIndex={55}
+              />
+            </div>
             <BotLane entities={lanes[2]} />
             <WaterTwo />
           </div>

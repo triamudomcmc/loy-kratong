@@ -163,3 +163,89 @@ export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick
     </>
   );
 };
+
+export const IdleKratong: NextPage<{
+  data: KratongData;
+  className: string;
+  size: Array<string>;
+  lane: string;
+}> = () => {
+  return <></>;
+};
+
+interface DKratongProps {
+  selected: NSelected;
+  height: string;
+  zIndex: number;
+  className: string;
+}
+
+export const DraggableKratong: NextPage<DKratongProps> = ({ className, selected, height, zIndex }) => {
+  return (
+    <>
+      <motion.div
+        drag="x"
+        style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }}
+        className={classNames(styles["kratong"], className)}
+      >
+        <div className={styles["topping"]}>
+          <div className={styles["decorations"]}>
+            {Object.keys(KratongMap.decorations).map((decoration: string) => {
+              // @ts-ignore
+              const part = KratongMap.decorations[decoration];
+              if (part.type === "normal")
+                return <NormalPart key={decoration} part={part} selected={selected.decorations} />;
+              else if (part.type === "variant")
+                return (
+                  <VariantPart
+                    key={decoration}
+                    part={part}
+                    selected={selected.decorations}
+                    signVariant={selected.signVariant}
+                  />
+                );
+            })}
+          </div>
+          <div className={styles["candle"]}>
+            {Object.keys(KratongMap.candles).map((candle: string) => {
+              // @ts-ignore
+              const part = KratongMap.candles[candle];
+              return <Candle key={candle} part={part} selected={selected.candles} />;
+            })}
+          </div>
+        </div>
+        <div className={styles["base"]}>
+          <div className={styles["flowers"]}>
+            {Object.keys(KratongMap.flowers).map((flower: string) => {
+              // @ts-ignore
+              const part = KratongMap.flowers[flower];
+              if (part.type === "normal") return <NormalPart key={flower} part={part} selected={selected.flowers} />;
+              else if (part.type === "variant")
+                return (
+                  <VariantPart
+                    key={flower}
+                    part={part}
+                    selected={selected.flowers}
+                    signVariant={selected.signVariant}
+                  />
+                );
+            })}
+          </div>
+          <div className={styles["shell"]}>
+            {Object.keys(KratongMap.base).map((base: string) => {
+              // @ts-ignore
+              const part = KratongMap.base[base];
+              if (part.type === "normal") {
+                // @ts-ignore
+                return <NormalPart key={base} part={KratongMap.base[base]} selected={selected.base} />;
+              } else if (part.type === "variant")
+                return (
+                  <VariantPart key={base} part={part} selected={selected.base} signVariant={selected.signVariant} />
+                );
+            })}
+          </div>
+        </div>
+      </motion.div>
+    </>
+  );
+};

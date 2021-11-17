@@ -8,8 +8,6 @@ import { ResultData } from "@components/Kratong/create";
 export const getServerSideProps: GetServerSideProps = async () => {
   const data = await initialiseDB.collection("filteredEntities").limit(12).get();
 
-  console.log(data);
-
   return {
     props: {
       entities: data.docs.length > 0 ? data.docs.map((item) => item.data()) : [],

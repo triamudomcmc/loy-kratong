@@ -77,22 +77,31 @@
 
 .sala-side {
   position: absolute;
-  left: 241px;
+  left: 36px;
   z-index: 31;
   top: -209px;
   width: 65vw;
   max-width: 450px;
 
   @include breakpoint(sm) {
-    top: -209px;
+    top: -317px;
     width: calc(40vw + 150px);
   }
+}
+
+.loying-kratong {
+  position: absolute;
+  z-index: 35;
+  top: -103px;
+  left: 162px;
+  cursor: pointer;
 }
 
 .background {
   > .waterfour-container {
     position: absolute;
     left: calc(-2vw - 50px);
+    z-index: 10; /* change later */
 
     bottom: calc(-6vh + 155px);
     @include breakpoint(460px) {
@@ -106,6 +115,7 @@
   > .waterthree-container {
     position: absolute;
     left: calc(-2vw - 50px);
+    z-index: 20; /* change later */
 
     bottom: calc(2vh + 50px);
     @include breakpoint(460px) {
@@ -119,6 +129,7 @@
   > .watertwo-container {
     position: absolute;
     left: calc(-2vw - 50px);
+    z-index: 30; /* change later */
 
     bottom: calc(6vh - 40px);
     @include breakpoint(460px) {
@@ -132,6 +143,7 @@
   > .waterone-container {
     position: absolute;
     left: calc(-2vw - 50px);
+    z-index: 40; /* change later */
 
     bottom: calc(-4vh - 40px);
     @include breakpoint(460px) {
