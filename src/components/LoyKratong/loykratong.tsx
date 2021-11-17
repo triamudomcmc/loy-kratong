@@ -12,9 +12,11 @@ import { DraggableKratong, IdleKratong, PrincipalIdleKratong } from "./displaykr
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { PrincipalKratongData, RongPrincipalKratongsData } from "@map/realkratong";
 
-const random = (from: number, to: number) => {
-  return Math.floor(Math.random() * to) + from;
-};
+function random(min: number, max: number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function shuffle(array: Array<any>) {
   let currentIndex = array.length,
@@ -166,17 +168,17 @@ const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
         <div className={classNames("absolute", styles["waterthree-container"])}>
           <div className="relative">
             <IdleKratong
-              className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[60%] hover:brightness-100 active:brightness-110"
+              className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[90%] hover:brightness-100 active:brightness-110"
               lane="m"
               size={["225px", "175px"]}
               initialX={width < 640 ? 150 : 550}
               data={RongPrincipalKratongsData[random(0, 1)]}
             />
             <IdleKratong
-              className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[60%] hover:brightness-100 active:brightness-110"
+              className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[90%] hover:brightness-100 active:brightness-110"
               lane="m"
               size={["225px", "175px"]}
-              initialX={width < 640 ? 650 : 950}
+              initialX={width < 640 ? 650 : 1150}
               data={RongPrincipalKratongsData[random(2, 3)]}
             />
             <MidLane entities={lanes[1]} />

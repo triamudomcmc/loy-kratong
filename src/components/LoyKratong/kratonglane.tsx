@@ -9,9 +9,11 @@ import { DisplayKratong, KratongPopup, MessageBox } from "./displaykratong";
 import { KratongData, ResultData } from "@components/Kratong/create";
 import classNames from "classnames";
 
-const random = (from: number, to: number) => {
-  return Math.floor(Math.random() * to) + from;
-};
+function random(min: number, max: number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 const MovingKratong: NextPage<{
   initialX?: number;
@@ -20,7 +22,7 @@ const MovingKratong: NextPage<{
   className: string;
   size: Array<string>;
   lane: string;
-}> = ({ initialX = 0, speed = 0.5, data, className, size, lane }) => {
+}> = ({ initialX = 0, speed = 1.25, data, className, size, lane }) => {
   const { width, height } = useWindowDimensions();
   const [toggle, setToggle] = useState(false);
   const [x, setX] = useState(initialX);
@@ -98,7 +100,7 @@ export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-m-${i}`}
               className={
-                "transition-opacity absolute left-[250px] top-[-24px] sm:top-[-64px] lg:top-[-44px] brightness-[60%] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[250px] top-[-48px] sm:top-[-64px] lg:top-[-44px] brightness-[60%] hover:brightness-100 active:brightness-110"
               }
               initialX={i * random(340, 580) + random(580, 740)}
               data={e}
