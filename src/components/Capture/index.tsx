@@ -66,6 +66,7 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
               data={{ kratong: data.kratong, wish: { content: "", name: "" } }}
               size={["550px", "550px"]}
               initialX={332}
+              highlighted={false}
             />
             <WaterTwo />
           </div>

@@ -6,7 +6,7 @@ import pstyles from "@styles/modules/Principal.module.scss";
 import { Candle, NormalPart, VariantPart } from "@components/Kratong/parts";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
-import {FC, useEffect, useMemo, useState} from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { WaterFourData } from "@map/animations";
 import { XIcon } from "@heroicons/react/solid";
@@ -121,7 +121,7 @@ interface KratongProps {
   height: string;
   zIndex: number;
   onClick: () => void;
-  highlighted?: boolean
+  highlighted?: boolean;
 }
 
 export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick, highlighted = false }) => {
@@ -288,7 +288,8 @@ export const IdleKratong: NextPage<{
   size: Array<string>;
   lane: string;
   initialX: number;
-}> = ({ className, data, size, lane, initialX }) => {
+  highlighted: boolean;
+}> = ({ className, data, size, lane, initialX, highlighted }) => {
   const { width, height } = useWindowDimensions();
   const [toggle, setToggle] = useState(false);
 
@@ -313,7 +314,7 @@ export const IdleKratong: NextPage<{
             height={width > 640 ? size[0] : size[1]}
             zIndex={zIndex}
             onClick={() => setToggle(!toggle)}
-            highlighted={true}
+            highlighted={highlighted}
             data={data}
           />
         </div>
@@ -370,14 +371,15 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
     },
     (delta: number) => {
       return false;
-    }, finished
+    },
+    finished
   );
 
   useEffect(() => {
     if (finished) {
-      localStorage.setItem("released", "true")
+      localStorage.setItem("released", "true");
     }
-  }, [finished])
+  }, [finished]);
 
   const elementProps = () => {
     if (finished) {

@@ -11,7 +11,7 @@ import { Kratong } from "@components/Kratong/kratong";
 import { DraggableKratong, IdleKratong, PrincipalIdleKratong } from "./displaykratong";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { PrincipalKratongData, RongPrincipalKratongsData } from "@map/realkratong";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 function random(min: number, max: number) {
   min = Math.ceil(min);
@@ -65,18 +65,17 @@ const sample = {
 
 const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   const { width, height } = useWindowDimensions();
-  const [loy, setloy] = useState(false)
-  const [prevEntity, setPrevEntity] = useState<undefined | ResultData>(undefined)
+  const [loy, setloy] = useState(false);
+  const [prevEntity, setPrevEntity] = useState<undefined | ResultData>(undefined);
 
   useEffect(() => {
-    setloy(localStorage.getItem("released") === "true")
-    setPrevEntity(JSON.parse(localStorage.getItem("entity") || "{}"))
-  }, [])
+    setloy(localStorage.getItem("released") === "true");
+    setPrevEntity(JSON.parse(localStorage.getItem("entity") || "{}"));
+  }, []);
 
   useEffect(() => {
-    console.log(prevEntity)
-  }, [prevEntity])
-
+    console.log(prevEntity);
+  }, [prevEntity]);
 
   shuffle(entities);
   const lanes = chunk(entities, 3);
@@ -183,6 +182,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         <div className={classNames("absolute", styles["waterthree-container"])}>
           <div className="relative">
             <IdleKratong
+              highlighted
               className={
                 "transition-opacity absolute left-[250px] top-[-48px] sm:top-[-64px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
               }
@@ -208,14 +208,14 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                   alt="ศาลา"
                 />
               </div>
-              {
-                !loy && prevEntity && <DraggableKratong
+              {!loy && prevEntity && (
+                <DraggableKratong
                   className={styles["loying-kratong"]}
                   selected={prevEntity.kratong}
                   height={width < 640 ? "115px" : "150px"}
                   zIndex={42}
                 />
-              }
+              )}
             </div>
 
             <PrincipalIdleKratong
