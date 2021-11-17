@@ -73,10 +73,6 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
     setPrevEntity(JSON.parse(localStorage.getItem("entity") || "{}"));
   }, []);
 
-  useEffect(() => {
-    console.log(prevEntity);
-  }, [prevEntity]);
-
   shuffle(entities);
   const lanes = chunk(entities, 3);
 
@@ -187,7 +183,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
             <IdleKratong
               highlighted
               className={
-                "transition-opacity absolute top-[-48px] sm:top-[-64px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute top-[-46px] sm:top-[-56px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
               }
               lane="m"
               size={["155px", "115px"]}
@@ -201,7 +197,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               lane="m"
               size={["185px", "135px"]}
               className={
-                "transition-opacity absolute top-[-48px] sm:top-[-54px] lg:top-[-64px] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute top-[-46px] sm:top-[-54px] lg:top-[-64px] hover:brightness-100 active:brightness-110"
               }
             />
             <MidLane entities={lanes[1]} />
@@ -227,13 +223,13 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                 <DraggableKratong
                   className={classNames(styles["loying-kratong"], width > 640 && "ml-16")}
                   selected={prevEntity.kratong}
-                  height={width > 640 ? "170px" : "115px"}
+                  height={width > 640 ? "170px" : "155px"}
                   zIndex={42}
                 />
               )}
             </div>
             <PrincipalIdleKratong
-              className="transition-opacity absolute top-[-77px] sm:top-[-78px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
+              className="transition-opacity absolute top-[-64px] sm:top-[-68px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
               size={["200px", "170px"]}
               initialX={width > 640 ? 650 : 440}

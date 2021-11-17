@@ -464,7 +464,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
         style={{
           ["--size" as string]: height,
           ["--z-index" as string]: finished ? zIndex : 35,
-          top: `${!finished ? (width > 640 ? -146 : -120) : -40}px`,
+          top: `${!finished ? (width > 640 ? -146 : -116) : width > 640 ? -40 : 0}px`,
           left: `${x}px`,
         }}
         className={classNames(styles["kratong"], className)}
