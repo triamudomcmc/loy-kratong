@@ -48,7 +48,7 @@ export const CaptureKratong: NextPage<{ data: Selected }> = ({ data }) => {
       </div>
       <div className={styles["background"]}>
         <div className={classNames("absolute", styles["waterthree-container"])}>
-          <div className="relative w-[150vw] bottom-[-136px]">
+          <div className="relative w-[197vw] bottom-[364px]">
             <div className={styles["buildings"]}>
               <div className="w-[275%]">
                 <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
@@ -56,9 +56,9 @@ export const CaptureKratong: NextPage<{ data: Selected }> = ({ data }) => {
             </div>
             <IdleKratong
               lane="m"
-              className="absolute z-[29] left-[380px] top-[-169px]"
+              className="absolute z-[29] left-[290px] top-[-241px]"
               data={{ kratong: data, wish: { content: "", name: "" } }}
-              size={["554px", "554px"]}
+              size={["525px", "525px"]}
               initialX={380}
             />
             <WaterThree />
@@ -66,13 +66,13 @@ export const CaptureKratong: NextPage<{ data: Selected }> = ({ data }) => {
         </div>
 
         <div className={classNames("absolute", styles["watertwo-container"])}>
-          <div className="relative w-[150vw] bottom-[243px]">
+          <div className="relative w-[197vw] bottom-[516px]">
             <WaterTwo />
           </div>
         </div>
 
         <div className={classNames("absolute", styles["waterone-container"])}>
-          <div className="relative w-[150vw] bottom-[-850px]">
+          <div className="relative w-[197vw] bottom-[-257px]">
             <WaterOne />
           </div>
         </div>
