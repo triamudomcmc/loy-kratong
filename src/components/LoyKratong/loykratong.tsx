@@ -170,9 +170,6 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               <div className="w-[125%]">
                 <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
               </div>
-              <div className="w-[125%]">
-                <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
-              </div>
             </div>
             <TopLane entities={lanes[0]} />
             <WaterFour />
@@ -210,9 +207,9 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               </div>
               {!loy && prevEntity && (
                 <DraggableKratong
-                  className={styles["loying-kratong"]}
+                  className={classNames(styles["loying-kratong"], width > 640 && "ml-16")}
                   selected={prevEntity.kratong}
-                  height={width < 640 ? "115px" : "150px"}
+                  height={width > 640 ? "170px" : "115px"}
                   zIndex={42}
                 />
               )}

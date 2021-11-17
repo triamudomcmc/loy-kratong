@@ -124,11 +124,11 @@ export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-b-${i}`}
               className={
-                "transition-opacity absolute left-[350px] top-[-64px] sm:top-[-84px] lg:top-[-64px] brightness-[90%] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[350px] top-[-64px] sm:top-[-64px] lg:top-[-64px] brightness-[90%] hover:brightness-100 active:brightness-110"
               }
               initialX={(i * (width > 640 ? random(580, 1020) : random(20, 860))) + (width > 640 ? random(40, 100) : random(0, 90))}
               data={e}
-              size={["205px", "155px"]}
+              size={["170px", "155px"]}
               lane="b"
             />
           );
