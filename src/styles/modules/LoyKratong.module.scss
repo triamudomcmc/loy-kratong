@@ -183,7 +183,7 @@
     left: calc(-50px);
     z-index: 30; /* change later */
 
-    bottom: calc(-30px);
+    bottom: calc(-40px);
     @include breakpoint(460px) {
       bottom: calc(-30px);
     }
@@ -197,7 +197,8 @@
     left: calc(-50px);
     z-index: 40; /* change later */
 
-    bottom: calc(-80px);    @include breakpoint(460px) {
+    bottom: calc(-120px);
+    @include breakpoint(460px) {
     bottom: calc(-80px);
   }
 

@@ -177,7 +177,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
             <IdleKratong
               highlighted
               className={
-                "transition-opacity absolute top-[-46px] sm:top-[-56px] lg:top-[-40px] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[250px] top-[-50px] sm:top-[-90px] lg:top-[-46px] hover:brightness-100 active:brightness-110"
               }
               lane="m"
               size={["155px", "115px"]}
@@ -191,7 +191,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               lane="m"
               size={["185px", "135px"]}
               className={
-                "transition-opacity absolute top-[-46px] sm:top-[-64px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute top-[-48px] sm:top-[-90px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
               }
             />
             <MidLane entities={lanes[1]} />
@@ -222,7 +222,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
             </div>
 
             <PrincipalIdleKratong
-              className="transition-opacity absolute top-[-64px] sm:top-[-68px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
+              className="transition-opacity absolute top-[-54px] sm:top-[-102px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
               size={["200px", "170px"]}
               initialX={width > 640 ? 650 : 440}
