@@ -12,9 +12,24 @@ import { random } from "@utils/random";
 import Image from "next/image";
 
 export const Fish: NextPage<{ className: string; initX: number }> = ({ className, initX }) => {
+  const [x, setX] = useState(initX);
+  const { width } = useWindowDimensions();
+
+  const speed = 3.75;
+
+  useAnimationFrame(
+    (delta: number) => {
+      // delta - time elapsed in ms
+      setX((prevX) => (prevX < width + 1200 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1840)));
+    },
+    (delta: number) => {
+      return false;
+    }
+  );
+
   return (
     <>
-      <div className={className} style={{ left: initX }}>
+      <div className={className} style={{ left: x }}>
         <Image src="/assets/images/scene/fish.gif" width={2048} height={2408} />
       </div>
     </>
