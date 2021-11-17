@@ -47,7 +47,7 @@ export const PageTwo: NextPage = () => {
         <br />
         ขอชวนมาร่วมส่ง
         <br />
-        ลอยกระทง ณ คูบัว...&quot;
+        ลอยกระทง ณ สระน้ำคูบัว...&quot;
       </p>
       <p className="text-center font-normal mt-4 text-gray-300 sm:text-lg blinking-text">แตะเพื่อไปต่อ</p>
     </motion.div>

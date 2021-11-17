@@ -7,8 +7,8 @@ import classNames from "classnames";
 import { PageFive, PageFour, PageOne, PageThree, PageTwo } from "./pages";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 
-const DURATION = 1500;
-const DELAY = 250;
+const DURATION = 500;
+const DELAY = 500;
 
 const TitleScreen: NextPage = () => {
   const [page, setPage] = useState(1);
@@ -54,22 +54,23 @@ const TitleScreen: NextPage = () => {
         }}
       >
         {/* overlay clouds */}
+        {/* todo redo clouds */}
         <AnimatePresence>
           {pageTransition && page !== 4 && (
             <>
               {/* topleft */}
               <motion.div
                 key="clouds-topleft"
-                initial={{ x: -1000, y: 1000, opacity: 1 }}
-                animate={{ x: 0, y: 0, opacity: 1 }}
-                exit={{ x: -1000, y: 1000, opacity: 1 }}
+                initial={{ y: 1000, opacity: 1 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
                 className="absolute w-full h-full z-[40]"
               >
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] top-[-62px] sm:top-[-139px]">
+                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-472px] lg:left-[-532px] top-[-109px] sm:top-[-139px]">
                   <Cloud />
                 </div>
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] top-[-62px] sm:top-[-139px]">
+                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-472px] top-[32px] sm:top-[-199px]">
                   <Cloud />
                 </div>
               </motion.div>
@@ -77,50 +78,16 @@ const TitleScreen: NextPage = () => {
               {/* topright */}
               <motion.div
                 key="clouds-topright"
-                initial={{ x: 1000, y: 1000, opacity: 1 }}
-                animate={{ x: 0, y: 0, opacity: 1 }}
-                exit={{ x: 1000, y: 1000, opacity: 1 }}
+                initial={{ y: 1000, opacity: 1 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
                 className="absolute w-full h-full z-[40]"
               >
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] top-[-62px] sm:top-[-139px]">
+                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-197px] lg:right-[-307px] top-[-109px] sm:top-[-139px]">
                   <Cloud />
                 </div>
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] top-[-62px] sm:top-[-139px]">
-                  <Cloud />
-                </div>
-              </motion.div>
-
-              {/* midleft */}
-              <motion.div
-                key="clouds-midleft"
-                initial={{ x: -1000, y: 0, opacity: 1 }}
-                animate={{ x: 0, y: 0, opacity: 1 }}
-                exit={{ x: -1000, y: 0, opacity: 1 }}
-                transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[40]"
-              >
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] top-[25%] sm:top-[calc(5%-139px)]">
-                  <Cloud />
-                </div>
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] top-[25%] sm:top-[calc(5%-139px)]">
-                  <Cloud />
-                </div>
-              </motion.div>
-
-              {/* midright */}
-              <motion.div
-                key="clouds-midright"
-                initial={{ x: 1000, y: 0, opacity: 1 }}
-                animate={{ x: 0, y: 0, opacity: 1 }}
-                exit={{ x: 1000, y: 0, opacity: 1 }}
-                transition={{ type: "tween", duration: DURATION / 1000 }}
-                className="absolute w-full h-full z-[40]"
-              >
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] top-[25%] sm:top-[calc(15%-139px)]">
-                  <Cloud />
-                </div>
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] top-[25%] sm:top-[calc(15%-139px)]">
+                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-197px] top-[32px] sm:top-[-199px]">
                   <Cloud />
                 </div>
               </motion.div>
@@ -128,16 +95,16 @@ const TitleScreen: NextPage = () => {
               {/* bottomleft */}
               <motion.div
                 key="clouds-bottomleft"
-                initial={{ x: -1000, y: -1000, opacity: 1 }}
+                initial={{ y: 1000, opacity: 1 }}
                 animate={{ x: 0, y: 0, opacity: 1 }}
-                exit={{ x: -1000, y: -1000, opacity: 1 }}
+                exit={{ y: -1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
                 className="absolute w-full h-full z-[40]"
               >
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] bottom-[-62px] sm:bottom-[-99px]">
+                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-472px] lg:left-[-532px] bottom-[-62px] sm:bottom-[-99px]">
                   <Cloud />
                 </div>
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-50%] bottom-[-62px] sm:bottom-[-99px]">
+                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] left-[-472px] bottom-[39px] sm:bottom-[-99px]">
                   <Cloud />
                 </div>
               </motion.div>
@@ -145,16 +112,16 @@ const TitleScreen: NextPage = () => {
               {/* bottomright */}
               <motion.div
                 key="clouds-bottomright"
-                initial={{ x: 1000, y: -1000, opacity: 1 }}
+                initial={{ y: 1000, opacity: 1 }}
                 animate={{ x: 0, y: 0, opacity: 1 }}
-                exit={{ x: 1000, y: -1000, opacity: 1 }}
+                exit={{ y: -1000, opacity: 1 }}
                 transition={{ type: "tween", duration: DURATION / 1000 }}
                 className="absolute w-full h-full z-[40]"
               >
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] bottom-[-62px] sm:bottom-[-99px]">
+                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-197px] lg:right-[-307px] bottom-[-62px] sm:bottom-[-57px]">
                   <Cloud />
                 </div>
-                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-50%] bottom-[-62px] sm:bottom-[-99px]">
+                <div className="absolute z-[99] w-[173vw] sm:w-[117vw] right-[-197px] bottom-[39px] sm:bottom-[-57px]">
                   <Cloud />
                 </div>
               </motion.div>
@@ -172,23 +139,23 @@ const TitleScreen: NextPage = () => {
               transition={{ type: "tween", duration: 1, delay: DELAY / 1000 }}
               className="absolute w-full h-full z-[-1]"
             >
-              <div className="absolute z-[-5] sm:w-[35%] w-[calc(35%+55px)] left-[-89px] top-[340px] opacity-50">
+              <div className="absolute z-[-5] sm:w-[280px] w-[175px] left-[-89px] top-[340px] opacity-50">
                 <Cloud />
               </div>
-              <div className="absolute z-[-4] sm:w-[35%] w-[calc(35%+55px)] left-[-114px] top-[388px] opacity-75">
+              <div className="absolute z-[-4] sm:w-[280px] w-[175px] left-[-114px] top-[388px] opacity-75">
                 <Cloud />
               </div>
-              <div className="absolute z-[-5] sm:w-[37%] w-[calc(45%+50px)] left-[-122px] bottom-[29px] opacity-90">
+              <div className="absolute z-[-5] sm:w-[320px] w-[185px] left-[-122px] bottom-[29px] opacity-90">
                 <Cloud />
               </div>
 
-              <div className="absolute z-[-5] sm:w-[35%] w-[calc(35%+55px)] right-[-89px] top-[340px] opacity-50">
+              <div className="absolute z-[-5] sm:w-[280px] w-[175px] right-[-89px] top-[340px] opacity-50">
                 <Cloud />
               </div>
-              <div className="absolute z-[-4] sm:w-[35%] w-[calc(35%+55px)] right-[-114px] top-[388px] opacity-75">
+              <div className="absolute z-[-4] sm:w-[280px] w-[175px] right-[-114px] top-[388px] opacity-75">
                 <Cloud />
               </div>
-              <div className="absolute z-[-5] sm:w-[37%] w-[calc(45%+50px)] right-[-122px] bottom-[29px] opacity-90">
+              <div className="absolute z-[-5] sm:w-[320px] w-[185px] right-[-122px] bottom-[29px] opacity-90">
                 <Cloud />
               </div>
             </motion.div>
