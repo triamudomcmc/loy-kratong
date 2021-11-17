@@ -8,12 +8,7 @@ import { useState } from "react";
 import { DisplayKratong, KratongPopup, MessageBox } from "./displaykratong";
 import { KratongData, ResultData } from "@components/Kratong/create";
 import classNames from "classnames";
-
-function random(min: number, max: number) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import { random } from "@utils/random";
 
 const MovingKratong: NextPage<{
   initialX?: number;

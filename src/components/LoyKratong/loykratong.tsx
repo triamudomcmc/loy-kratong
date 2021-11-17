@@ -11,6 +11,7 @@ import { Kratong } from "@components/Kratong/kratong";
 import { DraggableKratong, IdleKratong, PrincipalIdleKratong } from "./displaykratong";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { PrincipalKratongData, RongPrincipalKratongsData } from "@map/realkratong";
+import { useState } from "react";
 
 function random(min: number, max: number) {
   min = Math.ceil(min);
