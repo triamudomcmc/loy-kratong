@@ -4,6 +4,8 @@ import { Navbar } from "@components/Nav";
 import type { GetServerSideProps, NextPage } from "next";
 import initialiseDB from "@handlers/firebase-admin";
 import { ResultData } from "@components/Kratong/create";
+import {useEffect} from "react";
+import Router from "next/router";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const data = await initialiseDB.collection("filteredEntities").limit(8).get();
@@ -14,7 +16,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
     },
   };
 };
+
 const LoyKratong: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
+
+  useEffect(() => {
+    if (!localStorage.getItem("entity")) {
+      Router.push("/")
+    }
+  }, [])
   return (
     <>
       <Navbar />

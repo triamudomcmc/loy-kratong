@@ -11,7 +11,7 @@ import { Kratong } from "@components/Kratong/kratong";
 import { DraggableKratong, IdleKratong, PrincipalIdleKratong } from "./displaykratong";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { PrincipalKratongData, RongPrincipalKratongsData } from "@map/realkratong";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 function random(min: number, max: number) {
   min = Math.ceil(min);
@@ -65,6 +65,12 @@ const sample = {
 
 const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   const { width, height } = useWindowDimensions();
+  const [loy, setloy] = useState(true)
+
+  useEffect(() => {
+    setloy(localStorage.getItem("released") === "true")
+  }, [])
+
   shuffle(entities);
   const lanes = chunk(entities, 3);
 
@@ -199,12 +205,14 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                   alt="ศาลา"
                 />
               </div>
-              <DraggableKratong
-                className={styles["loying-kratong"]}
-                selected={sample.kratong}
-                height={width < 640 ? "115px" : "150px"}
-                zIndex={35}
-              />
+              {
+                !loy && <DraggableKratong
+                  className={styles["loying-kratong"]}
+                  selected={sample.kratong}
+                  height={width < 640 ? "115px" : "150px"}
+                  zIndex={35}
+                />
+              }
             </div>
 
             <PrincipalIdleKratong

@@ -6,7 +6,7 @@ import pstyles from "@styles/modules/Principal.module.scss";
 import { Candle, NormalPart, VariantPart } from "@components/Kratong/parts";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
-import { FC, useEffect, useState } from "react";
+import {FC, useEffect, useMemo, useState} from "react";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { WaterFourData } from "@map/animations";
 import { XIcon } from "@heroicons/react/solid";
@@ -364,13 +364,18 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
   useAnimationFrame(
     (delta: number) => {
       // delta - time elapsed in ms
-      if (finished)
-        setX((prevX) => (prevX < width + 1400 ? prevX + delta * 0.01 * speedX : prevX - (random(20, 200) + 1840)));
+      setX((prevX) => (prevX < width + 1400 ? prevX + delta * 0.01 * speedX : prevX - (random(20, 200) + 1840)));
     },
     (delta: number) => {
       return false;
-    }
+    }, finished
   );
+
+  useEffect(() => {
+    if (finished) {
+      localStorage.setItem("released", "true")
+    }
+  }, [finished])
 
   const elementProps = () => {
     if (finished) {
