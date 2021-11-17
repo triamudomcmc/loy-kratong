@@ -9,6 +9,17 @@ import { DisplayKratong, KratongPopup, MessageBox } from "./displaykratong";
 import { KratongData, ResultData } from "@components/Kratong/create";
 import classNames from "classnames";
 import { random } from "@utils/random";
+import Image from "next/image";
+
+export const Fish: NextPage<{ className: string; initX: number }> = ({ className, initX }) => {
+  return (
+    <>
+      <div className={className} style={{ left: initX }}>
+        <Image src="/assets/images/scene/fish.gif" width={2048} height={2408} />
+      </div>
+    </>
+  );
+};
 
 const MovingKratong: NextPage<{
   initialX?: number;
@@ -65,7 +76,7 @@ const MovingKratong: NextPage<{
 };
 
 export const TopLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
-  const {width} = useWindowDimensions()
+  const { width } = useWindowDimensions();
 
   return (
     <>
@@ -77,7 +88,10 @@ export const TopLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
               className={
                 "transition-opacity absolute left-[550px] top-0 sm:top-[5px] brightness-50 hover:brightness-100 active:brightness-110"
               }
-              initialX={(i * (width > 640 ? random(680, 1160) : random(80, 780))) + (width > 640 ? random(60, 140) : random(0, 100))}
+              initialX={
+                i * (width > 640 ? random(680, 1160) : random(80, 780)) +
+                (width > 640 ? random(60, 140) : random(0, 100))
+              }
               data={e}
               size={["105px", "65px"]}
               lane="t"
@@ -89,7 +103,7 @@ export const TopLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
 };
 
 export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
-  const {width} = useWindowDimensions()
+  const { width } = useWindowDimensions();
 
   return (
     <>
@@ -101,7 +115,10 @@ export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
               className={
                 "transition-opacity absolute left-[250px] top-[-48px] sm:top-[-64px] lg:top-[-44px] brightness-[60%] hover:brightness-100 active:brightness-110"
               }
-              initialX={(i * (width > 640 ? random(760, 1060) : random(100, 780))) + (width > 640 ? random(80, 120) : random(0, 120))}
+              initialX={
+                i * (width > 640 ? random(760, 1060) : random(100, 780)) +
+                (width > 640 ? random(80, 120) : random(0, 120))
+              }
               data={e}
               size={["155px", "105px"]}
               lane="m"
@@ -113,8 +130,7 @@ export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
 };
 
 export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
-
-  const {width} = useWindowDimensions()
+  const { width } = useWindowDimensions();
 
   return (
     <>
@@ -126,7 +142,10 @@ export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
               className={
                 "transition-opacity absolute left-[350px] top-[-64px] sm:top-[-64px] lg:top-[-64px] brightness-[90%] hover:brightness-100 active:brightness-110"
               }
-              initialX={(i * (width > 640 ? random(580, 1020) : random(20, 860))) + (width > 640 ? random(40, 100) : random(0, 90))}
+              initialX={
+                i * (width > 640 ? random(580, 1020) : random(20, 860)) +
+                (width > 640 ? random(40, 100) : random(0, 90))
+              }
               data={e}
               size={["170px", "155px"]}
               lane="b"

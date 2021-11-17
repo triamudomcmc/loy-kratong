@@ -408,24 +408,6 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
   const { width } = useWindowDimensions();
   const [finished, setFinished] = useState(false);
   const [x, setX] = useState(112);
-  // const [y, setY] = useState(-88);
-
-  // const speed = 5.5;
-  // const reqAnimation = useAnimationFrame(
-  //   (delta: number) => {
-  //     // delta - time elapsed in ms
-  //     if (!finished) return;
-  //     setY((prevY) => prevY + delta * 0.01 * speed);
-  //   },
-  //   (delta: number) => {
-  //     return false;
-  //   }
-  // );
-
-  // useEffect(() => {
-  //   console.log(y);
-  //   if (y >= -44) cancelAnimationFrame(reqAnimation as number);
-  // }, [y]);
 
   // todo map x, y values to other viewports using useTransform
 
@@ -459,8 +441,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
         transition: WaterFourData.transition,
       };
     } else {
-      return {
-      };
+      return {};
     }
   };
 
@@ -483,7 +464,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
         style={{
           ["--size" as string]: height,
           ["--z-index" as string]: finished ? zIndex : 35,
-          top: `${!finished ? width > 640 ? -146 : -120 : -40}px`,
+          top: `${!finished ? (width > 640 ? -146 : -120) : -40}px`,
           left: `${x}px`,
         }}
         className={classNames(styles["kratong"], className)}
