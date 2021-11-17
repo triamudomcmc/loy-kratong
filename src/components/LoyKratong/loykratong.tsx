@@ -130,15 +130,15 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         </div>
 
         <div className={styles["fireworks-1"]}>
-          <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
+          <Image src="/assets/images/scene/fireworks-blue.gif" width={441} height={480} />
         </div>
 
         <div className={styles["fireworks-2"]}>
-          <Image src="/assets/images/scene/fireworks-white-single.gif" width={692} height={754} />
+          <Image src="/assets/images/scene/fireworks-orange.gif" width={441} height={481} />
         </div>
 
         <div className={styles["fireworks-3"]}>
-          <Image src="/assets/images/scene/fireworks-white-single.gif" width={692} height={754} />
+          <Image src="/assets/images/scene/fireworks-purple.gif" width={441} height={481} />
         </div>
 
         <div className={styles["fireworks-4"]}>
@@ -146,11 +146,11 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         </div>
 
         <div className={styles["fireworks-5"]}>
-          <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
+          <Image src="/assets/images/scene/fireworks-yellow-single.gif" width={692} height={754} />
         </div>
 
         <div className={styles["fireworks-6"]}>
-          <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
+          <Image src="/assets/images/scene/fireworks-red.gif" width={692} height={754} />
         </div>
 
         <div className={styles["moon"]}>
