@@ -65,15 +65,23 @@ const sample = {
 
 const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   const { width, height } = useWindowDimensions();
-  const [loy, setloy] = useState(true)
+  const [loy, setloy] = useState(false)
+  const [prevEntity, setPrevEntity] = useState<undefined | ResultData>(undefined)
 
   useEffect(() => {
     setloy(localStorage.getItem("released") === "true")
+    setPrevEntity(JSON.parse(localStorage.getItem("entity") || "{}"))
   }, [])
+
+  useEffect(() => {
+    console.log(prevEntity)
+  }, [prevEntity])
+
 
   shuffle(entities);
   const lanes = chunk(entities, 3);
 
+  // @ts-ignore
   return (
     <div className={styles["loy-scene"]}>
       <div className={styles["sky"]}>
@@ -206,9 +214,9 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                 />
               </div>
               {
-                !loy && <DraggableKratong
+                !loy && prevEntity && <DraggableKratong
                   className={styles["loying-kratong"]}
-                  selected={sample.kratong}
+                  selected={prevEntity.kratong}
                   height={width < 640 ? "115px" : "150px"}
                   zIndex={35}
                 />
@@ -223,7 +231,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               data={PrincipalKratongData}
             />
 
-            <BotLane entities={lanes[2]} />
+            <BotLane entities={loy ? [...lanes[2], prevEntity] : lanes[2]} />
             <WaterTwo />
           </div>
         </div>
