@@ -101,7 +101,7 @@ export const KratongMap: KratongMapType = {
       thumbnail: "/assets/images/kratong/thumbnail/base/coconut-shell.png",
     },
     "coconut-shell-carved": {
-      id: "coconut-shel-carved",
+      id: "coconut-shell-carved",
       type: "normal",
       name: "กาบมะพร้าว",
       description: "คำอธิบาย",

@@ -1,4 +1,5 @@
-import { KratongData } from "@components/Kratong/create";
+import { KratongData as CKratongData } from "@components/CUPSAA/create";
+import { KratongData as NKratongData } from "@components/Kratong/create";
 import { KratongData as PKratongData } from "@components/Principal/create";
 
 export const PrincipalKratongData: PKratongData = {
@@ -14,7 +15,7 @@ export const PrincipalKratongData: PKratongData = {
   },
 };
 
-export const RongPrincipalKratongsData: KratongData[] = [
+export const RongPrincipalKratongsData: NKratongData[] = [
   {
     kratong: {
       base: "banana-leaf",
@@ -68,3 +69,15 @@ export const RongPrincipalKratongsData: KratongData[] = [
     },
   },
 ];
+
+export const CUPSAAKratongData: CKratongData = {
+  kratong: {
+    base: "base-pink",
+    candles: "candle-pink",
+    flowers: "flower-pink",
+  },
+  wish: {
+    name: "สมาคมนักเรียนเก่าเตรียมอุดมศึกษา ในพระบรมราชูปถัมภ์",
+    content: "ขอให้นักเรียนเตรียมฯ มีความสุข สุขภาพร่างกายแข็งแรง",
+  },
+};

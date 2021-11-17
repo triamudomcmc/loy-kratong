@@ -1,8 +1,9 @@
 import { KratongData as NKratongData, Selected as NSelected, Wish } from "@components/Kratong/create";
 import type { NextPage } from "next";
-import { KratongMap, PrincipalMap } from "@map/kratong";
+import { CUPSAAMap, KratongMap, PrincipalMap } from "@map/kratong";
 import styles from "@styles/modules/Kratong.module.scss";
 import pstyles from "@styles/modules/Principal.module.scss";
+import cstyles from "@styles/modules/CUPSAA.module.scss";
 import { Candle, NormalPart, VariantPart } from "@components/Kratong/parts";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
@@ -14,6 +15,8 @@ import { KratongData as PKratongData } from "@components/Principal/create";
 import { PrincipalPart } from "@components/Principal/parts";
 import { useAnimationFrame } from "@utils/useAnimationFrame";
 import { random } from "@utils/random";
+import { KratongData as CKratongData } from "@components/CUPSAA/create";
+import { CUPSAAPart } from "@components/CUPSAA/parts";
 
 export const KratongPopup: FC<{
   info: Wish;
@@ -126,6 +129,8 @@ interface KratongProps {
 
 export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick, highlighted = false }) => {
   const selected = data.kratong;
+  const { width } = useWindowDimensions();
+  const [toggle, setToggle] = useState(false);
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -200,6 +205,75 @@ export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick
   );
 };
 
+export const CUPSAAIdleKratong: NextPage<{
+  data: CKratongData;
+  className?: string;
+  size: Array<string>;
+  lane: string;
+  initialX: number;
+  highlighted: boolean;
+}> = ({ className, data, size, lane, initialX, highlighted }) => {
+  const { width } = useWindowDimensions();
+  const selected = data.kratong;
+  const zIndex = lane === "t" ? 19 : lane === "m" ? 29 : 39;
+  const [toggle, setToggle] = useState(false);
+  const height = width > 640 ? size[0] : size[1];
+
+  return (
+    <motion.div
+      animate={WaterFourData.animate}
+      transition={WaterFourData.transition}
+      style={{ left: initialX, zIndex: zIndex }}
+      className="relative"
+    >
+      <div className={className} style={{ zIndex }}>
+        {toggle && (
+          <AnimatePresence>
+            <KratongPopup info={data.wish} onToggle={setToggle} />
+          </AnimatePresence>
+        )}
+        <div
+          onClick={() => setToggle(!toggle)}
+          style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }}
+          className={classNames(cstyles["kratong"], "cursor-pointer")}
+        >
+          {highlighted && <div className={styles["aura"]}></div>}
+          <div className={cstyles["topping"]}>
+            <div className={cstyles["logo"]}>
+              <div className={cstyles["container"]}>
+                <img className={cstyles["img"]} src="/assets/images/CUPSAA/logo.png" alt="CUPSAA Logo" />
+              </div>
+            </div>
+            <div className={cstyles["candle"]}>
+              {Object.keys(CUPSAAMap.candles).map((candle: string) => {
+                // @ts-ignore
+                const part = CUPSAAMap.candles[candle];
+                return <CUPSAAPart key={candle} part={part} selected={selected.candles} />;
+              })}
+            </div>
+          </div>
+          <div className={cstyles["base"]}>
+            <div className={cstyles["flowers"]}>
+              {Object.keys(CUPSAAMap.flowers).map((flower: string) => {
+                // @ts-ignore
+                const part = CUPSAAMap.flowers[flower];
+                return <CUPSAAPart key={flower} part={part} selected={selected.flowers} />;
+              })}
+            </div>
+            <div className={cstyles["shell"]}>
+              {Object.keys(CUPSAAMap.base).map((base: string) => {
+                // @ts-ignore
+                const part = CUPSAAMap.base[base];
+                return <CUPSAAPart key={base} part={part} selected={selected.base} />;
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 export const PrincipalIdleKratong: NextPage<{
   data: PKratongData;
   className?: string;
@@ -209,7 +283,6 @@ export const PrincipalIdleKratong: NextPage<{
 }> = ({ className, data, size, lane, initialX }) => {
   const { width } = useWindowDimensions();
   const [toggle, setToggle] = useState(false);
-  const [hovered, setHovered] = useState(false);
 
   const zIndex = lane === "t" ? 15 : lane === "m" ? 25 : 35;
   const textZIndex = lane === "t" ? 31 : lane === "m" ? 41 : 51;
@@ -232,8 +305,6 @@ export const PrincipalIdleKratong: NextPage<{
             </AnimatePresence>
           )}
           <div
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
             onClick={() => setToggle(!toggle)}
             style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }}
             className={classNames(pstyles["kratong"], "cursor-pointer")}
