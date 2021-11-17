@@ -193,12 +193,12 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               }
               lane="m"
               size={["155px", "115px"]}
-              initialX={width > 640 ? 550 : 350}
+              initialX={width > 640 ? 350 : 350}
               data={RongPrincipalKratongsData[random(0, 3)]}
             />
             <CUPSAAIdleKratong
               highlighted
-              initialX={width > 640 ? 765 : 565}
+              initialX={width > 640 ? 965 : 565}
               data={CUPSAAKratongData}
               lane="m"
               size={["185px", "135px"]}
