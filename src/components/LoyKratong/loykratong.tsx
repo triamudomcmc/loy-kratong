@@ -65,15 +65,23 @@ const sample = {
 
 const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   const { width, height } = useWindowDimensions();
-  const [loy, setloy] = useState(true)
+  const [loy, setloy] = useState(false)
+  const [prevEntity, setPrevEntity] = useState<undefined | ResultData>(undefined)
 
   useEffect(() => {
     setloy(localStorage.getItem("released") === "true")
+    setPrevEntity(JSON.parse(localStorage.getItem("entity") || "{}"))
   }, [])
+
+  useEffect(() => {
+    console.log(prevEntity)
+  }, [prevEntity])
+
 
   shuffle(entities);
   const lanes = chunk(entities, 3);
 
+  // @ts-ignore
   return (
     <div className={styles["loy-scene"]}>
       <div className={styles["sky"]}>
@@ -175,18 +183,13 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         <div className={classNames("absolute", styles["waterthree-container"])}>
           <div className="relative">
             <IdleKratong
-              className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[90%] hover:brightness-100 active:brightness-110"
+              className={
+                "transition-opacity absolute left-[250px] top-[-48px] sm:top-[-64px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
+              }
               lane="m"
-              size={["225px", "175px"]}
+              size={["155px", "115px"]}
               initialX={550}
-              data={RongPrincipalKratongsData[random(0, 1)]}
-            />
-            <IdleKratong
-              className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[90%] hover:brightness-100 active:brightness-110"
-              lane="m"
-              size={["225px", "175px"]}
-              initialX={width < 640 ? 650 : 1150}
-              data={RongPrincipalKratongsData[random(2, 3)]}
+              data={RongPrincipalKratongsData[random(0, 3)]}
             />
             <MidLane entities={lanes[1]} />
             <WaterThree />
@@ -206,24 +209,24 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                 />
               </div>
               {
-                !loy && <DraggableKratong
+                !loy && prevEntity && <DraggableKratong
                   className={styles["loying-kratong"]}
-                  selected={sample.kratong}
+                  selected={prevEntity.kratong}
                   height={width < 640 ? "115px" : "150px"}
-                  zIndex={35}
+                  zIndex={42}
                 />
               }
             </div>
 
             <PrincipalIdleKratong
-              className="transition-opacity absolute top-[-124px] sm:top-[-134px] lg:top-[-154px] brightness-[99%] hover:brightness-100 active:brightness-110"
+              className="transition-opacity absolute top-[-77px] sm:top-[-134px] lg:top-[-154px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
-              size={["255px", "225px"]}
+              size={["145px", "170px"]}
               initialX={750}
               data={PrincipalKratongData}
             />
 
-            <BotLane entities={lanes[2]} />
+            <BotLane entities={loy ? [...lanes[2], prevEntity] : lanes[2]} />
             <WaterTwo />
           </div>
         </div>

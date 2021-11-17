@@ -28,7 +28,7 @@ const MovingKratong: NextPage<{
   useAnimationFrame(
     (delta: number) => {
       // delta - time elapsed in ms
-      setX((prevX) => (prevX < width + 1400 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1840)));
+      setX((prevX) => (prevX < width + 1200 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1840)));
     },
     (delta: number) => {
       return false;
@@ -75,7 +75,7 @@ export const TopLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
               className={
                 "transition-opacity absolute left-[550px] top-0 sm:top-[5px] brightness-50 hover:brightness-100 active:brightness-110"
               }
-              initialX={i * random(260, 360) + random(640, 850)}
+              initialX={(i * random(80, 860)) + random(0, 100)}
               data={e}
               size={["105px", "65px"]}
               lane="t"
@@ -97,7 +97,7 @@ export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
               className={
                 "transition-opacity absolute left-[250px] top-[-48px] sm:top-[-64px] lg:top-[-44px] brightness-[60%] hover:brightness-100 active:brightness-110"
               }
-              initialX={i * random(340, 580) + random(580, 740)}
+              initialX={(i * random(100, 780)) + random(0, 120)}
               data={e}
               size={["155px", "105px"]}
               lane="m"
@@ -117,9 +117,9 @@ export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-b-${i}`}
               className={
-                "transition-opacity absolute left-[350px] top-[-64px] sm:top-[-84px] lg:top-[-64px] brightness-90 hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[350px] top-[-64px] sm:top-[-84px] lg:top-[-64px] brightness-[90%] hover:brightness-100 active:brightness-110"
               }
-              initialX={i * random(300, 460) + random(640, 850)}
+              initialX={(i * random(20, 860)) + random(0, 90)}
               data={e}
               size={["205px", "155px"]}
               lane="b"

@@ -121,9 +121,10 @@ interface KratongProps {
   height: string;
   zIndex: number;
   onClick: () => void;
+  highlighted?: boolean
 }
 
-export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick }) => {
+export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick, highlighted = false }) => {
   const selected = data.kratong;
   const [hovered, setHovered] = useState(false);
 
@@ -136,7 +137,7 @@ export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick
         style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }}
         className={classNames(styles["kratong"], "cursor-pointer")}
       >
-        {hovered && <div className={styles["aura"]}></div>}
+        {highlighted ? <div className={styles["aura"]}></div> : hovered && <div className={styles["aura"]}></div>}
         <div className={styles["topping"]}>
           <div className={styles["decorations"]}>
             {Object.keys(KratongMap.decorations).map((decoration: string) => {
@@ -237,7 +238,7 @@ export const PrincipalIdleKratong: NextPage<{
             style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }}
             className={classNames(pstyles["kratong"], "cursor-pointer")}
           >
-            {hovered && <div className={pstyles["aura"]}></div>}
+            {<div className={pstyles["aura"]}></div>}
             <div className={pstyles["topping"]}>
               <div className={pstyles["decorations"]}>
                 {Object.keys(PrincipalMap.decorations).map((decoration: string) => {
@@ -312,6 +313,7 @@ export const IdleKratong: NextPage<{
             height={width > 640 ? size[0] : size[1]}
             zIndex={zIndex}
             onClick={() => setToggle(!toggle)}
+            highlighted={true}
             data={data}
           />
         </div>
@@ -410,7 +412,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
         }}
         style={{
           ["--size" as string]: height,
-          ["--z-index" as string]: zIndex,
+          ["--z-index" as string]: finished ? zIndex : 35,
           top: `${!finished ? -88 : -4}px`,
           left: `${x}px`,
         }}
