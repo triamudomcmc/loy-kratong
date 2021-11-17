@@ -460,9 +460,6 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
       };
     } else {
       return {
-        whileTap: {
-          scale: 1.1,
-        },
       };
     }
   };
@@ -486,7 +483,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
         style={{
           ["--size" as string]: height,
           ["--z-index" as string]: finished ? zIndex : 35,
-          top: `${!finished ? -88 : -4}px`,
+          top: `${!finished ? width > 640 ? -146 : -120 : -40}px`,
           left: `${x}px`,
         }}
         className={classNames(styles["kratong"], className)}
