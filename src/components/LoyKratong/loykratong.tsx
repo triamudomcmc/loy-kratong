@@ -63,8 +63,7 @@ const sample = {
   },
 };
 
-const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
-  // const [loyed, setLoyed] = use
+const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   const { width, height } = useWindowDimensions();
   const [loy, setloy] = useState(true)
 
@@ -217,9 +216,9 @@ const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             </div>
 
             <PrincipalIdleKratong
-              className="transition-opacity absolute top-[-124px] sm:top-[-134px] lg:top-[-174px] brightness-[99%] hover:brightness-100 active:brightness-110"
+              className="transition-opacity absolute top-[-124px] sm:top-[-134px] lg:top-[-154px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
-              size={["315px", "245px"]}
+              size={["255px", "225px"]}
               initialX={750}
               data={PrincipalKratongData}
             />
@@ -239,4 +238,4 @@ const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   );
 };
 
-export default LoyKratongBG;
+export default LoyKratongScene;

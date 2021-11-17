@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import LoyKratongBG from "./loykratong";
-import {ResultData} from "@components/Kratong/create";
+import LoyKratongScene from "./loykratong";
+import { ResultData } from "@components/Kratong/create";
 
-export const LoyKratongPage: NextPage<{entities: ResultData[]}> = ({entities}) => {
+export const LoyKratongPage: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   return (
     <>
       <style jsx>{`
@@ -11,7 +11,7 @@ export const LoyKratongPage: NextPage<{entities: ResultData[]}> = ({entities}) =
         }
       `}</style>
       <article>
-        <LoyKratongBG entities={entities}/>
+        <LoyKratongScene entities={entities} />
       </article>
     </>
   );
