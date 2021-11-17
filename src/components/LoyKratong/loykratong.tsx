@@ -8,9 +8,9 @@ import { BotLane, MidLane, TopLane } from "./kratonglane";
 import { ResultData } from "@components/Kratong/create";
 import { motion } from "framer-motion";
 import { Kratong } from "@components/Kratong/kratong";
-import { DraggableKratong, IdleKratong, PrincipalIdleKratong } from "./displaykratong";
+import { CUPSAAIdleKratong, DraggableKratong, IdleKratong, PrincipalIdleKratong } from "./displaykratong";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
-import { PrincipalKratongData, RongPrincipalKratongsData } from "@map/realkratong";
+import { CUPSAAKratongData, PrincipalKratongData, RongPrincipalKratongsData } from "@map/realkratong";
 import { useEffect, useState } from "react";
 
 function random(min: number, max: number) {
@@ -181,12 +181,22 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
             <IdleKratong
               highlighted
               className={
-                "transition-opacity absolute left-[250px] top-[-48px] sm:top-[-64px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute top-[-48px] sm:top-[-64px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
               }
               lane="m"
               size={["155px", "115px"]}
-              initialX={550}
+              initialX={width > 640 ? 550 : 350}
               data={RongPrincipalKratongsData[random(0, 3)]}
+            />
+            <CUPSAAIdleKratong
+              highlighted
+              initialX={width > 640 ? 765 : 565}
+              data={CUPSAAKratongData}
+              lane="m"
+              size={["185px", "135px"]}
+              className={
+                "transition-opacity absolute top-[-48px] sm:top-[-64px] lg:top-[-64px] hover:brightness-100 active:brightness-110"
+              }
             />
             <MidLane entities={lanes[1]} />
             <WaterThree />
@@ -219,7 +229,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               className="transition-opacity absolute top-[-77px] sm:top-[-78px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
               size={["200px", "170px"]}
-              initialX={750}
+              initialX={width > 640 ? 650 : 440}
               data={PrincipalKratongData}
             />
 
