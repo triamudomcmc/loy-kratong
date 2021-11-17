@@ -217,7 +217,7 @@ export const PrincipalIdleKratong: NextPage<{
   const [toggle, setToggle] = useState(false);
   const [hovered, setHovered] = useState(false);
 
-  const zIndex = lane === "t" ? 19 : lane === "m" ? 29 : 39;
+  const zIndex = lane === "t" ? 15 : lane === "m" ? 25 : 35;
   const textZIndex = lane === "t" ? 31 : lane === "m" ? 41 : 51;
 
   const selected = data.kratong;

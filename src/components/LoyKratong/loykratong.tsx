@@ -169,14 +169,14 @@ const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
               className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[60%] hover:brightness-100 active:brightness-110"
               lane="m"
               size={["225px", "175px"]}
-              initialX={width < 640 ? 150 : 550}
+              initialX={550}
               data={RongPrincipalKratongsData[random(0, 1)]}
             />
             <IdleKratong
               className="transition-opacity absolute top-[-64px] sm:top-[-104px] lg:top-[-84px] brightness-[60%] hover:brightness-100 active:brightness-110"
               lane="m"
               size={["225px", "175px"]}
-              initialX={width < 640 ? 650 : 950}
+              initialX={950}
               data={RongPrincipalKratongsData[random(2, 3)]}
             />
             <MidLane entities={lanes[1]} />
@@ -208,7 +208,7 @@ const LoyKratongBG: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
               className="transition-opacity absolute top-[-124px] sm:top-[-134px] lg:top-[-174px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
               size={["315px", "245px"]}
-              initialX={width < 640 ? 350 : 750}
+              initialX={750}
               data={PrincipalKratongData}
             />
 
