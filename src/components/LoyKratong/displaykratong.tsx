@@ -6,12 +6,14 @@ import pstyles from "@styles/modules/Principal.module.scss";
 import { Candle, NormalPart, VariantPart } from "@components/Kratong/parts";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { WaterFourData } from "@map/animations";
 import { XIcon } from "@heroicons/react/solid";
 import { KratongData as PKratongData } from "@components/Principal/create";
 import { PrincipalPart } from "@components/Principal/parts";
+import { useAnimationFrame } from "@utils/useAnimationFrame";
+import { random } from "@utils/random";
 
 export const KratongPopup: FC<{
   info: Wish;
@@ -329,12 +331,84 @@ interface DrKratongProps {
 }
 
 export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected, height, zIndex }) => {
+  const { width } = useWindowDimensions();
+  const [finished, setFinished] = useState(false);
+  const [x, setX] = useState(112);
+  // const [y, setY] = useState(-88);
+
+  // const speed = 5.5;
+  // const reqAnimation = useAnimationFrame(
+  //   (delta: number) => {
+  //     // delta - time elapsed in ms
+  //     if (!finished) return;
+  //     setY((prevY) => prevY + delta * 0.01 * speed);
+  //   },
+  //   (delta: number) => {
+  //     return false;
+  //   }
+  // );
+
+  // useEffect(() => {
+  //   console.log(y);
+  //   if (y >= -44) cancelAnimationFrame(reqAnimation as number);
+  // }, [y]);
+
+  // todo map x, y values to other viewports using useTransform
+
+  // 320
+  // 400
+  // 450
+
+  const speedX = 1.25;
+
+  useAnimationFrame(
+    (delta: number) => {
+      // delta - time elapsed in ms
+      if (finished)
+        setX((prevX) => (prevX < width + 1400 ? prevX + delta * 0.01 * speedX : prevX - (random(20, 200) + 1840)));
+    },
+    (delta: number) => {
+      return false;
+    }
+  );
+
+  const elementProps = () => {
+    if (finished) {
+      return {
+        animate: WaterFourData.animate,
+        transition: WaterFourData.transition,
+      };
+    } else {
+      return {
+        whileTap: {
+          scale: 1.1,
+        },
+      };
+    }
+  };
+
   return (
     <>
       <motion.div
-        drag="x"
-        dragConstraints={{ left: 0, right: 300 }}
-        style={{ ["--size" as string]: height, ["--z-index" as string]: zIndex }}
+        drag={!finished}
+        dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+        dragElastic={0.65}
+        {...elementProps()}
+        onDrag={(e, { point }) => {
+          if (
+            (point.x > 320 && width < 640) ||
+            (point.x > 400 && width >= 640 && width < 1024) ||
+            (point.x > 450 && width >= 1024)
+          ) {
+            setFinished(true);
+          }
+        }}
+        style={{
+          ["--size" as string]: height,
+          ["--z-index" as string]: zIndex,
+          top: `${!finished ? -88 : -4}px`,
+          left: `${x}px`,
+        }}
         className={classNames(styles["kratong"], className)}
       >
         <div className={styles["topping"]}>

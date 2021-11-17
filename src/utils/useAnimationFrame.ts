@@ -25,6 +25,8 @@ export const useAnimationFrame = (callback: AnimationFrameCallback, shouldStop: 
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current as number);
   }, []); // Make sure the effect runs only once
+
+  return requestRef.current;
 };
 
 // Example
