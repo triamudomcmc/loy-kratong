@@ -7,6 +7,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import classnames from "classnames";
 import { motion } from "framer-motion";
 import { pushKratongContext } from "../../bridges/build/init";
+import { CatLoading } from "@components/Loading";
 
 export interface Selected {
   base: string;
@@ -320,109 +321,113 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
   return (
     <>
       <div className="flex items-center fixed min-h-screen w-full top-0 z-20 px-10 font-ui">
-        <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
-          <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
-            <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
-            <div className="flex flex-col items-center">
-              <div className="relative h-[150px] mb-[10px]">
-                <Kratong zIndex={7} height="150px" selected={selected} />
-              </div>
-              <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse
-                  cx="184.709"
-                  cy="20"
-                  rx="184.5"
-                  ry="20"
-                  fill="white"
-                  fillOpacity="0.3"
-                  style={{ mixBlendMode: "soft-light" }}
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="flex flex-col relative z-10 space-y-2 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
-            <div>
-              <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 flex-grow-1 mt-3 overflow-y-auto">
-                <div className="w-full">
-                  <fieldset>
-                    <label className="text-sm text-white" htmlFor="name">
-                      ชื่อ
-                    </label>
-                    <input
-                      name="name"
-                      type="text"
-                      onChange={(e) => {
-                        if (CharLimits.name - e.target.value.length < 0) return;
-
-                        setWish({
-                          name: e.target.value,
-                          content: wish.content,
-                        });
-                      }}
-                      value={wish.name ?? ""}
-                      className="block w-full mt-2 bg-transparent placeholder-opacity-70 placeholder-[#eee] text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
-                      placeholder="นายเรียนเด่น เล่นดี"
-                    />
-                  </fieldset>
-                  <div className="block mt-2 w-full">
-                    <span className="text-sm text-red-600 float-left">{error.name && formatError(error.name)}</span>
-                    <span className="text-sm text-white float-right">{CharLimits.name - wish.name.length}</span>
-                  </div>
+        {loading ? (
+          <span className="font-ui font-light mt-4 text-center text-white animate-pulse w-full">กำลังโหลด...</span>
+        ) : (
+          <div className="flex flex-col border border-white bg-white bg-opacity-20 backdrop-blur-lg max-w-[525px] w-full mx-auto rounded-[34px]">
+            <div className="h-full pt-8 pb-4 sm:pb-2 w-full">
+              <h1 className="text-white text-2xl text-center mb-0 sm:mb-1">ใส่คำอธิษฐาน</h1>
+              <div className="flex flex-col items-center">
+                <div className="relative h-[150px] mb-[10px]">
+                  <Kratong zIndex={7} height="150px" selected={selected} />
                 </div>
-
-                <div className="w-full">
-                  <fieldset>
-                    <label className="text-sm text-white" htmlFor="content">
-                      ใส่คำอธิษฐาน
-                    </label>
-                    <input
-                      name="content"
-                      type="text"
-                      onChange={(e) => {
-                        if (CharLimits.content - e.target.value.length < 0) return;
-
-                        setWish({
-                          name: wish.name,
-                          content: e.target.value,
-                        });
-                      }}
-                      value={wish.content ?? ""}
-                      className="block w-full mt-2 bg-transparent placeholder-opacity-70 placeholder-[#eee] text-[#fdfdfd] outline-none border-b-2 border-white px-2 pt-2 pb-1  mb-4"
-                      placeholder="กรอกคำอธิษฐาน"
-                    />
-                  </fieldset>
-
-                  <div className="block mt-2 w-full">
-                    <span className="text-sm text-red-600 float-left">
-                      {error.content && formatError(error.content)}
-                    </span>
-                    <span className="text-sm text-white float-right">{CharLimits.content - wish.content.length}</span>
-                  </div>
-                </div>
+                <svg className="w-[225px]" viewBox="0 0 370 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse
+                    cx="184.709"
+                    cy="20"
+                    rx="184.5"
+                    ry="20"
+                    fill="white"
+                    fillOpacity="0.3"
+                    style={{ mixBlendMode: "soft-light" }}
+                  />
+                </svg>
               </div>
             </div>
-            <div className="flex justify-end space-x-2 px-4">
-              <button
-                className="flex items-center text-[12px] sm:text-md bg-transparent text-white border border-white px-6 py-2 space-x-1 rounded-full font-light"
-                onClick={() => prevPage()}
-              >
-                <ChevronLeftIcon className="w-5 h-5" />
-                <span>ย้อนกลับ</span>
-              </button>
+            <div className="flex flex-col relative z-10 space-y-2 justify-between border border-white bg-white bg-opacity-40 h-full rounded-[34px] w-full pb-2">
+              <div>
+                <div className="flex flex-col space-y-2 justify-between w-full pt-6 px-4 sm:px-8 flex-grow-1 mt-3 overflow-y-auto">
+                  <div className="w-full">
+                    <fieldset>
+                      <label className="text-sm text-white" htmlFor="name">
+                        ชื่อ
+                      </label>
+                      <input
+                        name="name"
+                        type="text"
+                        onChange={(e) => {
+                          if (CharLimits.name - e.target.value.length < 0) return;
 
-              <button
-                className="flex items-center bg-[#2256A3] text-[12px] sm:text-md text-white px-6 py-2 rounded-full shadow-lg font-light"
-                onClick={() => {
-                  if (!validateValues()) return;
-                  save();
-                  // nextPage();
-                }}
-              >
-                <span>บันทึกกระทง</span>
-              </button>
+                          setWish({
+                            name: e.target.value,
+                            content: wish.content,
+                          });
+                        }}
+                        value={wish.name ?? ""}
+                        className="block w-full mt-2 bg-transparent placeholder-opacity-70 placeholder-[#eee] text-[#fff] outline-none border-b-2 border-white px-2 pt-2 pb-1 mb-4"
+                        placeholder="นายเรียนเด่น เล่นดี"
+                      />
+                    </fieldset>
+                    <div className="block mt-2 w-full">
+                      <span className="text-sm text-red-600 float-left">{error.name && formatError(error.name)}</span>
+                      <span className="text-sm text-white float-right">{CharLimits.name - wish.name.length}</span>
+                    </div>
+                  </div>
+
+                  <div className="w-full">
+                    <fieldset>
+                      <label className="text-sm text-white" htmlFor="content">
+                        ใส่คำอธิษฐาน
+                      </label>
+                      <input
+                        name="content"
+                        type="text"
+                        onChange={(e) => {
+                          if (CharLimits.content - e.target.value.length < 0) return;
+
+                          setWish({
+                            name: wish.name,
+                            content: e.target.value,
+                          });
+                        }}
+                        value={wish.content ?? ""}
+                        className="block w-full mt-2 bg-transparent placeholder-opacity-70 placeholder-[#eee] text-[#fdfdfd] outline-none border-b-2 border-white px-2 pt-2 pb-1  mb-4"
+                        placeholder="กรอกคำอธิษฐาน"
+                      />
+                    </fieldset>
+
+                    <div className="block mt-2 w-full">
+                      <span className="text-sm text-red-600 float-left">
+                        {error.content && formatError(error.content)}
+                      </span>
+                      <span className="text-sm text-white float-right">{CharLimits.content - wish.content.length}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-end space-x-2 px-4">
+                <button
+                  className="flex items-center text-[12px] sm:text-md bg-transparent text-white border border-white px-6 py-2 space-x-1 rounded-full font-light"
+                  onClick={() => prevPage()}
+                >
+                  <ChevronLeftIcon className="w-5 h-5" />
+                  <span>ย้อนกลับ</span>
+                </button>
+
+                <button
+                  className="flex items-center bg-[#2256A3] text-[12px] sm:text-md text-white px-6 py-2 rounded-full shadow-lg font-light"
+                  onClick={() => {
+                    if (!validateValues()) return;
+                    save();
+                    // nextPage();
+                  }}
+                >
+                  <span>บันทึกกระทง</span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );
