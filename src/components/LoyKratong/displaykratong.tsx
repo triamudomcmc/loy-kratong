@@ -372,7 +372,7 @@ export const IdleKratong: NextPage<{
       <motion.div
         animate={WaterFourData.animate}
         transition={WaterFourData.transition}
-        style={{ left: initialX, zIndex: zIndex + 6 }}
+        style={{ left: initialX, zIndex }}
         className={className}
       >
         <div style={{ zIndex }}>

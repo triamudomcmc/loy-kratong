@@ -48,7 +48,7 @@ const MovingKratong: NextPage<{
   const [toggle, setToggle] = useState(false);
   const [x, setX] = useState(initialX);
 
-  const zIndex = lane === "t" ? 15 : lane === "m" ? 25 : 35;
+  const zIndex = lane === "t" ? 19 : lane === "m" ? 29 : 39;
   const textZIndex = lane === "t" ? 31 : lane === "m" ? 41 : 51;
 
   useAnimationFrame(
@@ -66,7 +66,7 @@ const MovingKratong: NextPage<{
       <motion.div
         animate={WaterFourData.animate}
         transition={WaterFourData.transition}
-        style={{ left: x, zIndex: zIndex + 6 }}
+        style={{ left: x, zIndex: zIndex }}
         className="relative"
       >
         <div className={className} style={{ zIndex }}>

@@ -153,7 +153,6 @@
   > .waterfour-container {
     position: absolute;
     left: calc(-50px);
-    z-index: 10; /* change later */
 
     bottom: calc(70px);
     @include breakpoint(460px) {
@@ -167,7 +166,6 @@
   > .waterthree-container {
     position: absolute;
     left: calc(-50px);
-    z-index: 20; /* change later */
 
     bottom: calc(20px);
 
@@ -182,7 +180,6 @@
   > .watertwo-container {
     position: absolute;
     left: calc(-50px);
-    z-index: 30; /* change later */
 
     bottom: calc(-40px);
     @include breakpoint(460px) {
@@ -196,7 +193,6 @@
   > .waterone-container {
     position: absolute;
     left: calc(-50px);
-    z-index: 40; /* change later */
 
     bottom: calc(-120px);
     @include breakpoint(460px) {
