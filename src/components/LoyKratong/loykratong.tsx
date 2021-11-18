@@ -76,6 +76,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
   const [prevEntity, setPrevEntity] = useState<undefined | ResultData>(undefined);
 
   useEffect(() => {
+    const cwidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     setloy(localStorage.getItem("released") === "true");
     setLocalLoy(localStorage.getItem("released") === "true");
     setPrevEntity(JSON.parse(localStorage.getItem("entity") || "{}"));
@@ -88,7 +89,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         }
         lane="m"
         size={["155px", "115px"]}
-        initialX={width > 640 ? 550 : 350}
+        initialX={cwidth > 640 ? 550 : 350}
         data={RongPrincipalKratongsData[random(0, 3)]}
       />
     );
