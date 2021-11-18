@@ -28,21 +28,19 @@ export default class Document extends NextDocument {
             crossOrigin="anonymous"
           />
           <link rel="icon" href="/favicon.ico" />
-          {/*
-          <link rel="canonical" href="https://clubs.triamudom.ac.th/" />
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-D40C14KM60"></script>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3262R253B"></script>
 		  <script
             dangerouslySetInnerHTML={{
               __html: `
 			  window.dataLayer = window.dataLayer || [];
 			  function gtag(){dataLayer.push(arguments);}
 			  gtag('js', new Date());
-			  gtag('config', 'G-D40C14KM60', {
+			  gtag('config', 'G-K3262R253B', {
 				page_path: window.location.pathname,
 			  });
 			`,
             }}
-          />*/}
+          />
           <meta
             name="keywords"
             content="เตรียมอุดมศึกษา, กช., ลอยกระทง, สร้างกระทง, ลอยกระทงกับเพื่อน, Loy Kratong, Loy Krathong, ลอยกระทงอยู่บ้าน, ลอยกระทงออนไลน์, 2564, ลอยกระทงออนไลน์ 2564, ลอยกระทงเตรียม, ลอยกระทงเตรียมอุดม, กช. เตรียมอุดม, กช เตรียมอุดม, เตรียม, คณะกรรมการงานกิจกรรมพัฒนาผู้เรียน"
