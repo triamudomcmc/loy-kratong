@@ -29,7 +29,7 @@ export default class Document extends NextDocument {
           />
           <link rel="icon" href="/favicon.ico" />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3262R253B"></script>
-		  <script
+          <script
             dangerouslySetInnerHTML={{
               __html: `
 			  window.dataLayer = window.dataLayer || [];
@@ -41,6 +41,27 @@ export default class Document extends NextDocument {
 			`,
             }}
           />
+
+          {/* <!-- Open Graph / Facebook --> */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://loykratong.triamudom.club/" />
+          <meta property="og:title" content="ลอยกระทงออนไลน์ 2021" />
+          <meta
+            property="og:description"
+            content="เว็บไซต์ลอยกระทงออนไลน์ 2021 พัฒนาโดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน (กช.) โรงเรียนเตรียมอุดมศึกษา"
+          />
+          <meta property="og:image" content="/assets/images/banner.jpg" />
+
+          {/* <!-- Twitter --> */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://loykratong.triamudom.club/" />
+          <meta property="twitter:title" content="ลอยกระทงออนไลน์ 2021" />
+          <meta
+            property="twitter:description"
+            content="เว็บไซต์ลอยกระทงออนไลน์ 2021 พัฒนาโดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน (กช.) โรงเรียนเตรียมอุดมศึกษา"
+          />
+          <meta property="twitter:image" content="/assets/images/banner.jpg" />
+
           <meta
             name="keywords"
             content="เตรียมอุดมศึกษา, กช., ลอยกระทง, สร้างกระทง, ลอยกระทงกับเพื่อน, Loy Kratong, Loy Krathong, ลอยกระทงอยู่บ้าน, ลอยกระทงออนไลน์, 2564, ลอยกระทงออนไลน์ 2564, ลอยกระทงเตรียม, ลอยกระทงเตรียมอุดม, กช. เตรียมอุดม, กช เตรียมอุดม, เตรียม, คณะกรรมการงานกิจกรรมพัฒนาผู้เรียน"
