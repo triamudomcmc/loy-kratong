@@ -69,7 +69,7 @@ export const NavLoy: NextPage = () => {
         className="flex text-[12px] cursor-pointer sm:text-sm hover:bg-gray-600 transition-colors rounded-full border text-white border-white bg-[#051018] px-6 py-2 space-x-1 font-light"
       >
         <DownloadIcon className="w-5 h-5" />
-        <span className="font-ui">{waiting ? "กำลังโหลด..." : "ถ่ายภาพกระทง"}</span>
+        <span className="font-ui">{waiting ? "กำลังโหลด..." : "บันทึกภาพกระทง"}</span>
       </div>
     </header>
   );

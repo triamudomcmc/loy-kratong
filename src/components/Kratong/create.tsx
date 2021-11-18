@@ -282,6 +282,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
   };
 
   const [error, setError] = useState<WishError>({ name: null, content: null });
+  const [loading, setLoading] = useState(false);
 
   const validateValues = () => {
     let nameErrors = [];
@@ -304,14 +305,15 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
   };
 
   const save = async () => {
+    setLoading(true);
     const entityData = { kratong: selected, wish: wish };
-
     const kratongData = await pushKratongContext.call({ data: entityData });
 
-    if (kratongData.status) {
+    if (kratongData.status || !loading) {
       const id = kratongData.data.id;
       localStorage.setItem("entityId", id);
       localStorage.setItem("entity", JSON.stringify(entityData));
+      setLoading(false);
       Router.push("/loykratong");
     }
   };
@@ -417,7 +419,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                   // nextPage();
                 }}
               >
-                <span>บันทึกกระทง</span>
+                <span>{loading ? "กำลังบันทึก...​" : "บันทึกกระทง"}</span>
               </button>
             </div>
           </div>
