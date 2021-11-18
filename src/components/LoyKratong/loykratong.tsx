@@ -13,6 +13,7 @@ import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { CUPSAAKratongData, PrincipalKratongData, RongPrincipalKratongsData } from "@map/realkratong";
 import { useEffect, useState } from "react";
 import { Pantoloy } from "@components/Vector/pantoloy";
+import Router from "next/router";
 
 function random(min: number, max: number) {
   min = Math.ceil(min);
@@ -67,12 +68,15 @@ const sample = {
 const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   const { width, height } = useWindowDimensions();
   const [loy, setloy] = useState(false);
+  const [done, setDone] = useState(false)
   const [prevEntity, setPrevEntity] = useState<undefined | ResultData>(undefined);
 
   useEffect(() => {
     setloy(localStorage.getItem("released") === "true");
     setPrevEntity(JSON.parse(localStorage.getItem("entity") || "{}"));
+    setDone(true)
   }, []);
+
 
   shuffle(entities);
   const lanes = chunk(entities, 3);
@@ -80,7 +84,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
   // @ts-ignore
   return (
     // <div className={styles["loy-scene"]}>
-    <div className="h-[100vh] w-[250vw] sm:w-[175vw]">
+    <div className="w-[250vw] sm:w-[175vw]">
       {!loy && (
         <AnimatePresence>
           <motion.div
@@ -188,10 +192,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
       <div className="h-[100vh] bg-black bg-loy relative overflow-hidden w-[250vw] sm:w-[175vw]">
         {/* <div className={classNames("absolute", styles["waterfour-container"])}> */}
         <div
-          className={classNames(
-            "absolute",
-            "absolute left-[-50px] bottom-[70px] custom:bottom-[70px] lg:bottom-[-150px]"
-          )}
+          className={done ? "absolute left-[-50px] bottom-[70px] custom:bottom-[70px] lg:bottom-[-150px]" : ""}
         >
           <div className="relative">
             {/* <div className={styles["buildings"]}> */}
@@ -206,7 +207,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         </div>
 
         {/* <div className={classNames("absolute", styles["waterthree-container"])}> */}
-        <div className={classNames("absolute", "left-[-50px] bottom-[20px] custom:bottom-[20px] lg:bottom-[-220px]")}>
+        <div className={done ? "absolute left-[-50px] bottom-[20px] custom:bottom-[20px] lg:bottom-[-220px]" : ""}>
           <div className="relative">
             <IdleKratong
               highlighted
@@ -234,7 +235,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         </div>
 
         {/* <div className={classNames("absolute", styles["watertwo-container"])}> */}
-        <div className={classNames("absolute", "left-[-50px] bottom-[-40px] custom:bottom-[-30px] lg:bottom-[-315px]")}>
+        <div className={done ? "absolute left-[-50px] bottom-[-40px] custom:bottom-[-30px] lg:bottom-[-315px]" : ""}>
           <div className="relative">
             <div className="relative">
               {/* <div className={styles["sala-side"]}> */}
@@ -275,7 +276,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
 
         {/* <div className={classNames("absolute", styles["waterone-container"])}> */}
         <div
-          className={classNames("absolute", "left-[-50px] bottom-[-120px] custom:bottom-[-105px] lg:bottom-[-396px]")}
+          className={done ? "absolute left-[-50px] bottom-[-120px] custom:bottom-[-105px] lg:bottom-[-396px]" : ""}
         >
           <div className="relative">
             <WaterOne />
