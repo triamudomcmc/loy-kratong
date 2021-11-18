@@ -36,17 +36,17 @@ export const KratongPopup: FC<{
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -100, opacity: 0 }}
-        className="w-[275px] absolute z-[99] left-[63px] top-[-165px]"
+        className="w-[275px] absolute z-[999] left-[63px] top-[-165px]"
       >
-        <MessageBox />
+        <div className="bg-white bg-opacity-30 backdrop-filter backdrop-blur-sm w-[270px] h-[180px] rounded-xl"/>
         <XIcon
           className="w-5 h-5 text-white absolute z-[99] right-4 top-4 cursor-pointer hover:text-gray-100"
           onClick={() => onToggle(false)}
         />
-        <div className="absolute z-[98] top-0 left-0 py-6 px-4 flex flex-col min-w-1/4">
-          <p className="font-ui font-medium text-[#2256A3] mb-2 pr-4">{info.name}</p>
-          <hr className="w-1/2 border-[0.5px] border-[#2256A3] mb-4" />
-          <p className="font-ui text-sm font-light text-[#2256A3]">{info.content}</p>
+        <div className="absolute z-[98] top-0 left-0 py-6 px-6 flex flex-col min-w-1/4">
+          <p className="font-ui font-medium text-white mb-2 pr-4">{info.name}</p>
+          <hr className="w-1/2 border-[0.5px] border-white mb-4" />
+          <p className="font-ui text-sm font-light text-white">{info.content}</p>
         </div>
       </motion.div>
     </>
