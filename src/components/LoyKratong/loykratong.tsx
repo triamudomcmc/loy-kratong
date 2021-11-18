@@ -216,7 +216,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                   className={classNames(styles["loying-kratong"], width > 640 && "ml-16")}
                   data={prevEntity}
                   height={width > 640 ? "170px" : "155px"}
-                  zIndex={[42, 39]}
+                  zIndex={[43, 39]}
                 />
               )}
             </div>
