@@ -60,8 +60,8 @@
   position: absolute;
   width: 1046px;
   height: 494px;
-  top: 75px;
-  left: 136px;
+  top: -75px;
+  left: 166px;
   z-index: 7;
 }
 
@@ -69,8 +69,8 @@
   position: absolute;
   width: 783px;
   height: 494px;
-  top: 49px;
-  left: 47px;
+  top: -29px;
+  left: 7px;
   z-index: 7;
 }
 
@@ -135,14 +135,14 @@
 .background {
   > .waterfour-container {
     position: absolute;
-    left: calc(-2vw - 50px);
+    left: calc(-2vw - 350px);
     z-index: 10; /* change later */
     bottom: 100px;
   }
 
   > .waterthree-container {
     position: absolute;
-    left: calc(-2vw - 50px);
+    left: calc(-2vw - 350px);
     z-index: 20; /* change later */
 
     bottom: 150px;
@@ -150,17 +150,17 @@
 
   > .watertwo-container {
     position: absolute;
-    left: calc(-2vw - 50px);
+    left: calc(-2vw - 350px);
     z-index: 30; /* change later */
 
-    bottom: calc(-13vw - 175px);
+    bottom: calc(-13vw - 275px);
   }
 
   > .waterone-container {
     position: absolute;
-    left: calc(-2vw - 50px);
+    left: calc(-2vw - 350px);
     z-index: 40; /* change later */
-    bottom: 137px;
+    bottom: -97px;
   }
 }
 
@@ -168,6 +168,6 @@
   position: absolute;
   z-index: 5;
   display: flex;
-  top: -166px;
+  top: -136px;
   width: 300vw;
 }
