@@ -7,7 +7,6 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import classnames from "classnames";
 import { motion } from "framer-motion";
 import { pushKratongContext } from "../../bridges/build/init";
-import Router from "next/router";
 
 export interface Selected {
   base: string;
@@ -314,7 +313,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
       localStorage.setItem("entityId", id);
       localStorage.setItem("entity", JSON.stringify(entityData));
       setLoading(false);
-      Router.push("/loykratong");
+      window.location.href = "/loykratong";
     }
   };
 
