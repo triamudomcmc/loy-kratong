@@ -1,15 +1,18 @@
-import { KratongData, ResultData } from "@components/Kratong/create";
-import { DownloadIcon } from "@heroicons/react/solid";
-import type { NextPage } from "next";
+import {ResultData} from "@components/Kratong/create";
+import {DownloadIcon} from "@heroicons/react/solid";
+import type {NextPage} from "next";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
+import {ArrowLeftIcon} from "@heroicons/react/outline";
+import Router from "next/router";
+
 const InApp = require("detect-inapp");
 
 export const Navbar: NextPage = () => {
   return (
     <header className="flex w-full px-6 py-6 fixed top-0 left-0 z-[99]">
       <nav className="max-w-[124px]">
-        <Image src="/assets/images/logo.png" width="1024px" height="169px" alt="โลโก้ กช." />
+        <Image src="/assets/images/logo.png" width="1024px" height="169px" alt="โลโก้ กช."/>
       </nav>
     </header>
   );
@@ -59,16 +62,27 @@ export const NavLoy: NextPage = () => {
     setWaiting(false);
   };
 
+  const move = () => {
+    localStorage.removeItem("entity")
+    localStorage.removeItem("entityId")
+    localStorage.removeItem("released")
+
+    Router.push("/create")
+  }
+
   return (
     <header className="flex justify-between items-center w-screen px-6 py-6 fixed top-0 left-0 z-[99]">
+      <div onClick={move} className="fixed bottom-6">
+        <h1 className="text-sm text-white font-ui flex space-x-2"><ArrowLeftIcon className="w-5 h-5"/> <span>สร้างกระทงเพิ่ม</span></h1>
+      </div>
       <nav className="max-w-[124px]">
-        <Image src="/assets/images/logo.png" width="1024px" height="169px" alt="โลโก้ กช." />
+        <Image src="/assets/images/logo.png" width="1024px" height="169px" alt="โลโก้ กช."/>
       </nav>
       <div
         onClick={onClick}
         className="flex text-[12px] cursor-pointer sm:text-sm hover:bg-gray-600 transition-colors rounded-full border text-white border-white bg-[#051018] px-6 py-2 space-x-1 font-light"
       >
-        <DownloadIcon className="sm:w-5 sm:h-5 h-4 w-4" />
+        <DownloadIcon className="sm:w-5 sm:h-5 h-4 w-4"/>
         <span className="font-ui">{waiting ? "กำลังโหลด..." : "บันทึกภาพกระทง"}</span>
       </div>
     </header>

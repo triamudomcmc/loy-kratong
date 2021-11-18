@@ -6,6 +6,7 @@ import { LightWater } from "@components/Water";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { Cloud } from "@components/Vector/cloud";
 import Link from "next/link";
+import Router from "next/router";
 
 const DURATION = 2000;
 const DELAY = 250;
@@ -166,11 +167,12 @@ export const PageFive: NextPage = () => {
 
         <div className="flex flex-col items-center absolute z-[30] top-[185px] sm:top-[130px] w-full">
           <p className="font-display font-light text-center text-3xl sm:text-4xl">โอเค ไปลอยกระทงกัน !</p>
-          <Link href="/create">
-            <a className="cursor-pointer transition-colors hover:bg-gray-300 px-4 py-2 w-[130px] text-center font-normal sm:text-lg mt-4 rounded-full text-[#4A4A4A] bg-white border-white border">
+            <a onClick={() => {
+              Router.push("/create")
+              localStorage.setItem("story", "done")
+            }} className="cursor-pointer transition-colors hover:bg-gray-300 px-4 py-2 w-[130px] text-center font-normal sm:text-lg mt-4 rounded-full text-[#4A4A4A] bg-white border-white border">
               สร้างกระทง
             </a>
-          </Link>
         </div>
 
         <div className="absolute w-[550px] sm:w-[650px] lg:w-[700px] bottom-[-30px] z-[-1] left-[50%] -translate-x-1/2">

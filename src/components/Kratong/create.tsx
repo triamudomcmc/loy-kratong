@@ -313,7 +313,6 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
       const id = kratongData.data.id;
       localStorage.setItem("entityId", id);
       localStorage.setItem("entity", JSON.stringify(entityData));
-      setLoading(false);
       window.location.href = "/loykratong";
     }
   };

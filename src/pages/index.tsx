@@ -8,6 +8,11 @@ import Router from "next/router";
 const Home: NextPage = () => {
   useEffect(() => {
     const id = localStorage.getItem("entityId");
+    const story = localStorage.getItem("story")
+
+    if (story === "done") {
+      Router.push("/create")
+    }
     if (id === "" || !id) return;
 
     window.location.href = "/loykratong";
