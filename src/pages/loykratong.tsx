@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 const LoyKratong: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   useEffect(() => {
-    if (!localStorage.getItem("entity")) {
+    if (!localStorage?.getItem("entity")) {
       Router.push("/");
     }
   }, []);
