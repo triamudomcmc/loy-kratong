@@ -414,9 +414,10 @@ interface DrKratongProps {
   height: string;
   zIndex: [number, number];
   className: string;
+  setLoy: (a: boolean) => void;
 }
 
-export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, height, zIndex }) => {
+export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, height, zIndex, setLoy }) => {
   const { width } = useWindowDimensions();
   const [finished, setFinished] = useState(false);
   const [x, setX] = useState(112);
@@ -446,6 +447,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, he
 
   useEffect(() => {
     if (finished) {
+      setLoy(true);
       localStorage.setItem("released", "true");
     }
   }, [finished]);

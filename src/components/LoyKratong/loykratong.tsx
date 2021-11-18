@@ -219,6 +219,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               </div>
               {!loy && prevEntity && prevEntity?.kratong && prevEntity?.wish && (
                 <DraggableKratong
+                  setLoy={setloy}
                   className={classNames(styles["loying-kratong"], width > 640 && "ml-16")}
                   data={prevEntity}
                   height={width > 640 ? "170px" : "155px"}
