@@ -6,7 +6,7 @@ import { Cloud } from "@components/Vector/cloud";
 import classNames from "classnames";
 import { BotLane, Fish, MidLane, TopLane } from "./kratonglane";
 import { ResultData } from "@components/Kratong/create";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Kratong } from "@components/Kratong/kratong";
 import { CUPSAAIdleKratong, DraggableKratong, IdleKratong, PrincipalIdleKratong } from "./displaykratong";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
@@ -81,9 +81,16 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
   return (
     <div className={styles["loy-scene"]}>
       {!loy && (
-        <div className="blinking-text w-[250px] absolute bottom-[75px] left-[50px] z-[99]">
-          <Pantoloy />
-        </div>
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="blinking-text w-[250px] absolute bottom-[75px] left-[50px] z-[99]"
+          >
+            <Pantoloy />
+          </motion.div>
+        </AnimatePresence>
       )}
       <div className={styles["sky"]}>
         <div className={styles["clouds"]}>
