@@ -419,7 +419,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                   // nextPage();
                 }}
               >
-                <span>{loading ? "กำลังบันทึก...​" : "บันทึกกระทง"}</span>
+                <span>บันทึกกระทง</span>
               </button>
             </div>
           </div>
