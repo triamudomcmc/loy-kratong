@@ -181,12 +181,12 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               }
               lane="m"
               size={["155px", "115px"]}
-              initialX={width > 640 ? 450 : 350}
+              initialX={width > 640 ? 550 : 350}
               data={RongPrincipalKratongsData[random(0, 3)]}
             />
             <CUPSAAIdleKratong
               highlighted
-              initialX={width > 640 ? 865 : 565}
+              initialX={width > 640 ? 965 : 565}
               data={CUPSAAKratongData}
               lane="m"
               size={["185px", "135px"]}
@@ -224,7 +224,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               className="transition-opacity absolute top-[-54px] sm:top-[-102px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
               size={["200px", "170px"]}
-              initialX={width > 640 ? 650 : 440}
+              initialX={width > 640 ? 750 : 440}
               data={PrincipalKratongData}
             />
             <BotLane entities={loy ? [...lanes[2], prevEntity] : lanes[2]} />

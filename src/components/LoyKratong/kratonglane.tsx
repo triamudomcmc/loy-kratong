@@ -104,8 +104,7 @@ export const TopLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
                 "transition-opacity absolute left-[550px] top-[6px] sm:top-[-28px] lg:top-[20px] brightness-50 hover:brightness-100 active:brightness-110"
               }
               initialX={
-                i * (width > 640 ? random(680, 1160) : random(80, 780)) +
-                (width > 640 ? random(60, 140) : random(0, 100))
+                i * (600)
               }
               data={e}
               size={["105px", "65px"]}
@@ -131,8 +130,7 @@ export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
                 "transition-opacity absolute left-[250px] top-[-42px] sm:top-[-90px] lg:top-[-46px] brightness-[60%] hover:brightness-100 active:brightness-110"
               }
               initialX={
-                i * (width > 640 ? random(760, 1060) : random(100, 780)) +
-                (width > 640 ? random(80, 120) : random(0, 120))
+                i * (670)
               }
               data={e}
               size={["155px", "105px"]}
@@ -158,8 +156,7 @@ export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
                 "transition-opacity absolute left-[350px] top-[-54px] sm:top-[-88px] lg:top-[-40px] brightness-[90%] hover:brightness-100 active:brightness-110"
               }
               initialX={
-                i * (width > 640 ? random(580, 1020) : random(20, 860)) +
-                (width > 640 ? random(40, 100) : random(0, 90))
+                i * (660)
               }
               data={e}
               size={["170px", "155px"]}
