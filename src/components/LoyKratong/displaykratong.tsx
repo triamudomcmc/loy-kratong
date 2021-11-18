@@ -468,16 +468,11 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, he
       {...elementProps()}
       style={{
         zIndex: finished ? zIndex[1] : zIndex[0],
-        top: `${!finished ? (width > 640 ? -166 : -116) : width > 640 ? -166 : -60}px`,
+        top: `${!finished ? (width > 640 ? -166 : -116) : width > 640 ? -142 : -60}px`,
         left: `${x}px`,
       }}
       className={classNames("absolute", className)}
     >
-      {toggle && data?.wish && (
-        <AnimatePresence>
-          <KratongPopup info={data.wish} onToggle={setToggle} />
-        </AnimatePresence>
-      )}
       <motion.div
         drag={!finished}
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}

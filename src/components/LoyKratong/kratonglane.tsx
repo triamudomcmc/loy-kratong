@@ -36,7 +36,7 @@ export const Fish: NextPage<{ className: string; initX: number }> = ({ className
   );
 };
 
-const MovingKratong: NextPage<{
+export const MovingKratong: NextPage<{
   initialX?: number;
   speed?: number;
   data: KratongData;
@@ -156,7 +156,7 @@ export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
                 "transition-opacity absolute left-[350px] top-[-54px] sm:top-[-88px] lg:top-[-40px] brightness-[90%] hover:brightness-100 active:brightness-110"
               }
               initialX={
-                i * (660)
+                (i * (660)) + 300
               }
               data={e}
               size={["170px", "155px"]}

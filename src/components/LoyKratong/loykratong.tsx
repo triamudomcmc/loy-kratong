@@ -4,7 +4,7 @@ import { WaterFour, WaterOne, WaterThree, WaterTwo } from "@components/Water";
 import Image from "next/image";
 import { Cloud } from "@components/Vector/cloud";
 import classNames from "classnames";
-import { BotLane, Fish, MidLane, TopLane } from "./kratonglane";
+import {BotLane, Fish, MidLane, MovingKratong, TopLane} from "./kratonglane";
 import { ResultData } from "@components/Kratong/create";
 import { AnimatePresence, motion } from "framer-motion";
 import { Kratong } from "@components/Kratong/kratong";
@@ -68,11 +68,13 @@ const sample = {
 const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   const { width, height } = useWindowDimensions();
   const [loy, setloy] = useState(false);
+  const [localLoy, setLocalLoy] = useState(false)
   const [done, setDone] = useState(false)
   const [prevEntity, setPrevEntity] = useState<undefined | ResultData>(undefined);
 
   useEffect(() => {
     setloy(localStorage.getItem("released") === "true");
+    setLocalLoy(localStorage.getItem("released") === "true")
     setPrevEntity(JSON.parse(localStorage.getItem("entity") || "{}"));
     setDone(true)
   }, []);
@@ -85,7 +87,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
   return (
     // <div className={styles["loy-scene"]}>
     <div className="w-[250vw] sm:w-[175vw]">
-      {!loy && (
+      {!localLoy && (
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0 }}
@@ -248,9 +250,9 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                   alt="ศาลา"
                 />
               </div>
-              {!loy && prevEntity && prevEntity?.kratong && prevEntity?.wish && (
+              {!localLoy && prevEntity && prevEntity?.kratong && prevEntity?.wish && (
                 <DraggableKratong
-                  setLoy={setloy}
+                  setLoy={setLocalLoy}
                   // className={classNames(styles["loying-kratong"], width > 640 && "ml-16")}
                   className={classNames(
                     "absolute z-[36] top-[-88px] left-[112px] cursor-pointer sm:top-[-111px] sm:left-[183px]",
@@ -269,6 +271,17 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               initialX={width > 640 ? 750 : 490}
               data={PrincipalKratongData}
             />
+            {localLoy && prevEntity && <MovingKratong
+              className={
+                "transition-opacity absolute left-[350px] top-[-54px] sm:top-[-88px] lg:top-[-40px] brightness-[90%] hover:brightness-100 active:brightness-110"
+              }
+              initialX={
+                width > 640 ? 62 : -25
+              }
+              data={prevEntity}
+              size={["170px", "155px"]}
+              lane="b"
+            />}
             <BotLane entities={loy ? [...lanes[2], prevEntity] : lanes[2]} />
             <WaterTwo />
           </div>
