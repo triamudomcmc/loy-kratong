@@ -88,7 +88,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         }
         lane="m"
         size={["155px", "115px"]}
-        initialX={width > 640 ? 550 : 524}
+        initialX={width > 640 ? 550 : 350}
         data={RongPrincipalKratongsData[random(0, 3)]}
       />
     );
