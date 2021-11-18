@@ -375,7 +375,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                   <div className="w-full">
                     <fieldset>
                       <label className="text-sm text-white" htmlFor="name">
-                        ชื่อ
+                        ชื่อ (ผู้อื่นสามารถเห็นได้)
                       </label>
                       <input
                         name="name"
@@ -402,7 +402,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                   <div className="w-full">
                     <fieldset>
                       <label className="text-sm text-white" htmlFor="content">
-                        ใส่คำอธิษฐาน
+                        ใส่คำอธิษฐาน (ผู้อื่นสามารถเห็นได้)
                       </label>
                       <input
                         name="content"
