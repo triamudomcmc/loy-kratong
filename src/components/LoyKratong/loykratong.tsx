@@ -218,7 +218,8 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         <div className={classNames("absolute", "left-[-50px] bottom-[-40px] custom:bottom-[-30px] lg:bottom-[-315px]")}>
           <div className="relative">
             <div className="relative">
-              <div className={styles["sala-side"]}>
+              {/* <div className={styles["sala-side"]}> */}
+              <div className="absolute left-[22px] z-[35] top-[-215px] w-[342px] max-w-[450px] select-none sm:top-[-334px] sm:w-[450px]">
                 <Image
                   width={1350}
                   height={1382}
