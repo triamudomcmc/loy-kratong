@@ -7,6 +7,16 @@ import { ResultData } from "@components/Kratong/create";
 import { useEffect } from "react";
 import Router from "next/router";
 
+function objEqual(x: any, y: any): boolean {
+  const ok = Object.keys,
+    tx = typeof x,
+    ty = typeof y;
+  return x && y && tx === "object" && tx === ty
+    ? // @ts-ignore
+      ok(x).length === ok(y).length && ok(x).every((key) => objEqual(x[key], y[key]))
+    : x === y;
+}
+
 export const getServerSideProps: GetServerSideProps = async () => {
   const data = await initialiseDB.collection("filteredEntities").limit(8).get();
 
@@ -19,10 +29,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 const LoyKratong: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   useEffect(() => {
-    if (!localStorage.getItem("entity")) {
+    if (!localStorage?.getItem("entity")) {
       Router.push("/");
     }
   }, []);
+
   return (
     <>
       <NavLoy />
