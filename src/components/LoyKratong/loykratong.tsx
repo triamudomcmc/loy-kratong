@@ -12,6 +12,7 @@ import { CUPSAAIdleKratong, DraggableKratong, IdleKratong, PrincipalIdleKratong 
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { CUPSAAKratongData, PrincipalKratongData, RongPrincipalKratongsData } from "@map/realkratong";
 import { useEffect, useState } from "react";
+import { Pantoloy } from "@components/Vector/pantoloy";
 
 function random(min: number, max: number) {
   min = Math.ceil(min);
@@ -79,6 +80,11 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
   // @ts-ignore
   return (
     <div className={styles["loy-scene"]}>
+      {!loy && (
+        <div className="blinking-text w-[250px] absolute bottom-[75px] left-[50px] z-[99]">
+          <Pantoloy />
+        </div>
+      )}
       <div className={styles["sky"]}>
         <div className={styles["clouds"]}>
           <div className="w-[150px] sm:w-[125px] absolute z-[3] left-[-50px] top-[75px] sm:top-[55px] opacity-[15%] ">
