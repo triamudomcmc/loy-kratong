@@ -20,7 +20,7 @@ import { CUPSAAPart } from "@components/CUPSAA/parts";
 
 const DisplayName: FC<{ name: string }> = ({ name }) => {
   return (
-    <span className="absolute w-full text-white z-[99] text-xs sm:text-sm top-[-29px] text-center font-light font-ui">
+    <span className="absolute w-[150%] left-1/2 -translate-x-1/2 text-white z-[99] text-xs sm:text-sm top-[-29px] text-center font-light font-ui">
       {name}
     </span>
   );
@@ -38,7 +38,7 @@ export const KratongPopup: FC<{
         exit={{ y: -100, opacity: 0 }}
         className="w-[275px] absolute z-[999] left-[63px] top-[-165px]"
       >
-        <div className="bg-white bg-opacity-30 backdrop-filter backdrop-blur-sm w-[270px] h-[180px] rounded-xl"/>
+        <div className="bg-white bg-opacity-30 backdrop-filter backdrop-blur-sm w-[270px] h-[180px] rounded-xl" />
         <XIcon
           className="w-5 h-5 text-white absolute z-[99] right-4 top-4 cursor-pointer hover:text-gray-100"
           onClick={() => onToggle(false)}

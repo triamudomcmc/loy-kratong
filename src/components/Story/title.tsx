@@ -128,9 +128,16 @@ const TitleScreen: NextPage = () => {
           )}
         </AnimatePresence>
 
-        <>
+        <AnimatePresence>
           {page >= 2 && page < 5 && !pageTransition && (
-            <div className="absolute w-full h-full z-[-1]">
+            <motion.div
+              key="vertical-clouds"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ type: "tween", duration: 350 / 1000 }}
+              className="absolute w-full h-full z-[-1]"
+            >
               <div className="absolute z-[-5] sm:w-[280px] w-[175px] left-[-89px] top-[340px] opacity-50">
                 <Cloud />
               </div>
@@ -150,9 +157,9 @@ const TitleScreen: NextPage = () => {
               <div className="absolute z-[-5] sm:w-[320px] w-[185px] right-[-122px] bottom-[29px] opacity-90">
                 <Cloud />
               </div>
-            </div>
+            </motion.div>
           )}
-        </>
+        </AnimatePresence>
 
         <div className="flex flex-col items-center static z-[3] justify-center mt-[-30px]">
           <motion.div
