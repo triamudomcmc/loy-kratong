@@ -15,25 +15,28 @@ interface KratongVariantPartProps {
 }
 
 export const NormalPart: NextPage<KratongNormalPartProps> = ({ part, selected }) => {
-
   return (
-    <div className={styles["container"]} style={{ display: selected === part.id ? "inline-block" : "none" }}>
+    <div
+      className={classNames(styles["container"], "select-none")}
+      style={{ display: selected === part.id ? "inline-block" : "none" }}
+    >
       <img draggable={false} className={classNames(styles["img"], "select-none")} src={part.url} alt={part.name} />
     </div>
   );
 };
 
 export const Candle: NextPage<KratongNormalPartProps> = ({ part, selected }) => {
-
   return (
-    <div className={styles["container"]} style={{ display: selected === part.id ? "inline-block" : "none" }}>
+    <div
+      className={classNames(styles["container"], "select-none")}
+      style={{ display: selected === part.id ? "inline-block" : "none" }}
+    >
       <img draggable={false} className={classNames(styles["img"], "select-none")} src={part.url} alt={part.name} />
     </div>
   );
 };
 
 export const VariantPart: NextPage<KratongVariantPartProps> = ({ part, selected, signVariant }) => {
-
   return (
     <>
       {part.variants.map((variant: string, variantIdx) => {
