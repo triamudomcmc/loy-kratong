@@ -1,10 +1,10 @@
 import { LoyKratongPage } from "@components/LoyKratong";
 import { Meta } from "@components/Meta";
-import { Navbar } from "@components/Nav";
+import { Navbar, NavLoy } from "@components/Nav";
 import type { GetServerSideProps, NextPage } from "next";
 import initialiseDB from "@handlers/firebase-admin";
 import { ResultData } from "@components/Kratong/create";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import Router from "next/router";
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -18,15 +18,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 const LoyKratong: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
-
   useEffect(() => {
     if (!localStorage.getItem("entity")) {
-      Router.push("/")
+      Router.push("/");
     }
-  }, [])
+  }, []);
   return (
     <>
-      <Navbar />
+      <NavLoy />
       <Meta />
       <LoyKratongPage entities={entities} />
     </>

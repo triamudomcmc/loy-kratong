@@ -39,10 +39,10 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
           </div>
         </div>
         <div className={styles["fireworks-1"]}>
-          <Image src="/assets/images/scene/fireworks-white-39.png" width={1280} height={960} />
+          <Image src="/assets/images/scene/fireworks-red.png" width={692} height={754} />
         </div>
         <div className={styles["fireworks-2"]}>
-          <Image src="/assets/images/scene/fireworks-41.png" width={1280} height={960} />
+          <Image src="/assets/images/scene/fireworks-purple.png" width={692} height={754} />
         </div>
         {/* todo พลุหลากสี */}
       </div>
@@ -62,10 +62,10 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
           <div className="relative w-[554vw] bottom-[-344px]">
             <IdleKratong
               lane="m"
-              className="absolute z-[29] left-[322px] top-[-221px]"
+              className="absolute z-[29] left-[32px] top-[-341px]"
               data={{ kratong: data.kratong, wish: { content: "", name: "" } }}
               size={["550px", "550px"]}
-              initialX={332}
+              initialX={632}
               highlighted={false}
             />
             <WaterTwo />
