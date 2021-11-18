@@ -70,6 +70,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
   const [loy, setloy] = useState(false);
   const [localLoy, setLocalLoy] = useState(false)
   const [done, setDone] = useState(false)
+  const [lanes, setLanes] = useState<ResultData[][]>([[],[],[]])
   const [prevEntity, setPrevEntity] = useState<undefined | ResultData>(undefined);
 
   useEffect(() => {
@@ -79,9 +80,13 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
     setDone(true)
   }, []);
 
+  useEffect(() => {
+    const lanes = chunk(entities, 3);
+    setLanes(lanes)
+  }, [entities])
 
   shuffle(entities);
-  const lanes = chunk(entities, 3);
+
 
   // @ts-ignore
   return (
@@ -282,6 +287,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               size={["170px", "155px"]}
               lane="b"
             />}
+            {/* @ts-ignore */}
             <BotLane entities={loy ? [...lanes[2], prevEntity] : lanes[2]} />
             <WaterTwo />
           </div>
