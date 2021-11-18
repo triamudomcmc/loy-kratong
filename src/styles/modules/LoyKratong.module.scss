@@ -209,16 +209,16 @@
   position: absolute;
   z-index: 5;
   display: flex;
-  top: -27vw;
+  top: -200px;
   width: 500vw;
 
   @include breakpoint(sm) {
-    top: -18vw;
+    top: -231px;
     width: 353vw;
   }
 
   @include breakpoint(lg) {
-    top: -11vw;
+    top: -240px;
     width: 253vw;
   }
 }
