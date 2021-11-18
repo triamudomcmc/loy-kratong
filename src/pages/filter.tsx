@@ -54,7 +54,7 @@ const Filter = () => {
     <div className="font-ui px-6 py-6">
       <h1 className="text-xl font-medium">ตรวจสอบระบบ</h1>
       <input className="border border-black" type="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
-      <div className="flex space-x-6 mt-4">
+      {(list.length > 0 || arc.length > 0 || dis.length > 0) && <div className="flex space-x-6 mt-4">
         <div>
           <h1 className="font-medium">Raw Entities</h1>
           <div className="flex flex-col space-y-4 mt-2">
@@ -66,10 +66,14 @@ const Filter = () => {
                   <h1><span>คำอวยพร: </span>{item.wish.content}</h1>
                 </div>
                 <div className="flex flex-col space-y-2 justify-center">
-                  <div onClick={() => {update(item, item.id, "display")}} className="w-6 h-6 flex justify-center items-center shadow-sm rounded-md border border-gray-200">
+                  <div onClick={() => {
+                    update(item, item.id, "display")
+                  }} className="w-6 h-6 flex justify-center items-center shadow-sm rounded-md border border-gray-200">
                     <CheckIcon className="w-5 h-5 text-green-400"/>
                   </div>
-                  <div onClick={() => {update(item, item.id, "archive")}} className="w-6 h-6 flex justify-center items-center shadow-sm rounded-md border border-gray-200">
+                  <div onClick={() => {
+                    update(item, item.id, "archive")
+                  }} className="w-6 h-6 flex justify-center items-center shadow-sm rounded-md border border-gray-200">
                     <XIcon className="w-5 h-5 text-red-400"/>
                   </div>
                 </div>
@@ -105,7 +109,7 @@ const Filter = () => {
             })}
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   )
 }
