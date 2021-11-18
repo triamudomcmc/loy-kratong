@@ -4,7 +4,7 @@ import { WaterFour, WaterOne, WaterThree, WaterTwo } from "@components/Water";
 import Image from "next/image";
 import { Cloud } from "@components/Vector/cloud";
 import classNames from "classnames";
-import { BotLane, Fish, MidLane, TopLane } from "./kratonglane";
+import { BotLane, MidLane, TopLane } from "./kratonglane";
 import { ResultData } from "@components/Kratong/create";
 import { motion } from "framer-motion";
 import { Kratong } from "@components/Kratong/kratong";
@@ -162,9 +162,6 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
       <div className={styles["background"]}>
         <div className={classNames("absolute", styles["waterfour-container"])}>
           <div className="relative">
-            <Fish className="absolute top-[-9px] sm:top-[9px] w-[125px] z-[14]" initX={234} />
-            <Fish className="absolute top-[-9px] sm:top-[9px] w-[125px] z-[14]" initX={434} />
-
             <div className={styles["buildings"]}>
               <div className="w-[125%]">
                 <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
@@ -177,27 +174,24 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
 
         <div className={classNames("absolute", styles["waterthree-container"])}>
           <div className="relative">
-            <Fish className="absolute top-[9px] sm:top-[9px] w-[125px] z-[34]" initX={234} />
-            <Fish className="absolute top-[9px] sm:top-[9px] w-[125px] z-[34]" initX={134} />
-
             <IdleKratong
               highlighted
               className={
-                "transition-opacity absolute top-[-46px] sm:top-[-56px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[250px] top-[-50px] sm:top-[-90px] lg:top-[-46px] hover:brightness-100 active:brightness-110"
               }
               lane="m"
               size={["155px", "115px"]}
-              initialX={width > 640 ? 350 : 350}
+              initialX={width > 640 ? 550 : 350}
               data={RongPrincipalKratongsData[random(0, 3)]}
             />
             <CUPSAAIdleKratong
               highlighted
-              initialX={width > 640 ? 965 : 565}
+              initialX={width > 640 ? 765 : 565}
               data={CUPSAAKratongData}
               lane="m"
               size={["185px", "135px"]}
               className={
-                "transition-opacity absolute top-[-46px] sm:top-[-54px] lg:top-[-64px] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute top-[-48px] sm:top-[-90px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
               }
             />
             <MidLane entities={lanes[1]} />
@@ -207,8 +201,6 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
 
         <div className={classNames("absolute", styles["watertwo-container"])}>
           <div className="relative">
-            <Fish className="absolute top-[-9px] sm:top-[43px] w-[125px] z-[34]" initX={184} />s
-            <Fish className="absolute top-[-9px] sm:top-[43px] w-[125px] z-[34]" initX={304} />
             <div className="relative">
               <div className={styles["sala-side"]}>
                 <Image
@@ -228,13 +220,15 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                 />
               )}
             </div>
+
             <PrincipalIdleKratong
-              className="transition-opacity absolute top-[-64px] sm:top-[-68px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
+              className="transition-opacity absolute top-[-54px] sm:top-[-102px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
               size={["200px", "170px"]}
               initialX={width > 640 ? 650 : 440}
               data={PrincipalKratongData}
             />
+
             <BotLane entities={loy ? [...lanes[2], prevEntity] : lanes[2]} />
             <WaterTwo />
           </div>
