@@ -80,7 +80,7 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="w-full absolute bottom-[340px] z-[99]">
+      <div className="w-full absolute bottom-[490px] z-[99]">
         <p className="font-display font-light text-7xl text-white px-4 text-center">{data.wish.name}</p>
       </div>
     </div>
