@@ -312,10 +312,9 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
     const entityData = { kratong: selected, wish: wish };
     const kratongData = await pushKratongContext.call({ data: entityData });
 
-    console.log(kratongData)
+    console.log(kratongData);
 
     if (!kratongData.status) {
-
       let nameErrors = [];
       let contentErrors = [];
 
@@ -331,8 +330,8 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
         name: nameErrors.length === 0 ? null : nameErrors,
         content: contentErrors.length === 0 ? null : contentErrors,
       });
-      setLoading(false)
-      return
+      setLoading(false);
+      return;
     }
 
     if (kratongData.status || !loading) {
@@ -394,7 +393,9 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                       />
                     </fieldset>
                     <div className="block mt-2 w-full">
-                      <span className="text-sm text-red-600 float-left w-[200px]">{error.name && formatError(error.name)}</span>
+                      <span className="text-sm text-red-600 float-left w-[200px]">
+                        {error.name && formatError(error.name)}
+                      </span>
                       <span className="text-sm text-white float-right">{CharLimits.name - wish.name.length}</span>
                     </div>
                   </div>
@@ -447,7 +448,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                     // nextPage();
                   }}
                 >
-                  <span>บันทึกกระทง</span>
+                  <span>ลอยกระทง !</span>
                 </button>
               </div>
             </div>
