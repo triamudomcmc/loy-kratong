@@ -466,7 +466,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, he
       {...elementProps()}
       style={{
         zIndex: finished ? zIndex[1] : zIndex[0],
-        top: `${!finished ? (width > 640 ? -146 : -116) : width > 640 ? -40 : 0}px`,
+        top: `${!finished ? (width > 640 ? -146 : -116) : width > 640 ? -66 : -60}px`,
         left: `${x}px`,
       }}
       className={classNames("absolute", className)}
