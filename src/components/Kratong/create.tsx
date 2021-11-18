@@ -312,6 +312,29 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
     const entityData = { kratong: selected, wish: wish };
     const kratongData = await pushKratongContext.call({ data: entityData });
 
+    console.log(kratongData)
+
+    if (!kratongData.status) {
+
+      let nameErrors = [];
+      let contentErrors = [];
+
+      if (kratongData.data.location === "name") {
+        nameErrors.push("ข้อมูลข้างต้นมีคำที่ไม่เหมาะสม");
+      }
+
+      if (kratongData.data.location === "content") {
+        contentErrors.push("ข้อมูลข้างต้นมีคำที่ไม่เหมาะสม");
+      }
+
+      setError({
+        name: nameErrors.length === 0 ? null : nameErrors,
+        content: contentErrors.length === 0 ? null : contentErrors,
+      });
+      setLoading(false)
+      return
+    }
+
     if (kratongData.status || !loading) {
       const id = kratongData.data.id;
       localStorage.setItem("entityId", id);
@@ -352,7 +375,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                   <div className="w-full">
                     <fieldset>
                       <label className="text-sm text-white" htmlFor="name">
-                        ชื่อ
+                        ชื่อ (ผู้อื่นสามารถเห็นได้)
                       </label>
                       <input
                         name="name"
@@ -371,7 +394,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                       />
                     </fieldset>
                     <div className="block mt-2 w-full">
-                      <span className="text-sm text-red-600 float-left">{error.name && formatError(error.name)}</span>
+                      <span className="text-sm text-red-600 float-left w-[200px]">{error.name && formatError(error.name)}</span>
                       <span className="text-sm text-white float-right">{CharLimits.name - wish.name.length}</span>
                     </div>
                   </div>
@@ -379,7 +402,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                   <div className="w-full">
                     <fieldset>
                       <label className="text-sm text-white" htmlFor="content">
-                        ใส่คำอธิษฐาน
+                        ใส่คำอธิษฐาน (ผู้อื่นสามารถเห็นได้)
                       </label>
                       <input
                         name="content"
@@ -399,7 +422,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
                     </fieldset>
 
                     <div className="block mt-2 w-full">
-                      <span className="text-sm text-red-600 float-left">
+                      <span className="text-sm text-red-600 float-left w-[200px]">
                         {error.content && formatError(error.content)}
                       </span>
                       <span className="text-sm text-white float-right">{CharLimits.content - wish.content.length}</span>
