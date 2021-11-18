@@ -17,8 +17,10 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
 
   return (
     <div className={styles["capture-scene"]}>
-      <nav className="max-w-[256px] absolute top-12 left-24 z-[99]">
-        <Image src="/assets/images/logo.png" width="1024px" height="169px" alt="โลโก้ กช." />
+      <nav className="absolute bottom-12 flex justify-center w-full z-[99]">
+        <div className="max-w-[306px]">
+          <Image src="/assets/images/logo.png" width="1024px" height="169px" alt="โลโก้ กช." />
+        </div>
       </nav>
       <div className={styles["sky"]}>
         <div className="w-[490px] absolute z-[3] left-[-96px] top-[201px] opacity-[15%] ">
@@ -62,7 +64,7 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
           <div className="relative w-[554vw] bottom-[-344px]">
             <IdleKratong
               lane="m"
-              className="absolute z-[29] left-[32px] top-[-341px]"
+              className="absolute z-[29] left-[32px] top-[-451px]"
               data={{ kratong: data.kratong, wish: { content: "", name: "" } }}
               size={["550px", "550px"]}
               initialX={632}
@@ -78,8 +80,8 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="w-full absolute bottom-[185px] z-[99]">
-        <p className="font-display font-light text-6xl text-white px-4 text-center">{data.wish.name}</p>
+      <div className="w-full absolute bottom-[490px] z-[99]">
+        <p className="font-display font-light text-7xl text-white px-4 text-center">{data.wish.name}</p>
       </div>
     </div>
   );
