@@ -79,7 +79,8 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
 
   // @ts-ignore
   return (
-    <div className={styles["loy-scene"]}>
+    // <div className={styles["loy-scene"]}>
+    <div className="h-[100vh] w-[250vw] sm:w-[175vw]">
       {!loy && (
         <AnimatePresence>
           <motion.div
@@ -92,8 +93,10 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
           </motion.div>
         </AnimatePresence>
       )}
-      <div className={styles["sky"]}>
-        <div className={styles["clouds"]}>
+      {/* <div className={styles["sky"]}> */}
+      <div className="fixed w-[100vw] top-0 z-[9] xl:top-[-31px]">
+        {/* <div className={styles["clouds"]}> */}
+        <div className="absolute w-full top-[50px] z-[4]">
           <div className="w-[150px] sm:w-[125px] absolute z-[3] left-[-50px] top-[75px] sm:top-[55px] opacity-[15%] ">
             <Cloud />
           </div>
@@ -138,42 +141,58 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
           </div>
         </div>
 
-        <div className={styles["fireworks-1"]}>
+        {/* <div className={styles["fireworks-1"]}> */}
+        <div className="absolute w-[225px] h-[225px] top-[75px] left-[9px] z-[10]">
           <Image src="/assets/images/scene/fireworks-blue.gif" width={441} height={480} />
         </div>
 
-        <div className={styles["fireworks-2"]}>
+        {/* <div className={styles["fireworks-2"]}> */}
+        <div className="absolute w-[174px] h-[200px] top-[105px] left-[189px] z-[10]">
           <Image src="/assets/images/scene/fireworks-orange.gif" width={441} height={481} />
         </div>
 
-        <div className={styles["fireworks-3"]}>
+        {/* <div className={styles["fireworks-3"]}> */}
+        <div className="absolute w-[174px] h-[200px] top-[55px] left-[551px] z-[10]">
           <Image src="/assets/images/scene/fireworks-purple.gif" width={441} height={481} />
         </div>
 
-        <div className={styles["fireworks-4"]}>
+        {/* <div className={styles["fireworks-4"]}> */}
+        <div className="absolute w-[305px] h-[205px] top-[45px] left-[741px] z-[10]">
           <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
         </div>
 
-        <div className={styles["fireworks-5"]}>
+        {/* <div className={styles["fireworks-5"]}> */}
+        <div className="absolute w-[225px] h-[419px] top-[55px] right-[401px] z-[10]">
           <Image src="/assets/images/scene/fireworks-yellow-single.gif" width={692} height={754} />
         </div>
 
-        <div className={styles["fireworks-6"]}>
+        {/* <div className={styles["fireworks-6"]}> */}
+        <div className="absolute w-[185px] h-[185px] top-[55px] right-[19px] z-[10]">
           <Image src="/assets/images/scene/fireworks-red.gif" width={692} height={754} />
         </div>
 
-        <div className={styles["moon"]}>
-          <div className={styles["img"]}>
+        {/* <div className={styles["moon"]}> */}
+        <div className="absolute w-[150px] h-[150px] right-[10vw] top-[35px] z-[8]">
+          {/* <div className={styles["img"]}> */}
+          <div className="absolute w-[65%] left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-[7]">
             <Image src="/assets/images/scene/moon.gif" width={2048} height={2048} objectFit="cover" alt="ดวงจันทร์" />
           </div>
-          <div className={styles["blur"]}>
+          {/* <div className={styles["blur"]}> */}
+          <div className="absolute top-0 z-[6]">
             <Image src="/assets/images/scene/blur.png" width={3414} height={3414} objectFit="cover" alt="ดวงจันทร์" />
           </div>
         </div>
       </div>
 
-      <div className={styles["background"]}>
-        <div className={classNames("absolute", styles["waterfour-container"])}>
+      {/* <div className={styles["background"]}> */}
+      <div className="h-[100vh] bg-black bg-loy relative overflow-hidden w-[250vw] sm:w-[175vw]">
+        {/* <div className={classNames("absolute", styles["waterfour-container"])}> */}
+        <div
+          className={classNames(
+            "absolute",
+            "absolute left-[-50px] bottom-[70px] custom:bottom-[70px] lg:bottom-[-150px]"
+          )}
+        >
           <div className="relative">
             {/* <div className={styles["buildings"]}> */}
             <div className="absolute z-[5] flex top-[-200px] width-[500vw] sm:top-[-231px] sm:w-[353vw] lg:top-[-240px] lg:w-[253vw]">
@@ -231,7 +250,11 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               {!loy && prevEntity && prevEntity?.kratong && prevEntity?.wish && (
                 <DraggableKratong
                   setLoy={setloy}
-                  className={classNames(styles["loying-kratong"], width > 640 && "ml-16")}
+                  // className={classNames(styles["loying-kratong"], width > 640 && "ml-16")}
+                  className={classNames(
+                    "absolute z-[36] top-[-88px] left-[112px] cursor-pointer sm:top-[-111px] sm:left-[183px]",
+                    width > 640 && "ml-16"
+                  )}
                   data={prevEntity}
                   height={width > 640 ? "170px" : "155px"}
                   zIndex={[39, 39]}

@@ -7,4 +7,7 @@
   .blinking-text {
     @apply animate-pulse;
   }
+  .bg-loy {
+    background: linear-gradient(180deg, #000000 0%, #236bad 70.87%);
+  }
 }
