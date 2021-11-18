@@ -437,7 +437,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, he
   useAnimationFrame(
     (delta: number) => {
       // delta - time elapsed in ms
-      setX((prevX) => (prevX < width + 1400 ? prevX + delta * 0.01 * speedX : prevX - (random(20, 200) + 1840)));
+      setX((prevX) => (prevX < width + 1800 ? prevX + delta * 0.01 * speedX : prevX - (random(20, 200) + 1840)));
     },
     (delta: number) => {
       return false;
@@ -468,7 +468,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, he
       {...elementProps()}
       style={{
         zIndex: finished ? zIndex[1] : zIndex[0],
-        top: `${!finished ? (width > 640 ? -146 : -116) : width > 640 ? -66 : -60}px`,
+        top: `${!finished ? (width > 640 ? -166 : -116) : width > 640 ? -166 : -60}px`,
         left: `${x}px`,
       }}
       className={classNames("absolute", className)}
