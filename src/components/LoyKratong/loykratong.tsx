@@ -175,7 +175,8 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
       <div className={styles["background"]}>
         <div className={classNames("absolute", styles["waterfour-container"])}>
           <div className="relative">
-            <div className={styles["buildings"]}>
+            {/* <div className={styles["buildings"]}> */}
+            <div className="absolute z-[5] flex top-[-200px] width-[500vw] sm:top-[-231px] sm:w-[353vw] lg:top-[-240px] lg:w-[253vw]">
               <div className="w-[125%]">
                 <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
               </div>
@@ -185,7 +186,8 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
           </div>
         </div>
 
-        <div className={classNames("absolute", styles["waterthree-container"])}>
+        {/* <div className={classNames("absolute", styles["waterthree-container"])}> */}
+        <div className={classNames("absolute", "left-[-50px] bottom-[20px] custom:bottom-[20px] lg:bottom-[-220px]")}>
           <div className="relative">
             <IdleKratong
               highlighted
@@ -212,7 +214,8 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
           </div>
         </div>
 
-        <div className={classNames("absolute", styles["watertwo-container"])}>
+        {/* <div className={classNames("absolute", styles["watertwo-container"])}> */}
+        <div className={classNames("absolute", "left-[-50px] bottom-[-40px] custom:bottom-[-30px] lg:bottom-[-315px]")}>
           <div className="relative">
             <div className="relative">
               <div className={styles["sala-side"]}>
@@ -246,7 +249,10 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
           </div>
         </div>
 
-        <div className={classNames("absolute", styles["waterone-container"])}>
+        {/* <div className={classNames("absolute", styles["waterone-container"])}> */}
+        <div
+          className={classNames("absolute", "left-[-50px] bottom-[-120px] custom:bottom-[-105px] lg:bottom-[-396px]")}
+        >
           <div className="relative">
             <WaterOne />
           </div>
