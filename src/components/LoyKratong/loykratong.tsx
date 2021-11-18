@@ -71,7 +71,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
   const [localLoy, setLocalLoy] = useState(false);
   const [done, setDone] = useState(false);
   const [lanes, setLanes] = useState<ResultData[][]>([[], [], []]);
-  const [idle, setIdle] = useState(<></>)
+  const [idle, setIdle] = useState(<></>);
 
   const [prevEntity, setPrevEntity] = useState<undefined | ResultData>(undefined);
 
@@ -80,16 +80,18 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
     setLocalLoy(localStorage.getItem("released") === "true");
     setPrevEntity(JSON.parse(localStorage.getItem("entity") || "{}"));
     setDone(true);
-    setIdle(<IdleKratong
-      highlighted
-      className={
-        "transition-opacity absolute left-[250px] top-[-50px] sm:top-[-90px] lg:top-[-46px] hover:brightness-100 active:brightness-110"
-      }
-      lane="m"
-      size={["155px", "115px"]}
-      initialX={width > 640 ? 550 : 350}
-      data={RongPrincipalKratongsData[random(0, 3)]}
-    />)
+    setIdle(
+      <IdleKratong
+        highlighted
+        className={
+          "transition-opacity absolute left-[250px] top-[-50px] sm:top-[-90px] lg:top-[-46px] hover:brightness-100 active:brightness-110"
+        }
+        lane="m"
+        size={["155px", "115px"]}
+        initialX={width > 640 ? 550 : 350}
+        data={RongPrincipalKratongsData[random(0, 3)]}
+      />
+    );
   }, []);
 
   useEffect(() => {
