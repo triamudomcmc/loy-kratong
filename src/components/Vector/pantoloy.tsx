@@ -2,7 +2,7 @@ export const Pantoloy = () => {
   return (
     <>
       <svg
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "100%", height: "100%", userSelect: "none" }}
         width="874"
         height="503"
         viewBox="0 0 874 503"
