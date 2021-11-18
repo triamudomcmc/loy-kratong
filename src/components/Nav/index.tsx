@@ -60,7 +60,7 @@ export const NavLoy: NextPage = () => {
   };
 
   return (
-    <header className="flex justify-between w-screen px-6 py-6 fixed top-0 left-0 z-[99]">
+    <header className="flex justify-between items-center w-screen px-6 py-6 fixed top-0 left-0 z-[99]">
       <nav className="max-w-[124px]">
         <Image src="/assets/images/logo.png" width="1024px" height="169px" alt="โลโก้ กช." />
       </nav>
@@ -68,7 +68,7 @@ export const NavLoy: NextPage = () => {
         onClick={onClick}
         className="flex text-[12px] cursor-pointer sm:text-sm hover:bg-gray-600 transition-colors rounded-full border text-white border-white bg-[#051018] px-6 py-2 space-x-1 font-light"
       >
-        <DownloadIcon className="w-5 h-5" />
+        <DownloadIcon className="sm:w-5 sm:h-5 h-4 w-4" />
         <span className="font-ui">{waiting ? "กำลังโหลด..." : "บันทึกภาพกระทง"}</span>
       </div>
     </header>
