@@ -4,7 +4,7 @@ import { WaterFour, WaterOne, WaterThree, WaterTwo } from "@components/Water";
 import Image from "next/image";
 import { Cloud } from "@components/Vector/cloud";
 import classNames from "classnames";
-import { BotLane, MidLane, TopLane } from "./kratonglane";
+import { BotLane, Fish, MidLane, TopLane } from "./kratonglane";
 import { ResultData } from "@components/Kratong/create";
 import { motion } from "framer-motion";
 import { Kratong } from "@components/Kratong/kratong";
@@ -162,6 +162,8 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
       <div className={styles["background"]}>
         <div className={classNames("absolute", styles["waterfour-container"])}>
           <div className="relative">
+            <Fish className="absolute top-[-9px] sm:top-[9px] w-[125px] z-[14]" initX={234} />
+            <Fish className="absolute top-[-9px] sm:top-[9px] w-[125px] z-[14]" initX={434} />
             <div className={styles["buildings"]}>
               <div className="w-[125%]">
                 <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
@@ -174,6 +176,9 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
 
         <div className={classNames("absolute", styles["waterthree-container"])}>
           <div className="relative">
+            <Fish className="absolute top-[9px] sm:top-[19px] w-[125px] z-[34]" initX={234} />
+            <Fish className="absolute top-[9px] sm:top-[19px] w-[125px] z-[34]" initX={134} />
+
             <IdleKratong
               highlighted
               className={
@@ -181,12 +186,12 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               }
               lane="m"
               size={["155px", "115px"]}
-              initialX={width > 640 ? 550 : 350}
+              initialX={width > 640 ? 450 : 350}
               data={RongPrincipalKratongsData[random(0, 3)]}
             />
             <CUPSAAIdleKratong
               highlighted
-              initialX={width > 640 ? 765 : 565}
+              initialX={width > 640 ? 865 : 565}
               data={CUPSAAKratongData}
               lane="m"
               size={["185px", "135px"]}
@@ -201,6 +206,8 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
 
         <div className={classNames("absolute", styles["watertwo-container"])}>
           <div className="relative">
+            <Fish className="absolute top-[-9px] sm:top-[43px] w-[125px] z-[34]" initX={184} />
+            <Fish className="absolute top-[-9px] sm:top-[43px] w-[125px] z-[34]" initX={304} />
             <div className="relative">
               <div className={styles["sala-side"]}>
                 <Image
@@ -220,7 +227,6 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                 />
               )}
             </div>
-
             <PrincipalIdleKratong
               className="transition-opacity absolute top-[-54px] sm:top-[-102px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
@@ -228,7 +234,6 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               initialX={width > 640 ? 650 : 440}
               data={PrincipalKratongData}
             />
-
             <BotLane entities={loy ? [...lanes[2], prevEntity] : lanes[2]} />
             <WaterTwo />
           </div>

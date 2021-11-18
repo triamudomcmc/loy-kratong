@@ -4,7 +4,7 @@ import { useAnimationFrame } from "@utils/useAnimationFrame";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 import { AnimatePresence, motion } from "framer-motion";
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DisplayKratong, KratongPopup, MessageBox } from "./displaykratong";
 import { KratongData, ResultData } from "@components/Kratong/create";
 import classNames from "classnames";
@@ -20,7 +20,7 @@ export const Fish: NextPage<{ className: string; initX: number }> = ({ className
   useAnimationFrame(
     (delta: number) => {
       // delta - time elapsed in ms
-      setX((prevX) => (prevX < width + 1200 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1840)));
+      setX((prevX) => (prevX < width + 1800 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1840)));
     },
     (delta: number) => {
       return false;
@@ -54,7 +54,7 @@ const MovingKratong: NextPage<{
   useAnimationFrame(
     (delta: number) => {
       // delta - time elapsed in ms
-      setX((prevX) => (prevX < width + 1200 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1840)));
+      setX((prevX) => (prevX < width + 1800 ? prevX + delta * 0.01 * speed : prevX - (random(20, 200) + 1840)));
     },
     (delta: number) => {
       return false;
