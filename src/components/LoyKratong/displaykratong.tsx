@@ -412,7 +412,7 @@ export const IdleKratong: NextPage<{
 interface DrKratongProps {
   data: KratongData;
   height: string;
-  zIndex: number;
+  zIndex: [number, number];
   className: string;
 }
 
@@ -463,14 +463,13 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, he
 
   return (
     <motion.div
-      animate={WaterFourData.animate}
-      transition={WaterFourData.transition}
+      {...elementProps()}
       style={{
-        zIndex: zIndex,
+        zIndex: finished ? zIndex[1] : zIndex[0],
         top: `${!finished ? (width > 640 ? -146 : -116) : width > 640 ? -40 : 0}px`,
         left: `${x}px`,
       }}
-      className="relative"
+      className={classNames("absolute", className)}
     >
       {toggle && data?.wish && (
         <AnimatePresence>
@@ -481,7 +480,6 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, he
         drag={!finished}
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
         dragElastic={0.65}
-        {...elementProps()}
         onClick={() => setToggle(!toggle)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
@@ -497,9 +495,9 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, he
         style={{
           ["--size" as string]: height,
           ["--z-index" as string]: finished ? zIndex : 35,
-          zIndex,
+          zIndex: finished ? zIndex[1] : zIndex[0],
         }}
-        className={classNames(styles["kratong"], className)}
+        className={classNames(styles["kratong"])}
       >
         {data?.wish && <DisplayName name={data.wish.name} />}
         {hover && <div className={styles["aura"]}></div>}

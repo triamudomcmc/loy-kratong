@@ -148,17 +148,17 @@ export const PageFive: NextPage = () => {
       className="absolute w-full h-full z-[-2]"
     >
       <div className="absolute w-full h-full z-[-33]">
-        <div className="absolute z-[-5] sm:w-[30%] w-[calc(30%+55px)] left-[-89px] top-[125px] opacity-50">
+        <div className="absolute z-[-5] sm:w-[280px] w-[175px] left-[-89px] top-[125px] opacity-50">
           <Cloud />
         </div>
-        <div className="absolute z-[-4] sm:w-[30%] w-[calc(30%+55px)] left-[-134px] top-[175px] opacity-75">
+        <div className="absolute z-[-4] sm:w-[280px] w-[175px] left-[-134px] top-[175px] opacity-75">
           <Cloud />
         </div>
 
-        <div className="absolute z-[-5] sm:w-[30%] w-[calc(30%+55px)] right-[-89px] top-[125px] opacity-50">
+        <div className="absolute z-[-5] sm:w-[280px] w-[175px] right-[-89px] top-[125px] opacity-50">
           <Cloud />
         </div>
-        <div className="absolute z-[-4] sm:w-[30%] w-[calc(30%+55px)] right-[-84px] top-[184px] opacity-75">
+        <div className="absolute z-[-4] sm:w-[280px] w-[175px] right-[-84px] top-[184px] opacity-75">
           <Cloud />
         </div>
       </div>
