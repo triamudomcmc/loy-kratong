@@ -8,6 +8,7 @@ import classnames from "classnames";
 import { motion } from "framer-motion";
 import { pushKratongContext } from "../../bridges/build/init";
 import { CatLoading } from "@components/Loading";
+import { useRouter } from "next/router";
 
 export interface Selected {
   base: string;
@@ -281,6 +282,8 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
     content: 280,
   };
 
+  const router = useRouter();
+
   const [error, setError] = useState<WishError>({ name: null, content: null });
   const [loading, setLoading] = useState(false);
 
@@ -313,7 +316,7 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
       const id = kratongData.data.id;
       localStorage.setItem("entityId", id);
       localStorage.setItem("entity", JSON.stringify(entityData));
-      window.location.href = "/loykratong";
+      router.push("/loykratong");
     }
   };
 

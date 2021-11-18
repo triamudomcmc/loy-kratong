@@ -8,7 +8,7 @@ import { PageFive, PageFour, PageOne, PageThree, PageTwo } from "./pages";
 import { useWindowDimensions } from "@utils/useWindowDimensions";
 
 const DURATION = 500;
-const DELAY = 500;
+const DELAY = 650;
 
 const TitleScreen: NextPage = () => {
   const [page, setPage] = useState(1);
@@ -20,7 +20,6 @@ const TitleScreen: NextPage = () => {
     setTimeout(() => {
       setPage(page + 1);
       setPageTransition(false);
-      console.log(page);
     }, DURATION + DELAY);
   }, [pageTransition]);
 
@@ -129,16 +128,9 @@ const TitleScreen: NextPage = () => {
           )}
         </AnimatePresence>
 
-        <AnimatePresence>
+        <>
           {page >= 2 && page < 5 && !pageTransition && (
-            <motion.div
-              key="clouds-vertical"
-              initial={{ y: 1000, opacity: 1 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -1000, opacity: 1 }}
-              transition={{ type: "tween", duration: 1, delay: DELAY / 1000 }}
-              className="absolute w-full h-full z-[-1]"
-            >
+            <div className="absolute w-full h-full z-[-1]">
               <div className="absolute z-[-5] sm:w-[280px] w-[175px] left-[-89px] top-[340px] opacity-50">
                 <Cloud />
               </div>
@@ -158,9 +150,9 @@ const TitleScreen: NextPage = () => {
               <div className="absolute z-[-5] sm:w-[320px] w-[185px] right-[-122px] bottom-[29px] opacity-90">
                 <Cloud />
               </div>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
+        </>
 
         <div className="flex flex-col items-center static z-[3] justify-center mt-[-30px]">
           <motion.div

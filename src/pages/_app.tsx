@@ -12,13 +12,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [mute, setMute] = useState(true);
-  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     const handleStart = (url: any) => {
       url !== router.pathname ? setLoading(true) : setLoading(false);
     };
-    const handleComplete = (url: any) => setLoading(false);
+    const handleComplete = (url: any) => {
+      setMute(true);
+      setLoading(false);
+    };
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);
@@ -35,7 +37,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return loading ? (
     <CatLoading />
   ) : (
-    <>
+    <div
+      onMouseOver={() => {
+        if (audioRef.current) audioRef.current.play();
+      }}
+    >
       <audio muted={mute} ref={audioRef} className="song">
         <source src="/assets/audio/music.mp3"></source>
       </audio>
@@ -45,16 +51,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           className="absolute text-center right-6 bottom-4 cursor-pointer w-[36px] h-[36px]"
           onClick={() => {
             setMute(!mute);
-            if (!clicked) {
-              setClicked(true);
-              if (audioRef.current) audioRef.current.play();
-            }
           }}
         >
           {mute ? <SpeakerMute className="w-full h-full" /> : <SpeakerUnmute className="w-[80%] h-[80%]" />}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
