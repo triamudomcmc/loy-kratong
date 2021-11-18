@@ -8,6 +8,7 @@ export const LoyKratongPage: NextPage<{ entities: ResultData[] }> = ({ entities 
       <style jsx>{`
         body {
           overflow-y: hidden;
+          height: 100vh;
         }
       `}</style>
       <article>
