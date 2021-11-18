@@ -23,17 +23,23 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     if (audioRef.current !== null) {
-      audioRef.current.volume = 0.7;
       audioRef.current.loop = true;
-      audioRef.current.play();
     }
+
+    setTimeout(() => {
+      if (audioRef.current !== null) {
+        audioRef.current.muted = false;
+        audioRef.current.volume = 0.7;
+        audioRef.current.play();
+      }
+    }, 500);
   }, []);
 
   return loading ? (
     <CatLoading />
   ) : (
     <>
-      <audio ref={audioRef} className="song">
+      <audio muted={true} ref={audioRef} className="song">
         <source src="/assets/audio/music.mp3"></source>
       </audio>
       <Component {...pageProps} />

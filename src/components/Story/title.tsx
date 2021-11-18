@@ -35,8 +35,8 @@ const TitleScreen: NextPage = () => {
       scale: 1,
     },
     end: {
-      x: width >= 640 ? 235 : 85,
-      y: width >= 640 ? -245 : -150,
+      x: width >= 640 ? 255 : 165,
+      y: width >= 640 ? -165 : -180,
       scale: width >= 640 ? 0.65 : 0.35,
     },
   };
