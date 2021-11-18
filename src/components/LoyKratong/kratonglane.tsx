@@ -69,6 +69,7 @@ const MovingKratong: NextPage<{
         style={{ left: x, zIndex: zIndex }}
         className="relative"
       >
+        <p className="absolute text-white z-[99] top-[99px] text-center font-display">hi</p>
         <div className={className} style={{ zIndex }}>
           {toggle && (
             <AnimatePresence>

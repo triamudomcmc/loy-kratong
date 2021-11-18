@@ -408,6 +408,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
   const { width } = useWindowDimensions();
   const [finished, setFinished] = useState(false);
   const [x, setX] = useState(112);
+  const [toggle, setToggle] = useState(false);
 
   // todo map x, y values to other viewports using useTransform
 
@@ -452,6 +453,7 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
         dragElastic={0.65}
         {...elementProps()}
+        onClick={() => setToggle(!toggle)}
         onDrag={(e, { point }) => {
           if (
             (point.x > 320 && width < 640) ||

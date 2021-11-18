@@ -162,8 +162,6 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
       <div className={styles["background"]}>
         <div className={classNames("absolute", styles["waterfour-container"])}>
           <div className="relative">
-            <Fish className="absolute top-[-9px] sm:top-[9px] w-[125px] z-[14]" initX={234} />
-            <Fish className="absolute top-[-9px] sm:top-[9px] w-[125px] z-[14]" initX={434} />
             <div className={styles["buildings"]}>
               <div className="w-[125%]">
                 <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
@@ -176,9 +174,6 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
 
         <div className={classNames("absolute", styles["waterthree-container"])}>
           <div className="relative">
-            <Fish className="absolute top-[9px] sm:top-[19px] w-[125px] z-[34]" initX={234} />
-            <Fish className="absolute top-[9px] sm:top-[19px] w-[125px] z-[34]" initX={134} />
-
             <IdleKratong
               highlighted
               className={
@@ -206,8 +201,6 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
 
         <div className={classNames("absolute", styles["watertwo-container"])}>
           <div className="relative">
-            <Fish className="absolute top-[-9px] sm:top-[43px] w-[125px] z-[34]" initX={184} />
-            <Fish className="absolute top-[-9px] sm:top-[43px] w-[125px] z-[34]" initX={304} />
             <div className="relative">
               <div className={styles["sala-side"]}>
                 <Image
