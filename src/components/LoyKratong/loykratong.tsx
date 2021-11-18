@@ -260,7 +260,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                   )}
                   data={prevEntity}
                   height={width > 640 ? "170px" : "155px"}
-                  zIndex={[39, 39]}
+                  zIndex={[100, 39]}
                 />
               )}
             </div>
