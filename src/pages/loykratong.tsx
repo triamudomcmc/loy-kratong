@@ -19,6 +19,7 @@ function objEqual(x: any, y: any): boolean {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const data = await initialiseDB.collection("filteredEntities").limit(8).get();
+  // const data = await initialiseDB.collection("filteredEntities").orderBy("timestamp","desc").limit(8).get();
 
   return {
     props: {

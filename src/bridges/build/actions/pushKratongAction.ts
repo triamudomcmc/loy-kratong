@@ -41,7 +41,7 @@ export const pushKratongAction = pushKratongContext.helper.createAction(async (A
       data: {location: "content"}
     }
 
-    const data = await initialiseDB.collection("rawEntities").add(parameters.data)
+    const data = await initialiseDB.collection("rawEntities").add({...parameters.data, timestamp: new Date().getTime()})
 
     return {
       status: true,
