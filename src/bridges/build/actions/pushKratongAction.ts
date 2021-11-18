@@ -3,7 +3,7 @@ import initialiseDB from "@handlers/firebase-admin"
 
 export const pushKratongAction = pushKratongContext.helper.createAction(async (ApiParams, parameters, ConditionParams) => {
   try{
-    const data = await initialiseDB.collection("filteredEntities").add(parameters.data)
+    const data = await initialiseDB.collection("rawEntities").add(parameters.data)
     return {
       status: true,
       report: "success",
