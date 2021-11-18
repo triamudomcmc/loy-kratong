@@ -84,11 +84,11 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
       <IdleKratong
         highlighted
         className={
-          "transition-opacity absolute left-[250px] top-[-50px] sm:top-[-90px] lg:top-[-46px] hover:brightness-100 active:brightness-110"
+          "transition-opacity absolute top-[-50px] sm:top-[-90px] lg:top-[-46px] hover:brightness-100 active:brightness-110"
         }
         lane="m"
         size={["155px", "115px"]}
-        initialX={width > 640 ? 550 : 350}
+        initialX={width > 640 ? 550 : 524}
         data={RongPrincipalKratongsData[random(0, 3)]}
       />
     );
