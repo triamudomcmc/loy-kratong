@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [mute, setMute] = useState(true);
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     const handleStart = (url: any) => {
@@ -27,15 +28,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (audioRef.current !== null) {
       audioRef.current.loop = true;
+      audioRef.current.volume = 0.7;
     }
-
-    setTimeout(() => {
-      if (audioRef.current !== null) {
-        audioRef.current.muted = false;
-        audioRef.current.volume = 0.7;
-        audioRef.current.play();
-      }
-    }, 500);
   }, []);
 
   return loading ? (
@@ -46,9 +40,19 @@ function MyApp({ Component, pageProps }: AppProps) {
         <source src="/assets/audio/music.mp3"></source>
       </audio>
       <Component {...pageProps} />
-      <div className="absolute text-center text-white right-4 bottom-4">
-        <SpeakerMute className="w-5 h-5" />
-        <SpeakerUnmute className="w-5 h-5" />
+      <div className="fixed bottom-0 w-screen z-[99]">
+        <div
+          className="absolute text-center right-6 bottom-4 cursor-pointer w-[36px] h-[36px]"
+          onClick={() => {
+            setMute(!mute);
+            if (!clicked) {
+              setClicked(true);
+              if (audioRef.current) audioRef.current.play();
+            }
+          }}
+        >
+          {mute ? <SpeakerMute className="w-full h-full" /> : <SpeakerUnmute className="w-[80%] h-[80%]" />}
+        </div>
       </div>
     </>
   );
