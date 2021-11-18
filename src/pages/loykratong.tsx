@@ -34,14 +34,11 @@ const LoyKratong: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
     }
   }, []);
 
-  const localEntity = localStorage?.getItem("entity") ?? {};
-  const currentEntities = entities.filter((e) => !objEqual(e, localEntity));
-
   return (
     <>
       <NavLoy />
       <Meta />
-      <LoyKratongPage entities={currentEntities} />
+      <LoyKratongPage entities={entities} />
     </>
   );
 };
