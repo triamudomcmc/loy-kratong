@@ -1,4 +1,4 @@
-import { KratongData as NKratongData, Selected as NSelected, Wish } from "@components/Kratong/create";
+import { KratongData, KratongData as NKratongData, Selected as NSelected, Wish } from "@components/Kratong/create";
 import type { NextPage } from "next";
 import { CUPSAAMap, KratongMap, PrincipalMap } from "@map/kratong";
 import styles from "@styles/modules/Kratong.module.scss";
@@ -17,6 +17,14 @@ import { useAnimationFrame } from "@utils/useAnimationFrame";
 import { random } from "@utils/random";
 import { KratongData as CKratongData } from "@components/CUPSAA/create";
 import { CUPSAAPart } from "@components/CUPSAA/parts";
+
+const DisplayName: FC<{ name: string }> = ({ name }) => {
+  return (
+    <span className="absolute w-full text-white z-[99] text-xs sm:text-sm top-[-29px] text-center font-light font-ui">
+      {name}
+    </span>
+  );
+};
 
 export const KratongPopup: FC<{
   info: Wish;
@@ -143,6 +151,7 @@ export const DisplayKratong: FC<KratongProps> = ({ data, height, zIndex, onClick
         className={classNames(styles["kratong"], "cursor-pointer")}
       >
         {highlighted ? <div className={styles["aura"]}></div> : hovered && <div className={styles["aura"]}></div>}
+        <DisplayName name={data.wish.name} />
         <div className={styles["topping"]}>
           <div className={styles["decorations"]}>
             {Object.keys(KratongMap.decorations).map((decoration: string) => {
@@ -216,6 +225,7 @@ export const CUPSAAIdleKratong: NextPage<{
   const { width } = useWindowDimensions();
   const selected = data.kratong;
   const zIndex = lane === "t" ? 19 : lane === "m" ? 29 : 39;
+  const textZIndex = lane === "t" ? 15 : lane === "m" ? 25 : 35;
   const [toggle, setToggle] = useState(false);
   const height = width > 640 ? size[0] : size[1];
 
@@ -238,6 +248,7 @@ export const CUPSAAIdleKratong: NextPage<{
           className={classNames(cstyles["kratong"], "cursor-pointer")}
         >
           {highlighted && <div className={styles["aura"]}></div>}
+          <DisplayName name={data.wish.name} />
           <div className={cstyles["topping"]}>
             <div className={cstyles["logo"]}>
               <div className={cstyles["container"]}>
@@ -285,7 +296,7 @@ export const PrincipalIdleKratong: NextPage<{
   const [toggle, setToggle] = useState(false);
 
   const zIndex = lane === "t" ? 15 : lane === "m" ? 25 : 35;
-  const textZIndex = lane === "t" ? 31 : lane === "m" ? 41 : 51;
+  const textZIndex = lane === "t" ? 15 : lane === "m" ? 25 : 35;
 
   const selected = data.kratong;
   const height = width > 640 ? size[0] : size[1];
@@ -310,6 +321,7 @@ export const PrincipalIdleKratong: NextPage<{
             className={classNames(pstyles["kratong"], "cursor-pointer")}
           >
             {<div className={pstyles["aura"]}></div>}
+            <DisplayName name={data.wish.name} />
             <div className={pstyles["topping"]}>
               <div className={pstyles["decorations"]}>
                 {Object.keys(PrincipalMap.decorations).map((decoration: string) => {
@@ -365,7 +377,7 @@ export const IdleKratong: NextPage<{
   const [toggle, setToggle] = useState(false);
 
   const zIndex = lane === "t" ? 19 : lane === "m" ? 29 : 39;
-  const textZIndex = lane === "t" ? 31 : lane === "m" ? 41 : 51;
+  const textZIndex = lane === "t" ? 15 : lane === "m" ? 25 : 35;
 
   return (
     <>
@@ -398,17 +410,20 @@ export const IdleKratong: NextPage<{
 };
 
 interface DrKratongProps {
-  selected: NSelected;
+  data: KratongData;
   height: string;
   zIndex: number;
   className: string;
 }
 
-export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected, height, zIndex }) => {
+export const DraggableKratong: NextPage<DrKratongProps> = ({ className, data, height, zIndex }) => {
   const { width } = useWindowDimensions();
   const [finished, setFinished] = useState(false);
   const [x, setX] = useState(112);
   const [toggle, setToggle] = useState(false);
+  const [hover, setHover] = useState(false);
+
+  const selected = data.kratong;
 
   // todo map x, y values to other viewports using useTransform
 
@@ -447,13 +462,29 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
   };
 
   return (
-    <>
+    <motion.div
+      animate={WaterFourData.animate}
+      transition={WaterFourData.transition}
+      style={{
+        zIndex: zIndex,
+        top: `${!finished ? (width > 640 ? -146 : -116) : width > 640 ? -40 : 0}px`,
+        left: `${x}px`,
+      }}
+      className="relative"
+    >
+      {toggle && data?.wish && (
+        <AnimatePresence>
+          <KratongPopup info={data.wish} onToggle={setToggle} />
+        </AnimatePresence>
+      )}
       <motion.div
         drag={!finished}
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
         dragElastic={0.65}
         {...elementProps()}
         onClick={() => setToggle(!toggle)}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
         onDrag={(e, { point }) => {
           if (
             (point.x > 320 && width < 640) ||
@@ -466,11 +497,12 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
         style={{
           ["--size" as string]: height,
           ["--z-index" as string]: finished ? zIndex : 35,
-          top: `${!finished ? (width > 640 ? -146 : -116) : width > 640 ? -40 : 0}px`,
-          left: `${x}px`,
+          zIndex,
         }}
         className={classNames(styles["kratong"], className)}
       >
+        {data?.wish && <DisplayName name={data.wish.name} />}
+        {hover && <div className={styles["aura"]}></div>}
         <div className={styles["topping"]}>
           <div className={styles["decorations"]}>
             {Object.keys(KratongMap.decorations).map((decoration: string) => {
@@ -529,6 +561,6 @@ export const DraggableKratong: NextPage<DrKratongProps> = ({ className, selected
           </div>
         </div>
       </motion.div>
-    </>
+    </motion.div>
   );
 };

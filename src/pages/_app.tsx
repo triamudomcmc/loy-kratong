@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <CatLoading />
   ) : (
     <>
-      <audio muted={true} ref={audioRef} className="song">
+      <audio ref={audioRef} className="song">
         <source src="/assets/audio/music.mp3"></source>
       </audio>
       <Component {...pageProps} />

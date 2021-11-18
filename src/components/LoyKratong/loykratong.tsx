@@ -211,10 +211,10 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                   alt="ศาลา"
                 />
               </div>
-              {!loy && prevEntity && (
+              {!loy && prevEntity && prevEntity?.kratong && prevEntity?.wish && (
                 <DraggableKratong
                   className={classNames(styles["loying-kratong"], width > 640 && "ml-16")}
-                  selected={prevEntity.kratong}
+                  data={prevEntity}
                   height={width > 640 ? "170px" : "155px"}
                   zIndex={42}
                 />

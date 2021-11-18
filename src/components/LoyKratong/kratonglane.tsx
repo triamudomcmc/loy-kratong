@@ -49,7 +49,7 @@ const MovingKratong: NextPage<{
   const [x, setX] = useState(initialX);
 
   const zIndex = lane === "t" ? 19 : lane === "m" ? 29 : 39;
-  const textZIndex = lane === "t" ? 31 : lane === "m" ? 41 : 51;
+  const textZIndex = lane === "t" ? 15 : lane === "m" ? 25 : 35;
 
   useAnimationFrame(
     (delta: number) => {
@@ -69,7 +69,6 @@ const MovingKratong: NextPage<{
         style={{ left: x, zIndex: zIndex }}
         className="relative"
       >
-        <p className="absolute text-white z-[99] top-[99px] text-center font-display">hi</p>
         <div className={className} style={{ zIndex }}>
           {toggle && (
             <AnimatePresence>
