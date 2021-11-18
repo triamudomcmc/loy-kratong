@@ -4,7 +4,7 @@ import { WaterFour, WaterOne, WaterThree, WaterTwo } from "@components/Water";
 import Image from "next/image";
 import { Cloud } from "@components/Vector/cloud";
 import classNames from "classnames";
-import {BotLane, Fish, MidLane, MovingKratong, TopLane} from "./kratonglane";
+import { BotLane, Fish, MidLane, MovingKratong, TopLane } from "./kratonglane";
 import { ResultData } from "@components/Kratong/create";
 import { AnimatePresence, motion } from "framer-motion";
 import { Kratong } from "@components/Kratong/kratong";
@@ -68,17 +68,16 @@ const sample = {
 const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
   const { width, height } = useWindowDimensions();
   const [loy, setloy] = useState(false);
-  const [localLoy, setLocalLoy] = useState(false)
-  const [done, setDone] = useState(false)
+  const [localLoy, setLocalLoy] = useState(false);
+  const [done, setDone] = useState(false);
   const [prevEntity, setPrevEntity] = useState<undefined | ResultData>(undefined);
 
   useEffect(() => {
     setloy(localStorage.getItem("released") === "true");
-    setLocalLoy(localStorage.getItem("released") === "true")
+    setLocalLoy(localStorage.getItem("released") === "true");
     setPrevEntity(JSON.parse(localStorage.getItem("entity") || "{}"));
-    setDone(true)
+    setDone(true);
   }, []);
-
 
   shuffle(entities);
   const lanes = chunk(entities, 3);
@@ -193,12 +192,10 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
       {/* <div className={styles["background"]}> */}
       <div className="h-[100vh] bg-black bg-loy relative overflow-hidden w-[250vw] sm:w-[175vw]">
         {/* <div className={classNames("absolute", styles["waterfour-container"])}> */}
-        <div
-          className={done ? "absolute left-[-50px] bottom-[70px] custom:bottom-[70px] lg:bottom-[-150px]" : ""}
-        >
+        <div className={done ? "absolute left-[-50px] bottom-[70px] custom:bottom-[70px] lg:bottom-[-150px]" : ""}>
           <div className="relative">
             {/* <div className={styles["buildings"]}> */}
-            <div className="absolute z-[5] flex top-[-200px] width-[500vw] sm:top-[-231px] sm:w-[353vw] lg:top-[-240px] lg:w-[253vw]">
+            <div className="absolute z-[5] flex width-[500vw] top-[-110px] custom:top-[-138px] sm:top-[-231px] lg:top-[-240px]  sm:w-[353vw] lg:w-[253vw]">
               <div className="w-[125%]">
                 <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
               </div>
@@ -271,26 +268,24 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               initialX={width > 640 ? 750 : 490}
               data={PrincipalKratongData}
             />
-            {localLoy && prevEntity && <MovingKratong
-              className={
-                "transition-opacity absolute left-[350px] top-[-54px] sm:top-[-88px] lg:top-[-40px] brightness-[90%] hover:brightness-100 active:brightness-110"
-              }
-              initialX={
-                width > 640 ? 62 : -25
-              }
-              data={prevEntity}
-              size={["170px", "155px"]}
-              lane="b"
-            />}
+            {localLoy && prevEntity && (
+              <MovingKratong
+                className={
+                  "transition-opacity absolute left-[350px] top-[-54px] sm:top-[-88px] lg:top-[-40px] brightness-[90%] hover:brightness-100 active:brightness-110"
+                }
+                initialX={width > 640 ? 62 : -25}
+                data={prevEntity}
+                size={["170px", "155px"]}
+                lane="b"
+              />
+            )}
             <BotLane entities={loy ? [...lanes[2], prevEntity] : lanes[2]} />
             <WaterTwo />
           </div>
         </div>
 
         {/* <div className={classNames("absolute", styles["waterone-container"])}> */}
-        <div
-          className={done ? "absolute left-[-50px] bottom-[-120px] custom:bottom-[-105px] lg:bottom-[-396px]" : ""}
-        >
+        <div className={done ? "absolute left-[-50px] bottom-[-120px] custom:bottom-[-105px] lg:bottom-[-396px]" : ""}>
           <div className="relative">
             <WaterOne />
           </div>

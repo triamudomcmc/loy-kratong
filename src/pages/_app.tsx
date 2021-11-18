@@ -4,11 +4,14 @@ import type { AppProps } from "next/app";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { CatLoading } from "@components/Loading";
+import { SpeakerMute } from "@components/Vector/mute";
+import { SpeakerUnmute } from "@components/Vector/unmute";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [mute, setMute] = useState(true);
 
   useEffect(() => {
     const handleStart = (url: any) => {
@@ -39,10 +42,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     <CatLoading />
   ) : (
     <>
-      <audio muted={true} ref={audioRef} className="song">
+      <audio muted={mute} ref={audioRef} className="song">
         <source src="/assets/audio/music.mp3"></source>
       </audio>
       <Component {...pageProps} />
+      <div className="absolute text-center text-white right-4 bottom-4">
+        <SpeakerMute className="w-5 h-5" />
+        <SpeakerUnmute className="w-5 h-5" />
+      </div>
     </>
   );
 }
