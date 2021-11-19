@@ -17,10 +17,6 @@
   overflow: hidden;
 
   width: 250vw;
-
-  @include breakpoint(sm) {
-    width: 175vw;
-  }
 }
 
 .sky {

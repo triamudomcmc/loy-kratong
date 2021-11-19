@@ -45,20 +45,20 @@ export default class Document extends NextDocument {
           {/* <!-- Open Graph / Facebook --> */}
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://loykratong.triamudom.club/" />
-          <meta property="og:title" content="ลอยกระทงออนไลน์ 2021" />
+          <meta property="og:title" content="ลอยกระทงออนไลน์ 2564" />
           <meta
             property="og:description"
-            content="ลอยกระทงออนไลน์ 2021 ร่วมลอยกระทงออนไลน์ โดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน โรงเรียนเตรียมอุดมศึกษา"
+            content="ร่วมลอยกระทงออนไลน์ โดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน (กช.) โรงเรียนเตรียมอุดมศึก"
           />
           <meta property="og:image" content="/assets/images/banner.png" />
 
           {/* <!-- Twitter --> */}
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:url" content="https://loykratong.triamudom.club/" />
-          <meta property="twitter:title" content="ลอยกระทงออนไลน์ 2021" />
+          <meta property="twitter:title" content="ลอยกระทงออนไลน์ 2564" />
           <meta
             property="twitter:description"
-            content="ลอยกระทงออนไลน์ 2021 ร่วมลอยกระทงออนไลน์ โดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน โรงเรียนเตรียมอุดมศึกษา"
+            content="ร่วมลอยกระทงออนไลน์ โดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน (กช.) โรงเรียนเตรียมอุดมศึก"
           />
           <meta property="twitter:image" content="/assets/images/banner.png" />
 

@@ -184,12 +184,34 @@ export const PageFive: NextPage = () => {
             height={753}
             priority={true}
             objectFit={"contain"}
-            src="/assets/images/scene/sala-front.png"
+            src="/assets/images/scene/sala-front-no-fence.png"
             alt="ศาลา"
           />
         </div>
 
-        <div className="w-full absolute bottom-[-55px] z-[-5]">
+        {/* <div className="absolute w-[550px] sm:w-[650px] lg:w-[700px] bottom-[-30px] z-[-1] left-[50%] -translate-x-1/2">
+          <Image
+            width={1350}
+            height={1350}
+            priority={true}
+            objectFit={"contain"}
+            src="/assets/images/scene/sala-front-nofence.png"
+            alt="ศาลา"
+          />
+        </div> */}
+
+        <div className="absolute w-full bottom-[-77px] sm:bottom-[-121px] lg:bottom-[-35%] z-[-2] left-[50%] -translate-x-1/2">
+          <Image
+            width={2000}
+            height={1350}
+            priority={true}
+            objectFit={"contain"}
+            src="/assets/images/scene/fence.png"
+            alt="ศาลา"
+          />
+        </div>
+
+        <div className="w-full absolute bottom-[36px] sm:bottom-[-26px] z-[-5]">
           <LightWater />
         </div>
       </div>

@@ -107,7 +107,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
   // @ts-ignore
   return (
     // <div className={styles["loy-scene"]}>
-    <div className="w-[250vw] sm:w-[175vw]">
+    <div className="w-[250vw] sm:w-[128vw] lg:w-[175vw]">
       {!localLoy && (
         <AnimatePresence>
           <motion.div
@@ -168,36 +168,6 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
           </div>
         </div>
 
-        {/* <div className={styles["fireworks-1"]}> */}
-        <div className="absolute w-[225px] h-[225px] top-[75px] left-[9px] z-[10]">
-          <Image src="/assets/images/scene/fireworks-blue.gif" width={441} height={480} />
-        </div>
-
-        {/* <div className={styles["fireworks-2"]}> */}
-        <div className="absolute w-[174px] h-[200px] top-[105px] left-[189px] z-[10]">
-          <Image src="/assets/images/scene/fireworks-orange.gif" width={441} height={481} />
-        </div>
-
-        {/* <div className={styles["fireworks-3"]}> */}
-        <div className="absolute w-[174px] h-[200px] top-[55px] left-[551px] z-[10]">
-          <Image src="/assets/images/scene/fireworks-purple.gif" width={441} height={481} />
-        </div>
-
-        {/* <div className={styles["fireworks-4"]}> */}
-        <div className="absolute w-[305px] h-[205px] top-[45px] left-[741px] z-[10]">
-          <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
-        </div>
-
-        {/* <div className={styles["fireworks-5"]}> */}
-        <div className="absolute w-[225px] h-[419px] top-[55px] right-[401px] z-[10]">
-          <Image src="/assets/images/scene/fireworks-yellow-single.gif" width={692} height={754} />
-        </div>
-
-        {/* <div className={styles["fireworks-6"]}> */}
-        <div className="absolute w-[185px] h-[185px] top-[55px] right-[19px] z-[10]">
-          <Image src="/assets/images/scene/fireworks-red.gif" width={692} height={754} />
-        </div>
-
         {/* <div className={styles["moon"]}> */}
         <div className="absolute w-[150px] h-[150px] right-[10vw] top-[35px] z-[8]">
           {/* <div className={styles["img"]}> */}
@@ -212,14 +182,66 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
       </div>
 
       {/* <div className={styles["background"]}> */}
-      <div className="h-[100vh] bg-black bg-loy relative overflow-hidden w-[250vw] sm:w-[175vw]">
+      <div className="h-[100vh] bg-black bg-loy relative overflow-hidden w-[250vw] sm:w-[128vw] lg:w-[175vw]">
+        <div className="relative left-[24px] top-[12px]">
+          {/* <div className={styles["fireworks-1"]}> */}
+          <div className="absolute w-[225px] h-[225px] top-[75px] left-[9px] z-[10]">
+            <Image src="/assets/images/scene/fireworks-blue.gif" width={441} height={480} />
+          </div>
+
+          {/* <div className={styles["fireworks-2"]}> */}
+          <div className="absolute w-[174px] h-[200px] top-[105px] left-[189px] z-[10]">
+            <Image src="/assets/images/scene/fireworks-orange.gif" width={441} height={481} />
+          </div>
+
+          {/* <div className={styles["fireworks-3"]}> */}
+          <div className="absolute w-[174px] h-[200px] top-[55px] left-[551px] z-[10]">
+            <Image src="/assets/images/scene/fireworks-purple.gif" width={441} height={481} />
+          </div>
+
+          {/* <div className={styles["fireworks-4"]}> */}
+          <div className="absolute w-[305px] h-[205px] top-[45px] left-[741px] z-[10]">
+            <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
+          </div>
+
+          {width > 840 && (
+            <>
+              {/* <div className={styles["fireworks-1"]}> */}
+              <div className="absolute w-[225px] h-[225px] top-[75px] left-[1009px] z-[10]">
+                <Image src="/assets/images/scene/fireworks-blue.gif" width={441} height={480} />
+              </div>
+
+              {/* <div className={styles["fireworks-2"]}> */}
+              <div className="absolute w-[174px] h-[200px] top-[105px] left-[1389px] z-[10]">
+                <Image src="/assets/images/scene/fireworks-orange.gif" width={441} height={481} />
+              </div>
+
+              {/* <div className={styles["fireworks-3"]}> */}
+              <div className="absolute w-[174px] h-[200px] top-[55px] left-[1551px] z-[10]">
+                <Image src="/assets/images/scene/fireworks-purple.gif" width={441} height={481} />
+              </div>
+
+              {/* <div className={styles["fireworks-4"]}> */}
+              <div className="absolute w-[305px] h-[205px] top-[45px] left-[1741px] z-[10]">
+                <Image src="/assets/images/scene/fireworks-white.gif" width={1280} height={960} />
+              </div>
+            </>
+          )}
+        </div>
+
         {/* <div className={classNames("absolute", styles["waterfour-container"])}> */}
         <div className={done ? "absolute left-[-50px] bottom-[70px] custom:bottom-[70px] lg:bottom-[-150px]" : ""}>
           <div className="relative">
             {/* <div className={styles["buildings"]}> */}
             <div className="absolute z-[5] flex width-[500vw] top-[-110px] custom:top-[-138px] sm:top-[-231px] lg:top-[-240px]  sm:w-[353vw] lg:w-[253vw]">
               <div className="w-[125%]">
-                <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
+                <Image
+                  src="/assets/images/scene/buildings-black.png"
+                  width={2328}
+                  height={318}
+                  objectFit="cover"
+                  alt="ตึก"
+                />
               </div>
             </div>
             <TopLane entities={lanes[0]} />
@@ -270,7 +292,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                   )}
                   data={prevEntity}
                   height={width > 640 ? "170px" : "155px"}
-                  zIndex={[100, 39]}
+                  zIndex={[39, 39]}
                 />
               )}
             </div>

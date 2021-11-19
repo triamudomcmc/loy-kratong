@@ -203,6 +203,11 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
             <div className="px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
               <div>
                 <div className="mb-4">
+                  <p className="px-0 py-0 mb-2 text-xl text-[#293d5b]">ของตกแต่ง</p>
+                </div>
+                <div className="grid grid-cols-3 gap-4">{generateDecorations(0)}</div>
+
+                <div className="mt-6">
                   <p className="px-0 py-0 mb-2 text-xl text-[#293d5b]">ป้าย</p>
                   <div className="flex">
                     {Array.from({ length: 6 }, (_, i) => i).map((i) => {
@@ -215,7 +220,7 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
                           }}
                           whileTap={{ scale: 0.9 }}
                           className={classnames(
-                            "p-4 mr-2 rounded-full border border-white hover:opacity-90 cursor-pointer shadow-md",
+                            "p-4 mr-2 mb-6 rounded-full border border-white hover:opacity-90 cursor-pointer shadow-md",
                             selected.signVariant === i ? "border-2 opacity-100" : "opacity-50"
                           )}
                           style={{ backgroundColor: signColors[i] }}
@@ -232,11 +237,6 @@ const CreateKratong: NextPage<CreateKratongProps> = ({ selected, setSelected, ne
                 </div>
                 <div className="grid grid-cols-3 gap-4">{generateDecorations(1)}</div>
               </div>
-
-              <div className="mt-6">
-                <p className="px-0 py-0 mb-2 text-xl text-[#293d5b]">ของตกแต่ง</p>
-              </div>
-              <div className="grid grid-cols-3 gap-4">{generateDecorations(0)}</div>
             </div>
           ) : (
             <div className="grid grid-cols-3 gap-4 px-1 mx-1 sm:px-6 sm:mx-3 h-[112px] sm:h-[154px] overflow-y-auto">
@@ -311,8 +311,6 @@ const CreateWish: NextPage<CreateWishProps> = ({ selected, wish, setWish, nextPa
     setLoading(true);
     const entityData = { kratong: selected, wish: wish };
     const kratongData = await pushKratongContext.call({ data: entityData });
-
-    console.log(kratongData);
 
     if (!kratongData.status) {
       let nameErrors = [];
