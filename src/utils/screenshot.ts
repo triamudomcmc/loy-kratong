@@ -9,8 +9,7 @@ export default async function screenshot(url: string, width: number = 1920, heig
         headless: chrome.headless,
       }
     : {
-        headless: false,
-        ignoreDefaultArgs: ["--disable-extensions"],
+        args: [],
         executablePath:
           process.platform === "win32"
             ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
