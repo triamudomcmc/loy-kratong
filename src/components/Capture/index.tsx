@@ -35,10 +35,10 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
         </div>
         <div className={styles["moon"]}>
           <div className={styles["img"]}>
-            <Image src="/assets/images/scene/moon.gif" width={2048} height={2048} objectFit="cover" alt="ดวงจันทร์" />
+            <img src="/assets/images/scene/moon.gif" width={2048} height={2048} alt="ดวงจันทร์" />
           </div>
           <div className={styles["blur"]}>
-            <Image src="/assets/images/scene/blur.png" width={3414} height={3414} objectFit="cover" alt="ดวงจันทร์" />
+            <img src="/assets/images/scene/blur.png" width={3414} height={3414} alt="ดวงจันทร์" />
           </div>
         </div>
         {/* <div className={styles["fireworks-1"]}>
@@ -48,7 +48,7 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
           <Image src="/assets/images/scene/fireworks-purple.png" width={692} height={754} />
         </div> */}
         <div className={styles["fireworks-new"]}>
-          <Image src="/assets/images/scene/capture-fireworks-flipped.png" width={2048} height={2048} />
+          <img src="/assets/images/scene/capture-fireworks-flipped.png" width={2048} height={2048} />
         </div>
       </div>
       <div className={styles["background"]}>
@@ -56,7 +56,7 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
           <div className="relative w-[554vw] bottom-[-193px]">
             <div className={styles["buildings"]}>
               <div className="w-[275%]">
-                <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
+                <img src="/assets/images/scene/buildings.png" width={2328} height={318} alt="ตึก" />
               </div>
             </div>
             <WaterFour />
