@@ -46,16 +46,18 @@ function MyApp({ Component, pageProps }: AppProps) {
         <source src="/assets/audio/music.mp3"></source>
       </audio>
       <Component {...pageProps} />
-      <div className="fixed bottom-0 w-screen z-[99]">
-        <div
-          className="absolute text-center right-6 bottom-4 cursor-pointer w-[36px] h-[36px]"
-          onClick={() => {
-            setMute(!mute);
-          }}
-        >
-          {mute ? <SpeakerMute className="w-full h-full" /> : <SpeakerUnmute className="w-[80%] h-[80%]" />}
+      {router.pathname !== "/capture" && (
+        <div className="fixed bottom-0 w-screen z-[99]">
+          <div
+            className="absolute text-center right-6 bottom-4 cursor-pointer w-[36px] h-[36px]"
+            onClick={() => {
+              setMute(!mute);
+            }}
+          >
+            {mute ? <SpeakerMute className="w-full h-full" /> : <SpeakerUnmute className="w-[80%] h-[80%]" />}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
