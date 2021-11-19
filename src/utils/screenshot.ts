@@ -9,13 +9,15 @@ export default async function screenshot(url: string, width: number = 1920, heig
         headless: chrome.headless,
       }
     : {
-        args: [],
-        executablePath:
-          process.platform === "win32"
-            ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
-            : process.platform === "linux"
-            ? "/usr/bin/google-chrome"
-            : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        headless: false,
+        ignoreDefaultArgs: ["--disable-extensions"],
+        executablePath: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+        // executablePath:
+        //   process.platform === "win32"
+        //     ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+        //     : process.platform === "linux"
+        //     ? "/usr/bin/google-chrome"
+        //     : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
       };
   const browser = await puppeteer.launch(options);
   const page = await browser.newPage();

@@ -19,7 +19,7 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
     <div className={styles["capture-scene"]}>
       <nav className="absolute bottom-12 flex justify-center w-full z-[99]">
         <div className="max-w-[306px]">
-          <Image src="/assets/images/logo.png" width="1024px" height="169px" alt="โลโก้ กช." />
+          <img src="/assets/images/logo.png" width="1024px" height="169px" alt="โลโก้ กช." />
         </div>
       </nav>
       <div className={styles["sky"]}>
@@ -34,17 +34,29 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
         </div>
         <div className={styles["moon"]}>
           <div className={styles["img"]}>
-            <Image src="/assets/images/scene/moon.gif" width={2048} height={2048} objectFit="cover" alt="ดวงจันทร์" />
+            <img
+              src="/assets/images/scene/moon.gif"
+              className="object-cover"
+              width={2048}
+              height={2048}
+              alt="ดวงจันทร์"
+            />
           </div>
           <div className={styles["blur"]}>
-            <Image src="/assets/images/scene/blur.png" width={3414} height={3414} objectFit="cover" alt="ดวงจันทร์" />
+            <img
+              src="/assets/images/scene/blur.png"
+              className="object-cover"
+              width={3414}
+              height={3414}
+              alt="ดวงจันทร์"
+            />
           </div>
         </div>
         <div className={styles["fireworks-1"]}>
-          <Image src="/assets/images/scene/fireworks-red.png" width={692} height={754} />
+          <img src="/assets/images/scene/fireworks-red.png" width={692} height={754} />
         </div>
         <div className={styles["fireworks-2"]}>
-          <Image src="/assets/images/scene/fireworks-purple.png" width={692} height={754} />
+          <img src="/assets/images/scene/fireworks-purple.png" width={692} height={754} />
         </div>
         {/* todo พลุหลากสี */}
       </div>
@@ -53,7 +65,13 @@ export const CaptureKratong: NextPage<{ data: KratongData }> = ({ data }) => {
           <div className="relative w-[554vw] bottom-[-526px]">
             <div className={styles["buildings"]}>
               <div className="w-[275%]">
-                <Image src="/assets/images/scene/buildings.png" width={2328} height={318} objectFit="cover" alt="ตึก" />
+                <img
+                  src="/assets/images/scene/buildings.png"
+                  width={2328}
+                  height={318}
+                  className="object-cover"
+                  alt="ตึก"
+                />
               </div>
             </div>
             <WaterThree />
