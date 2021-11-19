@@ -165,7 +165,7 @@ export const PageFive: NextPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center absolute z-[30] top-[185px] sm:top-[130px] w-full">
+        <div className="flex flex-col items-center absolute z-[30] top-[185px] sm:top-[90px] w-full">
           <p className="font-display font-light text-center text-3xl sm:text-4xl">โอเค ไปลอยกระทงกัน !</p>
           <a
             onClick={() => {
@@ -200,14 +200,14 @@ export const PageFive: NextPage = () => {
           />
         </div> */}
 
-        <div className="absolute w-full bottom-[-77px] sm:bottom-[-121px] lg:bottom-[-35%] z-[-2] left-[50%] -translate-x-1/2">
+        <div className="absolute w-full bottom-[-77px] sm:bottom-[-160px] lg:bottom-[-40%] z-[-2] left-[50%] -translate-x-1/2">
           <Image
             width={2000}
             height={1350}
             priority={true}
             objectFit={"contain"}
             src="/assets/images/scene/fence.png"
-            alt="ศาลา"
+            alt="รั้วศาลา"
           />
         </div>
 
