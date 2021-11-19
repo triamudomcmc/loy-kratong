@@ -7,7 +7,7 @@ export const Meta: NextPage = () => {
       <title>ลอยกระทงออนไลน์ 2021</title>
       <meta
         name="description"
-        content="เว็บไซต์ลอยกระทงออนไลน์ 2021 พัฒนาโดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน (กช.) โรงเรียนเตรียมอุดมศึกษา"
+        content="ลอยกระทงออนไลน์ 2021 ร่วมลอยกระทงออนไลน์ โดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน (กช.) โรงเรียนเตรียมอุดมศึกษา"
       />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     </Head>

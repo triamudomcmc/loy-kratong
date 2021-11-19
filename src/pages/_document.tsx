@@ -48,9 +48,9 @@ export default class Document extends NextDocument {
           <meta property="og:title" content="ลอยกระทงออนไลน์ 2021" />
           <meta
             property="og:description"
-            content="เว็บไซต์ลอยกระทงออนไลน์ 2021 พัฒนาโดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน (กช.) โรงเรียนเตรียมอุดมศึกษา"
+            content="ลอยกระทงออนไลน์ 2021 ร่วมลอยกระทงออนไลน์ โดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน โรงเรียนเตรียมอุดมศึกษา"
           />
-          <meta property="og:image" content="/assets/images/banner.jpg" />
+          <meta property="og:image" content="/assets/images/banner.png" />
 
           {/* <!-- Twitter --> */}
           <meta property="twitter:card" content="summary_large_image" />
@@ -58,9 +58,9 @@ export default class Document extends NextDocument {
           <meta property="twitter:title" content="ลอยกระทงออนไลน์ 2021" />
           <meta
             property="twitter:description"
-            content="เว็บไซต์ลอยกระทงออนไลน์ 2021 พัฒนาโดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน (กช.) โรงเรียนเตรียมอุดมศึกษา"
+            content="ลอยกระทงออนไลน์ 2021 ร่วมลอยกระทงออนไลน์ โดยคณะกรรมการงานกิจกรรมพัฒนาผู้เรียน โรงเรียนเตรียมอุดมศึกษา"
           />
-          <meta property="twitter:image" content="/assets/images/banner.jpg" />
+          <meta property="twitter:image" content="/assets/images/banner.png" />
 
           <meta
             name="keywords"
