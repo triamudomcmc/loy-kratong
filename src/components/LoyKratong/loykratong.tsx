@@ -121,7 +121,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         </AnimatePresence>
       )}
       {/* <div className={styles["sky"]}> */}
-      <div className="fixed w-[100vw] top-0 z-[9] xl:top-[-31px]">
+      <div className="fixed w-[100vw] top-[-49px] z-[9] xl:top-[-31px]">
         {/* <div className={styles["clouds"]}> */}
         <div className="absolute w-full top-[50px] z-[4]">
           <div className="w-[150px] sm:w-[125px] absolute z-[3] left-[-50px] top-[75px] sm:top-[55px] opacity-[15%] ">
@@ -182,7 +182,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
       </div>
 
       {/* <div className={styles["background"]}> */}
-      <div className="h-[100vh] bg-black bg-loy relative overflow-hidden w-[250vw] sm:w-[128vw] lg:w-[175vw]">
+      <div className="h-[100vh] bg-black bg-loy relative overflow-hidden w-[210vw] sm:w-[128vw] lg:w-[175vw]">
         <div className="relative left-[24px] top-[12px]">
           {/* <div className={styles["fireworks-1"]}> */}
           <div className="absolute w-[225px] h-[225px] top-[75px] left-[9px] z-[10]">
@@ -233,7 +233,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         <div className={done ? "absolute left-[-50px] bottom-[70px] custom:bottom-[70px] lg:bottom-[-150px]" : ""}>
           <div className="relative">
             {/* <div className={styles["buildings"]}> */}
-            <div className="absolute z-[5] flex width-[500vw] top-[-110px] custom:top-[-138px] sm:top-[-231px] lg:top-[-240px]  sm:w-[353vw] lg:w-[253vw]">
+            <div className="absolute z-[5] flex width-[500vw] top-[-75px] custom:top-[-109px] sm:top-[-231px] lg:top-[-240px]  sm:w-[353vw] lg:w-[253vw]">
               <div className="w-[125%]">
                 <Image
                   src="/assets/images/scene/buildings-black.png"
