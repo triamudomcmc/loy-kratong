@@ -116,7 +116,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
             exit={{ opacity: 0 }}
             className="blinking-text w-[250px] absolute bottom-[75px] left-[50px] z-[99]"
           >
-            <Pantoloy />
+            {/* <Pantoloy /> */}
           </motion.div>
         </AnimatePresence>
       )}
