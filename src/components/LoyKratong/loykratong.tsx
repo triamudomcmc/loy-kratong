@@ -85,7 +85,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
       <IdleKratong
         highlighted
         className={
-          "transition-opacity absolute top-[-50px] sm:top-[-90px] lg:top-[-46px] hover:brightness-100 active:brightness-110"
+          "transition-opacity absolute top-[-50px] sm:top-[-90px] nak:top-[-60px] lg:top-[-46px] hover:brightness-100 active:brightness-110"
         }
         lane="m"
         size={["155px", "115px"]}
@@ -107,7 +107,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
   // @ts-ignore
   return (
     // <div className={styles["loy-scene"]}>
-    <div className="w-[250vw] sm:w-[128vw] lg:w-[175vw]">
+    <div className="w-[250vw] nak:w-[210vw] sm:w-[128vw] lg:w-[175vw]">
       {!localLoy && (
         <AnimatePresence>
           <motion.div
@@ -181,8 +181,8 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         </div>
       </div>
 
-      {/* <div className={styles["background"]}> */}
-      <div className="h-[100vh] bg-black bg-loy relative overflow-hidden w-[210vw] sm:w-[128vw] lg:w-[175vw]">
+      {/* <div className={styles["background"]}> 512 */}
+      <div className="h-[100vh] bg-black bg-loy relative overflow-hidden w-[250vw] nak:w-[210vw] sm:w-[128vw] lg:w-[175vw]">
         <div className="relative left-[24px] top-[12px]">
           {/* <div className={styles["fireworks-1"]}> */}
           <div className="absolute w-[225px] h-[225px] top-[75px] left-[9px] z-[10]">
@@ -230,7 +230,11 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         </div>
 
         {/* <div className={classNames("absolute", styles["waterfour-container"])}> */}
-        <div className={done ? "absolute left-[-50px] bottom-[70px] custom:bottom-[70px] lg:bottom-[-150px]" : ""}>
+        <div
+          className={
+            done ? "absolute left-[-50px] bottom-[70px] custom:bottom-[70px] nak:bottom-[-8px] lg:bottom-[-150px]" : ""
+          }
+        >
           <div className="relative">
             {/* <div className={styles["buildings"]}> */}
             <div className="absolute z-[5] flex width-[500vw] top-[-75px] custom:top-[-109px] sm:top-[-231px] lg:top-[-240px]  sm:w-[353vw] lg:w-[253vw]">
@@ -250,7 +254,11 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         </div>
 
         {/* <div className={classNames("absolute", styles["waterthree-container"])}> */}
-        <div className={done ? "absolute left-[-50px] bottom-[20px] custom:bottom-[20px] lg:bottom-[-220px]" : ""}>
+        <div
+          className={
+            done ? "absolute left-[-50px] bottom-[20px] custom:bottom-[60px] nak:bottom-[-68px] lg:bottom-[-220px]" : ""
+          }
+        >
           <div className="relative">
             {idle}
             <CUPSAAIdleKratong
@@ -260,7 +268,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               lane="m"
               size={["185px", "135px"]}
               className={
-                "transition-opacity absolute top-[-48px] sm:top-[-90px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute top-[-48px] sm:top-[-90px] nak:top-[-60px] lg:top-[-44px] hover:brightness-100 active:brightness-110"
               }
             />
             <MidLane entities={lanes[1]} />
@@ -269,7 +277,13 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         </div>
 
         {/* <div className={classNames("absolute", styles["watertwo-container"])}> */}
-        <div className={done ? "absolute left-[-50px] bottom-[-40px] custom:bottom-[-30px] lg:bottom-[-315px]" : ""}>
+        <div
+          className={
+            done
+              ? "absolute left-[-50px] bottom-[-40px] custom:bottom-[-30px] nak:bottom-[-158px] lg:bottom-[-315px]"
+              : ""
+          }
+        >
           <div className="relative">
             <div className="relative">
               {/* <div className={styles["sala-side"]}> */}
@@ -287,7 +301,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
                   setLoy={setLocalLoy}
                   // className={classNames(styles["loying-kratong"], width > 640 && "ml-16")}
                   className={classNames(
-                    "absolute z-[36] top-[-88px] left-[112px] cursor-pointer sm:top-[-111px] sm:left-[183px]",
+                    "absolute z-[36] top-[-108px] left-[112px] cursor-pointer sm:top-[-111px] nak:top-[-81px] sm:left-[183px]",
                     width > 640 && "ml-16"
                   )}
                   data={prevEntity}
@@ -297,7 +311,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
               )}
             </div>
             <PrincipalIdleKratong
-              className="transition-opacity absolute top-[-54px] sm:top-[-102px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
+              className="transition-opacity absolute top-[-74px] sm:top-[-102px] nak:top-[-72px] lg:top-[-68px] brightness-[99%] hover:brightness-100 active:brightness-110"
               lane="b"
               size={["200px", "170px"]}
               initialX={width > 640 ? 750 : 490}
@@ -306,7 +320,7 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
             {localLoy && prevEntity && (
               <MovingKratong
                 className={
-                  "transition-opacity absolute left-[350px] top-[-54px] sm:top-[-88px] lg:top-[-40px] brightness-[90%] hover:brightness-100 active:brightness-110"
+                  "transition-opacity absolute left-[350px] top-[-54px] sm:top-[-88px] nak:top-[-58px] lg:top-[-40px] brightness-[90%] hover:brightness-100 active:brightness-110"
                 }
                 initialX={width > 640 ? 62 : -25}
                 data={prevEntity}
@@ -321,7 +335,13 @@ const LoyKratongScene: NextPage<{ entities: ResultData[] }> = ({ entities }) => 
         </div>
 
         {/* <div className={classNames("absolute", styles["waterone-container"])}> */}
-        <div className={done ? "absolute left-[-50px] bottom-[-120px] custom:bottom-[-105px] lg:bottom-[-396px]" : ""}>
+        <div
+          className={
+            done
+              ? "absolute left-[-50px] bottom-[-120px] custom:bottom-[-105px] nak:bottom-[-238px] lg:bottom-[-396px]"
+              : ""
+          }
+        >
           <div className="relative">
             <WaterOne />
           </div>

@@ -101,11 +101,9 @@ export const TopLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-t-${i}`}
               className={
-                "transition-opacity absolute left-[550px] top-[6px] sm:top-[-28px] lg:top-[20px] brightness-50 hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[550px] top-[6px] sm:top-[-28px] nak:top-[-12px] lg:top-[-4px] brightness-50 hover:brightness-100 active:brightness-110"
               }
-              initialX={
-                i * (600)
-              }
+              initialX={i * 600}
               data={e}
               size={["105px", "65px"]}
               lane="t"
@@ -127,11 +125,9 @@ export const MidLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-m-${i}`}
               className={
-                "transition-opacity absolute left-[250px] top-[-42px] sm:top-[-90px] lg:top-[-46px] brightness-[60%] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[250px] top-[-42px] sm:top-[-90px] nak:top-[-60px] lg:top-[-46px] brightness-[60%] hover:brightness-100 active:brightness-110"
               }
-              initialX={
-                i * (670)
-              }
+              initialX={i * 670}
               data={e}
               size={["155px", "105px"]}
               lane="m"
@@ -153,11 +149,9 @@ export const BotLane: NextPage<{ entities: ResultData[] }> = ({ entities }) => {
             <MovingKratong
               key={`lane-b-${i}`}
               className={
-                "transition-opacity absolute left-[350px] top-[-54px] sm:top-[-88px] lg:top-[-40px] brightness-[90%] hover:brightness-100 active:brightness-110"
+                "transition-opacity absolute left-[350px] top-[-54px] sm:top-[-88px] nak:top-[-58px] lg:top-[-62px] brightness-[90%] hover:brightness-100 active:brightness-110"
               }
-              initialX={
-                (i * (660)) + 300
-              }
+              initialX={i * 660 + 300}
               data={e}
               size={["170px", "155px"]}
               lane="b"
