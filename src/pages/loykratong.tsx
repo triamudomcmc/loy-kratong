@@ -17,13 +17,29 @@ function objEqual(x: any, y: any): boolean {
     : x === y;
 }
 
+function getRandom(arr: any[], n: number) {
+  let result = new Array(n),
+    len = arr.length,
+    taken = new Array(len);
+  if (n > len)
+    throw new RangeError("getRandom: more elements taken than available");
+  while (n--) {
+    let x = Math.floor(Math.random() * len);
+    result[n] = arr[x in taken ? taken[x] : x];
+    taken[x] = --len in taken ? taken[len] : len;
+  }
+  return result;
+}
+
 export const getServerSideProps: GetServerSideProps = async () => {
-  const data = await initialiseDB.collection("filteredEntities").limit(8).get();
-  // const data = await initialiseDB.collection("filteredEntities").orderBy("timestamp","desc").limit(8).get();
+  // const data = await initialiseDB.collection("filteredEntities").limit(8).get();
+  const data = await initialiseDB.collection("filteredEntities").orderBy("timestamp","asc").limit(24).get();
+
+  const rand = getRandom(data.docs, 8)
 
   return {
     props: {
-      entities: data.docs.length > 0 ? data.docs.map((item) => item.data()) : [],
+      entities: rand.length > 0 ? rand.map((item) => item.data()) : [],
     },
   };
 };
