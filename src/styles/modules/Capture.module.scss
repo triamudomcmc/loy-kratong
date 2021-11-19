@@ -56,6 +56,15 @@
   }
 }
 
+.sky > .fireworks-new {
+  position: absolute;
+  width: 640px;
+  height: 494px;
+  top: 65px;
+  left: 200px;
+  z-index: 7;
+}
+
 .sky > .fireworks-1 {
   position: absolute;
   width: 1046px;
@@ -137,7 +146,7 @@
     position: absolute;
     left: calc(-2vw - 350px);
     z-index: 10; /* change later */
-    bottom: 100px;
+    bottom: 30px;
   }
 
   > .waterthree-container {
@@ -145,7 +154,7 @@
     left: calc(-2vw - 350px);
     z-index: 20; /* change later */
 
-    bottom: 150px;
+    bottom: 110px;
   }
 
   > .watertwo-container {
@@ -153,14 +162,14 @@
     left: calc(-2vw - 350px);
     z-index: 30; /* change later */
 
-    bottom: calc(-13vw - 275px);
+    bottom: -474px;
   }
 
   > .waterone-container {
     position: absolute;
     left: calc(-2vw - 350px);
     z-index: 40; /* change later */
-    bottom: -97px;
+    bottom: -17px;
   }
 }
 
@@ -168,6 +177,6 @@
   position: absolute;
   z-index: 5;
   display: flex;
-  top: -196px;
+  top: -166px;
   width: 300vw;
 }

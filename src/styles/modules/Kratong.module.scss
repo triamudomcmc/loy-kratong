@@ -17,6 +17,19 @@
   filter: blur(10px);
 }
 
+.caura {
+  width: calc(var(--size) + 150px);
+  height: calc(var(--size) + 150px);
+  top: 0;
+  left: -85px;
+  position: relative;
+  background-color: #fef3c7;
+  background: radial-gradient(50% 50% at 50% 50%, #fdf188 0%, rgba(247, 244, 159, 0) 100%);
+  opacity: 0.5;
+  border-radius: 9999px;
+  filter: blur(10px);
+}
+
 .kratong > .base {
   display: inline-block;
 
