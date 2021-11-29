@@ -47,10 +47,6 @@ const TitleScreen: NextPage = () => {
           "flex items-center justify-center fixed w-full h-screen font-ui text-white",
           page < 4 && "cursor-pointer"
         )}
-        onClick={() => {
-          if (pageTransition || page >= 4) return;
-          setPageTransition(true);
-        }}
       >
         {/* overlay clouds */}
         {/* todo redo clouds */}
@@ -178,11 +174,7 @@ const TitleScreen: NextPage = () => {
             </div>
           </motion.div>
           <AnimatePresence>
-            {!pageTransition && page === 1 && <PageOne />}
-            {!pageTransition && page === 2 && <PageTwo />}
-            {!pageTransition && page === 3 && <PageThree />}
-            {!pageTransition && page === 4 && <PageFour nextPage={nextPage} />}
-            {!pageTransition && page === 5 && <PageFive />}
+            <PageTwo />
           </AnimatePresence>
         </div>
       </div>

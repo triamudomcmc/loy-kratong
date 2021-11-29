@@ -42,15 +42,13 @@ export const PageTwo: NextPage = () => {
       className="flex flex-col"
     >
       <p className="font-display font-light text-center text-3xl sm:text-4xl">
-        &quot;...สายัณห์สวัสดี
-        <br />
-        ราตรีนี้วันลอยกระทง
-        <br />
-        ขอชวนมาร่วมส่ง
-        <br />
-        ลอยกระทงสระคูบัว...&quot;
+        ถึงงานจะจบแล้วก็อย่าลืมพวกเราหล่ะ
+        <br/>
+        ไว้ปีหน้ามาเจอกันใหม่นะ
       </p>
-      <p className="text-center font-normal mt-4 text-gray-300 sm:text-lg blinking-text">แตะเพื่อไปต่อ</p>
+      <Link href="https://register.clubs.triamudom.ac.th/TUCMC">
+        <p className="text-center font-normal mt-4 text-gray-300 sm:text-lg blinking-text">ติดต่อพวกเรา</p>
+      </Link>
     </motion.div>
   );
 };
